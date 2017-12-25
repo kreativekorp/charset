@@ -1,0 +1,58 @@
+@category	Kreative Software
+@name	Kreative SuperMultinational
+@alias	KK SuperMultinational
+@charset	x-kk-supermultinational
+@filename-txt	VENDORS/KREATIVE/MULTI.TXT
+@filename-kte	supermultinational.kte
+#
+#	Name:             Kreative SuperMultinational to Unicode
+#	Unicode Version:  6.0
+#	Table Version:    1.0
+#	Table Format:     Format A
+#	Date:             2017 December 20
+#	Authors:          Rebecca Bettencourt <support@kreativekorp.com>
+#
+#	Copyright (c) 2012-2017 Kreative Software. All Rights Reserved.
+#
+#	This file is provided as-is by Kreative Software.
+#	No claims are made as to fitness for any particular purpose.
+#	No warranties of any kind are expressed or implied.
+#	The recipient agrees to determine applicability of information provided.
+#
+0x00	0x0000	# NULL
+0x01	0x0160	# LATIN CAPITAL LETTER S WITH CARON
+0x02	0x017D	# LATIN CAPITAL LETTER Z WITH CARON
+0x03	0x0178	# LATIN CAPITAL LETTER Y WITH DIAERESIS
+0x04	0x0161	# LATIN SMALL LETTER S WITH CARON
+0x05	0x017E	# LATIN SMALL LETTER Z WITH CARON
+0x06	0x25CA	# LOZENGE
+0x07	0x2318	# PLACE OF INTEREST SIGN
+0x08	0x0008	# BACKSPACE
+0x09	0x0009	# HORIZONTAL TABULATION
+0x0A	0x000A	# LINE FEED
+0x0B	0x000B	# VERTICAL TABULATION
+0x0C	0x000C	# FORM FEED
+0x0D	0x000D	# CARRIAGE RETURN
+0x0E	0x2018	# LEFT SINGLE QUOTATION MARK
+0x0F	0x00AD	# SOFT HYPHEN
+0x10	0xF8FF	# Apple logo
+0x11	0x2122	# TRADE MARK SIGN
+0x12	0x221A	# SQUARE ROOT
+0x13	0x2211	# N-ARY SUMMATION
+0x14	0x220F	# N-ARY PRODUCT
+0x15	0x222B	# INTEGRAL
+0x16	0x2206	# INCREMENT
+0x17	0x03A9	# GREEK CAPITAL LETTER OMEGA
+0x18	0x03C0	# GREEK SMALL LETTER PI
+0x19	0x2202	# PARTIAL DIFFERENTIAL
+0x1A	0x221E	# INFINITY
+0x1B	0x001B	# ESCAPE
+0x1C	0x2264	# LESS-THAN OR EQUAL TO
+0x1D	0x2260	# NOT EQUAL TO
+0x1E	0x2265	# GREATER-THAN OR EQUAL TO
+0x1F	0x2248	# ALMOST EQUAL TO
+@import	fragments/ascii-g0.txt
+@import	fragments/ascii-del.txt
+@import	fragments/nextstep-g1.txt
+0xFE	0x00B0	# DEGREE SIGN
+0xFF	0x20AC	# EURO SIGN

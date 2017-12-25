@@ -1,0 +1,19 @@
+@category	ASCII
+@name	US-ASCII
+@alias	ISO 646-US
+@alias	646-US
+@alias	CCITT 5
+@charset	iso-ir-6
+@charset	ANSI_X3.4-1968
+@charset	ANSI_X3.4-1986
+@charset	ISO_646.irv:1991
+@charset	ISO646-US
+@charset	US-ASCII
+@charset	us
+@charset	IBM367
+@charset	cp367
+@charset	csASCII
+@codepage	367
+@mibenum	3
+@filename-kte	us-ascii.kte
+@import	fragments/ascii-all.txt

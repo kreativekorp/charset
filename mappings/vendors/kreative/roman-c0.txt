@@ -1,0 +1,25 @@
+@category	Kreative Software
+@name	Kreative SuperRoman C0
+@alias	KK SuperRoman C0
+@charset	x-kk-superroman-c0
+@filename-txt	VENDORS/KREATIVE/ROMANC0.TXT
+@filename-kte	superroman-c0.kte
+#
+#	Name:             Kreative SuperRoman (C0) to Unicode
+#	Unicode Version:  6.0
+#	Table Version:    1.0
+#	Table Format:     Format A
+#	Date:             2017 December 20
+#	Authors:          Rebecca Bettencourt <support@kreativekorp.com>
+#
+#	Copyright (c) 2012-2017 Kreative Software. All Rights Reserved.
+#
+#	This file is provided as-is by Kreative Software.
+#	No claims are made as to fitness for any particular purpose.
+#	No warranties of any kind are expressed or implied.
+#	The recipient agrees to determine applicability of information provided.
+#
+@import	fragments/ascii-c0.txt
+@import	fragments/ascii-g0.txt
+@import	fragments/ascii-del.txt
+@import	fragments/macroman-g1.txt

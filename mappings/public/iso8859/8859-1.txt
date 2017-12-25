@@ -1,0 +1,27 @@
+@category	ISO 8859
+@display	ISO 8859-1 (Latin-1)
+@name	ISO 8859-1
+@alias	8859-1
+@alias	ISO Latin-1
+@alias	Latin-1
+@charset	iso-ir-100
+@charset	ISO_8859-1
+@charset	ISO-8859-1
+@charset	latin1
+@charset	l1
+@charset	IBM819
+@charset	CP819
+@charset	csISOLatin1
+@codepage	819
+@mibenum	4
+@filename-txt	ISO8859/8859-1.TXT
+@filename-kte	iso-8859-1.kte
+@cite-author	Ken Whistler
+@cite-title	ISO/IEC 8859-1:1998 to Unicode
+@cite-publisher	Unicode, Inc.
+@cite-date	27 July 1999
+@cite-url	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-1.TXT
+@cite-copyright	1991-1999 Unicode, Inc.
+@import	fragments/ascii-all.txt
+@import	fragments/latin1-c1.txt
+@import	fragments/latin1-g1.txt

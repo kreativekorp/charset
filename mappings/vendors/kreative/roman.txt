@@ -1,0 +1,56 @@
+@category	Kreative Software
+@name	Kreative SuperRoman
+@alias	KK SuperRoman
+@charset	x-kk-superroman
+@filename-txt	VENDORS/KREATIVE/ROMAN.TXT
+@filename-kte	superroman.kte
+#
+#	Name:             Kreative SuperRoman to Unicode
+#	Unicode Version:  6.0
+#	Table Version:    1.0
+#	Table Format:     Format A
+#	Date:             2017 December 20
+#	Authors:          Rebecca Bettencourt <support@kreativekorp.com>
+#
+#	Copyright (c) 2012-2017 Kreative Software. All Rights Reserved.
+#
+#	This file is provided as-is by Kreative Software.
+#	No claims are made as to fitness for any particular purpose.
+#	No warranties of any kind are expressed or implied.
+#	The recipient agrees to determine applicability of information provided.
+#
+0x00	0x0000	# NULL
+0x01	0x00B9	# SUPERSCRIPT ONE
+0x02	0x00B2	# SUPERSCRIPT TWO
+0x03	0x00B3	# SUPERSCRIPT THREE
+0x04	0x00BC	# VULGAR FRACTION ONE QUARTER
+0x05	0x00BD	# VULGAR FRACTION ONE HALF
+0x06	0x00BE	# VULGAR FRACTION THREE QUARTERS
+0x07	0x00D7	# MULTIPLICATION SIGN
+0x08	0x0008	# BACKSPACE
+0x09	0x0009	# HORIZONTAL TABULATION
+0x0A	0x000A	# LINE FEED
+0x0B	0x000B	# VERTICAL TABULATION
+0x0C	0x000C	# FORM FEED
+0x0D	0x000D	# CARRIAGE RETURN
+0x0E	0x02CB	# MODIFIER LETTER GRAVE ACCENT
+0x0F	0x00AD	# SOFT HYPHEN
+0x10	0x2318	# PLACE OF INTEREST SIGN
+0x11	0x0141	# LATIN CAPITAL LETTER L WITH STROKE
+0x12	0x0160	# LATIN CAPITAL LETTER S WITH CARON
+0x13	0x00DD	# LATIN CAPITAL LETTER Y WITH ACUTE
+0x14	0x017D	# LATIN CAPITAL LETTER Z WITH CARON
+0x15	0x0142	# LATIN SMALL LETTER L WITH STROKE
+0x16	0x0161	# LATIN SMALL LETTER S WITH CARON
+0x17	0x00FD	# LATIN SMALL LETTER Y WITH ACUTE
+0x18	0x017E	# LATIN SMALL LETTER Z WITH CARON
+0x19	0x00A4	# CURRENCY SIGN
+0x1A	0x00A6	# BROKEN BAR
+0x1B	0x001B	# ESCAPE
+0x1C	0x00D0	# LATIN CAPITAL LETTER ETH
+0x1D	0x00F0	# LATIN SMALL LETTER ETH
+0x1E	0x00DE	# LATIN CAPITAL LETTER THORN
+0x1F	0x00FE	# LATIN SMALL LETTER THORN
+@import	fragments/ascii-g0.txt
+@import	fragments/ascii-del.txt
+@import	fragments/macroman-g1.txt
