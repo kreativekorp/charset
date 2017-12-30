@@ -1,0 +1,7 @@
+# Property: Case_Folding
+
+#  All code points not explicitly listed for Case_Folding
+#  have the value C for the status field, and the code point itself for the mapping field.
+
+# @missing: E000..F8FF; C; <code point>
+# @missing: F0000..10FFFF; C; <code point>

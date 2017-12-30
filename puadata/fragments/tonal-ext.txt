@@ -1,0 +1,3 @@
+@import fragments/tonal.txt
+E8FA;DUODENAL DUODECIMAL DIGIT TEN;No;0;L;;;;10;N;;;;;
+E8FB;DUODENAL DUODECIMAL DIGIT ELEVEN;No;0;L;;;;11;N;;;;;

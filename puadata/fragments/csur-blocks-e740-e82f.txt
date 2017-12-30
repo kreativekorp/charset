@@ -1,0 +1,4 @@
+E740..E76F; Unifon
+E770..E77F; Solresol
+E780..E7FF; Visible Speech
+E800..E82F; Monofon

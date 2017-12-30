@@ -1,0 +1,2 @@
+ED00..ED3F; Deini
+ED40..ED7F; Niji

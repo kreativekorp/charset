@@ -1,0 +1,6 @@
+@filename-txt PUBLIC/CSUR/CaseFolding.txt
+@import fragments/header-casefolding.txt
+
+@import fragments/verdurian-casefolding.txt
+
+# EOF

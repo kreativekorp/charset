@@ -1,0 +1,8 @@
+@filename-txt PUBLIC/UCSUR/Sources.txt
+Agreement-Type: Public
+Agreement-Name: Under-ConScript Unicode Registry
+Agreement-FCC: ucsu
+
+@import fragments/csur-sources.txt
+
+@import fragments/ucsur-sources.txt

@@ -1,0 +1,2 @@
+F8A0..F8CF; Aiha
+F8D0..F8FF; Klingon

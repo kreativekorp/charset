@@ -1,0 +1,5 @@
+Title: ConScript Unicode Registry
+Author: John Cowan, Michael Everson, Evertype
+Publication-Date: 2008-04-14
+URL: http://www.evertype.com/standards/csur/
+Access-Date: 2014-07-04
