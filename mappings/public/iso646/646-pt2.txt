@@ -1,0 +1,31 @@
+@category	ISO 646
+@name	ISO 646-PT2
+@alias	646-PT2
+@alias	ISO IR-84
+@alias	IR-84
+@charset	iso-ir-84
+@charset	ISO646-PT2
+@charset	pt2
+@charset	csISO84Portuguese2
+@codepage	1015
+@mibenum	60
+@filename-kte	iso-646-pt2.kte
+@import	fragments/ascii-c0.txt	# NULL .. UNIT SEPARATOR
+@import	fragments/ascii-sq.txt	# SPACE .. QUOTATION MARK
+0x23	0x0023	# NUMBER SIGN
+0x24	0x0024	# DOLLAR SIGN
+@import	fragments/ascii-pq.txt	# PERCENT SIGN .. QUESTION MARK
+0x40	0x00B4	# ACUTE ACCENT
+@import	fragments/ascii-uc.txt	# LATIN CAPITAL LETTER A .. LATIN CAPITAL LETTER Z
+0x5B	0x00C3	# LATIN CAPITAL LETTER A WITH TILDE
+0x5C	0x00C7	# LATIN CAPITAL LETTER C WITH CEDILLA
+0x5D	0x00D5	# LATIN CAPITAL LETTER O WITH TILDE
+0x5E	0x005E	# CIRCUMFLEX ACCENT
+0x5F	0x005F	# LOW LINE
+0x60	0x0060	# GRAVE ACCENT
+@import	fragments/ascii-lc.txt	# LATIN SMALL LETTER A .. LATIN SMALL LETTER Z
+0x7B	0x00E3	# LATIN SMALL LETTER A WITH TILDE
+0x7C	0x00E7	# LATIN SMALL LETTER C WITH CEDILLA
+0x7D	0x00F5	# LATIN SMALL LETTER O WITH TILDE
+0x7E	0x02DC	# SMALL TILDE
+@import	fragments/ascii-del.txt	# DELETE

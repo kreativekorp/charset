@@ -1,0 +1,31 @@
+@category	ISO 646
+@name	ISO 646-CU
+@alias	646-CU
+@alias	ISO IR-151
+@alias	IR-151
+@charset	iso-ir-151
+@charset	ISO646-CU
+@charset	cuba
+@charset	csISO151Cuba
+@charset	NC_NC00-10:81
+@mibenum	92
+@filename-kte	iso-646-cu.kte
+@import	fragments/ascii-c0.txt	# NULL .. UNIT SEPARATOR
+@import	fragments/ascii-sq.txt	# SPACE .. QUOTATION MARK
+0x23	0x0023	# NUMBER SIGN
+0x24	0x00A4	# CURRENCY SIGN
+@import	fragments/ascii-pq.txt	# PERCENT SIGN .. QUESTION MARK
+0x40	0x0040	# COMMERCIAL AT
+@import	fragments/ascii-uc.txt	# LATIN CAPITAL LETTER A .. LATIN CAPITAL LETTER Z
+0x5B	0x00A1	# INVERTED EXCLAMATION MARK
+0x5C	0x00D1	# LATIN CAPITAL LETTER N WITH TILDE
+0x5D	0x005D	# RIGHT SQUARE BRACKET
+0x5E	0x00BF	# INVERTED QUESTION MARK
+0x5F	0x005F	# LOW LINE
+0x60	0x0060	# GRAVE ACCENT
+@import	fragments/ascii-lc.txt	# LATIN SMALL LETTER A .. LATIN SMALL LETTER Z
+0x7B	0x00B4	# ACUTE ACCENT
+0x7C	0x00F1	# LATIN SMALL LETTER N WITH TILDE
+0x7D	0x005B	# LEFT SQUARE BRACKET
+0x7E	0x00A8	# DIAERESIS
+@import	fragments/ascii-del.txt	# DELETE

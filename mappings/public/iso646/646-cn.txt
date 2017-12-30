@@ -1,0 +1,31 @@
+@category	ISO 646
+@name	ISO 646-CN
+@alias	646-CN
+@alias	ISO IR-57
+@alias	IR-57
+@charset	iso-ir-57
+@charset	ISO646-CN
+@charset	cn
+@charset	csISO57GB1988
+@charset	GB_1988-80
+@mibenum	56
+@filename-kte	iso-646-cn.kte
+@import	fragments/ascii-c0.txt	# NULL .. UNIT SEPARATOR
+@import	fragments/ascii-sq.txt	# SPACE .. QUOTATION MARK
+0x23	0x0023	# NUMBER SIGN
+0x24	0x00A5	# YEN SIGN
+@import	fragments/ascii-pq.txt	# PERCENT SIGN .. QUESTION MARK
+0x40	0x0040	# COMMERCIAL AT
+@import	fragments/ascii-uc.txt	# LATIN CAPITAL LETTER A .. LATIN CAPITAL LETTER Z
+0x5B	0x005B	# LEFT SQUARE BRACKET
+0x5C	0x005C+0x005C	# REVERSE SOLIDUS, REVERSE SOLIDUS
+0x5D	0x005D	# RIGHT SQUARE BRACKET
+0x5E	0x005E	# CIRCUMFLEX ACCENT
+0x5F	0x005F	# LOW LINE
+0x60	0x0060	# GRAVE ACCENT
+@import	fragments/ascii-lc.txt	# LATIN SMALL LETTER A .. LATIN SMALL LETTER Z
+0x7B	0x007B	# LEFT CURLY BRACKET
+0x7C	0x007C	# VERTICAL LINE
+0x7D	0x007D	# RIGHT CURLY BRACKET
+0x7E	0x203E	# OVERLINE
+@import	fragments/ascii-del.txt	# DELETE

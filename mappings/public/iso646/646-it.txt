@@ -1,0 +1,31 @@
+@category	ISO 646
+@name	ISO 646-IT
+@alias	646-IT
+@alias	ISO IR-15
+@alias	IR-15
+@charset	iso-ir-15
+@charset	ISO646-IT
+@charset	it
+@charset	csISO15Italian
+@codepage	1012
+@mibenum	22
+@filename-kte	iso-646-it.kte
+@import	fragments/ascii-c0.txt	# NULL .. UNIT SEPARATOR
+@import	fragments/ascii-sq.txt	# SPACE .. QUOTATION MARK
+0x23	0x00A3	# POUND SIGN
+0x24	0x0024	# DOLLAR SIGN
+@import	fragments/ascii-pq.txt	# PERCENT SIGN .. QUESTION MARK
+0x40	0x00A7	# SECTION SIGN
+@import	fragments/ascii-uc.txt	# LATIN CAPITAL LETTER A .. LATIN CAPITAL LETTER Z
+0x5B	0x00B0	# DEGREE SIGN
+0x5C	0x00E7	# LATIN SMALL LETTER C WITH CEDILLA
+0x5D	0x00E9	# LATIN SMALL LETTER E WITH ACUTE
+0x5E	0x005E	# CIRCUMFLEX ACCENT
+0x5F	0x005F	# LOW LINE
+0x60	0x00F9	# LATIN SMALL LETTER U WITH GRAVE
+@import	fragments/ascii-lc.txt	# LATIN SMALL LETTER A .. LATIN SMALL LETTER Z
+0x7B	0x00E0	# LATIN SMALL LETTER A WITH GRAVE
+0x7C	0x00F2	# LATIN SMALL LETTER O WITH GRAVE
+0x7D	0x00E8	# LATIN SMALL LETTER E WITH GRAVE
+0x7E	0x00EC	# LATIN SMALL LETTER I WITH GRAVE
+@import	fragments/ascii-del.txt	# DELETE

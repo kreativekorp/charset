@@ -1,0 +1,32 @@
+@category	ISO 646
+@name	ISO 646-NO2
+@alias	646-NO2
+@alias	ISO IR-61
+@alias	IR-61
+@charset	iso-ir-61
+@charset	ISO646-NO2
+@charset	no2
+@charset	csISO61Norwegian2
+@charset	NS_4551-2
+@codepage	20108
+@mibenum	58
+@filename-kte	iso-646-no2.kte
+@import	fragments/ascii-c0.txt	# NULL .. UNIT SEPARATOR
+@import	fragments/ascii-sq.txt	# SPACE .. QUOTATION MARK
+0x23	0x00A7	# SECTION SIGN
+0x24	0x0024	# DOLLAR SIGN
+@import	fragments/ascii-pq.txt	# PERCENT SIGN .. QUESTION MARK
+0x40	0x0040	# COMMERCIAL AT
+@import	fragments/ascii-uc.txt	# LATIN CAPITAL LETTER A .. LATIN CAPITAL LETTER Z
+0x5B	0x00C6	# LATIN CAPITAL LETTER AE
+0x5C	0x00D8	# LATIN CAPITAL LETTER O WITH STROKE
+0x5D	0x00C5	# LATIN CAPITAL LETTER A WITH RING ABOVE
+0x5E	0x005E	# CIRCUMFLEX ACCENT
+0x5F	0x005F	# LOW LINE
+0x60	0x0060	# GRAVE ACCENT
+@import	fragments/ascii-lc.txt	# LATIN SMALL LETTER A .. LATIN SMALL LETTER Z
+0x7B	0x00E6	# LATIN SMALL LETTER AE
+0x7C	0x00F8	# LATIN SMALL LETTER O WITH STROKE
+0x7D	0x00E5	# LATIN SMALL LETTER A WITH RING ABOVE
+0x7E	0x007C	# VERTICAL LINE
+@import	fragments/ascii-del.txt	# DELETE
