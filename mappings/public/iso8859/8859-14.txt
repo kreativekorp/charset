@@ -13,8 +13,9 @@
 @charset	iso-celtic
 @charset	csISO885914
 @mibenum	110
-@filename-txt	ISO8859/8859-14.TXT
 @filename-kte	iso-8859-14.kte
+@filename-txt	ISO8859/8859-14.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-14.TXT
 @cite-author	Markus Kuhn
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-14:1998 to Unicode

@@ -1,4 +1,5 @@
 @filename-txt PUBLIC/UCSUR/CaseFolding.txt
+@generate-txt PUBLIC/UCSUR/CaseFolding.txt
 # CaseFolding-UCSUR.txt
 # Date: 2017-12-30, 04:00:00 PST
 #

@@ -1,4 +1,5 @@
 @filename-txt FONTS/CONSTRM/Blocks.txt
+@generate-txt FONTS/CONSTRM/Blocks.txt
 @import fragments/header-blocks.txt
 
 @import fragments/kreative-blocks-e000.txt

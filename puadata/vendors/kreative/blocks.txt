@@ -1,4 +1,5 @@
 @filename-txt VENDORS/KREATIVE/Blocks.txt
+@generate-txt VENDORS/KREATIVE/Blocks.txt
 @import fragments/header-blocks.txt
 
 F600..F61F; Kreative Software Private Use ERIN

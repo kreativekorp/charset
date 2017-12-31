@@ -2,8 +2,9 @@
 @name	Kreative SuperMultinational C0
 @alias	KK SuperMultinational C0
 @charset	x-kk-supermultinational-c0
-@filename-txt	VENDORS/KREATIVE/MULTIC0.TXT
 @filename-kte	supermultinational-c0.kte
+@filename-txt	VENDORS/KREATIVE/MULTIC0.TXT
+@generate-txt	VENDORS/KREATIVE/MULTIC0.TXT
 #
 #	Name:             Kreative SuperMultinational (C0) to Unicode
 #	Unicode Version:  6.0

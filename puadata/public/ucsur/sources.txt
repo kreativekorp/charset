@@ -1,4 +1,5 @@
 @filename-txt PUBLIC/UCSUR/Sources.txt
+@generate-txt PUBLIC/UCSUR/Sources.txt
 Agreement-Type: Public
 Agreement-Name: Under-ConScript Unicode Registry
 Agreement-FCC: ucsu

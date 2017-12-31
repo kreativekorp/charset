@@ -1,4 +1,5 @@
 @filename-txt VENDORS/ADOBE/UnicodeData.txt
+@generate-txt VENDORS/ADOBE/UnicodeData.txt
 @import fragments/adobe-f6.txt
 @import fragments/adobe-f7.txt
 @import fragments/adobe-f8.txt

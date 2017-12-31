@@ -1,4 +1,5 @@
 @filename-txt VENDORS/WJGO/UnicodeData.txt
+@generate-txt VENDORS/WJGO/UnicodeData.txt
 # WARNING: Consumption of William Overington's misunderstanding
 # of the workings of Unicode may result in severe brain damage.
 E5A0;WHITE CHESS CARRERA CHAMPION;So;0;ON;;;;;N;;;;;

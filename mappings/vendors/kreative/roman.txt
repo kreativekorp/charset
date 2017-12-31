@@ -2,8 +2,9 @@
 @name	Kreative SuperRoman
 @alias	KK SuperRoman
 @charset	x-kk-superroman
-@filename-txt	VENDORS/KREATIVE/ROMAN.TXT
 @filename-kte	superroman.kte
+@filename-txt	VENDORS/KREATIVE/ROMAN.TXT
+@generate-txt	VENDORS/KREATIVE/ROMAN.TXT
 #
 #	Name:             Kreative SuperRoman to Unicode
 #	Unicode Version:  6.0

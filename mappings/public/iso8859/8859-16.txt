@@ -12,8 +12,9 @@
 @charset	l10
 @charset	csISO885916
 @mibenum	112
-@filename-txt	ISO8859/8859-16.TXT
 @filename-kte	iso-8859-16.kte
+@filename-txt	ISO8859/8859-16.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-16.TXT
 @cite-author	Markus Kuhn
 @cite-title	ISO/IEC 8859-16:2001 to Unicode
 @cite-publisher	Unicode, Inc.

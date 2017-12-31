@@ -1,4 +1,5 @@
 @filename-txt FONTS/KSQUARE/UnicodeData.txt
+@generate-txt FONTS/KSQUARE/UnicodeData.txt
 @import fragments/octets-ls.txt
 @import fragments/octets-hs.txt
 @import fragments/modular-font-elements.txt

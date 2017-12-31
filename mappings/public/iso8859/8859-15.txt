@@ -9,8 +9,9 @@
 @charset	Latin-9
 @charset	csISO885915
 @mibenum	111
-@filename-txt	ISO8859/8859-15.TXT
 @filename-kte	iso-8859-15.kte
+@filename-txt	ISO8859/8859-15.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-15.TXT
 @cite-author	Markus Kuhn
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-15:1999 to Unicode

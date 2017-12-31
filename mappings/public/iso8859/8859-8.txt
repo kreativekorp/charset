@@ -10,8 +10,9 @@
 @charset	hebrew
 @charset	csISOLatinHebrew
 @mibenum	11
-@filename-txt	ISO8859/8859-8.TXT
 @filename-kte	iso-8859-8.kte
+@filename-txt	ISO8859/8859-8.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-8.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-8:1999 to Unicode
 @cite-publisher	Unicode, Inc.

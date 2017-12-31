@@ -1,4 +1,5 @@
 @filename-txt PUBLIC/CSUR/Sources.txt
+@generate-txt PUBLIC/CSUR/Sources.txt
 Agreement-Type: Public
 Agreement-Name: ConScript Unicode Registry
 Agreement-FCC: csur

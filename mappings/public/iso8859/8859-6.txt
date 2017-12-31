@@ -14,8 +14,9 @@
 @charset	arabic
 @charset	csISOLatinArabic
 @mibenum	9
-@filename-txt	ISO8859/8859-6.TXT
 @filename-kte	iso-8859-6.kte
+@filename-txt	ISO8859/8859-6.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-6.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO 8859-6:1999 to Unicode
 @cite-publisher	Unicode, Inc.

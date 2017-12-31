@@ -1,4 +1,5 @@
 @filename-txt PUBLIC/CSUR/UnicodeData.txt
+@generate-txt PUBLIC/CSUR/UnicodeData.txt
 @import fragments/csur-e000.txt
 @import fragments/csur-f000.txt
 @import fragments/csur-f0000.txt

@@ -1,4 +1,5 @@
 @filename-txt VENDORS/APPLE/Blocks.txt
+@generate-txt VENDORS/APPLE/Blocks.txt
 @import fragments/header-blocks.txt
 
 F700..F7FF; Keyboard Function Keys

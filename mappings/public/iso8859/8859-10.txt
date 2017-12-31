@@ -12,8 +12,9 @@
 @charset	l6
 @charset	csISOLatin6
 @mibenum	13
-@filename-txt	ISO8859/8859-10.TXT
 @filename-kte	iso-8859-10.kte
+@filename-txt	ISO8859/8859-10.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-10.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-10:1998 to Unicode
 @cite-publisher	Unicode, Inc.

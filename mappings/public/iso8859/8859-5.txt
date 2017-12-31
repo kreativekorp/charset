@@ -10,8 +10,9 @@
 @charset	cyrillic
 @charset	csISOLatinCyrillic
 @mibenum	8
-@filename-txt	ISO8859/8859-5.TXT
 @filename-kte	iso-8859-5.kte
+@filename-txt	ISO8859/8859-5.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-5.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO 8859-5:1999 to Unicode
 @cite-publisher	Unicode, Inc.

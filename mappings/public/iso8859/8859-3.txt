@@ -11,8 +11,9 @@
 @charset	l3
 @charset	csISOLatin3
 @mibenum	6
-@filename-txt	ISO8859/8859-3.TXT
 @filename-kte	iso-8859-3.kte
+@filename-txt	ISO8859/8859-3.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-3.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-3:1999 to Unicode
 @cite-publisher	Unicode, Inc.

@@ -15,8 +15,9 @@
 @charset	greek8
 @charset	csISOLatinGreek
 @mibenum	10
-@filename-txt	ISO8859/8859-7.TXT
 @filename-kte	iso-8859-7.kte
+@filename-txt	ISO8859/8859-7.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-7.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO 8859-7:2003 to Unicode
 @cite-publisher	Unicode, Inc.

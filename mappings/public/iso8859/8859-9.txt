@@ -11,8 +11,9 @@
 @charset	l5
 @charset	csISOLatin5
 @mibenum	12
-@filename-txt	ISO8859/8859-9.TXT
 @filename-kte	iso-8859-9.kte
+@filename-txt	ISO8859/8859-9.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-9.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-9:1999 to Unicode
 @cite-publisher	Unicode, Inc.

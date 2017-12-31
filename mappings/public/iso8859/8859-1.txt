@@ -14,8 +14,9 @@
 @charset	csISOLatin1
 @codepage	819
 @mibenum	4
-@filename-txt	ISO8859/8859-1.TXT
 @filename-kte	iso-8859-1.kte
+@filename-txt	ISO8859/8859-1.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-1.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-1:1998 to Unicode
 @cite-publisher	Unicode, Inc.

@@ -1,2 +1,3 @@
 @filename-txt VENDORS/MIROS/UnicodeData.txt
+@generate-txt VENDORS/MIROS/UnicodeData.txt
 @import fragments/octets-hi.txt

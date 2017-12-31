@@ -7,8 +7,9 @@
 @charset	ISO-8859-13
 @charset	csISO885913
 @mibenum	109
-@filename-txt	ISO8859/8859-13.TXT
 @filename-kte	iso-8859-13.kte
+@filename-txt	ISO8859/8859-13.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-13.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-13:1998 to Unicode
 @cite-publisher	Unicode, Inc.

@@ -1,4 +1,5 @@
 @filename-txt VENDORS/WJGO/Sources.txt
+@generate-txt VENDORS/WJGO/Sources.txt
 Agreement-Type: Please-Ignore
 Agreement-Name: William J.G. Overington
 Agreement-FCC: wjgo

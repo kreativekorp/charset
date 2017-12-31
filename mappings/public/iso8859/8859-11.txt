@@ -10,8 +10,9 @@
 @charset	csTIS620
 @charset	ISO-8859-11
 @mibenum	2259
-@filename-txt	ISO8859/8859-11.TXT
 @filename-kte	iso-8859-11.kte
+@filename-txt	ISO8859/8859-11.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-11.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO/IEC 8859-11:2001 to Unicode
 @cite-publisher	Unicode, Inc.

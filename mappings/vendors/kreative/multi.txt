@@ -2,8 +2,9 @@
 @name	Kreative SuperMultinational
 @alias	KK SuperMultinational
 @charset	x-kk-supermultinational
-@filename-txt	VENDORS/KREATIVE/MULTI.TXT
 @filename-kte	supermultinational.kte
+@filename-txt	VENDORS/KREATIVE/MULTI.TXT
+@generate-txt	VENDORS/KREATIVE/MULTI.TXT
 #
 #	Name:             Kreative SuperMultinational to Unicode
 #	Unicode Version:  6.0

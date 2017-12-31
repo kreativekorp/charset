@@ -11,8 +11,9 @@
 @charset	l2
 @charset	csISOLatin2
 @mibenum	5
-@filename-txt	ISO8859/8859-2.TXT
 @filename-kte	iso-8859-2.kte
+@filename-txt	ISO8859/8859-2.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-2.TXT
 @cite-author	Ken Whistler
 @cite-title	ISO 8859-2:1999 to Unicode
 @cite-publisher	Unicode, Inc.

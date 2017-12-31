@@ -2,8 +2,9 @@
 @name	Kreative SuperLatin
 @alias	KK SuperLatin
 @charset	x-kk-superlatin
-@filename-txt	VENDORS/KREATIVE/LATIN.TXT
 @filename-kte	superlatin.kte
+@filename-txt	VENDORS/KREATIVE/LATIN.TXT
+@generate-txt	VENDORS/KREATIVE/LATIN.TXT
 #
 #	Name:             Kreative SuperLatin to Unicode
 #	Unicode Version:  6.0

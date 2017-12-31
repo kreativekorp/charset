@@ -1,4 +1,5 @@
 @filename-txt PUBLIC/UCSUR/Blocks.txt
+@generate-txt PUBLIC/UCSUR/Blocks.txt
 # Blocks-UCSUR.txt
 # Date: 2017-12-30, 03:54:00 PST
 #

@@ -1,4 +1,5 @@
 @filename-txt FONTS/FAIRFAX/Sources.txt
+@generate-txt FONTS/FAIRFAX/Sources.txt
 Agreement-Type: Font
 Agreement-Name: Fairfax
 Agreement-FCC: Fair
