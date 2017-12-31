@@ -1,3 +1,3 @@
 @import fragments/klingon-alnum.txt
 @import fragments/klingon-punct.txt
-F8FF;KLINGON MUMMIFICATION GLYPH;So;0;ON;;;;;N;;;;;
+@import fragments/klingon-glyph.txt

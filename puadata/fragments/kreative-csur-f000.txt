@@ -1,0 +1,5 @@
+@import fragments/aiha.txt
+@import fragments/klingon-alnum.txt
+F8FB;MODERN KRONE SIGN;Sc;0;ET;;;;;N;;;;;
+F8FC;KLINGON MUMMIFICATION GLYPH;So;0;ON;;;;;N;;;;;
+@import fragments/klingon-punct.txt

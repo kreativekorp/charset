@@ -1,0 +1,10 @@
+@filename-txt FONTS/FAIRFAX/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Fairfax
+Agreement-FCC: Fair
+
+@import fragments/kreative-sources.txt
+
+@import fragments/csur-sources.txt
+
+@import fragments/ucsur-sources.txt

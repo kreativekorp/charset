@@ -1,0 +1,8 @@
+@filename-txt FONTS/CONSTRM/UnicodeData.txt
+@import fragments/ucsur-e000-ext.txt
+@import fragments/kamakawi.txt
+@import fragments/kreative-erin.txt
+@import fragments/kreative-f7f8.txt
+@import fragments/kreative-csur-f000.txt
+@import fragments/klingon-glyph.txt
+@import fragments/ucsur-f0000.txt

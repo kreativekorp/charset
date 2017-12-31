@@ -1,0 +1,12 @@
+@filename-txt FONTS/KSQUARE/Blocks.txt
+@import fragments/header-blocks.txt
+
+EF00..EFFF; Control Pictures Extended
+F000..F0FF; Modular Font Elements
+F200..F3FF; Block Elements Extended
+F400..F41F; Control Pictures Supplement
+F600..F61F; Kreative Software Private Use ERIN
+F680..F69F; Apple MouseText Characters
+@import fragments/kreative-blocks-f7f8.txt
+
+# EOF

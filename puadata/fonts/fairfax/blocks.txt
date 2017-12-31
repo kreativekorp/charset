@@ -1,0 +1,19 @@
+@filename-txt FONTS/FAIRFAX/Blocks.txt
+@import fragments/header-blocks.txt
+
+@import fragments/kreative-blocks-e000.txt
+EF00..EFFF; Control Pictures Extended
+F000..F0FF; Kamakawi
+F200..F3FF; Block Elements Extended
+F400..F41F; Control Pictures Supplement
+F420..F4FF; Sabine Presentation Variants
+F500..F5FF; Fairfax Presentation Variants
+F600..F61F; Kreative Software Private Use ERIN
+F620..F67F; Fairfax Presentation Variants Supplement-A
+F680..F69F; Apple MouseText Characters
+F6A0..F6FF; Fairfax Presentation Variants Supplement-B
+@import fragments/kreative-blocks-f7f8.txt
+@import fragments/csur-blocks-f8a0-f8ff.txt
+@import fragments/csur-blocks-f0000-f16af.txt
+
+# EOF

@@ -1,0 +1,10 @@
+@filename-txt FONTS/CONSTRM/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Constructium
+Agreement-FCC: Cons
+
+@import fragments/kreative-sources.txt
+
+@import fragments/csur-sources.txt
+
+@import fragments/ucsur-sources.txt

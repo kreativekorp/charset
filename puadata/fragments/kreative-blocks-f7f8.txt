@@ -1,0 +1,3 @@
+F700..F7FF; Kreative Software Private Use
+F800..F80F; Apple Compatibility
+F810..F89F; Kreative Software Private Use Supplement

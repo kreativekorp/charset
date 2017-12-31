@@ -1,0 +1,14 @@
+@filename-txt FONTS/KSQUARE/UnicodeData.txt
+@import fragments/octets-ls.txt
+@import fragments/octets-hs.txt
+@import fragments/modular-font-elements.txt
+@import fragments/fairfax-f2.txt
+@import fragments/fairfax-f3.txt
+@import fragments/fairfax-f4g0.txt
+@import fragments/kreative-erin.txt
+@import fragments/fairfax-f6g2.txt
+@import fragments/kreative-f7g0.txt
+@import fragments/kreative-f7g1.txt
+@import fragments/kreative-apple.txt
+@import fragments/kreative-f8g0.txt
+@import fragments/kreative-f8g1.txt

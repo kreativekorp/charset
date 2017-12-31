@@ -1,0 +1,6 @@
+@filename-txt FONTS/KSQUARE/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Kreative Square
+Agreement-FCC: KSqu
+
+@import fragments/kreative-sources.txt
