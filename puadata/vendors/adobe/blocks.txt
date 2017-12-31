@@ -1,0 +1,8 @@
+@filename-txt VENDORS/ADOBE/Blocks.txt
+@import fragments/header-blocks.txt
+
+F600..F7FF; LGC Compatibility Forms
+F880..F89F; Thai Compatibility Forms
+F8E0..F8FF; Symbol Compatibility Forms
+
+# EOF

@@ -1,0 +1,40 @@
+@filename-txt VENDORS/APPLE/Sources.txt
+Agreement-Type: Vendor
+Agreement-Name: Apple
+Agreement-FCC: appl
+
+Title: Registry of Apple use of Unicode corporate-zone characters.
+Author: Apple Computer, Inc.
+Publication-Date: 2005-04-04
+URL: ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CORPCHAR.TXT
+Access-Date: 2014-07-04
+
+Title: Map from Mac OS Farsi character set to Unicode 2.1 and later.
+Author: Apple Computer, Inc.
+Publication-Date: 2005-04-05
+URL: ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/APPLE/FARSI.TXT
+Access-Date: 2014-07-04
+
+Title: Map from Mac OS Hebrew character set to Unicode 2.1 and later.
+Author: Apple Computer, Inc.
+Publication-Date: 2005-04-05
+URL: ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/APPLE/HEBREW.TXT
+Access-Date: 2014-07-04
+
+Title: Map from Mac OS Japanese encoding to Unicode 2.1 and later.
+Author: Apple Computer, Inc.
+Publication-Date: 2005-04-05
+URL: ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/APPLE/JAPANESE.TXT
+Access-Date: 2014-07-04
+
+Title: Map from Mac OS Symbol character set to Unicode 4.0 and later.
+Author: Apple Computer, Inc.
+Publication-Date: 2005-04-05
+URL: ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/APPLE/SYMBOL.TXT
+Access-Date: 2014-07-04
+
+Title: Map from Mac OS Thai character set to Unicode 3.2 and later.
+Author: Apple Computer, Inc.
+Publication-Date: 2005-04-05
+URL: ftp://ftp.unicode.org/Public/MAPPINGS/VENDORS/APPLE/THAI.TXT
+Access-Date: 2014-07-04

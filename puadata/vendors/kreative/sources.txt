@@ -1,0 +1,10 @@
+@filename-txt VENDORS/KREATIVE/Sources.txt
+Agreement-Type: Vendor
+Agreement-Name: Kreative Software
+Agreement-FCC: krko
+
+Title: Kreative Software Private Use Area Assignments
+Author: Rebecca Bettencourt, Kreative Software
+Publication-Date: 2017-09-28
+URL: http://www.kreativekorp.com/miscpages/kspua.shtml
+Access-Date: 2017-09-28

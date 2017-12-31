@@ -1,0 +1,6 @@
+@filename-txt VENDORS/KREATIVE/UnicodeData.txt
+@import fragments/kreative-erin.txt
+@import fragments/kreative-f7g0.txt
+@import fragments/kreative-f7g1.txt
+@import fragments/kreative-f8g0.txt
+@import fragments/kreative-f8g1.txt

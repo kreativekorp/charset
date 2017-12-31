@@ -1,0 +1,13 @@
+@filename-txt VENDORS/WJGO/Sources.txt
+Agreement-Type: Please-Ignore
+Agreement-Name: William J.G. Overington
+Agreement-FCC: wjgo
+
+# WARNING: Consumption of William Overington's misunderstanding
+# of the workings of Unicode may result in severe brain damage.
+
+Title: The golden ligatures collection of Private Use Area code points for ligatures.
+Author: William J.G. Overington
+Publication-Date: 2005-09-10
+URL: http://www.users.globalnet.co.uk/~ngo/golden.htm
+Access-Date: 2014-07-05

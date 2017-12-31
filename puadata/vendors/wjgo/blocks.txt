@@ -1,0 +1,12 @@
+@filename-txt VENDORS/WJGO/Blocks.txt
+@import fragments/header-blocks.txt
+
+# WARNING: Consumption of William Overington's misunderstanding
+# of the workings of Unicode may result in severe brain damage.
+
+E5A0..E5FF; Chess Symbols
+E600..E64F; Number Forms Extended
+E700..E7FF; Alphabetic Presentation Forms Extended
+F300..F3FF; Courtyard Code Characters
+
+# EOF

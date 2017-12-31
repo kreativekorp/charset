@@ -1,0 +1,11 @@
+@filename-txt VENDORS/APPLE/Blocks.txt
+@import fragments/header-blocks.txt
+
+F700..F7FF; Keyboard Function Keys
+F800..F83F; Hoefler Ornaments
+F840..F84F; Mac OS Compatibility-A
+F850..F85F; Source Hints
+F860..F87F; Transcoding Hints
+F880..F8FF; Mac OS Compatibility-B
+
+# EOF

@@ -1,0 +1,8 @@
+@filename-txt VENDORS/LINUX/Blocks.txt
+@import fragments/header-blocks.txt
+
+F800..F80F; DEC VT Graphics
+F810..F81F; Keyboard Symbols
+F8D0..F8FF; Klingon
+
+# EOF

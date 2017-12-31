@@ -1,0 +1,6 @@
+@filename-txt VENDORS/MIROS/Blocks.txt
+@import fragments/header-blocks.txt
+
+EF80..EFFF; Octets
+
+# EOF

@@ -1,0 +1,2 @@
+@import fragments/kinya-syllables.txt
+@import fragments/pikto.txt

@@ -1,0 +1,2 @@
+F8FD;KLINGON COMMA;Po;0;CS;;;;;N;;;;;
+F8FE;KLINGON FULL STOP;Po;0;CS;;;;;N;;;;;

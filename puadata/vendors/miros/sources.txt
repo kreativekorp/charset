@@ -1,0 +1,10 @@
+@filename-txt VENDORS/MIROS/Sources.txt
+Agreement-Type: Vendor
+Agreement-Name: MirOS
+Agreement-FCC: mbsd
+
+Title: Use of the Unicode Private Use Areas by Others
+Author: SIL International
+Publication-Date: 2006-10-31
+URL: http://scripts.sil.org/VendorUseOfPUA
+Access-Date: 2014-07-05

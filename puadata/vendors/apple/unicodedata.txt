@@ -1,0 +1,5 @@
+@filename-txt VENDORS/APPLE/UnicodeData.txt
+@import fragments/apple-ns.txt
+@import fragments/apple-f802-f84f.txt
+@import fragments/apple-hints.txt
+@import fragments/apple-f880-f8ff.txt
