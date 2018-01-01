@@ -65,3 +65,11 @@ def expand(path, strip_atlines=False, strip_comments=False):
 				yield line
 			elif not is_comment(line):
 				yield strip_comment(line)
+
+__mapline_matcher = re.compile('^\\s*([0][Xx][0-9A-Fa-f]+)\\s+([0][Xx][0-9A-Fa-f]+([+][0][Xx][0-9A-Fa-f]+)*)')
+def split_mapline(line):
+	m = __mapline_matcher.match(line)
+	if m is None: return (None, None)
+	bytes = [int(m.group(1)[i:i+2], 16) for i in range(2, len(m.group(1)), 2)]
+	chars = [int(cp[2:], 16) for cp in m.group(2).split('+')]
+	return (bytes, chars)
