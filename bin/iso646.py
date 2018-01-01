@@ -2,53 +2,12 @@
 
 from __future__ import print_function
 
+import os
 import re
 import sys
-import unicodedata
 
-def iso646_line(a, m):
-	u = m[a] if a in m else [a]
-	h = '+'.join('0x%04X' % u for u in u)
-	n = ', '.join(unicodedata.name(unichr(u)) for u in u)
-	return '0x%02X\t%s\t# %s' % (a, h, n)
-
-def iso646(cc, ir, cs, cp, mib, m):
-	print('@category\tISO 646')
-	if len(cc) > 1: print('@display\tISO 646-%s' % '/'.join(cc.upper() for cc in cc))
-	for x in cc: print('@name\tISO 646-%s' % x.upper())
-	for x in cc: print('@alias\t646-%s' % x.upper())
-	for x in ir: print('@alias\tISO IR-%d' % x)
-	for x in ir: print('@alias\tIR-%d' % x)
-	for x in cs: print('@charset\t%s' % x)
-	for x in cp: print('@codepage\t%d' % x)
-	for x in mib: print('@mibenum\t%d' % x)
-	for x in cc: print('@filename-kte\tiso-646-%s.kte' % re.sub('[^A-Za-z0-9]+', '-', x).lower())
-	print('@import\tfragments/ascii-c0.txt\t# NULL .. UNIT SEPARATOR')
-	print('@import\tfragments/ascii-sq.txt\t# SPACE .. QUOTATION MARK')
-	print(iso646_line(0x23, m))
-	print(iso646_line(0x24, m))
-	print('@import\tfragments/ascii-pq.txt\t# PERCENT SIGN .. QUESTION MARK')
-	print(iso646_line(0x40, m))
-	print('@import\tfragments/ascii-uc.txt\t# LATIN CAPITAL LETTER A .. LATIN CAPITAL LETTER Z')
-	print(iso646_line(0x5B, m))
-	print(iso646_line(0x5C, m))
-	print(iso646_line(0x5D, m))
-	print(iso646_line(0x5E, m))
-	print(iso646_line(0x5F, m))
-	print(iso646_line(0x60, m))
-	print('@import\tfragments/ascii-lc.txt\t# LATIN SMALL LETTER A .. LATIN SMALL LETTER Z')
-	print(iso646_line(0x7B, m))
-	print(iso646_line(0x7C, m))
-	print(iso646_line(0x7D, m))
-	print(iso646_line(0x7E, m))
-	print('@import\tfragments/ascii-del.txt\t# DELETE')
-
-def parse_codepoints(x):
-	m = re.match('([0][Xx]|[Uu][+]|[$])([0-9A-Fa-f]+([+][0-9A-Fa-f]+)*)', x)
-	if m: return [int(x, 16) for x in m.group(2).split('+')]
-	m = re.match('(#?)([0-9]+([+][0-9]+)*)', x)
-	if m: return [int(x) for x in m.group(2).split('+')]
-	return [ord(x) for x in unicode(x, 'UTF-8')]
+sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
+from iso646lib import iso646_encoding
 
 def help():
 	print('usage: iso646.py <options>')
@@ -70,6 +29,13 @@ def help():
 	print('  -c <code-point>       the replacement character for 0x7C / |')
 	print('  -d <code-point>       the replacement character for 0x7D / }')
 	print('  -e <code-point>       the replacement character for 0x7E / ~')
+
+def parse_codepoints(x):
+	m = re.match('([0][Xx]|[Uu][+]|[$])([0-9A-Fa-f]+([+][0-9A-Fa-f]+)*)', x)
+	if m: return [int(x, 16) for x in m.group(2).split('+')]
+	m = re.match('(#?)([0-9]+([+][0-9]+)*)', x)
+	if m: return [int(x) for x in m.group(2).split('+')]
+	return [ord(x) for x in unicode(x, 'UTF-8')]
 
 def main():
 	cc = []
@@ -172,7 +138,8 @@ def main():
 	if len(cc) < 1:
 		help()
 	else:
-		iso646(sorted(cc), sorted(ir), cs, sorted(cp), sorted(mib), m)
+		for line in iso646_encoding(sorted(cc), sorted(ir), cs, sorted(cp), sorted(mib), m):
+			print(line)
 
 if __name__ == '__main__':
 	main()

@@ -3,29 +3,15 @@
 from __future__ import print_function
 
 import os
-import re
 import sys
 
-def expand(path, strip_atlines, strip_comments):
-	with open(path, 'r') as f:
-		for line in f:
-			line = line.rstrip()
-			if re.match('^\\s*@import\\s+', line):
-				path = re.sub('^\\s*@import\\s+|\\s*#.*$', '', line)
-				for line in expand(path, strip_atlines, strip_comments):
-					yield line
-			elif strip_atlines and re.match('^\\s*@', line):
-				pass
-			elif strip_comments and re.match('^\\s*#', line):
-				pass
-			else:
-				if strip_comments:
-					line = re.sub('\\s*#.*$', '', line)
-				yield line
+sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
+from parselib import cd, expand
 
 def main():
 	strip_atlines = False
 	strip_comments = False
+	prefix = None
 	i = 1
 	while i < len(sys.argv):
 		arg = sys.argv[i]
@@ -46,11 +32,15 @@ def main():
 		elif arg == '+c':
 			strip_comments = False
 		elif arg == '-d' and i < len(sys.argv):
-			os.chdir(sys.argv[i])
+			prefix = sys.argv[i]
 			i += 1
-		else:
+		elif prefix is None:
 			for line in expand(arg, strip_atlines, strip_comments):
 				print(line)
+		else:
+			with cd(prefix):
+				for line in expand(arg, strip_atlines, strip_comments):
+					print(line)
 
 if __name__ == '__main__':
 	main()
