@@ -24,16 +24,9 @@
 
 @import fragments/header-blocks.txt
 
-@import fragments/csur-blocks-e000-e64f.txt
-@import fragments/ucsur-blocks-e650-e67f.txt
-@import fragments/csur-blocks-e680-e6cf.txt
-@import fragments/ucsur-blocks-e6d0-e6ef.txt
-@import fragments/csur-blocks-e740-e82f.txt
-@import fragments/ucsur-blocks-e830-e9df.txt
-@import fragments/ucsur-blocks-ea00-eaff.txt
-@import fragments/ucsur-blocks-ed00-ed7f.txt
+@import fragments/ucsur-blocks-e000.txt
 EF80..F89F; Private Use Area
-@import fragments/csur-blocks-f8a0-f8ff.txt
-@import fragments/csur-blocks-f0000-f16af.txt
+@import fragments/ucsur-blocks-f000.txt
+@import fragments/ucsur-blocks-f0000.txt
 
 # EOF

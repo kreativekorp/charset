@@ -1,2 +1,0 @@
-EA00..EA9F; Lhenazi
-EAA0..EAFF; Wanya

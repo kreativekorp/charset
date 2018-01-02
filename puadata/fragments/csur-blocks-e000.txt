@@ -30,3 +30,8 @@ E5C0..E5DF; Gargoyle
 E5E0..E5FF; Ophidian
 E600..E62F; Ferengi
 E630..E64F; Seussian Latin Extensions
+E680..E6CF; Ewellic
+E740..E76F; Unifon
+E770..E77F; Solresol
+E780..E7FF; Visible Speech
+E800..E82F; Monofon

@@ -1,5 +1,0 @@
-E830..E88F; Dni
-E890..E8DF; Aurebesh
-E8E0..E8FF; Tonal
-E900..E97F; Glaitha-A
-E980..E9DF; Glaitha-B
