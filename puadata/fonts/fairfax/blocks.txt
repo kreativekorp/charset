@@ -13,7 +13,9 @@ F600..F61F; Kreative Software Private Use ERIN
 F620..F67F; Fairfax Presentation Variants Supplement-A
 F680..F69F; Apple MouseText Characters
 F6A0..F6FF; Fairfax Presentation Variants Supplement-B
-@import fragments/kreative-blocks-f7f8.txt
+F700..F7FF; Kreative Software Private Use
+F800..F80F; Apple Compatibility
+F810..F89F; Kreative Software Private Use Supplement
 @import fragments/ucsur-blocks-f000.txt
 @import fragments/ucsur-blocks-f0000.txt
 

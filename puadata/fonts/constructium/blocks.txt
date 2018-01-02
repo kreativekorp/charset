@@ -5,7 +5,8 @@
 @import fragments/ucsur-blocks-e000.txt
 F000..F0FF; Kamakawi
 F600..F61F; Kreative Software Private Use ERIN
-@import fragments/kreative-blocks-f7f8.txt
+F700..F7FF; Kreative Software Private Use
+F810..F89F; Kreative Software Private Use Supplement
 @import fragments/ucsur-blocks-f000.txt
 @import fragments/ucsur-blocks-f0000.txt
 

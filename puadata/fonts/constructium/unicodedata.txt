@@ -3,7 +3,10 @@
 @import fragments/ucsur-e000.txt
 @import fragments/kamakawi.txt
 @import fragments/kreative-erin.txt
-@import fragments/kreative-f7f8.txt
+@import fragments/kreative-f7g0.txt
+@import fragments/kreative-f7g1.txt
+@import fragments/kreative-f8g0.txt
+@import fragments/kreative-f8g1.txt
 @import fragments/kreative-csur-f000.txt
 @import fragments/klingon-glyph.txt
 @import fragments/ucsur-f0000.txt

@@ -8,6 +8,8 @@ F200..F3FF; Block Elements Extended
 F400..F41F; Control Pictures Supplement
 F600..F61F; Kreative Software Private Use ERIN
 F680..F69F; Apple MouseText Characters
-@import fragments/kreative-blocks-f7f8.txt
+F700..F7FF; Kreative Software Private Use
+F800..F80F; Apple Compatibility
+F810..F89F; Kreative Software Private Use Supplement
 
 # EOF

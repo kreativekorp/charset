@@ -13,7 +13,11 @@
 @import fragments/fairfax-f6g1.txt
 @import fragments/fairfax-f6g2.txt
 @import fragments/fairfax-f6g3.txt
-@import fragments/kreative-f7f8.txt
+@import fragments/kreative-f7g0.txt
+@import fragments/kreative-f7g1.txt
+@import fragments/kreative-apple.txt
+@import fragments/kreative-f8g0.txt
+@import fragments/kreative-f8g1.txt
 @import fragments/kreative-csur-f000.txt
 @import fragments/apple-logo.txt
 @import fragments/ucsur-f0000.txt
