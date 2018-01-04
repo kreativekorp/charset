@@ -1,3 +1,4 @@
+@font-name Constructium
 @filename-txt FONTS/CONSTRM/Sources.txt
 @generate-txt FONTS/CONSTRM/Sources.txt
 Agreement-Type: Font

@@ -1,3 +1,5 @@
+@font-name Kreative Square
+@font-name Kreative Square Unibook
 @filename-txt FONTS/KSQUARE/Sources.txt
 @generate-txt FONTS/KSQUARE/Sources.txt
 Agreement-Type: Font

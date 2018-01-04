@@ -1,0 +1,18 @@
+@font-name Nishiki-teki
+@filename-txt FONTS/NISHIKI/Sources.txt
+@generate-txt FONTS/NISHIKI/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Nishiki-teki
+Agreement-FCC: Nish
+
+Title: Typvs Litterarvm Nisiciae
+Author: Shiroi Niwatori
+Publication-Date: 2017-12-18
+URL: http://hwm3.gyao.ne.jp/shiroi-niwatori/nishiki-teki.htm
+Access-Date: 2018-01-02
+
+Title: Nishiki-teki Version 3.30f
+Author: Shiroi Niwatori
+Publication-Date: 2017-12-18
+URL: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxmb250bHljYWxsZWR8Z3g6NmQzNzhiNTY1NzA0ZDAzNw
+Access-Date: 2018-01-02

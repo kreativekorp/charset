@@ -1,3 +1,8 @@
+@font-name Fairfax
+@font-name Fairfax Bold
+@font-name Fairfax Italic
+@font-name Fairfax Serif
+@font-name Fairfax HD
 @filename-txt FONTS/FAIRFAX/Sources.txt
 @generate-txt FONTS/FAIRFAX/Sources.txt
 Agreement-Type: Font

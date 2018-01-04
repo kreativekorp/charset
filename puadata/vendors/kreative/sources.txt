@@ -1,3 +1,5 @@
+@vendor-id KrKo
+@vendor-id KBnP
 @filename-txt VENDORS/KREATIVE/Sources.txt
 @generate-txt VENDORS/KREATIVE/Sources.txt
 Agreement-Type: Vendor

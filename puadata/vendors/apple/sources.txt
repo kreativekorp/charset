@@ -1,3 +1,4 @@
+@vendor-id APPL
 @filename-txt VENDORS/APPLE/Sources.txt
 @generate-txt VENDORS/APPLE/Sources.txt
 Agreement-Type: Vendor

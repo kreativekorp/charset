@@ -1,3 +1,4 @@
+@vendor-id ABDE
 @filename-txt VENDORS/ADOBE/Sources.txt
 @generate-txt VENDORS/ADOBE/Sources.txt
 Agreement-Type: Vendor
