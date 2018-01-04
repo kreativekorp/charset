@@ -1,0 +1,30 @@
+@filename-txt FONTS/VEXILLO/Blocks.txt
+@generate-txt FONTS/VEXILLO/Blocks.txt
+@import fragments/header-blocks.txt
+
+E000..E07F; Generic Flags
+E080..E0FF; Signal Flags
+E100..E3FF; ISO Country Code Flags
+E400..F4FF; North American Flags
+E500..E5FF; British Flags
+E600..E6FF; Scandinavian Flags
+E700..E7FF; Iberian Flags
+E800..E8FF; Western European Flags-A
+E900..E9FF; Western European Flags-B
+EA00..EAFF; Western European Flags-C
+EB00..EBFF; Eastern European Flags-A
+EC00..ECFF; Eastern European Flags-B
+ED00..EDFF; Eastern European Flags-C
+EE00..EEFF; Asian Flags-A
+EF00..EFFF; Asian Flags-B
+F000..F0FF; South American Flags
+F100..F1FF; African Flags
+F200..F2FF; Oceanic Flags
+F300..F3FF; Miscellaneous Subdivision Flags
+F400..F4FF; Constructed Language Flags
+F500..F5FF; Pride Flags
+F600..F6FF; Sports Flags
+F700..F7FF; Mika City Flags
+F800..F8FF; Miscellaneous Flags
+
+# EOF

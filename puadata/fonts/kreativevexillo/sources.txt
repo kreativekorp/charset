@@ -1,0 +1,21 @@
+@font-name Kreative Vexillo GA
+@font-name Kreative Vexillo GC
+@font-name Kreative Vexillo GD
+@font-name Kreative Vexillo GF
+@font-name Kreative Vexillo GK
+@font-name Kreative Vexillo MA
+@font-name Kreative Vexillo MC
+@font-name Kreative Vexillo MD
+@font-name Kreative Vexillo MF
+@font-name Kreative Vexillo MK
+@filename-txt FONTS/VEXILLO/Sources.txt
+@generate-txt FONTS/VEXILLO/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Kreative Vexillo
+Agreement-FCC: KVex
+
+Title: Kreative Vexillo
+Author: Kreative Software
+Publication-Date: 2017-08-23
+URL: https://github.com/kreativekorp/vexillo
+Access-Date: 2018-01-03
