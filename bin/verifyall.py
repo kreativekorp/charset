@@ -11,7 +11,6 @@ from acquisitionlib import acquire
 from parselib import atline_matcher, cd, charset_path, expand, ls, split_mapline
 
 __verify_matcher = atline_matcher('verify-against')
-__verify_matcher_adobe = atline_matcher('verify-adobe')
 __adobe_line_matcher = re.compile('^\\s*([0-9A-Fa-f]+)\\s+([0-9A-Fa-f]+)')
 __delimited_byte_matcher = re.compile('^\\s*([0][Xx][0-9A-Fa-f]{2}([+][0][Xx][0-9A-Fa-f]{2})+)\\s+[0][Xx]')
 __delimited_byte_sub = re.compile('[+][0][Xx]')
@@ -57,14 +56,23 @@ def verify(path):
 				b, c, ba, ca = split_mapline(line)
 				if b is not None and c is not None:
 					expmap[tuple(b)] = tuple(c)
-		# Hacks for reference encodings: No control characters.
+		# Hacks for reference encodings: No ASCII characters.
+		if all((x,) not in expmap for x in range(0, 128)):
+			for x in range(0, 128):
+				expmap[(x,)] = (x,)
+		# Hacks for reference encodings: No C0 control characters.
 		if all((x,) not in expmap for x in range(0, 32) + [127]):
 			for x in range(0, 32) + [127]:
 				expmap[(x,)] = (x,)
+		# Hacks for reference encodings: No C1 control characters.
 		if '/MAPPINGS/VENDORS/APPLE/' not in url:
 			if all((x,) not in expmap for x in range(128, 160)):
 				for x in range(128, 160):
 					expmap[(x,)] = (x,)
+		# Hacks for reference encodings: Undefined characters mapped to U+FFFD.
+		for k, v in expmap.items():
+			if v == (0xFFFD,):
+				del expmap[k]
 		# End hacks.
 		return set(map.items()) ^ set(expmap.items())
 

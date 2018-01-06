@@ -1,0 +1,13 @@
+@name	NextStep Multinational
+@alias	NextStep
+@filename-kte	nextstep.kte
+@filename-txt	VENDORS/NEXT/NEXTSTEP.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/NEXT/NEXTSTEP.TXT
+@cite-author	Rick McGowan
+@cite-title	NextStep Encoding to Unicode
+@cite-publisher	Unicode, Inc.
+@cite-date	23 Sept 1999
+@cite-url	http://www.unicode.org/Public/MAPPINGS/VENDORS/NEXT/NEXTSTEP.TXT
+@cite-copyright	1991-1999 Unicode, Inc.
+@import	fragments/ascii-all.txt
+@import	fragments/nextstep-g1.txt
