@@ -1,0 +1,19 @@
+@category	Mac OS Classic
+@name	Mac OS Roman
+@alias	MacRoman
+@alias	Macintosh
+@charset	macintosh
+@charset	mac
+@charset	csMacintosh
+@mibenum	2027
+@filename-kte	macroman.kte
+@filename-txt	VENDORS/APPLE/ROMAN.TXT
+@verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMAN.TXT
+@cite-author	Apple, Inc.
+@cite-title	Map (external version) from Mac OS Roman character set to Unicode 2.1 and later.
+@cite-publisher	Apple, Inc.
+@cite-date	5 Apr 2005
+@cite-url	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMAN.TXT
+@cite-copyright	1994-2002, 2005 Apple, Inc.
+@import	fragments/ascii-all.txt
+@import	fragments/macroman-g1.txt
