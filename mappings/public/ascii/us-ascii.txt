@@ -4,6 +4,7 @@
 @alias	646-US
 @alias	ISO IR-6
 @alias	IR-6
+@alias	ANSI X3.4-1968
 @alias	CCITT 5
 @charset	iso-ir-6
 @charset	ANSI_X3.4-1968

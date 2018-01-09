@@ -66,9 +66,10 @@ def verify(path):
 				expmap[(x,)] = (x,)
 		# Hacks for reference encodings: No C1 control characters.
 		if '/MAPPINGS/VENDORS/APPLE/' not in url:
-			if all((x,) not in expmap for x in range(128, 160)):
-				for x in range(128, 160):
-					expmap[(x,)] = (x,)
+			if any((x,) in expmap for x in range(160, 256)):
+				if all((x,) not in expmap for x in range(128, 160)):
+					for x in range(128, 160):
+						expmap[(x,)] = (x,)
 		# Hacks for reference encodings: Undefined characters mapped to U+FFFD.
 		for k, v in expmap.items():
 			if v == (0xFFFD,):
