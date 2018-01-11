@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Dingbats
 @alias	MacDingbats
+@charset	x-mac-dingbats
+@cfstringencoding	34
+@codepage	10034
 @filename-kte	macdingbats.kte
 @filename-txt	VENDORS/APPLE/DINGBATS.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/DINGBATS.TXT

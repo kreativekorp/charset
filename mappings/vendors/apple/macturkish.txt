@@ -1,6 +1,10 @@
 @category	Mac OS Classic
 @name	Mac OS Turkish
 @alias	MacTurkish
+@charset	x-mac-turkish
+@cfstringencoding	35
+@codepage	10035
+@codepage	10081
 @filename-kte	macturkish.txt
 @filename-txt	VENDORS/APPLE/TURKISH.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/TURKISH.TXT

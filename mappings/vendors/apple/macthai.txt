@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Thai
 @alias	MacThai
+@charset	x-mac-thai
+@cfstringencoding	21
+@codepage	10021
 @filename-kte	macthai.txt
 @filename-txt	VENDORS/APPLE/THAI.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/THAI.TXT

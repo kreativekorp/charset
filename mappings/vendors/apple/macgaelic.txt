@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Gaelic
 @alias	MacGaelic
+@charset	x-mac-gaelic
+@cfstringencoding	40
+@codepage	10040
 @filename-kte	macgaelic.kte
 @filename-txt	VENDORS/APPLE/GAELIC.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/GAELIC.TXT

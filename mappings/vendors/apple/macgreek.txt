@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Greek
 @alias	MacGreek
+@charset	x-mac-greek
+@cfstringencoding	6
+@codepage	10006
 @filename-kte	macgreek.kte
 @filename-txt	VENDORS/APPLE/GREEK.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/GREEK.TXT

@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Symbol
 @alias	MacSymbol
+@charset	x-mac-symbol
+@cfstringencoding	33
+@codepage	10033
 @filename-kte	macsymbol.kte
 @filename-txt	VENDORS/APPLE/SYMBOL.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/SYMBOL.TXT

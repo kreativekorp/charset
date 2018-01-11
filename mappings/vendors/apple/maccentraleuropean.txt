@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Central European
 @alias	MacCentralEuropean
+@charset	x-mac-centraleurroman
+@cfstringencoding	29
+@codepage	10029
 @filename-kte	maccentraleuropean.kte
 @filename-txt	VENDORS/APPLE/CENTEURO.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CENTEURO.TXT

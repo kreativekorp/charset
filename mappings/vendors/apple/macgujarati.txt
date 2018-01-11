@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Gujarati
 @alias	MacGujarati
+@charset	x-mac-gujarati
+@cfstringencoding	11
+@codepage	10011
 @filename-kte	macgujarati.kte
 @filename-txt	VENDORS/APPLE/GUJARATI.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/GUJARATI.TXT

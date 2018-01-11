@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Korean
 @alias	MacKorean
+@charset	x-mac-korean
+@cfstringencoding	3
+@codepage	10003
 @filename-kte	mackorean.kte
 @filename-txt	VENDORS/APPLE/KOREAN.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/KOREAN.TXT

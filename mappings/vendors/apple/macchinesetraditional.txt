@@ -3,6 +3,9 @@
 @alias	Mac OS Traditional Chinese
 @alias	MacChineseTraditional
 @alias	MacTradChinese
+@charset	x-mac-trad-chinese
+@cfstringencoding	2
+@codepage	10002
 @filename-kte	macchinesetraditional.kte
 @filename-txt	VENDORS/APPLE/CHINTRAD.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CHINTRAD.TXT

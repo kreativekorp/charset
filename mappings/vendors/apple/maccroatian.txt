@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Croatian
 @alias	MacCroatian
+@charset	x-mac-croatian
+@cfstringencoding	36
+@codepage	10036
 @filename-kte	maccroatian.kte
 @filename-txt	VENDORS/APPLE/CROATIAN.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CROATIAN.TXT

@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Farsi
 @alias	MacFarsi
+@charset	x-mac-farsi
+@cfstringencoding	140
+@codepage	10140
 @filename-kte	macfarsi.kte
 @filename-txt	VENDORS/APPLE/FARSI.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/FARSI.TXT

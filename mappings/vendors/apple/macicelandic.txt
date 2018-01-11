@@ -1,6 +1,10 @@
 @category	Mac OS Classic
 @name	Mac OS Icelandic
 @alias	MacIcelandic
+@charset	x-mac-icelandic
+@cfstringencoding	37
+@codepage	10037
+@codepage	10079
 @filename-kte	macicelandic.kte
 @filename-txt	VENDORS/APPLE/ICELAND.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ICELAND.TXT

@@ -1,6 +1,9 @@
 @category	Mac OS Classic
 @name	Mac OS Romanian
 @alias	MacRomanian
+@charset	x-mac-romanian
+@cfstringencoding	38
+@codepage	10038
 @filename-kte	macromanian.kte
 @filename-txt	VENDORS/APPLE/ROMANIAN.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMANIAN.TXT

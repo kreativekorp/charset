@@ -3,6 +3,12 @@
 @name	Mac OS Ukrainian
 @alias	MacCyrillic
 @alias	MacUkrainian
+@charset	x-mac-cyrillic
+@charset	x-mac-ukrainian
+@cfstringencoding	7
+@cfstringencoding	152
+@codepage	10007
+@codepage	10152
 @filename-kte	maccyrillic.kte
 @filename-txt	VENDORS/APPLE/CYRILLIC.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CYRILLIC.TXT
