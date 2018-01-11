@@ -3,6 +3,7 @@
 @alias	MacCentralEuropean
 @charset	x-mac-centraleurroman
 @cfstringencoding	29
+@codepage	1282
 @codepage	10029
 @filename-kte	maccentraleuropean.kte
 @filename-txt	VENDORS/APPLE/CENTEURO.TXT

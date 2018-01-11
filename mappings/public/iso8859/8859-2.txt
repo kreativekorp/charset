@@ -11,6 +11,8 @@
 @charset	l2
 @charset	csISOLatin2
 @cfstringencoding	514
+@codepage	912
+@codepage	25488
 @mibenum	5
 @filename-kte	iso-8859-2.kte
 @filename-txt	ISO8859/8859-2.TXT

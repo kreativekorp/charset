@@ -3,6 +3,7 @@
 @alias	MacCroatian
 @charset	x-mac-croatian
 @cfstringencoding	36
+@codepage	1284
 @codepage	10036
 @filename-kte	maccroatian.kte
 @filename-txt	VENDORS/APPLE/CROATIAN.TXT

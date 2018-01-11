@@ -6,6 +6,7 @@
 @charset	mac
 @charset	csMacintosh
 @cfstringencoding	0
+@codepage	1275
 @codepage	10000
 @mibenum	2027
 @filename-kte	macroman.kte

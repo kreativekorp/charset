@@ -3,6 +3,7 @@
 @alias	MacRomanian
 @charset	x-mac-romanian
 @cfstringencoding	38
+@codepage	1285
 @codepage	10038
 @filename-kte	macromanian.kte
 @filename-txt	VENDORS/APPLE/ROMANIAN.TXT

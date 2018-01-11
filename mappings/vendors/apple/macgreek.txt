@@ -3,6 +3,7 @@
 @alias	MacGreek
 @charset	x-mac-greek
 @cfstringencoding	6
+@codepage	1280
 @codepage	10006
 @filename-kte	macgreek.kte
 @filename-txt	VENDORS/APPLE/GREEK.TXT

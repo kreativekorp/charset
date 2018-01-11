@@ -1,5 +1,6 @@
 @category	Adobe Systems
 @name	Adobe Standard
+@codepage	1276
 @filename-kte	adobe-standard.kte
 @filename-txt	VENDORS/ADOBE/stdenc.txt
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/ADOBE/stdenc.txt

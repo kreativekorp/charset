@@ -1,5 +1,6 @@
 @category	Adobe Systems
 @name	Adobe Latin-1
+@codepage	1277
 @filename-kte	adobe-latin-1.kte
 @import	fragments/ascii-all.txt
 0x80	0x0080	# <control>

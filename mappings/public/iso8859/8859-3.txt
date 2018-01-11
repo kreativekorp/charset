@@ -11,6 +11,7 @@
 @charset	l3
 @charset	csISOLatin3
 @cfstringencoding	515
+@codepage	913
 @mibenum	6
 @filename-kte	iso-8859-3.kte
 @filename-txt	ISO8859/8859-3.TXT

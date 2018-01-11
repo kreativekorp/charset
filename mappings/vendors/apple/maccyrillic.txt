@@ -7,6 +7,7 @@
 @charset	x-mac-ukrainian
 @cfstringencoding	7
 @cfstringencoding	152
+@codepage	1283
 @codepage	10007
 @codepage	10152
 @filename-kte	maccyrillic.kte
