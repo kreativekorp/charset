@@ -65,7 +65,7 @@ def verify(path):
 			for x in range(0, 32) + [127]:
 				expmap[(x,)] = (x,)
 		# Hacks for reference encodings: No C1 control characters.
-		if '/MAPPINGS/VENDORS/APPLE/' not in url:
+		if '/MAPPINGS/VENDORS/ADOBE/' in url:
 			if any((x,) in expmap for x in range(160, 256)):
 				if all((x,) not in expmap for x in range(128, 160)):
 					for x in range(128, 160):
