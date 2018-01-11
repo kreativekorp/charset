@@ -9,6 +9,7 @@
 @charset	ISO-8859-5
 @charset	cyrillic
 @charset	csISOLatinCyrillic
+@cfstringencoding	517
 @mibenum	8
 @filename-kte	iso-8859-5.kte
 @filename-txt	ISO8859/8859-5.TXT

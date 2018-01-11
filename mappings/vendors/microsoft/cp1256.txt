@@ -6,6 +6,7 @@
 @alias	Windows Arabic
 @charset	windows-1256
 @charset	cswindows1256
+@cfstringencoding	1286
 @codepage	1256
 @mibenum	2256
 @filename-kte	cp1256.kte

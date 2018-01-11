@@ -11,6 +11,7 @@
 @charset	ebcdic-cp-wt
 @charset	ebcdic-cp-nl
 @charset	csIBM037
+@cfstringencoding	3074
 @codepage	037
 @mibenum	2028
 @filename-kte	cp037.kte

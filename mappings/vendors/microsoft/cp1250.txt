@@ -6,6 +6,7 @@
 @alias	Windows Latin Eastern
 @charset	windows-1250
 @charset	cswindows1250
+@cfstringencoding	1281
 @codepage	1250
 @mibenum	2250
 @filename-kte	cp1250.kte

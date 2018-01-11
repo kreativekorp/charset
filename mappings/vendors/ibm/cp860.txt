@@ -8,6 +8,7 @@
 @charset	cp860
 @charset	860
 @charset	csIBM860
+@cfstringencoding	1045
 @codepage	860
 @mibenum	2048
 @filename-kte	cp860.kte

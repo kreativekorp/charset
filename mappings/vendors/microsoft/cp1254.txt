@@ -6,6 +6,7 @@
 @alias	Windows Turkish
 @charset	windows-1254
 @charset	cswindows1254
+@cfstringencoding	1284
 @codepage	1254
 @mibenum	2254
 @filename-kte	cp1254.kte

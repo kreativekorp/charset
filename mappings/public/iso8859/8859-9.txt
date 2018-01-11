@@ -10,6 +10,7 @@
 @charset	latin5
 @charset	l5
 @charset	csISOLatin5
+@cfstringencoding	521
 @mibenum	12
 @filename-kte	iso-8859-9.kte
 @filename-txt	ISO8859/8859-9.TXT

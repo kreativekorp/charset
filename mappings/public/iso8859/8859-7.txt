@@ -14,6 +14,7 @@
 @charset	greek
 @charset	greek8
 @charset	csISOLatinGreek
+@cfstringencoding	519
 @mibenum	10
 @filename-kte	iso-8859-7.kte
 @filename-txt	ISO8859/8859-7.TXT

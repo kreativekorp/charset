@@ -9,6 +9,7 @@
 @charset	TIS-620
 @charset	csTIS620
 @charset	ISO-8859-11
+@cfstringencoding	523
 @mibenum	2259
 @filename-kte	iso-8859-11.kte
 @filename-txt	ISO8859/8859-11.TXT

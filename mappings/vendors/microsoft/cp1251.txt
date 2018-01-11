@@ -6,6 +6,7 @@
 @alias	Windows Cyrillic
 @charset	windows-1251
 @charset	cswindows1251
+@cfstringencoding	1282
 @codepage	1251
 @mibenum	2251
 @filename-kte	cp1251.kte

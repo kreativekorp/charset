@@ -5,6 +5,7 @@
 @alias	Windows CP932
 @alias	Windows Japanese
 @alias	Windows-31J
+@cfstringencoding	1056
 @codepage	932
 @filename-kte	cp932.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP932.TXT

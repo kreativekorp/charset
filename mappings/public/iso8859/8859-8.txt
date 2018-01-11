@@ -9,6 +9,7 @@
 @charset	ISO-8859-8
 @charset	hebrew
 @charset	csISOLatinHebrew
+@cfstringencoding	520
 @mibenum	11
 @filename-kte	iso-8859-8.kte
 @filename-txt	ISO8859/8859-8.TXT

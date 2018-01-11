@@ -8,6 +8,7 @@
 @charset	cp865
 @charset	865
 @charset	csIBM865
+@cfstringencoding	1050
 @codepage	865
 @mibenum	2052
 @filename-kte	cp865.kte

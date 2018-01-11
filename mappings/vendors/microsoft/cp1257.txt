@@ -6,6 +6,7 @@
 @alias	Windows Baltic
 @charset	windows-1257
 @charset	cswindows1257
+@cfstringencoding	1287
 @codepage	1257
 @mibenum	2257
 @filename-kte	cp1257.kte

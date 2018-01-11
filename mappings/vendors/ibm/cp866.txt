@@ -8,6 +8,7 @@
 @charset	cp866
 @charset	866
 @charset	csIBM866
+@cfstringencoding	1051
 @codepage	866
 @mibenum	2086
 @filename-kte	cp866.kte

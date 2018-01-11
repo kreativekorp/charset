@@ -9,6 +9,7 @@
 @alias	Windows Thai
 @charset	windows-874
 @charset	cswindows874
+@cfstringencoding	1053
 @codepage	874
 @mibenum	2109
 @filename-kte	cp874.kte

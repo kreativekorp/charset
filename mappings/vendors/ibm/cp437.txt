@@ -8,6 +8,7 @@
 @charset	cp437
 @charset	437
 @charset	csPC8CodePage437
+@cfstringencoding	1024
 @codepage	437
 @mibenum	2011
 @filename-kte	cp437.kte

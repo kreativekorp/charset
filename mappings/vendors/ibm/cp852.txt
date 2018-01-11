@@ -8,6 +8,7 @@
 @charset	cp852
 @charset	852
 @charset	csPCp852
+@cfstringencoding	1042
 @codepage	852
 @mibenum	2010
 @filename-kte	cp852.kte

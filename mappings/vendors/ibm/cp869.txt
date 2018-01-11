@@ -9,6 +9,7 @@
 @charset	869
 @charset	cp-gr
 @charset	csIBM869
+@cfstringencoding	1052
 @codepage	869
 @mibenum	2054
 @filename-kte	cp869.kte

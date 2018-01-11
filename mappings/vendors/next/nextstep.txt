@@ -1,5 +1,7 @@
 @name	NextStep Multinational
 @alias	NextStep
+@charset	x-nextstep
+@cfstringencoding	2817
 @filename-kte	nextstep.kte
 @filename-txt	VENDORS/NEXT/NEXTSTEP.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/NEXT/NEXTSTEP.TXT

@@ -13,6 +13,7 @@
 @charset	ASMO-708
 @charset	arabic
 @charset	csISOLatinArabic
+@cfstringencoding	518
 @mibenum	9
 @filename-kte	iso-8859-6.kte
 @filename-txt	ISO8859/8859-6.TXT

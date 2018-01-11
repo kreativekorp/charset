@@ -8,6 +8,7 @@
 @charset	cp855
 @charset	855
 @charset	csIBM855
+@cfstringencoding	1043
 @codepage	855
 @mibenum	2046
 @filename-kte	cp855.kte

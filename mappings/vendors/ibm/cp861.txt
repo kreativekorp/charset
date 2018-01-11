@@ -9,6 +9,7 @@
 @charset	861
 @charset	cp-is
 @charset	csIBM861
+@cfstringencoding	1046
 @codepage	861
 @mibenum	2049
 @filename-kte	cp861.kte

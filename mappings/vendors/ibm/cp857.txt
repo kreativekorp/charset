@@ -8,6 +8,7 @@
 @charset	cp857
 @charset	857
 @charset	csIBM857
+@cfstringencoding	1044
 @codepage	857
 @mibenum	2047
 @filename-kte	cp857.kte

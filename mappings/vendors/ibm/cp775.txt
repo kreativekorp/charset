@@ -7,6 +7,7 @@
 @charset	IBM775
 @charset	cp775
 @charset	csPC775Baltic
+@cfstringencoding	1030
 @codepage	775
 @mibenum	2087
 @filename-kte	cp775.kte

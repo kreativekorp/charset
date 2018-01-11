@@ -11,6 +11,7 @@
 @charset	latin6
 @charset	l6
 @charset	csISOLatin6
+@cfstringencoding	522
 @mibenum	13
 @filename-kte	iso-8859-10.kte
 @filename-txt	ISO8859/8859-10.TXT

@@ -4,6 +4,7 @@
 @alias	Windows-950
 @alias	Windows CP950
 @alias	Windows Big5
+@cfstringencoding	1059
 @codepage	950
 @filename-kte	cp950.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP950.TXT

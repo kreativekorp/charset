@@ -6,6 +6,7 @@
 @alias	Windows Hebrew
 @charset	windows-1255
 @charset	cswindows1255
+@cfstringencoding	1285
 @codepage	1255
 @mibenum	2255
 @filename-kte	cp1255.kte

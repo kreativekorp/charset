@@ -6,6 +6,7 @@
 @alias	Latin-7
 @charset	ISO-8859-13
 @charset	csISO885913
+@cfstringencoding	525
 @mibenum	109
 @filename-kte	iso-8859-13.kte
 @filename-txt	ISO8859/8859-13.TXT
