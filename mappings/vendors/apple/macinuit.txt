@@ -2,8 +2,8 @@
 @name	Mac OS Inuit
 @alias	MacInuit
 @charset	x-mac-inuit
-@cfstringencoding	236
 @codepage	10236
+@cfstringencoding	236
 @filename-kte	macinuit.kte
 @filename-txt	VENDORS/APPLE/INUIT.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/INUIT.TXT

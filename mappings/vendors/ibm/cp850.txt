@@ -8,9 +8,9 @@
 @charset	cp850
 @charset	850
 @charset	csPC850Multilingual
-@cfstringencoding	1040
 @codepage	850
 @mibenum	2009
+@cfstringencoding	1040
 @filename-kte	cp850.kte
 @filename-txt	VENDORS/MICSFT/PC/CP850.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP850.TXT

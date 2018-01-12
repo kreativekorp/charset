@@ -6,9 +6,9 @@
 @alias	Windows Baltic
 @charset	windows-1257
 @charset	cswindows1257
-@cfstringencoding	1287
 @codepage	1257
 @mibenum	2257
+@cfstringencoding	1287
 @filename-kte	cp1257.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP1257.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1257.TXT

@@ -2,8 +2,8 @@
 @name	Mac OS Japanese
 @alias	MacJapanese
 @charset	x-mac-japanese
-@cfstringencoding	1
 @codepage	10001
+@cfstringencoding	1
 @filename-kte	macjapanese.kte
 @filename-txt	VENDORS/APPLE/JAPANESE.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/JAPANESE.TXT

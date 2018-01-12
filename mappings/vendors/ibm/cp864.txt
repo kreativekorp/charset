@@ -7,9 +7,9 @@
 @charset	IBM864
 @charset	cp864
 @charset	csIBM864
-@cfstringencoding	1049
 @codepage	864
 @mibenum	2051
+@cfstringencoding	1049
 @filename-kte	cp864.kte
 @filename-txt	VENDORS/MICSFT/PC/CP864.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP864.TXT

@@ -10,10 +10,11 @@
 @charset	latin2
 @charset	l2
 @charset	csISOLatin2
-@cfstringencoding	514
 @codepage	912
 @codepage	25488
 @mibenum	5
+@nsstringencoding	9
+@cfstringencoding	514
 @filename-kte	iso-8859-2.kte
 @filename-txt	ISO8859/8859-2.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-2.TXT

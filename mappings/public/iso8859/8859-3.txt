@@ -10,9 +10,9 @@
 @charset	latin3
 @charset	l3
 @charset	csISOLatin3
-@cfstringencoding	515
 @codepage	913
 @mibenum	6
+@cfstringencoding	515
 @filename-kte	iso-8859-3.kte
 @filename-txt	ISO8859/8859-3.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-3.TXT

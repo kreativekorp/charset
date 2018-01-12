@@ -8,9 +8,9 @@
 @charset	ISO_8859-15
 @charset	Latin-9
 @charset	csISO885915
-@cfstringencoding	527
 @codepage	923
 @mibenum	111
+@cfstringencoding	527
 @filename-kte	iso-8859-15.kte
 @filename-txt	ISO8859/8859-15.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-15.TXT

@@ -6,9 +6,10 @@
 @alias	Windows Cyrillic
 @charset	windows-1251
 @charset	cswindows1251
-@cfstringencoding	1282
 @codepage	1251
 @mibenum	2251
+@nsstringencoding	11
+@cfstringencoding	1282
 @filename-kte	cp1251.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP1251.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1251.TXT

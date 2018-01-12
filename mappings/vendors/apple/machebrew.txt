@@ -2,8 +2,8 @@
 @name	Mac OS Hebrew
 @alias	MacHebrew
 @charset	x-mac-hebrew
-@cfstringencoding	5
 @codepage	10005
+@cfstringencoding	5
 @filename-kte	machebrew.kte
 @filename-txt	VENDORS/APPLE/HEBREW.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/HEBREW.TXT

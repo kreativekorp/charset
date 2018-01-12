@@ -12,9 +12,10 @@
 @charset	IBM819
 @charset	CP819
 @charset	csISOLatin1
-@cfstringencoding	513
 @codepage	819
 @mibenum	4
+@nsstringencoding	5
+@cfstringencoding	513
 @filename-kte	iso-8859-1.kte
 @filename-txt	ISO8859/8859-1.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-1.TXT

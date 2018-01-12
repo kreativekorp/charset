@@ -12,8 +12,8 @@
 @charset	l8
 @charset	iso-celtic
 @charset	csISO885914
-@cfstringencoding	526
 @mibenum	110
+@cfstringencoding	526
 @filename-kte	iso-8859-14.kte
 @filename-txt	ISO8859/8859-14.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-14.TXT

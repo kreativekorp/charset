@@ -6,9 +6,10 @@
 @alias	Windows Greek
 @charset	windows-1253
 @charset	cswindows1253
-@cfstringencoding	1283
 @codepage	1253
 @mibenum	2253
+@nsstringencoding	13
+@cfstringencoding	1283
 @filename-kte	cp1253.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP1253.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1253.TXT

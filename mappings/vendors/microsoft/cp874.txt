@@ -9,9 +9,9 @@
 @alias	Windows Thai
 @charset	windows-874
 @charset	cswindows874
-@cfstringencoding	1053
 @codepage	874
 @mibenum	2109
+@cfstringencoding	1053
 @filename-kte	cp874.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP874.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP874.TXT

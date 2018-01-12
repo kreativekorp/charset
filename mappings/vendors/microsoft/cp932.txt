@@ -5,8 +5,9 @@
 @alias	Windows CP932
 @alias	Windows Japanese
 @alias	Windows-31J
-@cfstringencoding	1056
 @codepage	932
+@nsstringencoding	8
+@cfstringencoding	1056
 @filename-kte	cp932.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP932.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT

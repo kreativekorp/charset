@@ -8,9 +8,9 @@
 @charset	cp437
 @charset	437
 @charset	csPC8CodePage437
-@cfstringencoding	1024
 @codepage	437
 @mibenum	2011
+@cfstringencoding	1024
 @filename-kte	cp437.kte
 @filename-txt	VENDORS/MICSFT/PC/CP437.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP437.TXT

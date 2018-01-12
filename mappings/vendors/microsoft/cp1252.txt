@@ -8,9 +8,10 @@
 @alias	Windows ANSI
 @charset	windows-1252
 @charset	cswindows1252
-@cfstringencoding	1280
 @codepage	1252
 @mibenum	2252
+@nsstringencoding	12
+@cfstringencoding	1280
 @filename-kte	cp1252.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP1252.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1252.TXT

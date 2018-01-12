@@ -4,8 +4,8 @@
 @alias	DOS 737
 @alias	DOS CP737
 @alias	DOS Greek
-@cfstringencoding	1029
 @codepage	737
+@cfstringencoding	1029
 @filename-kte	cp737.kte
 @filename-txt	VENDORS/MICSFT/PC/CP737.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP737.TXT

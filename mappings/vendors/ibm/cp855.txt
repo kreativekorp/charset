@@ -8,9 +8,9 @@
 @charset	cp855
 @charset	855
 @charset	csIBM855
-@cfstringencoding	1043
 @codepage	855
 @mibenum	2046
+@cfstringencoding	1043
 @filename-kte	cp855.kte
 @filename-txt	VENDORS/MICSFT/PC/CP855.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP855.TXT

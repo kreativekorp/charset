@@ -9,9 +9,9 @@
 @charset	MS936
 @charset	windows-936
 @charset	csGBK
-@cfstringencoding	1057
 @codepage	936
 @mibenum	113
+@cfstringencoding	1057
 @filename-kte	cp936.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP936.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP936.TXT

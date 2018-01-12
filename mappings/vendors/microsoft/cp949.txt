@@ -4,8 +4,8 @@
 @alias	Windows-949
 @alias	Windows CP949
 @alias	Windows Korean
-@cfstringencoding	1058
 @codepage	949
+@cfstringencoding	1058
 @filename-kte	cp949.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP949.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP949.TXT

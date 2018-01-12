@@ -4,8 +4,8 @@
 @alias	MacChineseSimplified
 @alias	MacSimpChinese
 @charset	x-mac-simp-chinese
-@cfstringencoding	25
 @codepage	10025
+@cfstringencoding	25
 @filename-kte	macchinesesimplified.kte
 @filename-txt	VENDORS/APPLE/CHINSIMP.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CHINSIMP.TXT

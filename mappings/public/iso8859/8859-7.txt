@@ -14,10 +14,10 @@
 @charset	greek
 @charset	greek8
 @charset	csISOLatinGreek
-@cfstringencoding	519
 @codepage	813
 @codepage	9005
 @mibenum	10
+@cfstringencoding	519
 @filename-kte	iso-8859-7.kte
 @filename-txt	ISO8859/8859-7.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-7.TXT

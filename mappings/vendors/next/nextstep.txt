@@ -1,6 +1,7 @@
 @name	NextStep Multinational
 @alias	NextStep
 @charset	x-nextstep
+@nsstringencoding	2
 @cfstringencoding	2817
 @filename-kte	nextstep.kte
 @filename-txt	VENDORS/NEXT/NEXTSTEP.TXT

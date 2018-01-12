@@ -6,9 +6,9 @@
 @alias	Windows Hebrew
 @charset	windows-1255
 @charset	cswindows1255
-@cfstringencoding	1285
 @codepage	1255
 @mibenum	2255
+@cfstringencoding	1285
 @filename-kte	cp1255.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP1255.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1255.TXT

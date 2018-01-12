@@ -7,9 +7,9 @@
 @charset	IBM775
 @charset	cp775
 @charset	csPC775Baltic
-@cfstringencoding	1030
 @codepage	775
 @mibenum	2087
+@cfstringencoding	1030
 @filename-kte	cp775.kte
 @filename-txt	VENDORS/MICSFT/PC/CP775.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP775.TXT

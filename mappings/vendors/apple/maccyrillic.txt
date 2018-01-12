@@ -5,11 +5,11 @@
 @alias	MacUkrainian
 @charset	x-mac-cyrillic
 @charset	x-mac-ukrainian
-@cfstringencoding	7
-@cfstringencoding	152
 @codepage	1283
 @codepage	10007
 @codepage	10152
+@cfstringencoding	7
+@cfstringencoding	152
 @filename-kte	maccyrillic.kte
 @filename-txt	VENDORS/APPLE/CYRILLIC.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CYRILLIC.TXT

@@ -10,9 +10,9 @@
 @charset	latin4
 @charset	l4
 @charset	csISOLatin4
-@cfstringencoding	516
 @codepage	914
 @mibenum	7
+@cfstringencoding	516
 @filename-kte	iso-8859-4.kte
 @filename-txt	ISO8859/8859-4.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-4.TXT

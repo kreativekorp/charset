@@ -11,8 +11,8 @@
 @charset	latin10
 @charset	l10
 @charset	csISO885916
-@cfstringencoding	528
 @mibenum	112
+@cfstringencoding	528
 @filename-kte	iso-8859-16.kte
 @filename-txt	ISO8859/8859-16.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-16.TXT

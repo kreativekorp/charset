@@ -8,9 +8,9 @@
 @charset	cp857
 @charset	857
 @charset	csIBM857
-@cfstringencoding	1044
 @codepage	857
 @mibenum	2047
+@cfstringencoding	1044
 @filename-kte	cp857.kte
 @filename-txt	VENDORS/MICSFT/PC/CP857.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP857.TXT

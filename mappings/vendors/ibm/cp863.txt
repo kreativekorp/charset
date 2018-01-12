@@ -8,9 +8,9 @@
 @charset	cp863
 @charset	863
 @charset	csIBM863
-@cfstringencoding	1048
 @codepage	863
 @mibenum	2050
+@cfstringencoding	1048
 @filename-kte	cp863.kte
 @filename-txt	VENDORS/MICSFT/PC/CP863.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP863.TXT

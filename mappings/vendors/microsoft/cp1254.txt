@@ -6,9 +6,10 @@
 @alias	Windows Turkish
 @charset	windows-1254
 @charset	cswindows1254
-@cfstringencoding	1284
 @codepage	1254
 @mibenum	2254
+@nsstringencoding	14
+@cfstringencoding	1284
 @filename-kte	cp1254.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP1254.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1254.TXT

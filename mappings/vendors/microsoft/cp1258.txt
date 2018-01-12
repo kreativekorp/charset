@@ -6,9 +6,9 @@
 @alias	Windows Vietnamese
 @charset	windows-1258
 @charset	cswindows1258
-@cfstringencoding	1288
 @codepage	1258
 @mibenum	2258
+@cfstringencoding	1288
 @filename-kte	cp1258.kte
 @filename-txt	VENDORS/MICSFT/WINDOWS/CP1258.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP1258.TXT

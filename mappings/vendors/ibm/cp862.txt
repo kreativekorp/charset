@@ -8,9 +8,9 @@
 @charset	cp862
 @charset	862
 @charset	csPC862LatinHebrew
-@cfstringencoding	1047
 @codepage	862
 @mibenum	2013
+@cfstringencoding	1047
 @filename-kte	cp862.kte
 @filename-txt	VENDORS/MICSFT/PC/CP862.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP862.TXT

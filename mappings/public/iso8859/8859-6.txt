@@ -13,9 +13,9 @@
 @charset	ASMO-708
 @charset	arabic
 @charset	csISOLatinArabic
-@cfstringencoding	518
 @codepage	1089
 @mibenum	9
+@cfstringencoding	518
 @filename-kte	iso-8859-6.kte
 @filename-txt	ISO8859/8859-6.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-6.TXT

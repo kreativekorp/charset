@@ -9,9 +9,9 @@
 @charset	869
 @charset	cp-gr
 @charset	csIBM869
-@cfstringencoding	1052
 @codepage	869
 @mibenum	2054
+@cfstringencoding	1052
 @filename-kte	cp869.kte
 @filename-txt	VENDORS/MICSFT/PC/CP869.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP869.TXT

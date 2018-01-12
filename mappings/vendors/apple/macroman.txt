@@ -5,10 +5,11 @@
 @charset	macintosh
 @charset	mac
 @charset	csMacintosh
-@cfstringencoding	0
 @codepage	1275
 @codepage	10000
 @mibenum	2027
+@nsstringencoding	30
+@cfstringencoding	0
 @filename-kte	macroman.kte
 @filename-txt	VENDORS/APPLE/ROMAN.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMAN.TXT

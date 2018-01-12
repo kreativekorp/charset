@@ -16,9 +16,10 @@
 @charset	IBM367
 @charset	cp367
 @charset	csASCII
-@cfstringencoding	1536
 @codepage	367
 @codepage	20127
 @mibenum	3
+@nsstringencoding	1
+@cfstringencoding	1536
 @filename-kte	us-ascii.kte
 @import	fragments/ascii-all.txt

@@ -8,9 +8,9 @@
 @charset	cp852
 @charset	852
 @charset	csPCp852
-@cfstringencoding	1042
 @codepage	852
 @mibenum	2010
+@cfstringencoding	1042
 @filename-kte	cp852.kte
 @filename-txt	VENDORS/MICSFT/PC/CP852.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP852.TXT

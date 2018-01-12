@@ -8,9 +8,9 @@
 @charset	cp866
 @charset	866
 @charset	csIBM866
-@cfstringencoding	1051
 @codepage	866
 @mibenum	2086
+@cfstringencoding	1051
 @filename-kte	cp866.kte
 @filename-txt	VENDORS/MICSFT/PC/CP866.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP866.TXT

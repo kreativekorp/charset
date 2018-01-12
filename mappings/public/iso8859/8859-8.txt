@@ -9,10 +9,10 @@
 @charset	ISO-8859-8
 @charset	hebrew
 @charset	csISOLatinHebrew
-@cfstringencoding	520
 @codepage	916
 @codepage	5012
 @mibenum	11
+@cfstringencoding	520
 @filename-kte	iso-8859-8.kte
 @filename-txt	ISO8859/8859-8.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/ISO8859/8859-8.TXT

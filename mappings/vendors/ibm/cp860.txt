@@ -8,9 +8,9 @@
 @charset	cp860
 @charset	860
 @charset	csIBM860
-@cfstringencoding	1045
 @codepage	860
 @mibenum	2048
+@cfstringencoding	1045
 @filename-kte	cp860.kte
 @filename-txt	VENDORS/MICSFT/PC/CP860.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/PC/CP860.TXT

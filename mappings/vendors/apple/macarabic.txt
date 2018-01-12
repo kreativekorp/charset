@@ -2,8 +2,8 @@
 @name	Mac OS Arabic
 @alias	MacArabic
 @charset	x-mac-arabic
-@cfstringencoding	4
 @codepage	10004
+@cfstringencoding	4
 @filename-kte	macarabic.kte
 @filename-txt	VENDORS/APPLE/ARABIC.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ARABIC.TXT
