@@ -2,7 +2,6 @@
 @name	Mac OS Dingbats
 @alias	MacDingbats
 @charset	x-mac-dingbats
-@codepage	10034
 @cfstringencoding	34
 @filename-kte	macdingbats.kte
 @filename-txt	VENDORS/APPLE/DINGBATS.TXT

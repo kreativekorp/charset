@@ -2,7 +2,6 @@
 @name	Mac OS Gurmukhi
 @alias	MacGurmukhi
 @charset	x-mac-gurmukhi
-@codepage	10010
 @cfstringencoding	10
 @filename-kte	macgurmukhi.kte
 @filename-txt	VENDORS/APPLE/GURMUKHI.TXT

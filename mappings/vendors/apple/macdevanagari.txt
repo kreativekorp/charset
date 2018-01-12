@@ -2,7 +2,6 @@
 @name	Mac OS Devanagari
 @alias	MacDevanagari
 @charset	x-mac-devanagari
-@codepage	10009
 @cfstringencoding	9
 @filename-kte	macdevanagari.kte
 @filename-txt	VENDORS/APPLE/DEVANAGA.TXT

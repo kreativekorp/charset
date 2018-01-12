@@ -2,7 +2,6 @@
 @name	Mac OS Gaelic
 @alias	MacGaelic
 @charset	x-mac-gaelic
-@codepage	10040
 @cfstringencoding	40
 @filename-kte	macgaelic.kte
 @filename-txt	VENDORS/APPLE/GAELIC.TXT

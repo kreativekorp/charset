@@ -3,7 +3,6 @@
 @alias	MacIcelandic
 @charset	x-mac-icelandic
 @codepage	1286
-@codepage	10037
 @codepage	10079
 @cfstringencoding	37
 @filename-kte	macicelandic.kte

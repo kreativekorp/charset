@@ -2,7 +2,6 @@
 @name	Mac OS Symbol
 @alias	MacSymbol
 @charset	x-mac-symbol
-@codepage	10033
 @nsstringencoding	6
 @cfstringencoding	33
 @filename-kte	macsymbol.kte

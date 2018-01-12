@@ -3,7 +3,6 @@
 @alias	MacTurkish
 @charset	x-mac-turkish
 @codepage	1281
-@codepage	10035
 @codepage	10081
 @cfstringencoding	35
 @filename-kte	macturkish.txt

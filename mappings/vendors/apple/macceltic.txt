@@ -2,7 +2,6 @@
 @name	Mac OS Celtic
 @alias	MacCeltic
 @charset	x-mac-celtic
-@codepage	10039
 @cfstringencoding	39
 @filename-kte	macceltic.kte
 @filename-txt	VENDORS/APPLE/CELTIC.TXT

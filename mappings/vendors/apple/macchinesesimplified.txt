@@ -4,7 +4,7 @@
 @alias	MacChineseSimplified
 @alias	MacSimpChinese
 @charset	x-mac-simp-chinese
-@codepage	10025
+@codepage	10008
 @cfstringencoding	25
 @filename-kte	macchinesesimplified.kte
 @filename-txt	VENDORS/APPLE/CHINSIMP.TXT

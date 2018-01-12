@@ -2,7 +2,6 @@
 @name	Mac OS Farsi
 @alias	MacFarsi
 @charset	x-mac-farsi
-@codepage	10140
 @cfstringencoding	140
 @filename-kte	macfarsi.kte
 @filename-txt	VENDORS/APPLE/FARSI.TXT

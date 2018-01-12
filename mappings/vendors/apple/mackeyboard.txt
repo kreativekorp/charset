@@ -1,7 +1,6 @@
 @category	Mac OS Classic
 @name	Mac OS Keyboard
 @alias	MacKeyboard
-@codepage	10041
 @cfstringencoding	41
 @filename-kte	mackeyboard.kte
 @filename-txt	VENDORS/APPLE/KEYBOARD.TXT
