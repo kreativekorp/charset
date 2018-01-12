@@ -1,0 +1,18 @@
+@nsstringencoding	@cfstringencoding	@charset
+1	1536	us-ascii	# Western (ASCII)
+2	2817	x-nextstep	# Western (NextStep)
+3	2336	euc-jp	# Japanese (EUC)
+4	--	utf-8	# Unicode (UTF-8)
+5	513	iso-8859-1	# Western (ISO Latin 1)
+6	33	x-mac-symbol	# Symbol (Mac OS)
+7	3071	--	# Non-lossy ASCII
+8	1056	cp932	# Japanese (Windows, DOS)
+9	514	iso-8859-2	# Central European (ISO Latin 2)
+10	256	utf-16	# Unicode (UTF-16)
+11	1282	windows-1251	# Cyrillic (Windows)
+12	1280	windows-1252	# Western (Windows Latin 1)
+13	1283	windows-1253	# Greek (Windows)
+14	1284	windows-1254	# Turkish (Windows Latin 5)
+15	1281	windows-1250	# Central European (Windows Latin 2)
+21	2080	iso-2022-jp	# Japanese (ISO 2022-JP)
+30	0	macintosh	# Western (Mac OS Roman)

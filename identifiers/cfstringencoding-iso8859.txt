@@ -1,0 +1,17 @@
+@cfstringencoding	@charset
+513	iso-8859-1	# Western (ISO Latin 1)
+514	iso-8859-2	# Central European (ISO Latin 2)
+515	iso-8859-3	# Western (ISO Latin 3)
+516	iso-8859-4	# Central European (ISO Latin 4)
+517	iso-8859-5	# Cyrillic (ISO 8859-5)
+518	iso-8859-6	# Arabic (ISO 8859-6)
+519	iso-8859-7	# Greek (ISO 8859-7)
+520	iso-8859-8	# Hebrew (ISO 8859-8)
+521	iso-8859-9	# Turkish (ISO Latin 5)
+522	iso-8859-10	# Nordic (ISO Latin 6)
+523	iso-8859-11	# Thai (ISO 8859-11)
+524	iso-8859-12	# --
+525	iso-8859-13	# Baltic (ISO Latin 7)
+526	iso-8859-14	# Celtic (ISO Latin 8)
+527	iso-8859-15	# Western (ISO Latin 9)
+528	iso-8859-16	# Romanian (ISO Latin 10)
