@@ -4,7 +4,8 @@ import os
 import re
 import subprocess
 
-from parselib import charset_path
+def charset_path(*paths):
+	return os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', *paths))
 
 def cache_path(url=None):
 	path = charset_path('.charset-cache')

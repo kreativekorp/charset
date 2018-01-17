@@ -9,6 +9,7 @@
 @charset	ebcdic-cp-he
 @charset	csIBM424
 @codepage	424
+@codepage	20424
 @mibenum	2043
 @filename-kte	cp424.kte
 @filename-txt	VENDORS/MISC/CP424.TXT

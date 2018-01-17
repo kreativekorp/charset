@@ -17,14 +17,16 @@ class cd:
 	def __exit__(self, etype, value, traceback):
 		os.chdir(self.oldPath)
 
-def ls(path):
+def ls(path, files=True, dirs=False):
 	for f in os.listdir(path):
 		if f[0] != '.':
 			f = os.path.join(path, f)
-			if os.path.isfile(f):
+			if files and os.path.isfile(f):
 				yield f
 			if os.path.isdir(f):
-				for f in ls(f):
+				if dirs:
+					yield f
+				for f in ls(f, files, dirs):
 					yield f
 
 class atline_matcher:
@@ -65,6 +67,14 @@ def expand(path, strip_atlines=False, strip_comments=False):
 				yield line
 			elif not is_comment(line):
 				yield strip_comment(line)
+
+__atline_matcher = re.compile('^\\s*@(\\S+)\\s+')
+def split_atline(line):
+	m = __atline_matcher.match(line)
+	if m is None: return (None, None)
+	keyword = m.group(1)
+	value = strip_comment(line[m.end(0):])
+	return (keyword, value)
 
 __mapline_matcher = re.compile('^\\s*([0Aa][Xx][0-9A-Fa-f]+)\\s+([0Aa][Xx][0-9A-Fa-f]+([+][0Aa][Xx][0-9A-Fa-f]+)*)')
 def split_mapline(line):

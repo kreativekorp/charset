@@ -4,6 +4,7 @@
 @alias	MacChineseSimplified
 @alias	MacSimpChinese
 @charset	x-mac-simp-chinese
+@charset	x-mac-chinesesimp
 @codepage	10008
 @cfstringencoding	25
 @filename-kte	macchinesesimplified.kte

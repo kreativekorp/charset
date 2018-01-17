@@ -10,6 +10,7 @@
 @mibenum	2027
 @nsstringencoding	30
 @cfstringencoding	0
+@cfstringencoding	255
 @filename-kte	macroman.kte
 @filename-txt	VENDORS/APPLE/ROMAN.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMAN.TXT

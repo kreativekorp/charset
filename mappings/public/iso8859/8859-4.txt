@@ -5,12 +5,14 @@
 @alias	ISO Latin-4
 @alias	Latin-4
 @charset	iso-ir-110
+@charset	ISO_8859-4:1988
 @charset	ISO_8859-4
 @charset	ISO-8859-4
 @charset	latin4
 @charset	l4
 @charset	csISOLatin4
 @codepage	914
+@codepage	28594
 @mibenum	7
 @cfstringencoding	516
 @filename-kte	iso-8859-4.kte

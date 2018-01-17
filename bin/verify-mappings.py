@@ -86,14 +86,6 @@ def main():
 					print('mappings/%s: FAILED:\n%r' % (path[2:], result))
 				else:
 					print('mappings/%s: PASSED' % path[2:])
-	with cd(charset_path('puadata')):
-		for path in ls('.'):
-			result = verify(path)
-			if result is not None:
-				if len(result) > 0:
-					print('puadata/%s: FAILED:\n%r' % (path[2:], result))
-				else:
-					print('puadata/%s: PASSED' % path[2:])
 
 if __name__ == '__main__':
 	main()

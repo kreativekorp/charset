@@ -7,6 +7,7 @@
 @charset	ISO-8859-13
 @charset	csISO885913
 @codepage	921
+@codepage	28603
 @mibenum	109
 @cfstringencoding	525
 @filename-kte	iso-8859-13.kte

@@ -2,6 +2,7 @@
 @name	Mac OS Central European
 @alias	MacCentralEuropean
 @charset	x-mac-centraleurroman
+@charset	x-mac-ce
 @codepage	1282
 @codepage	10029
 @cfstringencoding	29

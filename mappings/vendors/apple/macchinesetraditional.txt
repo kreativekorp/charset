@@ -4,6 +4,7 @@
 @alias	MacChineseTraditional
 @alias	MacTradChinese
 @charset	x-mac-trad-chinese
+@charset	x-mac-chinesetrad
 @codepage	10002
 @cfstringencoding	2
 @filename-kte	macchinesetraditional.kte

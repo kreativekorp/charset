@@ -5,6 +5,7 @@
 @alias	ISO Latin-2
 @alias	Latin-2
 @charset	iso-ir-101
+@charset	ISO_8859-2:1987
 @charset	ISO_8859-2
 @charset	ISO-8859-2
 @charset	latin2
@@ -12,6 +13,7 @@
 @charset	csISOLatin2
 @codepage	912
 @codepage	25488
+@codepage	28592
 @mibenum	5
 @nsstringencoding	9
 @cfstringencoding	514

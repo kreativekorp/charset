@@ -5,12 +5,14 @@
 @alias	ISO Latin-5
 @alias	Latin-5
 @charset	iso-ir-148
+@charset	ISO_8859-9:1989
 @charset	ISO_8859-9
 @charset	ISO-8859-9
 @charset	latin5
 @charset	l5
 @charset	csISOLatin5
 @codepage	920
+@codepage	28599
 @mibenum	12
 @cfstringencoding	521
 @filename-kte	iso-8859-9.kte

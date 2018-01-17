@@ -5,12 +5,14 @@
 @alias	ISO Hebrew
 @alias	Hebrew
 @charset	iso-ir-138
+@charset	ISO_8859-8:1988
 @charset	ISO_8859-8
 @charset	ISO-8859-8
 @charset	hebrew
 @charset	csISOLatinHebrew
 @codepage	916
 @codepage	5012
+@codepage	28598
 @mibenum	11
 @cfstringencoding	520
 @filename-kte	iso-8859-8.kte

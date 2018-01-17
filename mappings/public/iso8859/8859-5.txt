@@ -5,12 +5,14 @@
 @alias	ISO Cyrillic
 @alias	Cyrillic
 @charset	iso-ir-144
+@charset	ISO_8859-5:1988
 @charset	ISO_8859-5
 @charset	ISO-8859-5
 @charset	cyrillic
 @charset	csISOLatinCyrillic
 @codepage	915
 @codepage	25491
+@codepage	28595
 @mibenum	8
 @cfstringencoding	517
 @filename-kte	iso-8859-5.kte

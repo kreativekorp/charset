@@ -7,6 +7,7 @@
 @alias	ECMA 114
 @alias	ASMO 708
 @charset	iso-ir-127
+@charset	ISO_8859-6:1987
 @charset	ISO_8859-6
 @charset	ISO-8859-6
 @charset	ECMA-114
@@ -14,6 +15,7 @@
 @charset	arabic
 @charset	csISOLatinArabic
 @codepage	1089
+@codepage	28596
 @mibenum	9
 @cfstringencoding	518
 @filename-kte	iso-8859-6.kte

@@ -7,6 +7,7 @@
 @alias	ELOT 928
 @alias	ECMA 118
 @charset	iso-ir-126
+@charset	ISO_8859-7:1987
 @charset	ISO_8859-7
 @charset	ISO-8859-7
 @charset	ELOT_928
@@ -16,6 +17,7 @@
 @charset	csISOLatinGreek
 @codepage	813
 @codepage	9005
+@codepage	28597
 @mibenum	10
 @cfstringencoding	519
 @filename-kte	iso-8859-7.kte
