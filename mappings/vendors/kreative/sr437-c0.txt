@@ -1,0 +1,26 @@
+@category	Kreative Software
+@name	Kreative Super437 C0
+@alias	KK Super437 C0
+@charset	x-kk-super437-c0
+@filename-kte	super437-c0.kte
+@filename-txt	VENDORS/KREATIVE/SR437C0.TXT
+@generate-txt	VENDORS/KREATIVE/SR437C0.TXT
+#
+#	Name:             Kreative Super437 (C0) to Unicode
+#	Unicode Version:  6.0
+#	Table Version:    1.0
+#	Table Format:     Format A
+#	Date:             2018 January 17
+#	Authors:          Rebecca Bettencourt <support@kreativekorp.com>
+#
+#	Copyright (c) 2018 Kreative Software. All Rights Reserved.
+#
+#	This file is provided as-is by Kreative Software.
+#	No claims are made as to fitness for any particular purpose.
+#	No warranties of any kind are expressed or implied.
+#	The recipient agrees to determine applicability of information provided.
+#
+@import	fragments/ascii-c0.txt
+@import	fragments/ascii-g0.txt
+@import	fragments/ascii-del.txt
+@import	fragments/super437-g1.txt
