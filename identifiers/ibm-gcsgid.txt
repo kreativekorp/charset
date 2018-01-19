@@ -1,0 +1,351 @@
+00001	0001	USA WP 96
+00025	0019	Latin America, Puerto Rico, Costa Rica WP 96
+00029	001D	Germany, Austria WP 96
+00041	0029	Italy WP 96
+00053	0035	Sweden, Finland WP 96
+00055	0037	Norway WP 96
+00057	0039	Denmark WP 96
+00061	003D	Brazil WP 96
+00067	0043	United Kingdom WP 96
+00101	0065	USA DP 94
+00103	0067	International DP 94 (ASCII)
+00218	00DA	Greece
+00235	00EB	Arabic Bilingual - 181
+00236	00EC	Maghreb/French
+00237	00ED	Maghreb/French
+00265	0109	Austria/Germany DP 94
+00269	010D	Belgium DP 94
+00273	0111	Brazil DP 94
+00277	0115	Canada (French) DP 94
+00281	0119	Denmark, Norway DP 94
+00285	011D	Finland, Sweden DP 94
+00288	0120	France DP 94
+00289	0121	France DP 94
+00293	0125	Italy DP 94
+00301	012D	Portugal DP 94
+00309	0135	Latin America (Spanish Speaking) DP 94
+00313	0139	United Kingdom DP 94
+00317	013D	Austria/Germany F.R., Alternate (3270)
+00332	014C	Japan (Katakana)
+00337	0151	MLP # 1
+00340	0154	Symbols, Set 7
+00370	0172	Japanese, Kanji DBCS including 1,880 UDCs
+00380	017C	APL/EBCDIC
+00640	0280	Syntactic Character Set
+00650	028A	Spain DP/TP - 118
+00682	02AA	France 108
+00684	02AC	Canada (Bilingual)
+00687	02AF	Israel (Hebrew)
+00695	02B7	Euro Country Extended Code Page (ECECP)
+00697	02B9	Country Extended Code Page (CECP)
+00700	02BC	Belgium - 167
+00810	032A	MS-DOS Greek (Max)
+00811	032B	MS-DOS Baltic Rim (Max)
+00812	032C	MS-DOS Greek (PC-Data)
+00813	032D	MS-DOS Baltic Rim (PC-Data)
+00814	032E	MS-DOS Arabic (Transparent ASMO)
+00904	0388	Switzerland, French/German - 116
+00905	0389	Canadian Bilingual - 124
+00908	038C	Switzerland - 131
+00919	0397	Personal Computer
+00921	0399	France, PC - 103
+00922	039A	Germany, PC - 104
+00923	039B	Italy, PC - 98
+00924	039C	United Kingdom, PC - 97
+00925	039D	Greece
+00933	03A5	Korea
+00934	03A6	Korean DBCS including 1,880 UDCs
+00935	03A7	Traditional Chinese DBCS including 6,204 UDCs
+00936	03A8	People's Republic of China (PRC)
+00937	03A9	Simplified Chinese DBCS with UDCs
+00938	03AA	Thailand
+00941	03AD	Israel (Hebrew)
+00948	03B4	Russian internet koi8-r
+00959	03BF	Latin 2 - Multilingual
+00960	03C0	Cyrillic, Multilingual
+00963	03C3	Graphic Escape APL2/TN - 138
+00965	03C5	Latin 3, Multilingual - 182
+00966	03C6	Thailand - Personal Computer
+00968	03C8	OCR A
+00969	03C9	OCR B
+00980	03D4	MLP - PC
+00981	03D5	Greece - Personal Computer
+00982	03D6	Latin 2 - Personal Computer
+00983	03D7	Latin 3 - Personal Computer
+00985	03D9	Cyrillic - Personal Computer
+00986	03DA	Hebrew - PC
+00988	03DC	PC-display multilingual with euro
+00989	03DD	PC-data multilingual with euro
+00990	03DE	Portugal - Personal Computer
+00991	03DF	Iceland - Personal Computer
+00992	03E0	Israel - Personal Computer
+00993	03E1	Canadian French - Personal Computer
+00994	03E2	Arabic-Personal Computer, Output Imaging-249
+00995	03E3	Nordic - Personal Computer
+00996	03E4	Cyrillic, Russian
+00997	03E5	Urdu - Personal Computer, Output Imaging-253
+00998	03E6	Greece - Personal Computer
+01000	03E8	Japanese DBCS without UDCs
+01001	03E9	Japanese, Kanji DBCS including 4,370 UDCs
+01030	0406	Traditional Chinese DBCS without UDCs
+01050	041A	Korean DBCS-PC including 1,880 UDCs
+01051	041B	DBCS-PC excluding 1880 UDCs, Wards A1-C8, CA-FD
+01056	0420	Korean DBCS, KSC 5601 Set including 188 UDCs, Wards A1-FE
+01058	0422	Japanese DBCS-EUC, JIS X 0208 Set including 940 UDCs
+01059	0423	Japanese DBCS-EUC, JIS X 0212 Set including IBM Selected + 940 UDCs
+01060	0424	Japanese DBCS-EUC IBM selected including 940 UDCs
+01061	0425	Japanese DBCS-EUC JIS X0208
+01062	0426	Japanese DBCS-EUC JIS X0212
+01063	0427	Japanese JIS X 0208 - 1978 set ( 6802 char)
+01064	0428	Japanese DBCS-TCP JIS X0208-1983
+01066	042A	Japanese DBCS PC for Open Environment
+01070	042E	Traditional Chinese DBCS-EUC CNS 11643 Primary Set
+01071	042F	Traditional Chinese TBCS-EUC CNS 11643 Remainder Set including 7650 CNS, 11643 secondary set, 325 IBM selected characters + 6,204 UDCs
+01073	0431	Traditional Chinese DBCS CNS 11643 Plane 2
+01075	0433	Traditional Chinese DBCS-PC equivalent to CNS 11643-1984
+01080	0438	Simplified Chinese DBCS equivalent to GB2312-80 (excluding IBM selected & UDC)
+01081	0439	Simplified Chinese DBCS-EUC GB 2312-80
+01084	043C	GB 18030 Two-byte Code Set excluding Euro sign without UDCs
+01085	043D	GB 18030 DBCS excluding Euro sign, 206 Uygur characters, 193 Tibetan characters, 155 Mongolian characters, 1165 Yi Syllables, 50 Yi Radical, 6530 CJK Unified Ideograph Extension-A,
+01093	0445	Korean DBCS excluding 623 unique characters and 1880 UDCs and Euro currency sign(Ward 49) and Registered sign(Ward 49) (Common Set with DBCS-PC) Wards 40 to D3
+01094	0446	Korean DBCS excluding 1880 UDCs and Euro currency sign(Ward 49) and Registered sign(Ward 49) Wards 40 to D3
+01101	044D	Arabic - PC, Data Storage and Interchange - 153
+01106	0452	MLP - 222, PC
+01114	045A	Belgium - 160
+01116	045C	Portugal - 94
+01117	045D	Norway - 94
+01118	045E	United Kingdom - 94
+01119	045F	Spain - 94
+01120	0460	Japan 7-Bit Latin
+01121	0461	Japan 7-Bit Katakana
+01122	0462	Japan Alphanumeric and Katakana
+01124	0464	Greece - 180 (3174)
+01125	0465	Cyrillic - 180 (3174)
+01126	0466	Iceland - 181 (3174)
+01128	0468	Latin 2, ROECE - 181 (3174)
+01129	0469	France - 105
+01132	046C	DCF Release 2 Compatibility
+01134	046E	SNA Character Set, Type AR
+01135	046F	Denmark - 94
+01136	0470	Finland/Sweden - 94
+01137	0471	Netherlands - 94
+01141	0475	Arabic Bilingual - 136
+01142	0476	Arabic Bilingual - 133
+01146	047A	Latin-1 Extended, Desk Top Publishing/Windows
+01147	047B	Hebrew Character Set A
+01150	047E	Cyrillic, Multilingual
+01151	047F	Urdu-PC, Data Storage & Interchange - 217
+01152	0480	Latin #5, Turkey
+01160	0488	Urdu, Output Imaging - 190
+01162	048A	Arabic - 189
+01164	048C	Japan PC #1 - 181
+01165	048D	Korea - Personal Computer - 170
+01166	048E	People's Republic of China (PRC)-PC-118
+01167	048F	Taiwan - 118
+01168	0490	Urdu, Data Storage & Interchange - 154
+01169	0491	International Alphabet 5
+01170	0492	Japan Intersection (US English & PC)
+01171	0493	Japan Intersection (Katakana & PC)
+01172	0494	Japanese Extended (EBCDIC/PC Common)
+01173	0495	Korean Extended (EBCDIC/PC Common)
+01174	0496	Simplified Chinese Ext (EBCDIC/PC Common)
+01175	0497	Traditional Chinese Ext (EBCDIC/PC Common)
+01176	0498	Thai Extended (EBCDIC/PC Common)
+01177	0499	Arabic Extended, Output Imaging
+01178	049A	Arabic Extended, Data Storage & Interchange
+01185	04A1	Simplified Chinese PC Data
+01186	04A2	Korean PC Display Extended
+01187	04A3	Japanese PC Display Extended
+01188	04A4	Simplified Chinese PC Display Extended
+01189	04A5	Traditional Chinese PC Display Extended
+01190	04A6	Cyrillic, Russian
+01192	04A8	Canadian (French) Variant
+01193	04A9	Switzerland Variant
+01195	04AB	Spain Variant
+01201	04B1	H-P Emulation, Roman 8
+01212	04BC	US - PC Data Character Set
+01213	04BD	Portugese - PC Data Character Set
+01214	04BE	Icelandic - PC Data Character Set
+01215	04BF	Canadian French - PC Data Character Set
+01216	04C0	Nordic - PC Data Character Set
+01217	04C1	Hebrew - PC Data Characters Subset #1
+01218	04C2	Hebrew - PC Data Characters Subset #2
+01219	04C3	Farsi Bilingual - 190
+01220	04C4	Country Extended Code Page (CECP)
+01224	04C8	Korea - Personal Computer
+01231	04CF	Greece - PC Data Character Set
+01232	04D0	Latin 2 - PC Data Character Set
+01233	04D1	Latin 3 - PC Data Character Set
+01235	04D3	Cyrillic - PC Data Character Set
+01237	04D5	Latin 5, Turkey - PC Data Character Set
+01238	04D6	US PC Display Subset - 126
+01239	04D7	Simplified Chinese Ext (EBCDIC/PC Common)
+01240	04D8	US PC Display Subset - 129
+01244	04DC	Arabic - PC Data Character Set
+01248	04E0	Urdu - PC Data Character Set
+01249	04E1	Greece - PC Data Character Set
+01256	04E8	Latin 4
+01267	04F3	Revised Korean, PC Display
+01271	04F7	Arabic Character Set, Data Stor & Interchange
+01274	04FA	Dualcase Printable Graphics of ASN.1
+01278	04FE	Revised Korean, PC Data
+01279	04FF	Thai with Low Tone Marks & Ancient Characters
+01284	0504	Japan Katakana Extended
+01285	0505	Farsi, PC Display
+01286	0506	Latin 3
+01288	0508	Farsi, PC Data
+01290	050A	Multinational Emulation
+01291	050B	British NRC Set
+01292	050C	Dutch NRC Set
+01293	050D	Finnish NRC Set
+01295	050F	Norwegian/Danish NRC Set
+01296	0510	Swedish NRC Set
+01297	0511	Norwegian/Danish NRC Alternate
+01302	0516	Latin 3 - Personal Computer
+01303	0517	Latin 3 - PC Data Character Set
+01305	0519	Baltic - Multilingual
+01307	051B	Estonia
+01310	051E	Symbols - Personal Computer
+01326	052E	Cyrillic, Ukraine
+01331	0533	Cyrillic, Ukrainian PC-display
+01332	0534	Cyrillic, Ukrainian PC data
+01334	0536	Arabic/French PC data
+01336	0538	Vietnamese
+01337	0539	Arabic/French PC display
+01338	053A	Cyrillic, Belorussian, PC display
+01339	053B	Cyrillic, Belorussian, PC data
+01340	053C	APL (USA)
+01341	053D	Lao
+01344	0540	Latin 2 ISO8 display
+01345	0541	Cyrillic 8-bit, ISO8 display
+01346	0542	Baltic ISO8 display
+01347	0543	Estonia ISO8 display
+01349	0545	Israel (Hebrew)
+01350	0546	Arabic Bilingual - 146 (incl Hindi numerics)
+01351	0547	Indian Script Code (ISCII-91)
+01353	0549	Latin 9
+01354	054A	PC Indian Script Code (ISCII-91)
+01356	054C	Israel (Hebrew)
+01357	054D	Hebrew Character Set A
+01358	054E	Hebrew - PC
+01359	054F	Hebrew - PC Data Characters Subset #2
+01360	0550	Israel - Personal Computer
+01361	0551	Hebrew - PC Data Characters Subset #1
+01369	0559	PC-display Latin 9
+01370	055A	PC-data Latin 9
+01371	055B	Greece with euro
+01372	055C	PC Data, Greece with euro
+01373	055D	PC display, Greece with euro
+01375	055F	Latin 2 - Multilingual with euro
+01376	0560	PC-data Latin 2 Multilingual with euro
+01377	0561	PC-display Latin 2 Multilingual with euro
+01378	0562	Turkey Latin 5 with euro
+01379	0563	PC-data, Latin 5, Turkey with euro
+01380	0564	PC-display, Latin #5, Turkey with euro
+01381	0565	Cyrillic, Multilingual with euro
+01382	0566	PC-data Cyrillic Multilingual with euro
+01383	0567	PC-display Cyrillic Multilingual with euro
+01384	0568	PC-data Cyrillic, Russian with euro
+01385	0569	PC-display Cyrillic, Russian with euro
+01386	056A	PC-data Cyrillic, Belorussian with euro
+01387	056B	PC-display Cyrillic, Belorussian with euro
+01388	056C	Cyrillic, Ukraine with euro
+01389	056D	PC-data, Cyrillic, Ukraine with euro
+01390	056E	PC-display Cyrillic, Ukrainian with euro
+01391	056F	Estonia with euro
+01392	0570	ISO-8 display Estonia with euro
+01393	0571	Baltic - Multilingual with euro
+01394	0572	ISO-8 display Baltic multilingual with euro
+01395	0573	Thai with Low Tone Marks & Ancient Characters
+01396	0574	Thai MS Windows
+01397	0575	Vietnamese
+01398	0576	Japanese Extended (EBCDIC/PC Common)
+01399	0577	Traditional Chinese Ext
+01400	0578	Windows, Latin 2
+01401	0579	Windows, Cyrillic
+01402	057A	Windows, Latin 1
+01403	057B	Windows, Greek
+01404	057C	Windows, Turkish
+01405	057D	Windows, Hebrew
+01406	057E	Windows, Arabic
+01407	057F	Windows, Baltic Rim
+01408	0580	Windows, Vietnamese
+01410	0582	Windows, Latin 2 + euro
+01411	0583	Windows, Cyrillic + euro
+01412	0584	Windows, Latin 1 + euro
+01413	0585	Windows, Greek + euro
+01414	0586	Windows, Turkish + euro
+01415	0587	Windows, Hebrew + euro
+01416	0588	Windows, Arabic + euro
+01417	0589	Windows, Baltic Rim + euro
+01418	058A	Windows, Vietnamese + euro
+01419	058B	Windows, Hebrew + Euro
+01420	058C	Windows, Arabic extended including euro
+01421	058D	Windows, Baltic Rim + Euro
+01425	0591	Apple Latin 1
+01426	0592	Postscript Standard Encoding
+01427	0593	Postscript Latin 1
+01430	0596	Apple Greek
+01431	0597	Apple Turkish
+01432	0598	Apple Central European (Latin-2)
+01433	0599	Apple Cyrillic
+01434	059A	Apple Croatian
+01435	059B	Apple Romanian
+01436	059C	Apple Icelandic
+01437	059D	DEC Greek
+01438	059E	DEC Turkish
+01441	05A1	Cyrillic, Multilingual with euro
+01461	05B5	Arabic Bilingual
+01462	05B6	Arabic - PC Data
+01463	05B7	Arabic-Personal Computer PC-display
+01464	05B8	Arabic
+01465	05B9	Arabic extended
+01466	05BA	Israel (Hebrew)
+01467	05BB	Devanagari EBCDIC
+01468	05BC	Arabic - Data Storage & Interchange (Extended)
+01469	05BD	Devanagari EBCDIC with Rupee Sign
+01500	05DC	T-Ch/S-Ch Latin 1 PC-display subset
+01502	05DE	OCR-B plus alt-m, euro, and vertical line
+01508	05E4	Belarusian/Ukrainian KOI8-RU
+01509	05E5	Ukrainian KOI8-U
+01514	05EA	Latin/Greek - ISO
+02059	080B	Extended Japanese DBCS, including 12,237 Kanji characters, 2,585 Non-Kanji characters, 6,205 UDCs
+02081	0821	GBK Host DBCS incl. 1894UDCs
+02084	0824	GB 18030 Two-byte Code Set
+02085	0825	GB 18030 Four-byte Code Set
+02086	0826	GB 18030 DBCS-Host including 206 Uygur characters and others
+02087	0827	GB 18030 DBCS-Host
+02092	082C	Extended Japanese DBCS-Host for JIS X0213
+02096	0830	Japanese DBCS-EUC, JIS X 0208 Set including 83 NEC selected chars and 940 UDCs
+02110	083E	DB Big-5 ext for HKSCS-2001
+02111	083F	Host HKSCS-2001, DB
+02112	0840	DB Big-5 ext for HKSCS-2004
+02113	0841	DB, Host HKSCS-2004
+02114	0842	DBCS PC for HKSCS-2008
+02115	0843	Host for HKSCS-2008
+02131	0853	T-Ch DBCS Fixed CS for additional CNS 11643 subset including 6395 UDCs
+03001	0BB9	ISO 10646 (Unicode 2.0)
+03004	0BBC	ISO 10646 (Unicode 3.0)
+03005	0BBD	Repertoire of Unicode V4.0 BMP (Plane 00)
+03006	0BBE	Repertoire of Unicode V4.0 SMP (Plane 01)
+03007	0BBF	Repertoire of Unicode V4.0 SIP (Plane 02)
+03008	0BC0	Repertoire of Unicode V4.0 SSP (Plane 0E)
+03009	0BC1	Repertoire of Unicode V 4.1 BMP (Plane 00)
+03010	0BC2	Repertoire of Unicode V 4.1 SMP (Plane 01)
+03011	0BC3	Repertoire of Unicode V 5.0 BMP (Plane 00)
+03012	0BC4	Repertoire of Unicode V 5.0 SMP (Plane 01)
+03013	0BC5	Repertoire of Unicode V 5.1 BMP (Plane 00)
+03014	0BC6	Repertoire of Unicode V 5.1 SMP (Plane 01)
+03015	0BC7	Repertoire of Unicode V 5.2 BMP (Plane 00)
+03016	0BC8	Repertoire of Unicode V 5.2 SMP (Plane 01)
+03017	0BC9	Repertoire of Unicode V5.2 SIP (Plane 02)
+03018	0BCA	Repertoire of Unicode V 6.0 BMP (Plane 00)
+03019	0BCB	Repertoire of Unicode V 6.0 SMP (Plane 01)
+03020	0BCC	Repertoire of Unicode V6.0 SIP (Plane 02)
+03095	0C17	IBM Advanced Function Printing (AFP) PUA No. 1
+03096	0C18	Repertoire of Unicode V4.0 PUP-15 (Plane 0F)
+03097	0C19	Repertoire of Unicode V4.0 PUP-16 (Plane 10)
+03098	0C1A	Repertoire of Unicode V4.0 PUA of UCS-BMP (Generic UDC)
+03099	0C1B	IBM default PUA
+65520	FFF0	Empty Character Set
+65535	FFFF	Growing Character Set

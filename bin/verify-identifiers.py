@@ -9,11 +9,11 @@ sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(_
 from parselib import cd, charset_path, expand, is_atline, ls, split_atline, strip_comment
 
 def get_assertions():
-	headers = []
-	dotdotdot = False
 	assertions = {}
 	with cd(charset_path('identifiers')):
 		for path in ls('.'):
+			headers = []
+			dotdotdot = False
 			for line in expand(path):
 				if is_atline(line):
 					headers = []
