@@ -35,7 +35,7 @@ def verify(path):
 		return None
 	else:
 		expmap = {}
-		with open(acquire(url), 'r') as f:
+		with open(acquire(url, 'local'), 'r') as f:
 			for line in f:
 				# Hacks for reference encodings: JIS X 0208 has three columns.
 				if url.endswith('/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0208.TXT'):
