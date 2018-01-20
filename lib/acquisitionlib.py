@@ -91,3 +91,41 @@ class simple_html_parser(HTMLParser.HTMLParser):
 	def close(self):
 		HTMLParser.HTMLParser.close(self)
 		self.simple_close()
+
+class html_table_parser(simple_html_parser):
+	def simple_init(self, *args, **kwargs):
+		self.rows = []
+		self.in_table = False
+		self.in_column = -1
+		self.row = []
+
+	def simple_starttag(self, tag, attrs):
+		if tag == 'table':
+			self.in_table = True
+			self.in_column = -1
+			self.row = []
+		elif self.in_table:
+			if tag == 'tr':
+				self.in_column = -1
+				self.row = []
+			elif tag == 'th' or tag == 'td':
+				self.in_column += 1
+
+	def simple_data(self, data):
+		if self.in_table and self.in_column >= 0:
+			while self.in_column >= len(self.row):
+				self.row.append('')
+			self.row[self.in_column] += data
+
+	def simple_endtag(self, tag):
+		if tag == 'table':
+			self.in_table = False
+			self.in_column = -1
+			self.row = []
+		elif self.in_table:
+			if tag == 'tr':
+				for i in range(0, len(self.row)):
+					self.row[i] = self.row[i].strip()
+				self.rows.append(self.row)
+				self.in_column = -1
+				self.row = []

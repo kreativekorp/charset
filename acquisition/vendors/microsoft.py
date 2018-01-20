@@ -110,7 +110,7 @@ class __vendor_id_detail_parser(simple_html_parser):
 
 def list_vendors():
 	vip = __vendor_id_index_parser()
-	with io.open(acquire('https://www.microsoft.com/typography/links/vendorlist.aspx'), mode='r', encoding='iso8859-1') as f:
+	with io.open(acquire('https://www.microsoft.com/typography/links/vendorlist.aspx', 'local'), mode='r', encoding='iso8859-1') as f:
 		for line in f:
 			vip.feed(line)
 	vip.close()
