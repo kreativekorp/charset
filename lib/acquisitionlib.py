@@ -25,7 +25,7 @@ def acquire(url, version='auto'):
 	if version == 'local' and path_exists:
 		return path
 	else:
-		args = ['curl', '-s', url, '-o', path]
+		args = ['curl', '-A', 'Mozilla/5.0', '-L', '-s', url, '-o', path]
 		if version != 'remote' and path_exists:
 			args.append('-z')
 			args.append(path)
