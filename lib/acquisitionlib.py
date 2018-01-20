@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import HTMLParser
+import htmlentitydefs
 import os
 import re
 import subprocess
@@ -17,11 +19,75 @@ def cache_path(url=None):
 		path = os.path.join(path, url)
 	return path
 
-def acquire(url):
+def acquire(url, version='auto'):
 	path = cache_path(url)
-	args = ['curl', '-s', url, '-o', path]
-	if os.path.exists(path):
-		args.append('-z')
-		args.append(path)
-	subprocess.check_call(args)
-	return path
+	path_exists = os.path.exists(path)
+	if version == 'local' and path_exists:
+		return path
+	else:
+		args = ['curl', '-s', url, '-o', path]
+		if version != 'remote' and path_exists:
+			args.append('-z')
+			args.append(path)
+		subprocess.check_call(args)
+		return path
+
+class simple_html_parser(HTMLParser.HTMLParser):
+	def simple_init(self, *args, **kwargs):
+		pass
+
+	def simple_starttag(self, tag, attrs):
+		pass
+
+	def simple_data(self, data):
+		pass
+
+	def simple_endtag(self, tag):
+		pass
+
+	def simple_close(self):
+		pass
+
+	def __init__(self, *args, **kwargs):
+		HTMLParser.HTMLParser.__init__(self)
+		self.simple_init(*args, **kwargs)
+
+	def feed(self, s):
+		s = re.sub(u'\u2022', u'\u2022bull;', s)
+		s = re.sub(u'&(#?[A-Za-z0-9_:.-]+);', u'\u2022\\1;', s)
+		s = re.sub(u'&', u'\u2022amp;', s)
+		s = re.sub(u'\u2022', u'&', s)
+		HTMLParser.HTMLParser.feed(self, s)
+
+	def handle_starttag(self, tag, attrs):
+		tag = tag.lower()
+		attrs = dict((k.lower(), v) for k, v in attrs)
+		self.simple_starttag(tag, attrs)
+
+	def handle_data(self, data):
+		self.simple_data(data)
+
+	def handle_entityref(self, name):
+		try:
+			data = unichr(htmlentitydefs.name2codepoint[name])
+		except:
+			data = '&%s;' % name
+		self.simple_data(data)
+
+	def handle_charref(self, name):
+		try:
+			if name.startswith('x'):
+				data = unichr(int(name[1:], 16))
+			else:
+				data = unichr(int(name))
+		except:
+			data = '&%s;' % name
+		self.simple_data(data)
+
+	def handle_endtag(self, tag):
+		tag = tag.lower()
+		self.simple_endtag(tag)
+
+	def close(self):
+		HTMLParser.HTMLParser.close(self)
+		self.simple_close()

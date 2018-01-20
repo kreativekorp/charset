@@ -2,6 +2,7 @@
 
 import os
 import re
+import sys
 
 def charset_path(*paths):
 	return os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', *paths))
@@ -85,3 +86,20 @@ def split_mapline(line):
 	bytes_alt = (m.group(1)[0] != '0')
 	chars_alt = (m.group(2)[0] != '0')
 	return (bytes, chars, bytes_alt, chars_alt)
+
+class syspath:
+	def __init__(self, path):
+		self.newPath = path
+
+	def __enter__(self):
+		self.oldPath = list(sys.path)
+		sys.path.append(self.newPath)
+
+	def __exit__(self, etype, value, traceback):
+		sys.path = list(self.oldPath)
+
+def load_plugin(path):
+	if path.lower().endswith('.py'):
+		with syspath(os.path.dirname(path)):
+			return __import__(os.path.basename(path)[:-3])
+	return None
