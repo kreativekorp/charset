@@ -129,3 +129,11 @@ class html_table_parser(simple_html_parser):
 				self.rows.append(self.row)
 				self.in_column = -1
 				self.row = []
+
+class html_link_collector(simple_html_parser):
+	def simple_init(self, *args, **kwargs):
+		self.links = []
+
+	def simple_starttag(self, tag, attrs):
+		if tag == 'a' and 'href' in attrs:
+			self.links.append(attrs['href'])
