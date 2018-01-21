@@ -11,4 +11,4 @@ def list_fonts():
 	with zipfile.ZipFile(acquire('http://www.evertype.com/emono/evermono.zip', 'local'), 'r') as zip:
 		for info in zip.infolist():
 			if '._' not in info.filename and info.filename.endswith('.ttf'):
-				yield (info.filename[:-4].split('/')[-1], zip.extract(info, cache_path()))
+				yield (info.filename[:-4].split('/')[-1], zip.extract(info, cache_path()), 'http://www.evertype.com/emono/')

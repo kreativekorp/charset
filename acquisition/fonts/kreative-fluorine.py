@@ -12,4 +12,4 @@ def list_fonts():
 		with zipfile.ZipFile(acquire('http://www.kreativekorp.com/swdownload/fonts/relay/%s.zip' % name, 'local'), 'r') as zip:
 			for info in zip.infolist():
 				if info.filename.endswith('.ttf'):
-					yield (info.filename[:-4], zip.extract(info, cache_path()))
+					yield (info.filename[:-4], zip.extract(info, cache_path()), 'http://www.kreativekorp.com/software/fonts/')

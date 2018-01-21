@@ -13,4 +13,4 @@ def list_fonts():
 		with zipfile.ZipFile(acquire('http://www.kreativekorp.com/swdownload/fonts/relaybm/%s.zip' % name, 'local'), 'r') as zip:
 			for info in zip.infolist():
 				if info.filename.endswith('.ttf'):
-					yield (re.sub('Bold', ' Bold', info.filename[:-4]), zip.extract(info, cache_path()))
+					yield (re.sub('Bold', ' Bold', info.filename[:-4]), zip.extract(info, cache_path()), 'http://www.kreativekorp.com/software/fonts/')

@@ -11,4 +11,4 @@ def list_fonts():
 	with zipfile.ZipFile(acquire('http://hwm3.gyao.ne.jp/shiroi-niwatori/nishiki-teki.zip', 'local'), 'r') as zip:
 		for info in zip.infolist():
 			if info.filename.endswith('.ttf'):
-				yield ('Nishiki-teki', zip.extract(info, cache_path()))
+				yield ('Nishiki-teki', zip.extract(info, cache_path()), 'http://hwm3.gyao.ne.jp/shiroi-niwatori/nishiki-teki.htm')

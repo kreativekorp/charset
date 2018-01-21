@@ -13,8 +13,8 @@ def main():
 	for modfile in ls(path):
 		mod = load_plugin(modfile)
 		if mod is not None:
-			for name, path in mod.list_fonts():
-				print('%s -> %s' % (name, path))
+			for name, path, url in mod.list_fonts():
+				print('%s (%s) -> %s' % (name, url, path))
 
 if __name__ == '__main__':
 	main()
