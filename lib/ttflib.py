@@ -124,7 +124,7 @@ class dfont_file:
 		self.fp = open(self.path, 'rb')
 		self.data_offset, self.map_offset, self.data_length, self.map_length = struct.unpack('>iiii', self.fp.read(16))
 		self.fp.seek(self.map_offset)
-		self.data_offset, self.map_offset, self.data_length, self.map_length = struct.unpack('>iiii', self.fp.read(16))
+		self.data_offset_2, self.map_offset_2, self.data_length_2, self.map_length_2 = struct.unpack('>iiii', self.fp.read(16))
 		self.next_resource_map, self.file_ref, self.attributes, self.typelist_offset, self.namelist_offset = struct.unpack('>ihhhh', self.fp.read(12))
 		self.fp.seek(self.map_offset + self.typelist_offset)
 		self.type_count = (struct.unpack('>h', self.fp.read(2))[0] + 1) & 0xFFFF
