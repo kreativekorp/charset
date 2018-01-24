@@ -19,16 +19,19 @@ def cache_path(url=None):
 		path = os.path.join(path, url)
 	return path
 
-def acquire(url, version='auto'):
+def acquire(url, version='auto', ua='Mozilla/5.0'):
 	path = cache_path(url)
 	path_exists = os.path.exists(path)
 	if version == 'local' and path_exists:
 		return path
 	else:
-		args = ['curl', '-A', 'Mozilla/5.0', '-L', '-s', url, '-o', path]
+		args = ['curl', '-L', '-s', url, '-o', path]
 		if version != 'remote' and path_exists:
 			args.append('-z')
 			args.append(path)
+		if ua:
+			args.append('-A')
+			args.append(ua)
 		subprocess.check_call(args)
 		return path
 
