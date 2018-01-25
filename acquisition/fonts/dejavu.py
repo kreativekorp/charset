@@ -20,8 +20,7 @@ def list_fonts():
 	for link in collector.links:
 		bn = link.split('/')[-1]
 		if bn.startswith('dejavu-fonts-ttf') and bn.endswith('.zip'):
-			du = 'https://downloads.sourceforge.net/project/dejavu/dejavu/%s/%s' % (bn[17:-4], bn)
-			with zipfile.ZipFile(acquire(du, 'local', None), 'r') as zip:
+			with zipfile.ZipFile(acquire(link, 'local', None), 'r') as zip:
 				for info in zip.infolist():
 					if info.filename.endswith('.ttf'):
 						name = info.filename.split('/')[-1][:-4]
