@@ -10,11 +10,9 @@ sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(_
 from acquisitionlib import acquire, cache_path, html_link_collector
 
 def list_fonts():
-	# For some reason cURL fails to SSL handshake with the live site.
 	u = 'https://design.ubuntu.com/font/'
-	wcu = 'http://webcache.googleusercontent.com/search?q=cache:' + u
 	collector = html_link_collector()
-	with io.open(acquire(wcu, 'local'), mode='r', encoding='utf-8') as f:
+	with io.open(acquire(u, 'local'), mode='r', encoding='utf-8') as f:
 		for line in f:
 			collector.feed(line)
 	collector.close()

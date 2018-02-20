@@ -20,7 +20,7 @@ def list_fonts():
 		if '/Noto-' not in link and link.endswith('.zip'):
 			with zipfile.ZipFile(acquire(link, 'local'), 'r') as zip:
 				for info in zip.infolist():
-					if info.filename.endswith('.ttf'):
+					if info.filename.endswith('.ttf') or info.filename.endswith('.otf'):
 						name = info.filename[:-4]
 						name = re.sub('([a-z])([A-Z])', '\\1 \\2', name)
 						name = re.sub('-Regular', '', name)
