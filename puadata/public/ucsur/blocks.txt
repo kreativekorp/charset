@@ -1,7 +1,7 @@
 @filename-txt PUBLIC/UCSUR/Blocks.txt
 @generate-txt PUBLIC/UCSUR/Blocks.txt
 # Blocks-UCSUR.txt
-# Date: 2017-12-30, 03:54:00 PST
+# Date: 2018-07-23, 20:58:40 PST
 #
 # Under-ConScript Unicode Registry Character Database
 # Copyright (c) 2009-2017 Kreative Korporation

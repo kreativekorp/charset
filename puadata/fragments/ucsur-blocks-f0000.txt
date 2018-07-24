@@ -1,2 +1,3 @@
 F0000..F0E6F; Kinya Syllables
 F0E70..F16AF; Pikto
+F1700..F18FF; Semtog
