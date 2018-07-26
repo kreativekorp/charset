@@ -15,8 +15,7 @@ def main():
 		if mod is not None:
 			for vendor in mod.list_vendors():
 				for key in sorted(vendor.keys()):
-					print('%s:' % key)
-					print('%s' % vendor[key])
+					print('%s: %s' % (key, vendor[key]))
 				print()
 
 if __name__ == '__main__':
