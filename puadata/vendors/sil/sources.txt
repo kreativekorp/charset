@@ -1,0 +1,11 @@
+@filename-txt VENDORS/SIL/Sources.txt
+@generate-txt VENDORS/SIL/Sources.txt
+Agreement-Type: Vendor
+Agreement-Name: SIL International
+Agreement-FCC: sil
+
+Title: SIL Corporate PUA Assignments
+Author: SIL International
+Publication-Date: 2016-07-05
+URL: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=SILPUAassignments
+Access-Date: 2018-08-23

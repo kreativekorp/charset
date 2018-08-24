@@ -1,0 +1,12 @@
+@filename-txt VENDORS/SIL/Blocks.txt
+@generate-txt VENDORS/SIL/Blocks.txt
+@import fragments/header-blocks.txt
+
+F100..F13F; Specials
+F160..F17F; Combining Marks
+F180..F1FF; Modifier Letters
+F200..F2FF; Latin
+F300..F31F; Hebrew
+F320..F33F; Cyrillic
+
+# EOF
