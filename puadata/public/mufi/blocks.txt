@@ -1,0 +1,21 @@
+@filename-txt PUBLIC/MUFI/Blocks.txt
+@generate-txt PUBLIC/MUFI/Blocks.txt
+@import fragments/header-blocks.txt
+
+E000..E3FF; Latin Extensions
+E400..E7FF; Latin Extensions
+E8A0..E8FF; Latin Extensions
+EBA0..EBFF; Latin Extensions
+EEC0..EEFF; Latin Extensions
+EF00..EF2F; Small Capitals
+EFA0..EFFF; Ligatures
+F000..F04F; Combining Marks
+F100..F1BF; Latin Extensions
+F1C0..F1FF; General Punctuation
+F200..F23F; Latin Extensions
+F2E0..F2FF; Currency Symbols
+F4F0..F4FF; Ligatures
+F700..F71F; Metrical Symbols
+F7B0..F7BF; Number Forms
+
+# EOF

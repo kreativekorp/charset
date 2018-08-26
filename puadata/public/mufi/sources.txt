@@ -1,0 +1,11 @@
+@filename-txt PUBLIC/MUFI/Sources.txt
+@generate-txt PUBLIC/MUFI/Sources.txt
+Agreement-Type: Public
+Agreement-Name: Medieval Unicode Font Initiative
+Agreement-FCC: mufi
+
+Title: MUFI character recommendation v. 4.0
+Author: Odd Einar Haugen
+Publication-Date: 2015-12-22
+URL: https://bora.uib.no/handle/1956/10699
+Access-Date: 2018-08-24
