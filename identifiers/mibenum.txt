@@ -239,7 +239,7 @@
 2101		Big5-HKSCS	csBig5HKSCS
 2102		IBM1047	IBM-1047	csIBM1047
 2103		PTCP154	csPTCP154	PT154	CP154	Cyrillic-Asian
-2104		Amiga-1251	Ami1251	Amiga1251	Ami-1251	csAmiga1251	(Aliases	are	provided	for	historical	reasons	and	should	not	be	used)	[Malyshev]
+2104		Amiga-1251	Ami1251	Amiga1251	Ami-1251	csAmiga1251
 2105		KOI7-switched	csKOI7switched
 2106		BRF	csBRF
 2107		TSCII	csTSCII
