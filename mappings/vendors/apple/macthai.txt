@@ -4,7 +4,7 @@
 @charset	x-mac-thai
 @codepage	10021
 @cfstringencoding	21
-@filename-kte	macthai.txt
+@filename-kte	macthai.kte
 @filename-txt	VENDORS/APPLE/THAI.TXT
 @verify-against	http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/THAI.TXT
 @cite-author	Apple, Inc.
