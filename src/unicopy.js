@@ -268,13 +268,20 @@ var popupItems = function(e, items) {
 				clickToCopy(input, button);
 			}
 		}
-		var wmid = $(window).width() / 2;
+		$('body').append(popup);
+		var pw = popup.outerWidth();
+		var ph = popup.outerHeight();
+		var ww = $(window).width();
+		var wh = $(window).height();
+		var wx = $(window).scrollLeft();
+		var wy = $(window).scrollTop();
+		var tw = $(e.target).outerWidth();
+		var th = $(e.target).outerHeight();
 		var offs = $(e.target).offset();
-		if (e.pageX > wmid) offs.left += $(e.target).outerWidth() - 350;
-		offs.top += $(e.target).outerHeight();
+		if (offs.left-wx+pw > ww && offs.left-wx+tw-pw >= 0) offs.left += tw - pw;
+		if (offs.top-wy+th+ph > wh && offs.top-wy-ph >= 0) offs.top -= ph; else offs.top += th;
 		popup.offset(offs);
 		popup.bind('click', function(e) { e.stopPropagation(); });
-		$('body').append(popup);
 	}
 	return popup;
 };
