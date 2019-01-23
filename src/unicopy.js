@@ -252,7 +252,11 @@ var popupItems = function(e, items) {
 				clickToCopy(input, button);
 			}
 		}
-		popup.offset({ left: e.pageX, top: e.pageY });
+		var wmid = $(window).width() / 2;
+		var offs = $(e.target).offset();
+		if (e.pageX > wmid) offs.left += $(e.target).outerWidth() - 350;
+		offs.top += $(e.target).outerHeight();
+		popup.offset(offs);
 		popup.bind('click', function(e) { e.stopPropagation(); });
 		$('body').append(popup);
 	}

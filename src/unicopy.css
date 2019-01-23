@@ -14,7 +14,7 @@
 .unicopy-close {
 	background: #eeeeee;
 	border-radius: 7px;
-	line-height: 12px;
+	line-height: 13px;
 	position: absolute;
 	top: 7px;
 	right: 7px;
@@ -29,7 +29,12 @@
 	cursor: default;
 }
 .unicopy-close:hover {
-	background: #dddddd;
+	background: #dd2222;
+	color: white;
+}
+.unicopy-close:active {
+	background: #bb0000;
+	color: #dddddd;
 }
 .unicopy-hr {
 	border: 0;
