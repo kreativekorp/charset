@@ -6,6 +6,7 @@
 	color: #24292e;
 	font-family: sans-serif;
 	font-size: 12px;
+	overflow: hidden;
 	padding: 12px;
 	position: absolute;
 	width: 324px;

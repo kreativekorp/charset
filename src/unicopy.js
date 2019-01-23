@@ -153,46 +153,48 @@ var getCharacterName = function(cp, pua) {
 };
 
 var charsToItems = function(chars, pua) {
-	var s = charsToString(chars);
-	var utf8 = charsToUTF8(chars);
-	var utf16 = charsToUTF16(chars);
-	var names = [];
-	var entities = [];
-	var python = [];
-	for (var i = 0, n = chars.length; i < n; i++) {
-		names.push(getCharacterName(chars[i]));
-		entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
-		python.push(
-			(chars[i] < 0x10000)
-			? ('\\u' + toHex(chars[i], 4))
-			: ('\\U' + toHex(chars[i], 8))
-		);
+	if (chars && chars.length) {
+		var s = charsToString(chars);
+		var utf8 = charsToUTF8(chars);
+		var utf16 = charsToUTF16(chars);
+		var names = [];
+		var entities = [];
+		var python = [];
+		for (var i = 0, n = chars.length; i < n; i++) {
+			names.push(getCharacterName(chars[i], pua));
+			entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
+			python.push(
+				(chars[i] < 0x10000)
+				? ('\\u' + toHex(chars[i], 4))
+				: ('\\U' + toHex(chars[i], 8))
+			);
+		}
+		var items = [];
+		items.push(['#', s]);
+		for (var i = 0, n = names.length; i < n; i++) items.push(['##', names[i]]);
+		items.push(['-']);
+		items.push(['Text', s]);
+		items.push(['Dec', chars.join(', ')]);
+		items.push(['Hex', arrayToHex(chars, 4).join(', ')]);
+		items.push(['U+', 'U+' + arrayToHex(chars, 4).join('+')]);
+		items.push(['Name', names.join(', ')]);
+		items.push(['-']);
+		items.push(['HTML Name', entities.join('')]);
+		items.push(['HTML Dec', '&#' + chars.join(';&#') + ';']);
+		items.push(['HTML Hex', arrayToHex(chars, 0, '&#x', ';').join('')]);
+		items.push(['URL', arrayToHex(utf8, 2, '%').join('')]);
+		items.push(['C/C++', arrayToHex(utf8, 2, '\\x').join('')]);
+		items.push(['Java', arrayToHex(utf16, 4, '\\u').join('')]);
+		items.push(['Python Text', 'u\'' + s + '\'']);
+		items.push(['Python Hex', 'u\'' + python.join('') + '\'']);
+		items.push(['-']);
+		items.push(['UTF-8',    arrayToHexDump(utf8,  2       ).join(' ')]);
+		items.push(['UTF-16BE', arrayToHexDump(utf16, 4, false).join(' ')]);
+		items.push(['UTF-16LE', arrayToHexDump(utf16, 4, true ).join(' ')]);
+		items.push(['UTF-32BE', arrayToHexDump(chars, 8, false).join(' ')]);
+		items.push(['UTF-32LE', arrayToHexDump(chars, 8, true ).join(' ')]);
+		return items;
 	}
-	var items = [];
-	items.push(['#', s]);
-	for (var i = 0, n = names.length; i < n; i++) items.push(['##', names[i]]);
-	items.push(['-']);
-	items.push(['Text', s]);
-	items.push(['Dec', chars.join(', ')]);
-	items.push(['Hex', arrayToHex(chars, 4).join(', ')]);
-	items.push(['U+', 'U+' + arrayToHex(chars, 4).join('+')]);
-	items.push(['Name', names.join(', ')]);
-	items.push(['-']);
-	items.push(['HTML Name', entities.join('')]);
-	items.push(['HTML Dec', '&#' + chars.join(';&#') + ';']);
-	items.push(['HTML Hex', arrayToHex(chars, 0, '&#x', ';').join('')]);
-	items.push(['URL', arrayToHex(utf8, 2, '%').join('')]);
-	items.push(['C/C++', arrayToHex(utf8, 2, '\\x').join('')]);
-	items.push(['Java', arrayToHex(utf16, 4, '\\u').join('')]);
-	items.push(['Python Text', 'u\'' + s + '\'']);
-	items.push(['Python Hex', 'u\'' + python.join('') + '\'']);
-	items.push(['-']);
-	items.push(['UTF-8',    arrayToHexDump(utf8,  2       ).join(' ')]);
-	items.push(['UTF-16BE', arrayToHexDump(utf16, 4, false).join(' ')]);
-	items.push(['UTF-16LE', arrayToHexDump(utf16, 4, true ).join(' ')]);
-	items.push(['UTF-32BE', arrayToHexDump(chars, 8, false).join(' ')]);
-	items.push(['UTF-32LE', arrayToHexDump(chars, 8, true ).join(' ')]);
-	return items;
 };
 
 var popup = null;
