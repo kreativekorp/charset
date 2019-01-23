@@ -12,5 +12,5 @@ def list_fonts():
 	yield ('Fairfax Bold', acquire('http://www.kreativekorp.com/lib/font/FairfaxBold.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/fairfax.shtml')
 	yield ('Fairfax Italic', acquire('http://www.kreativekorp.com/lib/font/FairfaxItalic.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/fairfax.shtml')
 	yield ('Fairfax Serif', acquire('http://www.kreativekorp.com/lib/font/FairfaxSerif.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/fairfax.shtml')
-	yield ('Fairfax HD', acquire('http://www.kreativekorp.com/lib/font/FairfaxHD.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/fairfax.shtml')
-	yield ('Kreative Square', acquire('http://www.kreativekorp.com/lib/font/KreativeSquare.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/')
+	yield ('Fairfax HD', acquire('http://www.kreativekorp.com/lib/font/FairfaxHD.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/fairfaxhd.shtml')
+	yield ('Kreative Square', acquire('http://www.kreativekorp.com/lib/font/KreativeSquare.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/ksquare.shtml')

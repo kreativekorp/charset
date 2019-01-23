@@ -1,0 +1,106 @@
+.unicopy-popup {
+	background: white;
+	border: 1px solid rgba(27,31,35,.15);
+	border-radius: 4px;
+	box-shadow: 0 3px 12px rgba(27,31,35,.15);
+	color: #24292e;
+	font-family: sans-serif;
+	font-size: 12px;
+	padding: 12px;
+	position: absolute;
+	width: 324px;
+}
+.unicopy-close {
+	background: #eeeeee;
+	border-radius: 7px;
+	line-height: 12px;
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	width: 14px;
+	height: 14px;
+	text-align: center;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+.unicopy-close:hover {
+	background: #dddddd;
+}
+.unicopy-hr {
+	border: 0;
+	border-top: 1px solid #e1e4e8;
+	margin: 12px -12px;
+	padding: 0;
+}
+.unicopy-h1 {
+	font-size: 48px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.unicopy-h2 {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.unicopy-row {
+	margin: 1px 0;
+}
+.unicopy-label {
+	display: inline-block;
+	width: 80px;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+.unicopy-input {
+	background: white;
+	border: 1px solid #d1d5da;
+	border-radius: 4px 0 0 4px;
+	box-shadow: inset 0 1px 2px rgba(27,31,35,.075);
+	color: #24292e;
+	font-family: sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 3px 6px;
+	width: 200px;
+	height: 24px;
+}
+.unicopy-input:focus {
+	outline: 0;
+}
+.unicopy-button {
+	background-color: #eff3f6;
+	background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+	background-position: -1px -1px;
+	background-repeat: repeat-x;
+	background-size: 110% 110%;
+	border: 1px solid rgba(27,31,35,.2);
+	border-radius: 0 4px 4px 0;
+	color: #24292e;
+	font-family: sans-serif;
+	font-size: 12px;
+	margin: 0 0 0 -1px;
+	padding: 3px 6px;
+	width: 45px;
+	height: 24px;
+}
+.unicopy-button:active {
+	background-color: #e9ecef;
+	background-image: none;
+	border-color: rgba(27,31,35,.35);
+	box-shadow: inset 0 .15em .3em rgba(27,31,35,.15);
+}
+.unicopy-button:focus {
+	outline: 0;
+}
