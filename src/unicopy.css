@@ -37,6 +37,7 @@
 	padding: 0;
 }
 .unicopy-h1 {
+	font-family: sans-serif;
 	font-size: 48px;
 	font-weight: normal;
 	margin: 0;
@@ -44,6 +45,7 @@
 	text-align: center;
 }
 .unicopy-h2 {
+	font-family: sans-serif;
 	font-size: 12px;
 	font-weight: bold;
 	margin: 0;
@@ -68,9 +70,11 @@
 	border: 1px solid #d1d5da;
 	border-radius: 4px 0 0 4px;
 	box-shadow: inset 0 1px 2px rgba(27,31,35,.075);
+	box-sizing: border-box;
 	color: #24292e;
 	font-family: sans-serif;
 	font-size: 12px;
+	line-height: 16px;
 	margin: 0;
 	padding: 3px 6px;
 	width: 200px;
@@ -87,6 +91,7 @@
 	background-size: 110% 110%;
 	border: 1px solid rgba(27,31,35,.2);
 	border-radius: 0 4px 4px 0;
+	box-sizing: border-box;
 	color: #24292e;
 	font-family: sans-serif;
 	font-size: 12px;
@@ -94,6 +99,7 @@
 	padding: 3px 6px;
 	width: 45px;
 	height: 24px;
+	text-shadow: none;
 }
 .unicopy-button:active {
 	background-color: #e9ecef;
