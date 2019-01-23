@@ -157,10 +157,13 @@ var charsToItems = function(chars, pua) {
 		var s = charsToString(chars);
 		var utf8 = charsToUTF8(chars);
 		var utf16 = charsToUTF16(chars);
+		var ispua = false;
 		var names = [];
 		var entities = [];
 		var python = [];
 		for (var i = 0, n = chars.length; i < n; i++) {
+			if (chars[i] >= 0xE000 && chars[i] < 0xF900) ispua = true;
+			if (chars[i] >= 0xF0000 && chars[i] < 0x110000) ispua = true;
 			names.push(getCharacterName(chars[i], pua));
 			entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
 			python.push(
@@ -170,6 +173,13 @@ var charsToItems = function(chars, pua) {
 			);
 		}
 		var items = [];
+		if (ispua) items.push([
+			'!PUA',
+			'This is a private use character. Its use and interpretation is ' +
+			'not specified by the Unicode Standard but may be determined by ' +
+			'private agreement among cooperating users. The interpretation ' +
+			'shown here is only one of many possible interpretations.'
+		]);
 		items.push(['#', s]);
 		for (var i = 0, n = names.length; i < n; i++) items.push(['##', names[i]]);
 		items.push(['-']);
@@ -230,6 +240,12 @@ var popupItems = function(e, items) {
 				h2.addClass('unicopy-h2');
 				h2.text(items[i][1]);
 				popup.append(h2);
+			} else if (items[i][0].substr(0, 1) === '!') {
+				var tag = $('<div/>');
+				tag.addClass('unicopy-tag');
+				tag.text(items[i][0].substr(1));
+				tag.attr('title', items[i][1]);
+				popup.append(tag);
 			} else {
 				var label = $('<label/>');
 				label.addClass('unicopy-label');

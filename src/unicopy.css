@@ -11,6 +11,25 @@
 	position: absolute;
 	width: 324px;
 }
+.unicopy-tag {
+	background: #663399;
+	border-radius: 4px;
+	color: white;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 18px;
+	padding: 0 6px;
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	height: 18px;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
 .unicopy-close {
 	background: #eeeeee;
 	border-radius: 7px;
