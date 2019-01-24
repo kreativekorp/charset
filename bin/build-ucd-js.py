@@ -74,10 +74,14 @@ def get_entities():
 	return entities
 
 def main():
+	shared = charset_path('out', 'shared')
+	if not os.path.exists(shared):
+		os.makedirs(shared)
+
 	ucd = {}
 	ucd['ranges'], ucd['chars'] = get_unidata()
 
-	path = charset_path('out', 'ucd.js')
+	path = os.path.join(shared, 'ucd.js')
 	with open(path, 'w') as f:
 		f.write('UCD=%s;' % json.dumps(ucd, separators=(',', ':')))
 	print(path)
@@ -93,14 +97,14 @@ def main():
 		else:
 			pua[len(pua)] = meta
 
-	path = charset_path('out', 'pua.js')
+	path = os.path.join(shared, 'pua.js')
 	with open(path, 'w') as f:
 		f.write('PUA=%s;' % json.dumps(pua, separators=(',', ':')))
 	print(path)
 
 	entities = get_entities()
 
-	path = charset_path('out', 'entitydb.js')
+	path = os.path.join(shared, 'entitydb.js')
 	with open(path, 'w') as f:
 		f.write('ENTITYDB=%s;' % json.dumps(entities, separators=(',', ':')))
 	print(path)
