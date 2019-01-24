@@ -121,7 +121,11 @@ var getCharacterData = function(cp, pua) {
 				for (var i = 0, n = pua.length; i < n; i++) {
 					if (PUA[pua[i]] && PUA[pua[i]]['chars']) {
 						data = PUA[pua[i]]['chars'][cp];
-						if (data) return false;
+						if (data) {
+							data = data.slice();
+							data[15] = pua[i];
+							return false;
+						}
 					}
 				}
 			}
@@ -129,6 +133,7 @@ var getCharacterData = function(cp, pua) {
 			data[0] = toHex(cp, 4);
 			if (k.substr(-11) === 'Private Use') {
 				data[1] = 'PRIVATE USE-' + data[0];
+				data[15] = true;
 			} else if (k.substr(0, 13) === 'CJK Ideograph') {
 				data[1] = 'CJK UNIFIED IDEOGRAPH-' + data[0];
 			} else {
@@ -145,13 +150,6 @@ var getCharacterData = function(cp, pua) {
 	];
 };
 
-var getCharacterName = function(cp, pua) {
-	var data = getCharacterData(cp, pua);
-	if (!data) return null;
-	if (data[1] === '<control>') return data[10];
-	return data[1];
-};
-
 var charsToItems = function(chars, pua) {
 	if (chars && chars.length) {
 		var s = charsToString(chars);
@@ -159,12 +157,18 @@ var charsToItems = function(chars, pua) {
 		var utf16 = charsToUTF16(chars);
 		var ispua = false;
 		var names = [];
+		var links = [];
 		var entities = [];
 		var python = [];
 		for (var i = 0, n = chars.length; i < n; i++) {
-			if (chars[i] >= 0xE000 && chars[i] < 0xF900) ispua = true;
-			if (chars[i] >= 0xF0000 && chars[i] < 0x110000) ispua = true;
-			names.push(getCharacterName(chars[i], pua));
+			var data = getCharacterData(chars[i], pua);
+			if (data[15]) ispua = data[15];
+			names.push((data[1] === '<control>') ? data[10] : data[1]);
+			links.push(
+				(data[15] && data[15] !== true)
+				? ('/charset/pua/' + data[15].replace(/[^A-Za-z]+/g, '') + '/' + data[0])
+				: ('/charset/unicode/' + data[0])
+			);
 			entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
 			python.push(
 				(chars[i] < 0x10000)
@@ -173,15 +177,23 @@ var charsToItems = function(chars, pua) {
 			);
 		}
 		var items = [];
-		if (ispua) items.push([
-			'!PUA',
-			'This is a private use character. Its use and interpretation is ' +
-			'not specified by the Unicode Standard but may be determined by ' +
-			'private agreement among cooperating users. The interpretation ' +
-			'shown here is only one of many possible interpretations.'
-		]);
+		if (ispua) {
+			var title = (
+				'This is a private use character. Its use and ' +
+				'interpretation is not specified by the Unicode ' +
+				'Standard but may be determined by private agreement ' +
+				'among cooperating users. The interpretation shown ' +
+				'here is only one of many possible interpretations.'
+			);
+			if (ispua !== true) {
+				title += '\n\nThis interpretation: ' + ispua;
+			}
+			items.push(['!PUA', title]);
+		}
 		items.push(['#', s]);
-		for (var i = 0, n = names.length; i < n; i++) items.push(['##', names[i]]);
+		for (var i = 0, n = names.length; i < n; i++) {
+			items.push(['##', names[i], links[i]]);
+		}
 		items.push(['-']);
 		items.push(['Text', s]);
 		items.push(['Dec', chars.join(', ')]);
@@ -233,12 +245,28 @@ var popupItems = function(e, items) {
 			} else if (items[i][0] === '#') {
 				var h1 = $('<h1/>');
 				h1.addClass('unicopy-h1');
-				h1.text(items[i][1]);
+				if (items[i][2]) {
+					var a = $('<a/>');
+					a.text(items[i][1]);
+					a.attr('href', items[i][2]);
+					a.attr('target', '_blank');
+					h1.append(a);
+				} else {
+					h1.text(items[i][1]);
+				}
 				popup.append(h1);
 			} else if (items[i][0] === '##') {
 				var h2 = $('<h2/>');
 				h2.addClass('unicopy-h2');
-				h2.text(items[i][1]);
+				if (items[i][2]) {
+					var a = $('<a/>');
+					a.text(items[i][1]);
+					a.attr('href', items[i][2]);
+					a.attr('target', '_blank');
+					h2.append(a);
+				} else {
+					h2.text(items[i][1]);
+				}
 				popup.append(h2);
 			} else if (items[i][0].substr(0, 1) === '!') {
 				var tag = $('<div/>');
@@ -335,7 +363,6 @@ return {
 	arrayToHex: arrayToHex,
 	arrayToHexDump: arrayToHexDump,
 	getCharacterData: getCharacterData,
-	getCharacterName: getCharacterName,
 	bindToPopup: bindToPopup,
 	bindToPopups: bindToPopups,
 	popupItems: popupItems,
