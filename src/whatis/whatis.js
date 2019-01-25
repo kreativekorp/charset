@@ -12,7 +12,7 @@ var egg = [
 	'FOR SHAME',
 	'AND WHAT IS THIS OTHER TEXT MESS',
 	'THAT IS A FRONTWAYS CUPID',
-	'LOOKS MORE LIKE A USB DONGLE GOBLIN',
+	'LOOKS MORE LIKE A USB DONGLE GOBLIN'
 ];
 
 $(document).ready(function() {
@@ -68,6 +68,15 @@ if (q) {
 input.bind('change', update);
 input.bind('keydown', update);
 input.bind('keyup', update);
+
+$('body').bind('keydown', function(e) {
+	if (e.which === 27) {
+		input.val('');
+		input.focus();
+		e.preventDefault();
+		e.stopPropagation();
+	}
+});
 
 });
 

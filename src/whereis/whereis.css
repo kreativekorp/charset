@@ -1,0 +1,22 @@
+.whereis-codepoint {
+	font-family: monospace;
+	padding: 1px;
+	text-align: left;
+}
+.whereis-charglyph {
+	padding: 1px 1em;
+	text-align: center;
+}
+.whereis-charname {
+	padding: 1px;
+	text-align: left;
+}
+.whereis-operator {
+	font-family: monospace;
+	padding: 1px 1em 1px 1px;
+	text-align: left;
+}
+.whereis-oplabel {
+	padding: 1px;
+	text-align: left;
+}
