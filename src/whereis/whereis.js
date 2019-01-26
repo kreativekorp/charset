@@ -51,6 +51,7 @@ var dataMatches = function(data, tokens) {
 
 var createTable = function(chars, tokens, baseURL) {
 	var table = $('<table/>').addClass('whereis-table');
+	var rows = [];
 	$.each(chars, function(cp, data) {
 		if (dataMatches(data, tokens)) {
 			var tr = $('<tr/>');
@@ -63,9 +64,11 @@ var createTable = function(chars, tokens, baseURL) {
 			a.attr('target', '_blank');
 			td.append(a);
 			tr.append(td);
-			table.append(tr);
+			rows.push([tr, cp]);
 		}
 	});
+	rows.sort(function(a, b) { return a[1] - b[1]; });
+	for (var i = 0, n = rows.length; i < n; i++) table.append(rows[i][0]);
 	return table;
 };
 
@@ -93,15 +96,13 @@ var update = function() {
 			var table = createTable(pua['chars'], tokens, url + '/char/');
 			if (!table.is(':empty')) {
 				var h3 = $('<h3/>').append($('<a/>').text(name).attr('href', url));
-				tables.push([[h3, table], table.find('.whereis-charglyph'), [name]]);
+				tables.push([[h3, table], table.find('.whereis-charglyph'), [name], name]);
 			}
 		});
 		if (tables.length) {
 			tables.sort(function(a, b) {
-				a = a[2][0];
-				b = b[2][0];
-				if (a < b) return -1;
-				if (a > b) return 1;
+				if (a[3] < b[3]) return -1;
+				if (a[3] > b[3]) return 1;
 				return 0;
 			});
 			output.append($('<h2/>').text('Private Use Characters'));

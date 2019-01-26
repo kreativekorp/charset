@@ -40,7 +40,6 @@ def get_unidata():
 	return ranges, chars
 
 def get_puadata():
-	puadata = charset_path('out', 'PUADATA')
 	with cd(charset_path('puadata')):
 		for path in ls('.'):
 			if os.path.basename(path) == 'sources.txt':
