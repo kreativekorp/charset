@@ -2,10 +2,13 @@
 	font-family: monospace;
 	padding: 1px;
 	text-align: left;
+	width: 60px;
 }
 .whatis-charglyph {
-	padding: 1px 1em;
+	line-height: 1px;
+	padding: 1px 1em 1px 1px;
 	text-align: center;
+	width: 50px;
 }
 .whatis-charname {
 	padding: 1px;
