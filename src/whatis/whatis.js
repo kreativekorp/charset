@@ -49,7 +49,7 @@ var update = function() {
 		}
 		var a = $('<a/>');
 		a.text(isegg ? egg[i] : (data[1] === '<control>') ? data[10] : data[1]);
-		a.attr('href', '/charset/unicode/' + data[0]);
+		a.attr('href', '/charset/unicode/char/' + data[0]);
 		a.attr('target', '_blank');
 		td.append(a);
 		tr.append(td);

@@ -166,8 +166,8 @@ var charsToItems = function(chars, pua) {
 			names.push((data[1] === '<control>') ? data[10] : data[1]);
 			links.push(
 				(data[15] && data[15] !== true)
-				? ('/charset/pua/' + data[15].replace(/[^A-Za-z]+/g, '') + '/' + data[0])
-				: ('/charset/unicode/' + data[0])
+				? ('/charset/pua/' + data[15].replace(/[^A-Za-z0-9]+/g, '') + '/char/' + data[0])
+				: ('/charset/unicode/char/' + data[0])
 			);
 			entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
 			python.push(

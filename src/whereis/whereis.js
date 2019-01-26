@@ -82,15 +82,15 @@ var update = function() {
 	output.empty();
 	var tokens = splitTokens(s);
 	if (tokens && tokens.length) {
-		var table = createTable(UCD['chars'], tokens, '/charset/unicode/');
+		var table = createTable(UCD['chars'], tokens, '/charset/unicode/char/');
 		if (!table.is(':empty')) {
 			output.append(table);
 			Unicopy.bindToPopups(table.find('.whereis-charglyph'));
 		}
 		var tables = [];
 		$.each(PUA, function(name, pua) {
-			var url = '/charset/pua/' + name.replace(/[^A-Za-z]+/g, '');
-			var table = createTable(pua['chars'], tokens, url + '/');
+			var url = '/charset/pua/' + name.replace(/[^A-Za-z0-9]+/g, '');
+			var table = createTable(pua['chars'], tokens, url + '/char/');
 			if (!table.is(':empty')) {
 				var h3 = $('<h3/>').append($('<a/>').text(name).attr('href', url));
 				tables.push([[h3, table], table.find('.whereis-charglyph'), [name]]);
