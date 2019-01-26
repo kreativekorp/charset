@@ -1,0 +1,25 @@
+<!--#include virtual="/static/head.html"-->
+
+<title>Character Encodings - Unicode String Decoder</title>
+<script src="/charset/shared/jquery.js"></script>
+<script src="/charset/shared/ucd.js"></script>
+<script src="/charset/shared/pua.js"></script>
+<script src="/charset/shared/entitydb.js"></script>
+<script src="/charset/shared/unicopy.js"></script>
+<script src="/charset/whatis/whatis.js"></script>
+<link rel="stylesheet" href="/charset/shared/unicopy.css">
+<link rel="stylesheet" href="/charset/whatis/whatis.css">
+
+<!--#include virtual="/static/body.html"-->
+
+<h1><a href="/charset/">Character Encodings</a> - Unicode String Decoder</h1>
+<p>Paste any text in this text field to find out exactly which Unicode characters it is composed of.</p>
+<p>To find a Unicode character by code point, use <a href="/charset/unicode/">Unicode Character Charts</a>.</p>
+<p>To find a Unicode character by name, use <a href="/charset/whereis/">Unicode Character Search</a>.</p>
+<form method="get" action="/charset/whatis/" autocomplete="off"><p>
+<input type="text" name="q" class="whatis-input" style="width: 300px;">
+<input type="submit" value="What is it?">
+</p></form>
+<table class="whatis-output"></table>
+
+<!--#include virtual="/static/tail.html"-->
