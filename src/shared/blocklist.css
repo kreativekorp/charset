@@ -19,31 +19,30 @@
 }
 
 .block-roadmap {
+	border: 1px solid #a2a9b1;
 	border-collapse: collapse;
 	table-layout: fixed;
 }
 .block-roadmap th {
-	background: #e4e4e4;
-	border-bottom: 1px solid gray;
-	border-right: 1px solid gray;
+	background: #eaecf0;
+	border: 1px solid #a2a9b1;
 	font-family: monospace;
 	margin: 0;
-	padding: 3px 0;
+	padding: 4px 0;
 	text-align: center;
 	width: 59px;
 	min-width: 59px;
 	max-width: 59px;
 }
 .block-roadmap td {
-	background: #fcfcfc;
-	border-bottom: 1px solid gray;
-	border-right: 1px solid gray;
+	background: #f8f9fa;
+	border: 1px solid #a2a9b1;
 	margin: 0;
-	padding: 3px 0;
+	padding: 4px 0;
 	text-align: center;
 }
 .block-roadmap td.block-undef {
-	background: #cccccc;
+	background: #c6cad0;
 }
 
 .block-roadmap td a { display: block; overflow: hidden; }
