@@ -1,18 +1,18 @@
 <!--#include virtual="/static/head.html"-->
 
 <title>Character Encodings - Unicode Character Search</title>
-<script src="/charset/shared/jquery.js"></script>
-<script src="/charset/shared/ucd.js"></script>
-<script src="/charset/shared/pua.js"></script>
-<script src="/charset/shared/entitydb.js"></script>
-<script src="/charset/shared/unicopy.js"></script>
-<script src="/charset/whereis/whereis.js"></script>
 <link rel="stylesheet" href="/charset/shared/unicopy.css">
 <link rel="stylesheet" href="/charset/whereis/whereis.css">
+<style>
+.loading img { vertical-align: middle; }
+.loaded { display: none; }
+</style>
 
 <!--#include virtual="/static/body.html"-->
 
 <h1><a href="/charset/">Character Encodings</a> - Unicode Character Search</h1>
+<div class="loading"><img src="/charset/shared/spinner.gif"> Loading...</div>
+<div class="loaded">
 <p>Enter a Unicode character name or part of a Unicode character name to find its code point.</p>
 <p>To find a Unicode character by code point, use <a href="/charset/unicode/">Unicode Character Charts</a>.</p>
 <p>To list all the characters in a piece of text, use <a href="/charset/whatis/">Unicode String Decoder</a>.</p>
@@ -21,5 +21,17 @@
 <input type="submit" value="Where is it?">
 </p></form>
 <div class="whereis-output"></div>
+</div>
+
+<script src="/charset/shared/jquery.js"></script>
+<script src="/charset/shared/ucd.js"></script>
+<script src="/charset/shared/pua.js"></script>
+<script src="/charset/shared/entitydb.js"></script>
+<script src="/charset/shared/unicopy.js"></script>
+<script src="/charset/whereis/whereis.js"></script>
+<script>
+$('.loading').remove();
+$('.loaded').removeClass('loaded');
+</script>
 
 <!--#include virtual="/static/tail.html"-->
