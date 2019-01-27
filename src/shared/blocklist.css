@@ -1,0 +1,65 @@
+.pua-notice {
+	background: #EECCFF;
+	border: 1px solid #AA88BB;
+	padding: 12px;
+}
+.hidden {
+	display: none !important;
+}
+
+.block-list td {
+	padding: 1px;
+}
+.block-cp {
+	font-family: monospace;
+	width: 60px;
+}
+.block-undef {
+	color: #cc9999;
+}
+
+.block-roadmap {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.block-roadmap th {
+	background: #e4e4e4;
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	font-family: monospace;
+	margin: 0;
+	padding: 3px 0;
+	text-align: center;
+	width: 59px;
+	min-width: 59px;
+	max-width: 59px;
+}
+.block-roadmap td {
+	background: #fcfcfc;
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	margin: 0;
+	padding: 3px 0;
+	text-align: center;
+}
+.block-roadmap td.block-undef {
+	background: #cccccc;
+}
+
+.block-roadmap td a { display: block; overflow: hidden; }
+.block-roadmap td[colspan="1"] a { width: 59px; }
+.block-roadmap td[colspan="2"] a { width: 119px; }
+.block-roadmap td[colspan="3"] a { width: 179px; }
+.block-roadmap td[colspan="4"] a { width: 239px; }
+.block-roadmap td[colspan="5"] a { width: 299px; }
+.block-roadmap td[colspan="6"] a { width: 359px; }
+.block-roadmap td[colspan="7"] a { width: 419px; }
+.block-roadmap td[colspan="8"] a { width: 479px; }
+.block-roadmap td[colspan="9"] a { width: 539px; }
+.block-roadmap td[colspan="10"] a { width: 599px; }
+.block-roadmap td[colspan="11"] a { width: 659px; }
+.block-roadmap td[colspan="12"] a { width: 719px; }
+.block-roadmap td[colspan="13"] a { width: 779px; }
+.block-roadmap td[colspan="14"] a { width: 839px; }
+.block-roadmap td[colspan="15"] a { width: 899px; }
+.block-roadmap td[colspan="16"] a { width: 959px; }
