@@ -10,7 +10,8 @@
 
 <!--#include virtual="/static/body.html"-->
 
-<h1><a href="/charset/">Character Encodings</a> - Unicode String Decoder</h1>
+<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo;</p>
+<h1>Unicode String Decoder</h1>
 <div class="loading"><img src="/charset/shared/spinner.gif"> Loading...</div>
 <div class="loaded">
 <p>Paste any text in this text field to find out exactly which Unicode characters it is composed of.</p>

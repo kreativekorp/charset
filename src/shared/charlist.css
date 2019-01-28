@@ -1,0 +1,131 @@
+.pua-notice {
+	background: #EECCFF;
+	border: 1px solid #AA88BB;
+	padding: 12px;
+}
+
+.block-header {
+	border-collapse: collapse;
+	width: 1021px;
+}
+.block-header td {
+	margin: 0;
+	padding: 4px;
+}
+.block-prev-arr, .block-next-arr {
+	font-size: 24px;
+	text-align: center;
+	width: 30px;
+	min-width: 30px;
+	max-width: 30px;
+}
+.block-prev-arr a, .block-next-arr a {
+	display: block;
+	width: 30px;
+	height: 30px;
+}
+.block-prev-arr a, .block-next-arr a,
+.block-prev-arr a:active, .block-next-arr a:active,
+.block-prev-arr a:focus, .block-next-arr a:focus,
+.block-prev-arr a:hover, .block-next-arr a:hover {
+	text-decoration: none;
+}
+.block-prev, .block-curr, .block-next {
+	width: 307px;
+	min-width: 307px;
+	max-width: 307px;
+}
+.block-prev {
+	text-align: left;
+}
+.block-curr {
+	text-align: center;
+}
+.block-next {
+	text-align: right;
+}
+
+.char-table {
+	border: 1px solid #a2a9b1;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.char-table th {
+	background: #eaecf0;
+	border: 1px solid #a2a9b1;
+	font-family: monospace;
+	margin: 0;
+	padding: 4px 0;
+	text-align: center;
+	width: 59px;
+	min-width: 59px;
+	max-width: 59px;
+}
+.char-table td {
+	background: #f8f9fa;
+	border: 1px solid #a2a9b1;
+	margin: 0;
+	padding: 4px 0;
+	text-align: center;
+	width: 59px;
+	min-width: 59px;
+	max-width: 59px;
+}
+.char-table td.char-undef {
+	background: #c6cad0;
+}
+.char-table td.char-pua {
+	background: #faf0ff;
+}
+.char-table td.char-pua.char-undef {
+	background: #cac0cf;
+}
+.char-table td.char-control {
+	background: #ccffcc;
+}
+.char-table td.char-surrogate {
+	background: maroon;
+	color: white;
+}
+.char-table td.char-nonchar {
+	background: black;
+	color: white;
+}
+.char-glyph {
+	font-size: 28px;
+	height: 35px;
+	line-height: 35px;
+}
+.char-code {
+	font-family: monospace;
+	font-size: 12px;
+	height: 16px;
+	line-height: 16px;
+}
+
+.charlist-inner-div {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 0;
+	width: 500px;
+	vertical-align: top;
+}
+.charlist {
+	width: 500px;
+}
+.charlist-codepoint {
+	font-family: monospace;
+	padding: 1px;
+	text-align: left;
+	width: 60px;
+}
+.charlist-charglyph {
+	line-height: 1px;
+	padding: 1px 1em 1px 1px;
+	text-align: center;
+	width: 50px;
+}
+.charlist-charname {
+	padding: 1px;
+	text-align: left;
+}

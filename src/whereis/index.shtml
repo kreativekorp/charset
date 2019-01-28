@@ -10,7 +10,8 @@
 
 <!--#include virtual="/static/body.html"-->
 
-<h1><a href="/charset/">Character Encodings</a> - Unicode Character Search</h1>
+<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo;</p>
+<h1>Unicode Character Search</h1>
 <div class="loading"><img src="/charset/shared/spinner.gif"> Loading...</div>
 <div class="loaded">
 <p>Enter a Unicode character name or part of a Unicode character name to find its code point.</p>

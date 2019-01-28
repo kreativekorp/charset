@@ -167,7 +167,7 @@ var charsToItems = function(chars, pua) {
 			links.push(
 				(data[15] && data[15] !== true)
 				? ('/charset/pua/' + data[15].replace(/[^A-Za-z0-9]+/g, '') + '/char/' + data[0])
-				: ('/charset/unicode/char/' + data[0])
+				: UCD['chars'][chars[i]] ? ('/charset/unicode/char/' + data[0]) : null
 			);
 			entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
 			python.push(
@@ -227,7 +227,7 @@ var closePopup = function() {
 	}
 };
 
-var popupItems = function(e, items) {
+var popupItems = function(elem, evt, items) {
 	closePopup();
 	if (items && items.length) {
 		popup = $('<div/>');
@@ -303,9 +303,9 @@ var popupItems = function(e, items) {
 		var wh = $(window).height();
 		var wx = $(window).scrollLeft();
 		var wy = $(window).scrollTop();
-		var tw = $(e.target).outerWidth();
-		var th = $(e.target).outerHeight();
-		var offs = $(e.target).offset();
+		var tw = elem.outerWidth();
+		var th = elem.outerHeight();
+		var offs = elem.offset();
 		if (offs.left-wx+pw > ww && offs.left-wx+tw-pw >= 0) offs.left += tw - pw;
 		if (offs.top-wy+th+ph > wh && offs.top-wy-ph >= 0) offs.top -= ph; else offs.top += th;
 		popup.offset(offs);
@@ -314,18 +314,18 @@ var popupItems = function(e, items) {
 	return popup;
 };
 
-var popupChars = function(e, chars, pua) {
-	return popupItems(e, charsToItems(chars, pua));
+var popupChars = function(elem, evt, chars, pua) {
+	return popupItems(elem, evt, charsToItems(chars, pua));
 };
 
-var popupString = function(e, s, pua) {
-	return popupChars(e, stringToChars(s), pua);
+var popupString = function(elem, evt, s, pua) {
+	return popupChars(elem, evt, stringToChars(s), pua);
 };
 
 var bindToPopup = function(elem, s, pua) {
 	elem.bind('click', function(e) {
 		e.stopPropagation();
-		popupString(e, s, pua);
+		popupString(elem, e, s, pua);
 	});
 	elem.css({
 		'-webkit-user-select': 'none',
@@ -365,9 +365,6 @@ return {
 	getCharacterData: getCharacterData,
 	bindToPopup: bindToPopup,
 	bindToPopups: bindToPopups,
-	popupItems: popupItems,
-	popupChars: popupChars,
-	popupString: popupString,
 	closePopup: closePopup
 };
 
