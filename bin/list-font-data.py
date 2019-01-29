@@ -11,7 +11,7 @@ from ttflib import ttf_file
 
 def get_font_file_data(path):
 	name = None
-	chars = []
+	chars = 0
 	vendorid = None
 	ext = path.split('/')[-1].split('.')[-1].lower()
 	if ext == 'bdf' or ext == 'bdfmeta':
@@ -24,7 +24,7 @@ def get_font_file_data(path):
 				if line[:9] == 'ENCODING ':
 					try:
 						cp = int(line[9:].strip())
-						chars.append(cp)
+						chars |= (1 << cp)
 					except ValueError:
 						pass
 				if line[:11] == 'OS2_VENDOR ':
@@ -38,8 +38,7 @@ def get_font_file_data(path):
 				name = name[:-8]
 			for cmap in ttf.cmaps():
 				for cp, glyph in cmap.glyphs():
-					chars.append(cp)
-				chars = list(set(chars))
+					chars |= (1 << cp)
 			vendorid = ttf.vendorid()
 	return name, chars, vendorid
 
@@ -55,7 +54,7 @@ def get_font_data():
 			continue
 		if font_data is not None and font_data[0] is not None and font_data[0][0] != '.':
 			if font_data[0] in fonts:
-				newchars = list(set(fonts[font_data[0]][1] + font_data[1]))
+				newchars = fonts[font_data[0]][1] | font_data[1]
 				newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
 				fonts[font_data[0]] = (font_data[0], newchars, newvendor)
 			else:
@@ -73,7 +72,7 @@ def get_font_data():
 					continue
 				if font_data is not None and font_data[0] is not None and font_data[0][0] != '.':
 					if font_data[0] in fonts:
-						newchars = list(set(fonts[font_data[0]][1] + font_data[1]))
+						newchars = fonts[font_data[0]][1] | font_data[1]
 						newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
 						fonts[font_data[0]] = (font_data[0], newchars, newvendor)
 					else:
@@ -82,9 +81,17 @@ def get_font_data():
 	fonts.sort(key=lambda font: font[0].lower())
 	return fonts
 
+def popcount(v):
+	count = 0
+	while (v != 0):
+		piece = v & 0xFFFFFFFFFFFFFFFF
+		count += bin(piece).count('1')
+		v >>= 64
+	return count
+
 def main():
 	for name, chars, vendorid in get_font_data():
-		print('%s\t%s\t%s' % (name, vendorid, len(chars)))
+		print('%s\t%s\t%s' % (name, vendorid, popcount(chars)))
 
 if __name__ == '__main__':
 	main()
