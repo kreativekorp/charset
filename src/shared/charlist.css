@@ -4,11 +4,13 @@
 	padding: 12px;
 }
 
-.block-header {
+.block-header,
+.block-subheader {
 	border-collapse: collapse;
 	width: 1021px;
 }
-.block-header td {
+.block-header td,
+.block-subheader td {
 	margin: 0;
 	padding: 4px;
 }
@@ -35,13 +37,15 @@
 	min-width: 307px;
 	max-width: 307px;
 }
-.block-prev {
+.block-prev,
+.block-fonts {
 	text-align: left;
 }
 .block-curr {
 	text-align: center;
 }
-.block-next {
+.block-next,
+.block-links {
 	text-align: right;
 }
 

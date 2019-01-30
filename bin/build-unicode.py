@@ -8,6 +8,7 @@ import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
 from parselib import cd, charset_path, expand, load_plugin, ls
+from ttflib import ttf_file
 
 def get_unidata():
 	ranges = {}
@@ -17,6 +18,7 @@ def get_unidata():
 	for modfile in ls(path):
 		mod = load_plugin(modfile)
 		if mod is not None:
+			print('Reading Unicode data: %s' % modfile)
 			for name, path in mod.list_files():
 				if name == 'UnicodeData.txt':
 					with open(path, 'r') as ucd:
@@ -59,6 +61,7 @@ def get_puadata():
 	with cd(charset_path('puadata')):
 		for path in ls('.'):
 			if os.path.basename(path) == 'sources.txt':
+				print('Reading Private Use Area data: %s' % path)
 				meta = {}
 				chars = {}
 				blocks = []
@@ -97,10 +100,83 @@ def get_entities():
 	for modfile in ls(path):
 		mod = load_plugin(modfile)
 		if mod is not None:
+			print('Reading named HTML entities: %s' % modfile)
 			for cp, entity in mod.list_entities():
 				if cp not in entities:
 					entities[cp] = entity
 	return entities
+
+def get_font_file_data(path):
+	name = None
+	chars = 0
+	vendorid = None
+	ext = path.split('/')[-1].split('.')[-1].lower()
+	if ext == 'bdf' or ext == 'bdfmeta':
+		with open(path, 'r') as bdf:
+			for line in bdf:
+				if line[:12] == 'FAMILY_NAME ':
+					name = line[12:].strip()
+					if (name[0] == '"' and name[-1] == '"') or (name[0] == "'" and name[-1] == "'"):
+						name = name[1:-1]
+				if line[:9] == 'ENCODING ':
+					try:
+						cp = int(line[9:].strip())
+						chars |= (1 << cp)
+					except ValueError:
+						pass
+				if line[:11] == 'OS2_VENDOR ':
+					vendorid = line[11:].strip()
+					if (vendorid[0] == '"' and vendorid[-1] == '"') or (vendorid[0] == "'" and vendorid[-1] == "'"):
+						vendorid = vendorid[1:-1]
+	if ext == 'ttf' or ext == 'ttfmeta' or ext == 'otf' or ext == 'otfmeta':
+		with ttf_file(path) as ttf:
+			name = ttf.name(False)
+			if name[-8:] == ' Regular':
+				name = name[:-8]
+			for cmap in ttf.cmaps():
+				for cp, glyph in cmap.glyphs():
+					chars |= (1 << cp)
+			vendorid = ttf.vendorid()
+	return name, chars, vendorid
+
+def get_font_data():
+	fonts = {}
+	path = charset_path('font-metadata')
+	for path in ls(path):
+		print('Reading font data: %s' % path)
+		try:
+			font_data = get_font_file_data(path)
+		except Exception as e:
+			print('Error: %s' % e)
+			continue
+		if font_data is not None and font_data[0] is not None and font_data[0][0] != '.':
+			if font_data[0] in fonts:
+				newchars = fonts[font_data[0]][1] | font_data[1]
+				newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
+				fonts[font_data[0]] = (font_data[0], newchars, newvendor)
+			else:
+				fonts[font_data[0]] = font_data
+	path = charset_path('acquisition', 'fonts')
+	for modfile in ls(path):
+		mod = load_plugin(modfile)
+		if mod is not None:
+			for name, path, url in mod.list_fonts():
+				print('Reading font data: %s' % path)
+				try:
+					font_data = get_font_file_data(path)
+				except Exception as e:
+					print('Error: %s' % e)
+					continue
+				if font_data is not None and font_data[0] is not None and font_data[0][0] != '.':
+					if font_data[0] in fonts:
+						newchars = fonts[font_data[0]][1] | font_data[1]
+						newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
+						fonts[font_data[0]] = (font_data[0], newchars, newvendor)
+					else:
+						fonts[font_data[0]] = font_data
+	fonts = [fonts[k] for k in fonts]
+	fonts.sort(key=lambda font: font[0].lower())
+	return fonts
 
 def html_encode(s):
 	return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
@@ -193,7 +269,7 @@ def build_roadmap(complete, blocks, plane, urlbase, f):
 		print('<tr><th>%02X</th>%s</tr>' % (i, ''.join(block_cells)), file=f)
 	print('</table>', file=f)
 
-def build_dir(meta, ranges, chars, blocks, entities, basedir):
+def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 	blockdir = os.path.join(basedir, 'block')
 	if not os.path.exists(blockdir):
 		os.makedirs(blockdir)
@@ -218,7 +294,9 @@ def build_dir(meta, ranges, chars, blocks, entities, basedir):
 		dirpath = os.path.join(blockdir, '%04X' % block[0])
 		if not os.path.exists(dirpath):
 			os.makedirs(dirpath)
-		with open(os.path.join(dirpath, 'index.shtml'), 'w') as f:
+		path = os.path.join(dirpath, 'index.shtml')
+		print('Writing block page: %s' % path)
+		with open(path, 'w') as f:
 			print('<!--#include virtual="/static/head.html"-->', file=f)
 			if meta is None:
 				print('<title>Character Encodings - Unicode - %s</title>' % html_encode(block[2]), file=f)
@@ -246,6 +324,18 @@ def build_dir(meta, ranges, chars, blocks, entities, basedir):
 			else:
 				print('<td class="block-next"><a href="%s%04X">%04X - %04X<br>%s</a></td>' % (blockurlprefix, nextblock[0], nextblock[0], nextblock[1], html_encode(nextblock[2])), file=f)
 				print('<td class="block-next-arr"><a href="%s%04X">&rarr;</a></td>' % (blockurlprefix, nextblock[0]), file=f)
+			print('</tr></table>', file=f)
+			print('<table class="block-subheader"><tr>', file=f)
+			print('<td class="block-fonts">Font: <select id="font-selector">', file=f)
+			print('<option selected value="inherit">Default</option>', file=f)
+			for font_data in fonts:
+				font_name = html_encode(font_data[0])
+				print('<option value="%s">%s</option>' % (font_name, font_name), file=f)
+			print('</select></td>', file=f)
+			if meta is None:
+				print('<td class="block-links"><a href="http://www.unicode.org/charts/PDF/U%04X.pdf" target="_blank">Code Chart PDF</a></td>' % block[0], file=f)
+			else:
+				print('<td class="block-links"></td>', file=f)
 			print('</tr></table>', file=f)
 			print('<table class="char-table">', file=f)
 			print('<tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>', file=f)
@@ -277,7 +367,9 @@ def build_dir(meta, ranges, chars, blocks, entities, basedir):
 			print('<script src="/charset/shared/charlist.js"></script>', file=f)
 			print('<!--#include virtual="/static/tail.html"-->', file=f)
 
-	with open(os.path.join(basedir, 'index.shtml'), 'w') as f:
+	path = os.path.join(basedir, 'index.shtml')
+	print('Writing block index: %s' % path)
+	with open(path, 'w') as f:
 		print('<!--#include virtual="/static/head.html"-->', file=f)
 		if meta is None:
 			print('<title>Character Encodings - Unicode</title>', file=f)
@@ -338,8 +430,9 @@ def build_dir(meta, ranges, chars, blocks, entities, basedir):
 def main():
 	ranges, chars, blocks = get_unidata()
 	entities = get_entities()
+	fonts = get_font_data()
 	basedir = charset_path('out', 'unicode')
-	build_dir(None, ranges, chars, blocks, entities, basedir)
+	build_dir(None, ranges, chars, blocks, entities, fonts, basedir)
 
 	pua_meta = []
 	for meta, chars, blocks in get_puadata():
@@ -347,14 +440,16 @@ def main():
 			if meta['Agreement-Type'] == 'Please-Ignore':
 				continue
 		basedir = charset_path('out', 'pua', re.sub('[^A-Za-z0-9]+', '', meta['Agreement-Name']))
-		build_dir(meta, None, chars, blocks, entities, basedir)
+		build_dir(meta, None, chars, blocks, entities, fonts, basedir)
 		pua_meta.append(meta)
 	pua_meta.sort(key=lambda meta: meta['Agreement-Name'])
 
 	puadir = charset_path('out', 'pua')
 	if not os.path.exists(puadir):
 		os.makedirs(puadir)
-	with open(os.path.join(puadir, 'index.shtml'), 'w') as f:
+	path = os.path.join(puadir, 'index.shtml')
+	print('Writing Private Use Area index: %s' % path)
+	with open(path, 'w') as f:
 		print('<!--#include virtual="/static/head.html"-->', file=f)
 		print('<title>Character Encodings - Private Use Agreements</title>', file=f)
 		print('<link rel="stylesheet" href="/charset/shared/blocklist.css">', file=f)
