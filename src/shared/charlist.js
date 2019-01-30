@@ -29,45 +29,49 @@
 	};
 	
 	$(document).ready(function() {
-		puaName = $('.pua-notice').attr('data-pua-name');
+		puaName = $('.char-table').attr('data-pua-name');
 		$('.char-table td').each(function() {
 			var elem = $(this);
-			Unicopy.bindToPopup(
+			var cp = elem.attr('data-codepoint');
+			if (cp) Unicopy.bindToPopup(
 				elem,
-				String.fromCodePoint(elem.attr('data-codepoint')),
-				puaName && [puaName]
+				String.fromCodePoint(cp),
+				puaName && puaName.split(',')
 			);
 		});
 		$('.charlist-charglyph').each(function() {
 			var elem = $(this);
-			Unicopy.bindToPopup(
+			var cp = elem.attr('data-codepoint');
+			if (cp) Unicopy.bindToPopup(
 				elem,
-				String.fromCodePoint(elem.attr('data-codepoint')),
-				puaName && [puaName]
+				String.fromCodePoint(cp),
+				puaName && puaName.split(',')
 			);
 		});
-		$('#font-selector').bind('change', function() {
-			var fontName = $('#font-selector').val();
-			if (fontName != 'inherit') fontName = '"' + fontName + '"';
-			$('.char-table td').css('font-family', fontName);
-			$('.charlist-charglyph').css('font-family', fontName);
-		});
-		var detector = new Detector();
-		var newSelector = '<option selected value="inherit">Default</option>';
-		$('#font-selector option').each(function() {
-			var fontName = $(this).attr('value');
-			if (fontName !== 'inherit' && detector.detect(fontName)) {
-				fontName = fontName.replace('&', '&amp;')
-				                   .replace('<', '&lt;')
-				                   .replace('>', '&gt;')
-				                   .replace('"', '&quot;');
-				newSelector += (
-					'<option value="' + fontName + '">' +
-					fontName + '</option>'
-				);
-			}
-		});
-		detector.dispose();
-		$('#font-selector').html(newSelector);
+		if ($('#font-selector')) {
+			$('#font-selector').bind('change', function() {
+				var fontName = $('#font-selector').val();
+				if (fontName != 'inherit') fontName = '"' + fontName + '"';
+				$('.char-table td').css('font-family', fontName);
+				$('.charlist-charglyph').css('font-family', fontName);
+			});
+			var detector = new Detector();
+			var newSelector = '<option selected value="inherit">Default</option>';
+			$('#font-selector option').each(function() {
+				var fontName = $(this).attr('value');
+				if (fontName !== 'inherit' && detector.detect(fontName)) {
+					fontName = fontName.replace('&', '&amp;')
+									   .replace('<', '&lt;')
+									   .replace('>', '&gt;')
+									   .replace('"', '&quot;');
+					newSelector += (
+						'<option value="' + fontName + '">' +
+						fontName + '</option>'
+					);
+				}
+			});
+			detector.dispose();
+			$('#font-selector').html(newSelector);
+		}
 	});
 })(jQuery,window,document,Unicopy);

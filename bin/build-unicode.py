@@ -7,7 +7,7 @@ import re
 import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
-from parselib import cd, charset_path, expand, load_plugin, ls
+from parselib import atline_matcher, cd, charset_path, expand, load_plugin, ls, strip_comment
 from ttflib import ttf_file
 
 def get_unidata():
@@ -58,16 +58,26 @@ def get_unidata():
 	return ranges, chars, blocks
 
 def get_puadata():
+	font_matcher = atline_matcher('font-name')
+	vendor_matcher = atline_matcher('vendor-id')
 	with cd(charset_path('puadata')):
 		for path in ls('.'):
 			if os.path.basename(path) == 'sources.txt':
 				print('Reading Private Use Area data: %s' % path)
-				meta = {}
+				meta = {'Font-Names': [], 'Vendor-IDs': []}
 				chars = {}
 				blocks = []
 				for line in expand(path):
 					if line:
-						fields = line.split(':', 2)
+						font_name = font_matcher.match(line)
+						if font_name is not None:
+							meta['Font-Names'].append(font_name)
+							continue
+						vendor_id = vendor_matcher.match(line)
+						if vendor_id is not None:
+							meta['Vendor-IDs'].append(vendor_id)
+							continue
+						fields = strip_comment(line).split(':', 2)
 						if len(fields) == 2:
 							meta[fields[0].strip()] = fields[1].strip()
 					else:
@@ -107,11 +117,11 @@ def get_entities():
 	return entities
 
 def get_font_file_data(path):
-	name = None
-	chars = 0
-	vendorid = None
 	ext = path.split('/')[-1].split('.')[-1].lower()
 	if ext == 'bdf' or ext == 'bdfmeta':
+		name = None
+		chars = 0
+		vendorid = None
 		with open(path, 'r') as bdf:
 			for line in bdf:
 				if line[:12] == 'FAMILY_NAME ':
@@ -128,16 +138,36 @@ def get_font_file_data(path):
 					vendorid = line[11:].strip()
 					if (vendorid[0] == '"' and vendorid[-1] == '"') or (vendorid[0] == "'" and vendorid[-1] == "'"):
 						vendorid = vendorid[1:-1]
-	if ext == 'ttf' or ext == 'ttfmeta' or ext == 'otf' or ext == 'otfmeta':
+		return name, chars, vendorid
+	elif ext == 'ttf' or ext == 'ttfmeta' or ext == 'otf' or ext == 'otfmeta':
+		name = None
+		chars = 0
+		vendorid = None
 		with ttf_file(path) as ttf:
 			name = ttf.name(False)
 			if name[-8:] == ' Regular':
 				name = name[:-8]
+
+			# Start Blacklisting
+			if name[0] == '.':
+				# Font is private to system and normally inaccessible.
+				return None
+			if re.match('^[.]?Last[ ]?Resort$', name):
+				# No. Just no.
+				return None
+			words = name.split(' ')
+			if words[0] == 'Noto' and words[-1] in ['Bk', 'Black', 'Blk', 'Bold', 'Cn', 'Cond', 'DemiLight', 'ExtBd', 'ExtCond', 'ExtLt', 'ExtraLight', 'Light', 'Lt', 'Md', 'Med', 'Medium', 'SemBd', 'SemCond', 'SemiBold', 'SmBd', 'SmCn', 'Th', 'Thin', 'XBd', 'XCn', 'XLt']:
+				# We really don't need every weight of Noto.
+				return None
+			# End Blacklisting
+
 			for cmap in ttf.cmaps():
 				for cp, glyph in cmap.glyphs():
 					chars |= (1 << cp)
 			vendorid = ttf.vendorid()
-	return name, chars, vendorid
+		return name, chars, vendorid
+	else:
+		raise ValueError('Not a supported font format.')
 
 def get_font_data():
 	fonts = {}
@@ -149,13 +179,16 @@ def get_font_data():
 		except Exception as e:
 			print('Error: %s' % e)
 			continue
-		if font_data is not None and font_data[0] is not None and font_data[0][0] != '.':
-			if font_data[0] in fonts:
-				newchars = fonts[font_data[0]][1] | font_data[1]
-				newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
-				fonts[font_data[0]] = (font_data[0], newchars, newvendor)
-			else:
-				fonts[font_data[0]] = font_data
+		if font_data is None:
+			print('Skipping this font because reasons.')
+		elif font_data[0] is None:
+			print('Error: Font has no name.')
+		elif font_data[0] in fonts:
+			newchars = fonts[font_data[0]][1] | font_data[1]
+			newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
+			fonts[font_data[0]] = (font_data[0], newchars, newvendor, None)
+		else:
+			fonts[font_data[0]] = (font_data[0], font_data[1], font_data[2], None)
 	path = charset_path('acquisition', 'fonts')
 	for modfile in ls(path):
 		mod = load_plugin(modfile)
@@ -167,16 +200,52 @@ def get_font_data():
 				except Exception as e:
 					print('Error: %s' % e)
 					continue
-				if font_data is not None and font_data[0] is not None and font_data[0][0] != '.':
-					if font_data[0] in fonts:
-						newchars = fonts[font_data[0]][1] | font_data[1]
-						newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
-						fonts[font_data[0]] = (font_data[0], newchars, newvendor)
-					else:
-						fonts[font_data[0]] = font_data
+				if font_data is None:
+					print('Skipping this font because reasons.')
+				elif font_data[0] is None:
+					print('Error: Font has no name.')
+				elif font_data[0] in fonts:
+					newchars = fonts[font_data[0]][1] | font_data[1]
+					newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
+					fonts[font_data[0]] = (font_data[0], newchars, newvendor, url)
+				else:
+					fonts[font_data[0]] = (font_data[0], font_data[1], font_data[2], url)
 	fonts = [fonts[k] for k in fonts]
 	fonts.sort(key=lambda font: font[0].lower())
 	return fonts
+
+def popcount(v):
+	count = 0
+	while (v != 0):
+		piece = v & 0xFFFFFFFFFFFFFFFF
+		count += bin(piece).count('1')
+		v >>= 64
+	return count
+
+def merge_blocks(*blockses):
+	merged = [(0, 'UNDEFINED'), (0x110000, 'END')]
+	def block_name(cp):
+		for i in reversed(range(0, len(merged))):
+			if cp >= merged[i][0]:
+				return merged[i][1]
+	def block_insert(cp, name):
+		for i in reversed(range(0, len(merged))):
+			if merged[i][0] == cp:
+				merged[i] = (cp, name)
+				return
+			elif merged[i][0] < cp:
+				merged.insert(i + 1, (cp, name))
+				return
+	def block_remove(a, b):
+		for i in reversed(range(0, len(merged))):
+			if merged[i][0] >= a and merged[i][0] <= b:
+				merged.pop(i)
+	for blocks in blockses:
+		for block in blocks:
+			block_insert(block[1]+1, block_name(block[1]+1))
+			block_remove(block[0]+1, block[1])
+			block_insert(block[0], block[2])
+	return [(merged[i][0], merged[i+1][0]-1, merged[i][1]) for i in range(0, len(merged)-1)]
 
 def html_encode(s):
 	return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
@@ -311,7 +380,7 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			else:
 				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/pua/">Private Use Agreements</a> &raquo; <a href="/charset/pua/%s/">%s</a> &raquo;</p>' % (urlname, htmlname), file=f)
 				print('<h1>%s</h1>' % html_encode(block[2]), file=f)
-				print('<p class="pua-notice" data-pua-name="%s">These are private use characters. Their use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretations shown here are only some of many possible interpretations.</p>' % htmlname, file=f)
+				print('<p class="pua-notice">These are private use characters. Their use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretations shown here are only some of many possible interpretations.</p>', file=f)
 			print('<table class="block-header"><tr>', file=f)
 			if prevblock is None:
 				print('<td class="block-prev-arr"></td><td class="block-prev"></td>', file=f)
@@ -339,7 +408,10 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			else:
 				print('<td class="block-links"></td>', file=f)
 			print('</tr></table>', file=f)
-			print('<table class="char-table">', file=f)
+			if meta is None:
+				print('<table class="char-table">', file=f)
+			else:
+				print('<table class="char-table" data-pua-name="%s">' % htmlname, file=f)
 			print('<tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>', file=f)
 			for j in range(block[0] >> 4, (block[1] >> 4) + 1):
 				cells = [char_cell(k, ranges, chars, charurlprefix) for k in range(j << 4, (j + 1) << 4)]
@@ -437,13 +509,17 @@ def main():
 	build_dir(None, ranges, chars, blocks, entities, fonts, basedir)
 
 	pua_meta = []
-	for meta, chars, blocks in get_puadata():
+	pua_chars = {}
+	pua_blocks = {}
+	for meta, pchars, pblocks in get_puadata():
 		if 'Agreement-Type' in meta:
 			if meta['Agreement-Type'] == 'Please-Ignore':
 				continue
 		basedir = charset_path('out', 'pua', re.sub('[^A-Za-z0-9]+', '', meta['Agreement-Name']))
-		build_dir(meta, None, chars, blocks, entities, fonts, basedir)
+		build_dir(meta, None, pchars, pblocks, entities, fonts, basedir)
 		pua_meta.append(meta)
+		pua_chars[meta['Agreement-Name']] = pchars
+		pua_blocks[meta['Agreement-Name']] = pblocks
 	pua_meta.sort(key=lambda meta: meta['Agreement-Name'])
 
 	puadir = charset_path('out', 'pua')
@@ -463,6 +539,135 @@ def main():
 		for meta in pua_meta:
 			print('<tr><td><a href="/charset/pua/%s">%s</a></td></tr>' % (re.sub('[^A-Za-z0-9]+', '', meta['Agreement-Name']), html_encode(meta['Agreement-Name'])), file=f)
 		print('</table>', file=f)
+		print('<!--#include virtual="/static/tail.html"-->', file=f)
+
+	fontdir = charset_path('out', 'font')
+	if not os.path.exists(fontdir):
+		os.makedirs(fontdir)
+	for font in fonts:
+		urlname = re.sub('[^A-Za-z0-9]+', '', font[0])
+		fdir = os.path.join(fontdir, urlname)
+		if not os.path.exists(fdir):
+			os.makedirs(fdir)
+		path = os.path.join(fdir, 'index.shtml')
+		print('Writing font page: %s' % path)
+		with open(path, 'w') as f:
+			print('<!--#include virtual="/static/head.html"-->', file=f)
+			print('<title>Character Encodings - Fonts - %s</title>' % html_encode(font[0]), file=f)
+			print('<link rel="stylesheet" href="/charset/shared/unicopy.css">', file=f)
+			print('<link rel="stylesheet" href="/charset/shared/charlist.css">', file=f)
+			print('<style>.char-table td, .charlist-charglyph, .unicopy-h1 { font-family: "%s"; }</style>' % font[0], file=f);
+			print('<!--#include virtual="/static/body.html"-->', file=f)
+			print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/font/">Fonts</a> &raquo;</p>', file=f)
+			print('<h1>%s</h1>' % html_encode(font[0]), file=f)
+			if font[3] is not None and len(font[3]) > 0:
+				print('<p><a href="%s" target="_blank">%s Home Page</a></p>' % (html_encode(font[3]), html_encode(font[0])), file=f)
+			blockses = []
+			charses = []
+			blockurls = []
+			charurls = []
+			agreements = []
+			for vendor_agreement in [meta['Agreement-Name'] for meta in pua_meta if font[2] in meta['Vendor-IDs']]:
+				blockses.append(pua_blocks[vendor_agreement])
+				charses.append(pua_chars[vendor_agreement])
+				blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
+				charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
+				agreements.insert(0, vendor_agreement)
+			for font_agreement in [meta['Agreement-Name'] for meta in pua_meta if font[0] in meta['Font-Names']]:
+				blockses.append(pua_blocks[font_agreement])
+				charses.append(pua_chars[font_agreement])
+				blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
+				charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
+				agreements.insert(0, font_agreement)
+			if len(agreements) > 0:
+				print('<table class="char-table" data-pua-name="%s">' % html_encode(','.join(agreements)), file=f)
+			else:
+				print('<table class="char-table">', file=f)
+			font_blocks = merge_blocks(blocks, *blockses)
+			for block in font_blocks:
+				blockchars = font[1] & (((1 << (block[1] - block[0] + 1)) - 1) << block[0])
+				if blockchars != 0:
+					pc = popcount(blockchars >> block[0])
+					if block[2] == 'UNDEFINED':
+						print('<tr><th class="char-table-block-name" colspan="17">%s (%s)</th></tr>' % (block[2], pc), file=f)
+					elif 'Private Use Area' in block[2]:
+						print('<tr><th class="char-table-block-name" colspan="17"><a href="/charset/pua/">%s</a> (%s)</th></tr>' % (block[2], pc), file=f)
+					else:
+						blockurl = '/charset/unicode/block/'
+						for i in range(0, len(blockses)):
+							if block in blockses[i]:
+								blockurl = blockurls[i]
+						print('<tr><th class="char-table-block-name" colspan="17"><a href="%s%04X">%s</a> (%s)</th></tr>' % (blockurl, block[0], block[2], pc), file=f)
+					print('<tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>', file=f)
+					skipped = False
+					for j in range(block[0] >> 4, (block[1] >> 4) + 1):
+						if (blockchars & (0xFFFF << (j << 4))) == 0:
+							if not skipped:
+								print('<tr><td class="char-table-row-skip" colspan="17"></td></tr>', file=f)
+								skipped = True
+						else:
+							cells = []
+							for k in range(j << 4, (j + 1) << 4):
+								cellchars = chars
+								cellurl = '/charset/unicode/char/'
+								for l in range(0, len(charses)):
+									if k in charses[l]:
+										cellchars = charses[l]
+										cellurl = charurls[l]
+								cell = char_cell(k, ranges, cellchars, cellurl)
+								if (blockchars & (1 << k)) == 0:
+									cell = re.sub('<div.*</div>', '', cell)
+									cell = re.sub('<td class="[^"]+', '\g<0> char-not-in-font', cell)
+									cell = re.sub(' data-codepoint="[^"]+"', '', cell)
+								cells.append(cell)
+							print('<tr><th>%02X</th>%s</tr>' % (j, ''.join(cells)), file=f)
+							skipped = False
+			print('</table>', file=f)
+			print('<script src="/charset/shared/jquery.js"></script>', file=f)
+			print('<script src="/charset/shared/ucd.js"></script>', file=f)
+			print('<script src="/charset/shared/pua.js"></script>', file=f)
+			print('<script src="/charset/shared/entitydb.js"></script>', file=f)
+			print('<script src="/charset/shared/unicopy.js"></script>', file=f)
+			print('<script src="/charset/shared/charlist.js"></script>', file=f)
+			print('<!--#include virtual="/static/tail.html"-->', file=f)
+
+	path = os.path.join(fontdir, 'index.shtml')
+	print('Writing font index: %s' % path)
+	with open(path, 'w') as f:
+		print('<!--#include virtual="/static/head.html"-->', file=f)
+		print('<title>Character Encodings - Fonts</title>', file=f)
+		print('<link rel="stylesheet" href="/charset/shared/fontlist.css">', file=f)
+		print('<!--#include virtual="/static/body.html"-->', file=f)
+		print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo;</p>', file=f)
+		print('<h1>Fonts</h1>', file=f)
+		qtrpoint = (len(fonts) + 3) >> 2
+		print('<div class="fontlist-outer-div">', file=f)
+		print('<div class="fontlist-inner-div">', file=f)
+		print('<ul class="fontlist">', file=f)
+		for font in fonts[:qtrpoint]:
+			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
+			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
+		print('</ul>', file=f)
+		print('</div><div class="fontlist-inner-div">', file=f)
+		print('<ul class="fontlist">', file=f)
+		for font in fonts[qtrpoint:qtrpoint*2]:
+			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
+			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
+		print('</ul>', file=f)
+		print('</div><div class="fontlist-inner-div">', file=f)
+		print('<ul class="fontlist">', file=f)
+		for font in fonts[qtrpoint*2:qtrpoint*3]:
+			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
+			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
+		print('</ul>', file=f)
+		print('</div><div class="fontlist-inner-div">', file=f)
+		print('<ul class="fontlist">', file=f)
+		for font in fonts[qtrpoint*3:]:
+			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
+			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
+		print('</ul>', file=f)
+		print('</div>', file=f)
+		print('</div>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
 
 if __name__ == '__main__':

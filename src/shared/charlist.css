@@ -27,6 +27,8 @@
 	height: 30px;
 }
 .block-prev-arr a, .block-next-arr a,
+.block-prev-arr a:link, .block-next-arr a:link,
+.block-prev-arr a:visited, .block-next-arr a:visited,
 .block-prev-arr a:active, .block-next-arr a:active,
 .block-prev-arr a:focus, .block-next-arr a:focus,
 .block-prev-arr a:hover, .block-next-arr a:hover {
@@ -75,6 +77,32 @@
 	min-width: 59px;
 	max-width: 59px;
 }
+.char-table th.char-table-block-name {
+	background: #5f6177;
+	color: white;
+	font-family: inherit;
+	font-weight: bold;
+	padding: 4px 8px;
+	text-align: left;
+}
+.char-table th.char-table-block-name a,
+.char-table th.char-table-block-name a:link,
+.char-table th.char-table-block-name a:visited {
+	color: white;
+	text-decoration: none;
+}
+.char-table th.char-table-block-name a:hover {
+	color: #eaecf0;
+	text-decoration: none;
+}
+.char-table th.char-table-block-name a:active {
+	color: #c6cad0;
+	text-decoration: none;
+}
+.char-table td.char-table-row-skip {
+	background: #a2a9b1;
+	padding: 2px;
+}
 .char-table td.char-undef {
 	background: #c6cad0;
 }
@@ -86,6 +114,9 @@
 }
 .char-table td.char-control {
 	background: #ccffcc;
+}
+.char-table td.char-not-in-font {
+	background: #a2a9b1;
 }
 .char-table td.char-surrogate {
 	background: maroon;

@@ -1,0 +1,17 @@
+.fontlist-inner-div {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 0;
+	width: 245px;
+	vertical-align: top;
+}
+.fontlist {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 245px;
+}
+.fontlist li {
+	margin: 0;
+	padding: 2px 0;
+}
