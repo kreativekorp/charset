@@ -245,14 +245,10 @@ var popupItems = function(elem, evt, items) {
 			} else if (items[i][0] === '#') {
 				var h1 = $('<h1/>');
 				h1.addClass('unicopy-h1');
-				if (items[i][2]) {
-					var a = $('<a/>');
-					a.text(items[i][1]);
-					a.attr('href', items[i][2]);
-					a.attr('target', '_blank');
-					h1.append(a);
-				} else {
-					h1.text(items[i][1]);
+				h1.text(items[i][1]);
+				var fontFamily = elem.css('font-family');
+				if (fontFamily && fontFamily !== 'inherit') {
+					h1.css('font-family', fontFamily);
 				}
 				popup.append(h1);
 			} else if (items[i][0] === '##') {

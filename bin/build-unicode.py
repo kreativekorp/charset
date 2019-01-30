@@ -328,9 +328,11 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			print('<table class="block-subheader"><tr>', file=f)
 			print('<td class="block-fonts">Font: <select id="font-selector">', file=f)
 			print('<option selected value="inherit">Default</option>', file=f)
+			blockchars = ((1 << (block[1] - block[0] + 1)) - 1) << block[0]
 			for font_data in fonts:
-				font_name = html_encode(font_data[0])
-				print('<option value="%s">%s</option>' % (font_name, font_name), file=f)
+				if (font_data[1] & blockchars) != 0:
+					font_name = html_encode(font_data[0])
+					print('<option value="%s">%s</option>' % (font_name, font_name), file=f)
 			print('</select></td>', file=f)
 			if meta is None:
 				print('<td class="block-links"><a href="http://www.unicode.org/charts/PDF/U%04X.pdf" target="_blank">Code Chart PDF</a></td>' % block[0], file=f)
