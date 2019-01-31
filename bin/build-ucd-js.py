@@ -7,7 +7,7 @@ import os
 import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
-from parselib import cd, charset_path, expand, load_plugin, ls
+from parselib import cd, charset_path, expand, load_plugin, ls, strip_comment
 
 def get_unidata():
 	ranges = {}
@@ -16,6 +16,7 @@ def get_unidata():
 	for modfile in ls(path):
 		mod = load_plugin(modfile)
 		if mod is not None:
+			print('Reading Unicode data: %s' % modfile)
 			for name, path in mod.list_files():
 				if name == 'UnicodeData.txt':
 					with open(path, 'r') as ucd:
@@ -43,11 +44,12 @@ def get_puadata():
 	with cd(charset_path('puadata')):
 		for path in ls('.'):
 			if os.path.basename(path) == 'sources.txt':
+				print('Reading Private Use Area data: %s' % path)
 				meta = {}
 				chars = {}
 				for line in expand(path):
 					if line:
-						fields = line.split(':', 2)
+						fields = strip_comment(line).split(':', 2)
 						if len(fields) == 2:
 							meta[fields[0].strip()] = fields[1].strip()
 					else:
@@ -79,11 +81,10 @@ def main():
 
 	ucd = {}
 	ucd['ranges'], ucd['chars'] = get_unidata()
-
 	path = os.path.join(shared, 'ucd.js')
+	print('Writing Unicode data: %s' % path)
 	with open(path, 'w') as f:
 		f.write('UCD=%s;' % json.dumps(ucd, separators=(',', ':')))
-	print(path)
 
 	pua = {}
 	for meta, chars in get_puadata():
@@ -91,22 +92,17 @@ def main():
 			if meta['Agreement-Type'] == 'Please-Ignore':
 				continue
 		meta['chars'] = chars
-		if 'Agreement-Name' in meta:
-			pua[meta['Agreement-Name']] = meta
-		else:
-			pua[len(pua)] = meta
-
+		pua[meta['Agreement-Name']] = meta
 	path = os.path.join(shared, 'pua.js')
+	print('Writing Private Use Area data: %s' % path)
 	with open(path, 'w') as f:
 		f.write('PUA=%s;' % json.dumps(pua, separators=(',', ':')))
-	print(path)
 
 	entities = get_entities()
-
 	path = os.path.join(shared, 'entitydb.js')
+	print('Writing named character entity data: %s' % path)
 	with open(path, 'w') as f:
 		f.write('ENTITYDB=%s;' % json.dumps(entities, separators=(',', ':')))
-	print(path)
 
 if __name__ == '__main__':
 	main()
