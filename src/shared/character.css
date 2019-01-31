@@ -1,0 +1,32 @@
+.pua-notice {
+	background: #EECCFF;
+	border: 1px solid #AA88BB;
+	padding: 12px;
+}
+.char-data-inner-div {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 0;
+	vertical-align: top;
+}
+#char-data-inner-div-1 {
+	width: 700px;
+}
+#char-data-inner-div-2 {
+	width: 300px;
+}
+.char-glyph-item {
+	display: inline-block;
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+	width: 150px;
+	height: 150px;
+	vertical-align: top;
+}
+.char-glyph {
+	font-size: 80px;
+	height: 112px;
+	line-height: 112px;
+	overflow: hidden;
+}

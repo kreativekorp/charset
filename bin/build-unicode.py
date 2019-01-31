@@ -7,8 +7,10 @@ import re
 import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
+from keyboardlib import keystroke_mac_us, keystroke_mac_us_ext, keystroke_superlatin
 from parselib import atline_matcher, cd, charset_path, expand, load_plugin, ls, strip_comment
 from ttflib import ttf_file
+from unicodelib import bidi_class, char_to_utf8, char_to_utf16, combining_class, decomposition_tag, general_category, hex_dump, plane_name
 
 def get_unidata():
 	ranges = {}
@@ -250,23 +252,6 @@ def merge_blocks(*blockses):
 def html_encode(s):
 	return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
-def plane_name(p):
-	if p == 0:
-		return 'Basic Multilingual Plane (BMP)'
-	if p == 1:
-		return 'Supplementary Multilingual Plane (SMP)'
-	if p == 2:
-		return 'Supplementary Ideographic Plane (SIP)'
-	if p == 3:
-		return 'Tertiary Ideographic Plane (TIP)'
-	if p == 14:
-		return 'Supplementary Special-Purpose Plane (SSP)'
-	if p == 15:
-		return 'Supplementary Private Use Area-A'
-	if p == 16:
-		return 'Supplementary Private Use Area-B'
-	return 'Plane ' + str(p)
-
 def char_cell(cp, ranges, chars, url):
 	if cp < 0 or (cp >= 0xFDD0 and cp < 0xFDF0) or cp >= 0x110000 or (cp & 0xFFFF) >= 0xFFFE:
 		return '<td class="char-nonchar" data-codepoint="%s"><div class="char-glyph"></div><div class="char-code">%04X</div></td>' % (cp, cp)
@@ -310,6 +295,17 @@ def char_row(cp, data, url):
 		gcell = '<td class="charlist-charglyph" data-codepoint="%s">&#%s;</td>' % (cp, cp)
 		ncell = '<td class="charlist-charname"><a href="%s%04X">%s</a></td>' % (url, cp, data[1])
 	return '<tr>' + cpcell + gcell + ncell + '</tr>'
+
+def char_case_property(title, field, chars, url):
+	try:
+		cp = int(field, 16)
+		if cp in chars:
+			name = chars[cp][1]
+			return '<tr><td>%s:</td><td colspan="2"><code>%04X</code> <a href="%s%04X">%s</a></td></tr>' % (title, cp, url, cp, html_encode(name))
+		else:
+			return '<tr><td>%s:</td><td colspan="2"><code>%04X</code></td></tr>' % (title, cp)
+	except ValueError:
+		return '<tr><td>%s:</td><td colspan="2"><code>%s</code></td></tr>' % (title, html_encode(field))
 
 def build_roadmap(complete, blocks, plane, urlbase, f):
 	blocks = [b for b in blocks if (b[0] >> 16) == plane]
@@ -355,6 +351,142 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 		urlname = re.sub('[^A-Za-z0-9]+', '', meta['Agreement-Name'])
 		blockurlprefix = '/charset/pua/%s/block/' % urlname
 		charurlprefix = '/charset/pua/%s/char/' % urlname
+
+	for cp in chars:
+		ch = chars[cp]
+		prevcp = cp
+		nextcp = cp
+		prevch = None
+		nextch = None
+		while prevcp > 0 and prevch is None:
+			prevcp -= 1
+			if prevcp in chars:
+				prevch = chars[prevcp]
+		while nextcp < 0x110000 and nextch is None:
+			nextcp += 1
+			if nextcp in chars:
+				nextch = chars[nextcp]
+		blockstart = cp
+		blockstop = cp
+		blockname = '???'
+		blockurl = re.sub('/block/', '/', blockurlprefix)
+		for b in blocks:
+			if cp >= b[0] and cp <= b[1]:
+				blockstart, blockstop, blockname = b
+				blockurl = '%s%04X' % (blockurlprefix, b[0])
+				break
+		charname = ch[10] if ch[1] == '<control>' and ch[10] != '' else ch[1]
+
+		dirpath = os.path.join(chardir, '%04X' % cp)
+		if not os.path.exists(dirpath):
+			os.makedirs(dirpath)
+		path = os.path.join(dirpath, 'index.shtml')
+		print('Writing char page: %s' % path)
+		with open(path, 'w') as f:
+			print('<!--#include virtual="/static/head.html"-->', file=f)
+			if meta is None:
+				print('<title>Character Encodings - Unicode - %s - %s</title>' % (html_encode(blockname), html_encode(charname)), file=f)
+			else:
+				print('<title>Character Encodings - Private Use Agreements - %s - %s - %s</title>' % (htmlname, html_encode(blockname), html_encode(charname)), file=f)
+			print('<link rel="stylesheet" href="/charset/shared/character.css">', file=f)
+			print('<!--#include virtual="/static/body.html"-->', file=f)
+			if meta is None:
+				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/unicode/">Unicode</a> &raquo; <a href="%s">%s</a> &raquo;</p>' % (html_encode(blockurl), html_encode(blockname)), file=f)
+				print('<h1>%s</h1>' % html_encode(charname), file=f)
+			else:
+				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/pua/">Private Use Agreements</a> &raquo; <a href="/charset/pua/%s/">%s</a> &raquo; <a href="%s">%s</a> &raquo;</p>' % (urlname, htmlname, html_encode(blockurl), html_encode(blockname)), file=f)
+				print('<h1>%s</h1>' % html_encode(charname), file=f)
+				print('<p class="pua-notice">This is a private use character. Its use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretation shown here is only one of many possible interpretations.</p>', file=f)
+			print('<div class="char-data-outer-div">', file=f)
+			print('<div class="char-data-inner-div" id="char-data-inner-div-1">', file=f)
+			print('<h2>Properties</h2>', file=f)
+			print('<table>', file=f)
+			print('<tr><td>Character Name:</td><td colspan="2">%s</td></tr>' % html_encode(ch[1]), file=f)
+			if len(ch) > 2:
+				print('<tr><td>General Category:</td><td><code>%s</code></td><td>%s</td></tr>' % (ch[2], general_category[ch[2]] if ch[2] in general_category else ''), file=f)
+			if len(ch) > 3:
+				print('<tr><td>Combining Class:</td><td><code>%s</code></td><td>%s</td></tr>' % (ch[3], combining_class[ch[3]] if ch[3] in combining_class else ''), file=f)
+			if len(ch) > 4:
+				print('<tr><td>Bidi Class:</td><td><code>%s</code></td><td>%s</td></tr>' % (ch[4], bidi_class[ch[4]] if ch[4] in bidi_class else ''), file=f)
+			if len(ch) > 5 and len(ch[5]) > 0:
+				tokens = []
+				for token in ch[5].split(' '):
+					if token[0] == '<' and token[-1] == '>':
+						if token[1:-1] in decomposition_tag:
+							tokens.append('<span title="%s">%s</span>' % (html_encode(decomposition_tag[token[1:-1]]), html_encode(token)))
+						else:
+							tokens.append(html_encode(token))
+					else:
+						try:
+							dcp = int(token, 16)
+							tokens.append('<a href="/charset/unicode/char/%04X">%04X</a>' % (dcp, dcp))
+						except ValueError:
+							tokens.append(html_encode(token))
+				print('<tr><td>Decomposition:</td><td colspan="2"><code>%s</code></td></tr>' % ' '.join(tokens), file=f)
+			if len(ch) > 8 and len(ch[8]) > 0:
+				print('<tr><td>Numeric Value:</td><td colspan="2">%s</td></tr>' % html_encode(ch[8]), file=f)
+			if len(ch) > 9:
+				print('<tr><td>Bidi Mirrored:</td><td colspan="2">%s</td></tr>' % html_encode(ch[9]), file=f)
+			if len(ch) > 10 and len(ch[10]) > 0:
+				print('<tr><td>Unicode 1.0 Name:</td><td colspan="2">%s</td></tr>' % html_encode(ch[10]), file=f)
+			if len(ch) > 11 and len(ch[11]) > 0:
+				print('<tr><td>ISO Comment:</td><td colspan="2">%s</td></tr>' % html_encode(ch[11]), file=f)
+			if len(ch) > 12 and len(ch[12]) > 0:
+				print(char_case_property('Uppercase', ch[12], chars, charurlprefix), file=f)
+			if len(ch) > 13 and len(ch[13]) > 0:
+				print(char_case_property('Lowercase', ch[13], chars, charurlprefix), file=f)
+			if len(ch) > 14 and len(ch[14]) > 0:
+				print(char_case_property('Titlecase', ch[14], chars, charurlprefix), file=f)
+			print('</table>', file=f)
+			print('<h2>How to Type</h2>', file=f)
+			print('<table>', file=f)
+			print('<tr><td>Windows:</td><td>Alt+0%s</td></tr>' % cp, file=f)
+			if cp in keystroke_superlatin:
+				print('<tr><td>Windows, <a href="http://www.kreativekorp.com/software/keyboards/superlatin/" target="_blank">SuperLatin</a>:</td><td>%s</td></tr>' % html_encode(keystroke_superlatin[cp].replace('Shift-', 'Shift+').replace('Ctrl-', 'Ctrl+').replace('Alt-', 'AltGr+')), file=f)
+			if cp in keystroke_mac_us:
+				print('<tr><td>Mac, U.S.:</td><td>%s</td></tr>' % html_encode(keystroke_mac_us[cp]), file=f)
+			if cp in keystroke_mac_us_ext:
+				print('<tr><td>Mac, U.S. Extended:</td><td>%s</td></tr>' % html_encode(keystroke_mac_us_ext[cp]), file=f)
+			if cp in keystroke_superlatin:
+				print('<tr><td>Mac, <a href="http://www.kreativekorp.com/software/keyboards/superlatin/" target="_blank">SuperLatin</a>:</td><td>%s</td></tr>' % html_encode(keystroke_superlatin[cp].replace('Alt-', 'Option-')), file=f)
+			if cp < 0x10000:
+				print('<tr><td>Mac, Unicode Hex:</td><td>Option-%04X</td></tr>' % cp, file=f)
+			print('</table>', file=f)
+			print('</div><div class="char-data-inner-div" id="char-data-inner-div-2">', file=f)
+			print('<h2>Encoding</h2>', file=f)
+			print('<table>', file=f)
+			print('<tr><td>Decimal:</td><td>%s</td></tr>' % cp, file=f)
+			print('<tr><td>Hexadecimal:</td><td>U+%04X</td></tr>' % cp, file=f)
+			if cp in entities:
+				print('<tr><td>HTML Name:</td><td><code>%s</code></td></tr>' % html_encode(entities[cp]), file=f)
+			print('<tr><td>HTML Dec:</td><td><code>&amp;#%s;</code></td></tr>' % cp, file=f)
+			print('<tr><td>HTML Hex:</td><td><code>&amp;#x%X;</code></td></tr>' % cp, file=f)
+			chu8 = char_to_utf8(cp)
+			chu16 = char_to_utf16(cp)
+			print('<tr><td>URL:</td><td><code>%s</code></td></tr>' % ''.join('%%%02X' % b for b in chu8), file=f)
+			print('<tr><td>C/C++:</td><td><code>%s</code></td></tr>' % ''.join('\\x%02X' % b for b in chu8), file=f)
+			print('<tr><td>Java:</td><td><code>%s</code></td></tr>' % ''.join('\\u%04X' % w for w in chu16), file=f)
+			print('<tr><td>Python:</td><td><code>u\'%s\'</code></td></tr>' % ('\\u%04X' % cp if cp < 0x10000 else '\\U%08X' % cp), file=f)
+			print('<tr><td>UTF-8:</td><td><code>%s</code></td></tr>' % hex_dump(chu8, 2), file=f)
+			print('<tr><td>UTF-16BE:</td><td><code>%s</code></td></tr>' % hex_dump(chu16, 4, False), file=f)
+			print('<tr><td>UTF-16LE:</td><td><code>%s</code></td></tr>' % hex_dump(chu16, 4, True), file=f)
+			print('<tr><td>UTF-32BE:</td><td><code>%s</code></td></tr>' % hex_dump([cp], 8, False), file=f)
+			print('<tr><td>UTF-32LE:</td><td><code>%s</code></td></tr>' % hex_dump([cp], 8, True), file=f)
+			print('</table>', file=f)
+			print('</div>', file=f)
+			if (cp > 0x20 and cp < 0x7F) or (cp > 0xA0 and cp < 0xD800) or (cp >= 0xE000 and cp < 0xFDD0) or (cp >= 0xFDF0 and cp < 0xFFFE) or (cp >= 0x10000 and cp < 0x110000 and (cp & 0xFFFF) < 0xFFFE):
+				print('<h2>Appearance</h2>', file=f)
+				print('<div class="char-glyph-panel"><!--', file=f)
+				charchar = 1 << cp
+				for font_data in fonts:
+					if (font_data[1] & charchar) != 0:
+						font_name = html_encode(font_data[0])
+						font_url = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font_data[0]))
+						print('--><div class="char-glyph-item" data-font-name="%s"><div class="char-glyph" style="font-family: \'%s\';">&#%s;</div><div class="char-glyph-font"><a href="%s">%s</a></div></div><!--' % (font_name, font_name, cp, font_url, font_name), file=f)
+				print('--></div>', file=f)
+			print('<script src="/charset/shared/jquery.js"></script>', file=f)
+			print('<script src="/charset/shared/character.js"></script>', file=f)
+			print('<!--#include virtual="/static/tail.html"-->', file=f)
 
 	for i in range(0, len(blocks)):
 		block = blocks[i]
