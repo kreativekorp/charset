@@ -572,15 +572,15 @@ def main():
 				charses.append(pua_chars[vendor_agreement])
 				blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
 				charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
-				agreements.insert(0, vendor_agreement)
+				agreements.append(vendor_agreement)
 			for font_agreement in [meta['Agreement-Name'] for meta in pua_meta if font[0] in meta['Font-Names']]:
 				blockses.append(pua_blocks[font_agreement])
 				charses.append(pua_chars[font_agreement])
 				blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
 				charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
-				agreements.insert(0, font_agreement)
+				agreements.append(font_agreement)
 			if len(agreements) > 0:
-				print('<table class="char-table" data-pua-name="%s">' % html_encode(','.join(agreements)), file=f)
+				print('<table class="char-table" data-pua-name="%s">' % html_encode(','.join(reversed(agreements))), file=f)
 			else:
 				print('<table class="char-table">', file=f)
 			font_blocks = merge_blocks(blocks, *blockses)
@@ -591,13 +591,20 @@ def main():
 					if block[2] == 'UNDEFINED':
 						print('<tr><th class="char-table-block-name" colspan="17">%s (%s)</th></tr>' % (block[2], pc), file=f)
 					elif 'Private Use Area' in block[2]:
-						print('<tr><th class="char-table-block-name" colspan="17"><a href="/charset/pua/">%s</a> (%s)</th></tr>' % (block[2], pc), file=f)
+						pua_tag = '<div class="char-table-tag" title="These are private use characters. Their use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretations shown here are only some of many possible interpretations.">PUA</div>'
+						print('<tr><th class="char-table-block-name" colspan="17">%s<a href="/charset/pua/">%s</a> (%s)</th></tr>' % (pua_tag, block[2], pc), file=f)
 					else:
 						blockurl = '/charset/unicode/block/'
+						pua_name = None
 						for i in range(0, len(blockses)):
 							if block in blockses[i]:
 								blockurl = blockurls[i]
-						print('<tr><th class="char-table-block-name" colspan="17"><a href="%s%04X">%s</a> (%s)</th></tr>' % (blockurl, block[0], block[2], pc), file=f)
+								pua_name = agreements[i]
+						if pua_name is not None:
+							pua_tag = '<div class="char-table-tag" title="These are private use characters. Their use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretations shown here are only some of many possible interpretations.\n\nThis interpretation: %s">PUA</div>' % html_encode(pua_name)
+							print('<tr><th class="char-table-block-name" colspan="17">%s<a href="%s%04X">%s</a> (%s)</th></tr>' % (pua_tag, blockurl, block[0], block[2], pc), file=f)
+						else:
+							print('<tr><th class="char-table-block-name" colspan="17"><a href="%s%04X">%s</a> (%s)</th></tr>' % (blockurl, block[0], block[2], pc), file=f)
 					print('<tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>', file=f)
 					skipped = False
 					for j in range(block[0] >> 4, (block[1] >> 4) + 1):
@@ -616,9 +623,7 @@ def main():
 										cellurl = charurls[l]
 								cell = char_cell(k, ranges, cellchars, cellurl)
 								if (blockchars & (1 << k)) == 0:
-									cell = re.sub('<div.*</div>', '', cell)
-									cell = re.sub('<td class="[^"]+', '\g<0> char-not-in-font', cell)
-									cell = re.sub(' data-codepoint="[^"]+"', '', cell)
+									cell = re.match('<td class="[^"]+', cell).group(0) + ' char-not-in-font"></td>'
 								cells.append(cell)
 							print('<tr><th>%02X</th>%s</tr>' % (j, ''.join(cells)), file=f)
 							skipped = False

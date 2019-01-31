@@ -66,6 +66,7 @@
 	width: 59px;
 	min-width: 59px;
 	max-width: 59px;
+	overflow: hidden;
 }
 .char-table td {
 	background: #f8f9fa;
@@ -76,6 +77,7 @@
 	width: 59px;
 	min-width: 59px;
 	max-width: 59px;
+	overflow: hidden;
 }
 .char-table th.char-table-block-name {
 	background: #5f6177;
@@ -136,6 +138,25 @@
 	font-size: 12px;
 	height: 16px;
 	line-height: 16px;
+}
+.char-table-tag {
+	background: #663399;
+	border-radius: 4px;
+	color: white;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	height: 18px;
+	line-height: 18px;
+	margin: 0 .5em 0 0;
+	padding: 0 6px;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
 }
 
 .charlist-inner-div {
