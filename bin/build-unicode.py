@@ -538,7 +538,7 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			print('<tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>', file=f)
 			for j in range(block[0] >> 4, (block[1] >> 4) + 1):
 				cells = [char_cell(k, ranges, chars, charurlprefix) for k in range(j << 4, (j + 1) << 4)]
-				print('<tr><th>%02X</th>%s</tr>' % (j, ''.join(cells)), file=f)
+				print('<tr><th>%03X</th>%s</tr>' % (j, ''.join(cells)), file=f)
 			print('</table>', file=f)
 			codepoints = sorted([cp for cp in chars if cp >= block[0] and cp <= block[1]])
 			if len(codepoints) > 0:
@@ -747,7 +747,7 @@ def main():
 								if not font[1].get(k):
 									cell = re.match('<td class="[^"]+', cell).group(0) + ' char-not-in-font"></td>'
 								cells.append(cell)
-							print('<tr><th>%02X</th>%s</tr>' % (j, ''.join(cells)), file=f)
+							print('<tr><th>%03X</th>%s</tr>' % (j, ''.join(cells)), file=f)
 							skipped = False
 			print('</table>', file=f)
 			print('<script src="/charset/shared/jquery.js"></script>', file=f)
