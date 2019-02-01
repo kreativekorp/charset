@@ -7,6 +7,7 @@ import re
 import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
+from bitsetlib import BitSet
 from keyboardlib import keystroke_mac_us, keystroke_mac_us_ext, keystroke_superlatin
 from parselib import atline_matcher, cd, charset_path, expand, load_plugin, ls, strip_comment
 from ttflib import ttf_file
@@ -122,7 +123,7 @@ def get_font_file_data(path):
 	ext = path.split('/')[-1].split('.')[-1].lower()
 	if ext == 'bdf' or ext == 'bdfmeta':
 		name = None
-		chars = 0
+		chars = BitSet()
 		vendorid = None
 		with open(path, 'r') as bdf:
 			for line in bdf:
@@ -133,7 +134,7 @@ def get_font_file_data(path):
 				if line[:9] == 'ENCODING ':
 					try:
 						cp = int(line[9:].strip())
-						chars |= (1 << cp)
+						chars.set(cp)
 					except ValueError:
 						pass
 				if line[:11] == 'OS2_VENDOR ':
@@ -143,7 +144,7 @@ def get_font_file_data(path):
 		return name, chars, vendorid
 	elif ext == 'ttf' or ext == 'ttfmeta' or ext == 'otf' or ext == 'otfmeta':
 		name = None
-		chars = 0
+		chars = BitSet()
 		vendorid = None
 		with ttf_file(path) as ttf:
 			name = ttf.name(False)
@@ -165,7 +166,7 @@ def get_font_file_data(path):
 
 			for cmap in ttf.cmaps():
 				for cp, glyph in cmap.glyphs():
-					chars |= (1 << cp)
+					chars.set(cp)
 			vendorid = ttf.vendorid()
 		return name, chars, vendorid
 	else:
@@ -186,7 +187,7 @@ def get_font_data():
 		elif font_data[0] is None:
 			print('Error: Font has no name.')
 		elif font_data[0] in fonts:
-			newchars = fonts[font_data[0]][1] | font_data[1]
+			newchars = fonts[font_data[0]][1].update(font_data[1])
 			newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
 			fonts[font_data[0]] = (font_data[0], newchars, newvendor, None)
 		else:
@@ -207,7 +208,7 @@ def get_font_data():
 				elif font_data[0] is None:
 					print('Error: Font has no name.')
 				elif font_data[0] in fonts:
-					newchars = fonts[font_data[0]][1] | font_data[1]
+					newchars = fonts[font_data[0]][1].update(font_data[1])
 					newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
 					fonts[font_data[0]] = (font_data[0], newchars, newvendor, url)
 				else:
@@ -215,14 +216,6 @@ def get_font_data():
 	fonts = [fonts[k] for k in fonts]
 	fonts.sort(key=lambda font: font[0].lower())
 	return fonts
-
-def popcount(v):
-	count = 0
-	while (v != 0):
-		piece = v & 0xFFFFFFFFFFFFFFFF
-		count += bin(piece).count('1')
-		v >>= 64
-	return count
 
 def merge_blocks(*blockses):
 	merged = [(0, 'UNDEFINED'), (0x110000, 'END')]
@@ -477,9 +470,8 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			if (cp > 0x20 and cp < 0x7F) or (cp > 0xA0 and cp < 0xD800) or (cp >= 0xE000 and cp < 0xFDD0) or (cp >= 0xFDF0 and cp < 0xFFFE) or (cp >= 0x10000 and cp < 0x110000 and (cp & 0xFFFF) < 0xFFFE):
 				print('<h2>Appearance</h2>', file=f)
 				print('<div class="char-glyph-panel"><!--', file=f)
-				charchar = 1 << cp
 				for font_data in fonts:
-					if (font_data[1] & charchar) != 0:
+					if font_data[1].get(cp):
 						font_name = html_encode(font_data[0])
 						font_url = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font_data[0]))
 						print('--><div class="char-glyph-item" data-font-name="%s"><div class="char-glyph" style="font-family: \'%s\';">&#%s;</div><div class="char-glyph-font"><a href="%s">%s</a></div></div><!--' % (font_name, font_name, cp, font_url, font_name), file=f)
@@ -529,9 +521,8 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			print('<table class="block-subheader"><tr>', file=f)
 			print('<td class="block-fonts">Font: <select id="font-selector">', file=f)
 			print('<option selected value="inherit">Default</option>', file=f)
-			blockchars = ((1 << (block[1] - block[0] + 1)) - 1) << block[0]
 			for font_data in fonts:
-				if (font_data[1] & blockchars) != 0:
+				if font_data[1].getAny(block[0], block[1]):
 					font_name = html_encode(font_data[0])
 					print('<option value="%s">%s</option>' % (font_name, font_name), file=f)
 			print('</select></td>', file=f)
@@ -717,9 +708,8 @@ def main():
 				print('<table class="char-table">', file=f)
 			font_blocks = merge_blocks(blocks, *blockses)
 			for block in font_blocks:
-				blockchars = font[1] & (((1 << (block[1] - block[0] + 1)) - 1) << block[0])
-				if blockchars != 0:
-					pc = popcount(blockchars >> block[0])
+				pc = font[1].popcountBetween(block[0], block[1])
+				if pc > 0:
 					if block[2] == 'UNDEFINED':
 						print('<tr><th class="char-table-block-name" colspan="17">%s (%s)</th></tr>' % (block[2], pc), file=f)
 					elif 'Private Use Area' in block[2]:
@@ -740,7 +730,7 @@ def main():
 					print('<tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>', file=f)
 					skipped = False
 					for j in range(block[0] >> 4, (block[1] >> 4) + 1):
-						if (blockchars & (0xFFFF << (j << 4))) == 0:
+						if not font[1].getAny((j << 4), (j << 4) | 0xF):
 							if not skipped:
 								print('<tr><td class="char-table-row-skip" colspan="17"></td></tr>', file=f)
 								skipped = True
@@ -754,7 +744,7 @@ def main():
 										cellchars = charses[l]
 										cellurl = charurls[l]
 								cell = char_cell(k, ranges, cellchars, cellurl)
-								if (blockchars & (1 << k)) == 0:
+								if not font[1].get(k):
 									cell = re.match('<td class="[^"]+', cell).group(0) + ' char-not-in-font"></td>'
 								cells.append(cell)
 							print('<tr><th>%02X</th>%s</tr>' % (j, ''.join(cells)), file=f)

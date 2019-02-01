@@ -7,6 +7,7 @@ import re
 import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
+from bitsetlib import BitSet
 from parselib import charset_path, load_plugin, ls
 from ttflib import ttf_file
 
@@ -14,7 +15,7 @@ def get_font_file_data(path):
 	ext = path.split('/')[-1].split('.')[-1].lower()
 	if ext == 'bdf' or ext == 'bdfmeta':
 		name = None
-		chars = 0
+		chars = BitSet()
 		vendorid = None
 		with open(path, 'r') as bdf:
 			for line in bdf:
@@ -25,7 +26,7 @@ def get_font_file_data(path):
 				if line[:9] == 'ENCODING ':
 					try:
 						cp = int(line[9:].strip())
-						chars |= (1 << cp)
+						chars.set(cp)
 					except ValueError:
 						pass
 				if line[:11] == 'OS2_VENDOR ':
@@ -35,7 +36,7 @@ def get_font_file_data(path):
 		return name, chars, vendorid
 	elif ext == 'ttf' or ext == 'ttfmeta' or ext == 'otf' or ext == 'otfmeta':
 		name = None
-		chars = 0
+		chars = BitSet()
 		vendorid = None
 		with ttf_file(path) as ttf:
 			name = ttf.name(False)
@@ -57,7 +58,7 @@ def get_font_file_data(path):
 
 			for cmap in ttf.cmaps():
 				for cp, glyph in cmap.glyphs():
-					chars |= (1 << cp)
+					chars.set(cp)
 			vendorid = ttf.vendorid()
 		return name, chars, vendorid
 	else:
@@ -78,7 +79,7 @@ def get_font_data():
 		elif font_data[0] is None:
 			print('Error: Font has no name.')
 		elif font_data[0] in fonts:
-			newchars = fonts[font_data[0]][1] | font_data[1]
+			newchars = fonts[font_data[0]][1].update(font_data[1])
 			newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
 			fonts[font_data[0]] = (font_data[0], newchars, newvendor, None)
 		else:
@@ -99,7 +100,7 @@ def get_font_data():
 				elif font_data[0] is None:
 					print('Error: Font has no name.')
 				elif font_data[0] in fonts:
-					newchars = fonts[font_data[0]][1] | font_data[1]
+					newchars = fonts[font_data[0]][1].update(font_data[1])
 					newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
 					fonts[font_data[0]] = (font_data[0], newchars, newvendor, url)
 				else:
@@ -108,17 +109,9 @@ def get_font_data():
 	fonts.sort(key=lambda font: font[0].lower())
 	return fonts
 
-def popcount(v):
-	count = 0
-	while (v != 0):
-		piece = v & 0xFFFFFFFFFFFFFFFF
-		count += bin(piece).count('1')
-		v >>= 64
-	return count
-
 def main():
 	for name, chars, vendorid, url in get_font_data():
-		print('%s\t%s\t%s\t%s' % (name, vendorid, popcount(chars), url))
+		print('%s\t%s\t%s\t%s' % (name, vendorid, chars.popcount(), url))
 
 if __name__ == '__main__':
 	main()
