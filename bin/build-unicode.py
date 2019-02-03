@@ -743,9 +743,10 @@ def main():
 									if k in charses[l]:
 										cellchars = charses[l]
 										cellurl = charurls[l]
-								cell = char_cell(k, ranges, cellchars, cellurl)
-								if not font[1].get(k):
-									cell = re.match('<td class="[^"]+', cell).group(0) + ' char-not-in-font"></td>'
+								if font[1].get(k):
+									cell = char_cell(k, ranges, cellchars, cellurl)
+								else:
+									cell = '<td class="char-not-in-font"><div class="char-empty"></div></td>'
 								cells.append(cell)
 							print('<tr><th>%03X</th>%s</tr>' % (j, ''.join(cells)), file=f)
 							skipped = False

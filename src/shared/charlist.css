@@ -1,3 +1,6 @@
+h1 code {
+	font-size: 28px;
+}
 .pua-notice {
 	background: #EECCFF;
 	border: 1px solid #AA88BB;
@@ -114,11 +117,14 @@
 .char-table td.char-pua.char-undef {
 	background: #cac0cf;
 }
+.char-table td.char-ltr {
+	background: #cceeff;
+}
+.char-table td.char-rtl {
+	background: #ffffcc;
+}
 .char-table td.char-control {
 	background: #ccffcc;
-}
-.char-table td.char-not-in-font {
-	background: #a2a9b1;
 }
 .char-table td.char-surrogate {
 	background: maroon;
@@ -128,16 +134,55 @@
 	background: black;
 	color: white;
 }
+.char-table td.char-not-in-font {
+	background: #a2a9b1;
+}
+.char-table td.char-subtable {
+	background: orange;
+}
+.char-table td.char-subtable a,
+.char-table td.char-subtable a:link,
+.char-table td.char-subtable a:visited,
+.char-table td.char-subtable a:active,
+.char-table td.char-subtable a:focus,
+.char-table td.char-subtable a:hover {
+	color: black;
+	text-decoration: none;
+}
 .char-glyph {
 	font-size: 28px;
 	height: 35px;
 	line-height: 35px;
+}
+.char-ltr .char-glyph {
+	direction: ltr;
+}
+.char-rtl .char-glyph {
+	direction: rtl;
+}
+.char-rev .char-glyph {
+	background: black;
+	color: white;
+	margin: 0 auto;
+	width: 35px;
 }
 .char-code {
 	font-family: monospace;
 	font-size: 12px;
 	height: 16px;
 	line-height: 16px;
+}
+.char-empty {
+	font-size: 22px;
+	height: 51px;
+	line-height: 51px;
+}
+.char-subtable-link {
+	display: block;
+	font-family: monospace;
+	font-size: 22px;
+	height: 51px;
+	line-height: 51px;
 }
 .char-table-tag {
 	background: #663399;
@@ -167,7 +212,13 @@
 	vertical-align: top;
 }
 .charlist {
+	table-layout: fixed;
 	width: 500px;
+}
+.charlist td {
+	overflow: hidden;
+	text-overflow: fade;
+	white-space: nowrap;
 }
 .charlist-codepoint {
 	font-family: monospace;
@@ -181,7 +232,22 @@
 	text-align: center;
 	width: 50px;
 }
+.charlist-charglyph-ltr span {
+	direction: ltr;
+}
+.charlist-charglyph-rtl span {
+	direction: rtl;
+}
+.charlist-charglyph-rev span {
+	background: black;
+	color: white;
+	display: inline-block;
+	height: 1em;
+	line-height: 1em;
+	width: 1em;
+}
 .charlist-charname {
+	font-size: 90%;
 	padding: 1px;
 	text-align: left;
 }

@@ -1,0 +1,20 @@
+.enclist-wrapper {
+	overflow: hidden;
+	width: 100%;
+}
+.enclist {
+	margin: 0;
+	padding: 0;
+}
+.enclist td {
+	overflow: hidden;
+	text-overflow: fade;
+	white-space: nowrap;
+}
+.charset {
+	font-family: monospace;
+	white-space: nowrap;
+}
+.encoding-aka {
+	color: #cccccc;
+}
