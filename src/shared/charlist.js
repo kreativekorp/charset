@@ -35,7 +35,7 @@
 			var cp = elem.attr('data-codepoint');
 			if (cp) Unicopy.bindToPopup(
 				elem,
-				String.fromCodePoint(cp),
+				String.fromCodePoint.apply(null, cp.split(',')),
 				puaName && puaName.split(',')
 			);
 		});
@@ -44,7 +44,7 @@
 			var cp = elem.attr('data-codepoint');
 			if (cp) Unicopy.bindToPopup(
 				elem,
-				String.fromCodePoint(cp),
+				String.fromCodePoint.apply(null, cp.split(',')),
 				puaName && puaName.split(',')
 			);
 		});
