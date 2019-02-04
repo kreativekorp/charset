@@ -1,0 +1,33 @@
+.biglist {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 0;
+	width: 500px;
+}
+.biglist * {
+	margin: 0;
+	padding: 0;
+}
+.biglistitem {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	margin: 0 0 12px 0;
+}
+.biglisticon {
+	display: table-cell;
+	vertical-align: top;
+	width: 64px;
+	padding: 0 12px;
+	text-align: right;
+}
+.biglistinfo {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+.biglisttitle {
+	font-family: "Gill Sans", Futura, Helvetica, sans-serif;
+	font-size: 14pt;
+	margin-bottom: 6px;
+}
