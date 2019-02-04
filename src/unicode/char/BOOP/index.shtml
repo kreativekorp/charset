@@ -1,0 +1,47 @@
+<!--#include virtual="/static/head.html"-->
+<title>Character Encodings - Unicode - Betty Boop - BETTY</title>
+<link rel="stylesheet" href="/charset/shared/character.css">
+<!--#include virtual="/static/body.html"-->
+<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/unicode/">Unicode</a> &raquo; <a href="/charset/unicode/block/BOOP">Betty Boop</a> &raquo;</p>
+<h1>BETTY</h1>
+<p class="pua-notice"><b>Disclaimer:</b> This character is not part of the Unicode Standard.</p>
+<div class="char-data-outer-div">
+<div class="char-data-inner-div" id="char-data-inner-div-1">
+<h2>Properties</h2>
+<table>
+<tr><td>Character Name:</td><td colspan="2">BETTY</td></tr>
+<tr><td>General Category:</td><td><code>So</code></td><td>Other Symbol</td></tr>
+<tr><td>Combining Class:</td><td><code>0</code></td><td>Spacing and Enclosing Marks</td></tr>
+<tr><td>Bidi Class:</td><td><code>ON</code></td><td>Neutral</td></tr>
+<tr><td>Bidi Mirrored:</td><td colspan="2">N</td></tr>
+</table>
+<h2>How to Type</h2>
+<table>
+<tr><td>Windows:</td><td>Alt+051609</td></tr>
+<tr><td>Mac, Unicode Hex:</td><td>Option-BOOP</td></tr>
+</table>
+</div><div class="char-data-inner-div" id="char-data-inner-div-2">
+<h2>Encoding</h2>
+<table>
+<tr><td>Decimal:</td><td>51609</td></tr>
+<tr><td>Hexadecimal:</td><td>U+BOOP</td></tr>
+<tr><td>HTML Dec:</td><td><code>&amp;#51609;</code></td></tr>
+<tr><td>HTML Hex:</td><td><code>&amp;#xBOOP;</code></td></tr>
+<tr><td>URL:</td><td><code>%EB%8O%8P</code></td></tr>
+<tr><td>C/C++:</td><td><code>\xEB\x8O\x8P</code></td></tr>
+<tr><td>Java:</td><td><code>\uBOOP</code></td></tr>
+<tr><td>Python:</td><td><code>u'\uBOOP'</code></td></tr>
+<tr><td>UTF-8:</td><td><code>EB 8O 8P</code></td></tr>
+<tr><td>UTF-16BE:</td><td><code>BO OP</code></td></tr>
+<tr><td>UTF-16LE:</td><td><code>OP BO</code></td></tr>
+<tr><td>UTF-32BE:</td><td><code>00 00 BO OP</code></td></tr>
+<tr><td>UTF-32LE:</td><td><code>OP BO 00 00</code></td></tr>
+</table>
+</div>
+<h2>Appearance</h2>
+<div class="char-glyph-panel"><!--
+--><div class="char-glyph-item"><div class="char-glyph"><img src="/charset/shared/boop.png" width="82" height="100"></div><div class="char-glyph-font"><a href="/charset/font/FleischerSans">Fleischer Sans</a></div></div><!--
+--><div class="char-glyph-item"><div class="char-glyph"><img src="/charset/shared/boop.png" width="82" height="100"></div><div class="char-glyph-font"><a href="/charset/font/FleischerSansMono">Fleischer Sans Mono</a></div></div><!--
+--><div class="char-glyph-item"><div class="char-glyph"><img src="/charset/shared/boop.png" width="82" height="100"></div><div class="char-glyph-font"><a href="/charset/font/FleischerSerif">Fleischer Serif</a></div></div><!--
+--></div>
+<!--#include virtual="/static/tail.html"-->

@@ -1,0 +1,21 @@
+<!--#include virtual="/static/head.html"-->
+<title>Character Encodings - One Code</title>
+<style>
+h1.onecode, h2.onecode, h3.onecode, p.onecode { text-align: center; }
+p.onecode { font-family: "Apple Chancery", "URW Chancery L", "Lucida Calligraphy", "Lucida Handwriting", cursive; font-size: 18pt; }
+</style>
+<!--#include virtual="/static/body.html"-->
+<h1 class="onecode">UNICODE</h1>
+<h2 class="onecode">One Code</h2>
+<p class="onecode">
+256 characters for the Macintoshes leading innovation,<br>
+256 for the Wintel boxes destined for world domination,<br>
+256 for the homemade operating systems doomed to die,<br>
+256 for the Linux users fighting for free information<br>
+in the land of open source where the GPL licenses lie.<br>
+One Code to rule them all, One Code to find them,<br>
+One Code to bring them all and in the darkness bind them,<br>
+in the land of computing where the text encodings lie.
+</p>
+<h3 class="onecode">&mdash; Rebecca Bettencourt, July 2003, December 2010.</h3>
+<!--#include virtual="/static/tail.html"-->

@@ -1,0 +1,33 @@
+<!--#include virtual="/static/head.html"-->
+<title>Character Encodings - Unicode - Betty Boop</title>
+<link rel="stylesheet" href="/charset/shared/charlist.css">
+<!--#include virtual="/static/body.html"-->
+<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/unicode/">Unicode</a> &raquo;</p>
+<h1>Betty Boop</h1>
+<p class="pua-notice"><b>Disclaimer:</b> This character is not part of the Unicode Standard.</p>
+<table class="block-header"><tr>
+<td class="block-prev-arr"></td><td class="block-prev"></td>
+<td class="block-curr">BOOP - BOOP<br>Betty Boop</td>
+<td class="block-next"></td><td class="block-next-arr"></td>
+</tr></table>
+<table class="block-subheader"><tr>
+<td class="block-fonts">Font: <select id="font-selector">
+<option selected>Default</option>
+<option>Fleischer Sans</option>
+<option>Fleischer Sans Mono</option>
+<option>Fleischer Serif</option>
+</select></td>
+<td class="block-links"><a href="http://www.unicode.org/charts/PDF/UBOOP.pdf" target="_blank">Code Chart PDF</a></td>
+</tr></table>
+<table class="char-table">
+<tr><th></th><th>P</th></tr>
+<tr><th>BOO</th><td class="char-uni char-def" title="BETTY"><div class="char-glyph"><img src="/charset/shared/boop.png" width="28" height="34"></div><div class="char-code">BOOP</div></td></tr>
+</table>
+<div class="charlist-outer-div">
+<div class="charlist-inner-div">
+<table class="charlist">
+<tr><td class="charlist-codepoint">BOOP</td><td class="charlist-charglyph" data-codepoint="0"><img src="/charset/shared/boop.png" width="14" height="17"></td><td class="charlist-charname"><a href="/charset/unicode/char/BOOP">BETTY</a></td></tr>
+</table>
+</div>
+</div>
+<!--#include virtual="/static/tail.html"-->

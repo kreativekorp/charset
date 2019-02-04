@@ -1,0 +1,12 @@
+<!--#include virtual="/static/head.html"-->
+<title>Character Encodings - Fonts - Fleischer Serif</title>
+<link rel="stylesheet" href="/charset/shared/charlist.css">
+<!--#include virtual="/static/body.html"-->
+<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/font/">Fonts</a> &raquo;</p>
+<h1>Fleischer Serif</h1>
+<table class="char-table">
+<tr><th class="char-table-block-name" colspan="17"><a href="/charset/unicode/block/BOOP">Betty Boop</a> (1)</th></tr>
+<tr><th></th><th>P</th></tr>
+<tr><th>BOO</th><td class="char-uni char-def" title="BETTY"><div class="char-glyph"><img src="/charset/shared/boop.png" width="28" height="34"></div><div class="char-code">BOOP</div></td></tr>
+</table>
+<!--#include virtual="/static/tail.html"-->
