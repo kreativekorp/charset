@@ -439,6 +439,8 @@ def main():
 	by_codepage = {}
 	by_cfstrenc = {}
 	by_nsstrenc = {}
+	by_name = {}
+	by_kte = {}
 	ranges, chars = get_unidata()
 	fonts = get_font_data()
 	with cd(charset_path('mappings')):
@@ -480,6 +482,12 @@ def main():
 						by_nsstrenc[int(i)] = meta
 					except ValueError:
 						pass
+			by_name[meta['name']] = meta
+			for n in meta['name_other']:
+				by_name[n] = meta
+			if 'filename-kte' in meta:
+				for n in meta['filename-kte']:
+					by_kte[n] = meta
 
 	basedir = charset_path('out', 'encoding')
 	if not os.path.exists(basedir):
@@ -525,6 +533,26 @@ def main():
 			print('<tr><td>%d</td><td>%s</td></tr>' % (i, encoding_link(by_nsstrenc[i])), file=f)
 		print('</table></div>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
+
+	path = charset_path('out', 'encoding.php')
+	print('Writing encoding redirect: %s' % path)
+	with open(path, 'w') as f:
+		print('<?php', file=f)
+		print('if (isset($_GET[\'file\'])) {', file=f)
+		print('\t$file = $_GET[\'file\'];', file=f)
+		print('\tswitch ($file) {', file=f)
+		for k in sorted(by_kte):
+			print('\t\tcase \'%s\': header(\'Location: /charset/encoding/%s\'); exit(0);' % (k, by_kte[k]['name']), file=f)
+		print('\t}', file=f)
+		print('}', file=f)
+		print('if (isset($_GET[\'name\'])) {', file=f)
+		print('\t$name = preg_replace(\'/[^A-Za-z0-9]+/\', \'\', $_GET[\'name\']);', file=f)
+		print('\tswitch ($name) {', file=f)
+		for k in sorted(by_name):
+			print('\t\tcase \'%s\': header(\'Location: /charset/encoding/%s\'); exit(0);' % (k, by_name[k]['name']), file=f)
+		print('\t}', file=f)
+		print('}', file=f)
+		print('header(\'Location: /charset/encoding/\');', file=f)
 
 if __name__ == '__main__':
 	main()
