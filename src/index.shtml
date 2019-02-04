@@ -58,7 +58,7 @@
 		<p class="biglisticon"><a href="/charset/MAPPINGS/"><img src="/charset/shared/encdata.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/MAPPINGS/">Legacy Encoding Character Database</a></p>
-			<p class="biglistdescription">Public documentation of legacy text encodings<br>in the format of the Unicode Character Database.</p>
+			<p class="biglistdescription">Public documentation of legacy text encodings<br>in mapping table Format A.</p>
 		</div>
 	</div>
 	<div class="biglistitem">
