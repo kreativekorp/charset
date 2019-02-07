@@ -210,6 +210,14 @@ def read_encoding(path):
 		tree_insert(root, k, map[k])
 	return meta, root
 
+def nat_key(s):
+	def pad_num(m):
+		n = m.group(0)
+		while len(n) < 20:
+			n = '0' + n
+		return n
+	return re.sub('[0-9]+', pad_num, s.lower())
+
 def html_encode(s):
 	return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
@@ -501,15 +509,15 @@ def main():
 		print('<!--#include virtual="/static/body.html"-->', file=f)
 		print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo;</p>', file=f)
 		print('<h1>Legacy Encodings</h1>', file=f)
-		for category in sorted(categories):
+		for category in sorted(categories, key=nat_key):
 			print('<h2>%s</h2>' % html_encode(category), file=f)
 			print('<div class="enclist-wrapper"><table class="enclist">', file=f)
-			for m in sorted(categories[category], key=lambda m: m['display'].upper()):
+			for m in sorted(categories[category], key=lambda m: nat_key(m['display'])):
 				print('<tr><td>%s</td></tr>' % encoding_link(m), file=f)
 			print('</table></div>', file=f)
 		print('<h2>By IANA Charset</h2>', file=f)
 		print('<div class="enclist-wrapper"><table class="enclist">', file=f)
-		for cs in sorted(by_charset, key=lambda k: k.upper()):
+		for cs in sorted(by_charset, key=nat_key):
 			print('<tr><td class="charset">%s</td><td>%s</td></tr>' % (cs, encoding_link(by_charset[cs])), file=f)
 		print('</table></div>', file=f)
 		print('<h2>By IANA MIBenum</h2>', file=f)
