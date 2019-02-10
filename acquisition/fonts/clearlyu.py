@@ -17,6 +17,8 @@ def list_fonts():
 	collector.close()
 	for link in collector.links:
 		if link.endswith('.tgz'):
+			# hack for broken link as of Feb 2019
+			link = link.replace('www.math.nmsu.edu', 'sofia.nmsu.edu')
 			with tarfile.open(acquire(link, 'local'), 'r') as tar:
 				for name in tar.getnames():
 					if name.endswith('.bdf'):

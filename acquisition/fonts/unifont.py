@@ -9,7 +9,7 @@ sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(_
 from acquisitionlib import acquire, html_link_collector
 
 def list_fonts():
-	u = 'http://unifoundry.com/unifont.html'
+	u = 'http://unifoundry.com/unifont/index.html'
 	collector = html_link_collector()
 	with io.open(acquire(u, 'local'), mode='r', encoding='iso-8859-1') as f:
 		for line in f:

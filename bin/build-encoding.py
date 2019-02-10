@@ -82,6 +82,9 @@ def get_font_file_data(path):
 			if re.match('^[.]?Last[ ]?Resort$', name):
 				# No. Just no.
 				return None
+			if re.match('^YOz[A-Z][A-Za-z0-9]+$', name):
+				# We really don't need every weight of YOzFont.
+				return None
 			words = name.split(' ')
 			if words[0] == 'Noto' and words[-1] in ['Bk', 'Black', 'Blk', 'Bold', 'Cn', 'Cond', 'DemiLight', 'ExtBd', 'ExtCond', 'ExtLt', 'ExtraLight', 'Light', 'Lt', 'Md', 'Med', 'Medium', 'SemBd', 'SemCond', 'SemiBold', 'SmBd', 'SmCn', 'Th', 'Thin', 'XBd', 'XCn', 'XLt']:
 				# We really don't need every weight of Noto.
