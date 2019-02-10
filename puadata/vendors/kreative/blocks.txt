@@ -5,5 +5,6 @@
 F600..F61F; Kreative Software Private Use ERIN
 F700..F7FF; Kreative Software Private Use
 F810..F89F; Kreative Software Private Use Supplement
+FF000..FF0FF; Kreative Software Private Use Extended-A
 
 # EOF

@@ -11,5 +11,7 @@ F680..F69F; Apple MouseText Characters
 F700..F7FF; Kreative Software Private Use
 F800..F80F; Apple Compatibility
 F810..F89F; Kreative Software Private Use Supplement
+FF000..FF0FF; Kreative Software Private Use Extended-A
+FF700..FF7FF; Seven-Segment Display Patterns
 
 # EOF
