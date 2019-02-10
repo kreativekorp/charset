@@ -13,3 +13,7 @@ python bin/build-public.py
 python bin/build-ucd-js.py
 python bin/build-unicode.py
 python bin/build-encoding.py
+
+export COPYFILE_DISABLE=true
+find out -name .DS_Store -delete
+tar -zcvf charset.tgz out
