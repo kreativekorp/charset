@@ -1,5 +1,5 @@
-@filename-txt FONTS/FAIRFAX/Blocks.txt
-@generate-txt FONTS/FAIRFAX/Blocks.txt
+@filename-txt FONTS/FFXHD/Blocks.txt
+@generate-txt FONTS/FFXHD/Blocks.txt
 @import fragments/header-blocks.txt
 
 @import fragments/ucsur-blocks-e000-ext.txt
@@ -7,12 +7,9 @@ EF00..EFFF; Control Pictures Extended
 F000..F0FF; Kamakawi
 F200..F3FF; Block Elements Extended
 F400..F41F; Control Pictures Supplement
-F420..F4FF; Sabine Presentation Variants
-F500..F5FF; Fairfax Presentation Variants
+F4C0..F4EF; Ath
 F600..F61F; Kreative Software Private Use ERIN
-F620..F67F; Fairfax Presentation Variants Supplement-A
 F680..F69F; Apple MouseText Characters
-F6A0..F6FF; Fairfax Presentation Variants Supplement-B
 F700..F7FF; Kreative Software Private Use
 F800..F80F; Apple Compatibility
 F810..F89F; Kreative Software Private Use Supplement

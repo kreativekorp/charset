@@ -1,0 +1,12 @@
+@font-name Fairfax HD
+@filename-txt FONTS/FFXHD/Sources.txt
+@generate-txt FONTS/FFXHD/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Fairfax HD
+Agreement-FCC: FfHD
+
+@import fragments/kreative-sources.txt
+
+@import fragments/csur-sources.txt
+
+@import fragments/ucsur-sources.txt

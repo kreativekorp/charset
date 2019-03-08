@@ -10,5 +10,6 @@ F810..F89F; Kreative Software Private Use Supplement
 @import fragments/ucsur-blocks-f000.txt
 @import fragments/ucsur-blocks-f0000.txt
 FF000..FF0FF; Kreative Software Private Use Extended-A
+FF100..FF1FF; Kreative Software Private Use Extended-B
 
 # EOF
