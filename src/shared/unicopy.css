@@ -93,7 +93,9 @@
 	user-select: none;
 	cursor: default;
 }
-.unicopy-input {
+.unicopy-input,
+input.unicopy-input,
+input[type=text].unicopy-input {
 	background: white;
 	border: 1px solid #d1d5da;
 	border-radius: 4px 0 0 4px;
@@ -108,7 +110,9 @@
 	width: 200px;
 	height: 24px;
 }
-.unicopy-input:focus {
+.unicopy-input:focus,
+input.unicopy-input:focus,
+input[type=text].unicopy-input:focus {
 	outline: 0;
 }
 .unicopy-button {
