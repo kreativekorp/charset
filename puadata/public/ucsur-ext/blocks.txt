@@ -1,0 +1,32 @@
+@filename-txt PUBLIC/UCSUREXT/Blocks.txt
+@generate-txt PUBLIC/UCSUREXT/Blocks.txt
+# Blocks-UCSUR.txt
+# Date: 2018-07-23, 20:58:40 PST
+#
+# Under-ConScript Unicode Registry Character Database
+# Copyright (c) 2009-2017 Kreative Korporation
+# For documentation, see http://www.kreativekorp.com/ucsur/
+#
+# Note:   The casing of block names is not normative.
+#         For example, "Basic Latin" and "BASIC LATIN" are equivalent.
+#
+# Format:
+# Start Code..End Code; Block Name
+
+# ================================================
+
+# Note:   When comparing block names, casing, whitespace, hyphens,
+#         and underbars are ignored.
+#         For example, "Latin Extended-A" and "latin extended a" are equivalent.
+#
+#  All code points not explicitly listed for Block
+#  have the value No_Block.
+
+@import fragments/header-blocks.txt
+
+@import fragments/ucsur-blocks-e000-ext.txt
+EF80..F89F; Private Use Area
+@import fragments/ucsur-blocks-f000.txt
+@import fragments/ucsur-blocks-f0000.txt
+
+# EOF

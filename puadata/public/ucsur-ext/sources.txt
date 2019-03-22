@@ -1,0 +1,9 @@
+@filename-txt PUBLIC/UCSUREXT/Sources.txt
+@generate-txt PUBLIC/UCSUREXT/Sources.txt
+Agreement-Type: Public
+Agreement-Name: Under-ConScript Unicode Registry (Extended)
+Agreement-FCC: ucsx
+
+@import fragments/csur-sources.txt
+
+@import fragments/ucsur-sources.txt
