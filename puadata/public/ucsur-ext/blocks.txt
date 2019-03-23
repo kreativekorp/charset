@@ -25,7 +25,7 @@
 @import fragments/header-blocks.txt
 
 @import fragments/ucsur-blocks-e000-ext.txt
-EF80..F89F; Private Use Area
+F4C0..F4EF; Ath
 @import fragments/ucsur-blocks-f000.txt
 @import fragments/ucsur-blocks-f0000.txt
 

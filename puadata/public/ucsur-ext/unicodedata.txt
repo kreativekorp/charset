@@ -1,5 +1,6 @@
 @filename-txt PUBLIC/UCSUREXT/UnicodeData.txt
 @generate-txt PUBLIC/UCSUREXT/UnicodeData.txt
 @import fragments/ucsur-e000-ext.txt
+@import fragments/ath.txt
 @import fragments/ucsur-f000-ext.txt
 @import fragments/ucsur-f0000.txt
