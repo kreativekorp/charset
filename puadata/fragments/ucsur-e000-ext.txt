@@ -44,5 +44,6 @@
 @import fragments/glaitha-b.txt
 @import fragments/lhenazi.txt
 @import fragments/wanya.txt
+@import fragments/orokin.txt
 @import fragments/deini.txt
 @import fragments/niji.txt
