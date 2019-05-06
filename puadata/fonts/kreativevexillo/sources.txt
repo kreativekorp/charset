@@ -8,6 +8,9 @@
 @font-name Kreative Vexillo MD
 @font-name Kreative Vexillo MF
 @font-name Kreative Vexillo MK
+@font-name Kreative Vexillo VB
+@font-name Kreative Vexillo VF
+@font-name Kreative Vexillo VN
 @filename-txt FONTS/VEXILLO/Sources.txt
 @generate-txt FONTS/VEXILLO/Sources.txt
 Agreement-Type: Font
