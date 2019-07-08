@@ -1,0 +1,16 @@
+@font-name Voynich Unicode
+@font-name Voynich EVA
+@font-name Voynich V101
+@font-name Fairfax EVA HD
+@font-name Fairfax V101 HD
+@filename-txt FONTS/VOYUNI/Sources.txt
+@generate-txt FONTS/VOYUNI/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Voynich Unicode
+Agreement-FCC: VoyU
+
+Title: Voynich Unicode
+Author: Kreative Software
+Publication-Date: 2019-06-26
+URL: http://www.kreativekorp.com/software/fonts/voynich.shtml
+Access-Date: 2019-07-07

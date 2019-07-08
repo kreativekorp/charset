@@ -17,6 +17,7 @@ F810..F89F; Kreative Software Private Use Supplement
 @import fragments/ucsur-blocks-f0000.txt
 FF000..FF0FF; Kreative Software Private Use Extended-A
 FF100..FF1FF; Kreative Software Private Use Extended-B
+FF400..FF51F; Voynich
 FF700..FF7FF; Seven-Segment Display Patterns
 
 # EOF

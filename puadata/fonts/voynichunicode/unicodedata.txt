@@ -1,0 +1,3 @@
+@filename-txt FONTS/VOYUNI/UnicodeData.txt
+@generate-txt FONTS/VOYUNI/UnicodeData.txt
+@import fragments/voynich.txt

@@ -20,4 +20,5 @@
 @import fragments/ucsur-f0000.txt
 @import fragments/kreative-ff000.txt
 @import fragments/kreative-ff100.txt
+@import fragments/voynich.txt
 @import fragments/fairfax-ff700.txt

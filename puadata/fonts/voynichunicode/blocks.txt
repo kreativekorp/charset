@@ -1,0 +1,7 @@
+@filename-txt FONTS/VOYUNI/Blocks.txt
+@generate-txt FONTS/VOYUNI/Blocks.txt
+@import fragments/header-blocks.txt
+
+FF400..FF51F; Voynich
+
+# EOF
