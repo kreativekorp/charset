@@ -4,6 +4,8 @@ import os
 import re
 import sys
 
+from datetime import datetime
+
 def charset_path(*paths):
 	return os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', *paths))
 
@@ -54,14 +56,18 @@ def strip_comment(line):
 	return __strip_comment.sub('', line)
 
 __import_matcher = atline_matcher('import')
+__timestamp_matcher = atline_matcher('timestamp')
 def expand(path, strip_atlines=False, strip_comments=False):
 	with open(path, 'r') as f:
 		for line in f:
 			line = line.rstrip()
 			path = __import_matcher.match(line)
+			ftime = __timestamp_matcher.match(line)
 			if path is not None:
 				for line in expand(path, strip_atlines, strip_comments):
 					yield line
+			elif ftime is not None:
+				yield datetime.now().strftime(ftime)
 			elif strip_atlines and is_atline(line):
 				pass
 			elif not strip_comments:

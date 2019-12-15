@@ -3,6 +3,7 @@
 Agreement-Type: Public
 Agreement-Name: Medieval Unicode Font Initiative
 Agreement-FCC: mufi
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: MUFI character recommendation v. 4.0
 Author: Odd Einar Haugen

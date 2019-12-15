@@ -3,6 +3,7 @@
 Agreement-Type: Vendor
 Agreement-Name: SIL International
 Agreement-FCC: sil
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: SIL Corporate PUA Assignments
 Author: SIL International

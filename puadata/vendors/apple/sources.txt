@@ -4,6 +4,7 @@
 Agreement-Type: Vendor
 Agreement-Name: Apple
 Agreement-FCC: appl
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: Registry of Apple use of Unicode corporate-zone characters.
 Author: Apple Computer, Inc.

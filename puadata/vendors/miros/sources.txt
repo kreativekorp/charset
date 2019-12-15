@@ -3,6 +3,7 @@
 Agreement-Type: Vendor
 Agreement-Name: MirOS
 Agreement-FCC: mbsd
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: Use of the Unicode Private Use Areas by Others
 Author: SIL International

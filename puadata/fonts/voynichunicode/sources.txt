@@ -8,6 +8,7 @@
 Agreement-Type: Font
 Agreement-Name: Voynich Unicode
 Agreement-FCC: VoyU
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: Voynich Unicode
 Author: Kreative Software

@@ -3,6 +3,7 @@
 Agreement-Type: Please-Ignore
 Agreement-Name: William J.G. Overington
 Agreement-FCC: wjgo
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 # WARNING: Consumption of William Overington's misunderstanding
 # of the workings of Unicode may result in severe brain damage.

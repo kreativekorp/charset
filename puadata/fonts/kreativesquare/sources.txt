@@ -5,5 +5,6 @@
 Agreement-Type: Font
 Agreement-Name: Kreative Square
 Agreement-FCC: KSqu
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 @import fragments/kreative-sources.txt

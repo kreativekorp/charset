@@ -3,6 +3,7 @@
 Agreement-Type: Public
 Agreement-Name: Under-ConScript Unicode Registry (Extended)
 Agreement-FCC: ucsx
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 @import fragments/csur-sources.txt
 

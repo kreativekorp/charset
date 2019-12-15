@@ -26,6 +26,7 @@
 Agreement-Type: Font
 Agreement-Name: Kreative Vexillo
 Agreement-FCC: KVex
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: Kreative Vexillo
 Author: Kreative Software

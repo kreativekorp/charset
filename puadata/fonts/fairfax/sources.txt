@@ -7,6 +7,7 @@
 Agreement-Type: Font
 Agreement-Name: Fairfax
 Agreement-FCC: Fair
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 @import fragments/kreative-sources.txt
 

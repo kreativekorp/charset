@@ -4,6 +4,7 @@
 Agreement-Type: Vendor
 Agreement-Name: Adobe
 Agreement-FCC: adbe
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: PUA Use in the Adobe Glyph List
 Author: SIL International

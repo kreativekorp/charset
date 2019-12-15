@@ -3,6 +3,7 @@
 Agreement-Type: Vendor
 Agreement-Name: Linux
 Agreement-FCC: lnux
+@timestamp Generated: %Y-%m-%d %H:%M:%S
 
 Title: Linux Zone Unicode Assignments
 Author: H. Peter Anvin, Linux Assigned Names And Numbers Authority
