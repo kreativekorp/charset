@@ -3,23 +3,31 @@
 @import fragments/header-blocks.txt
 
 @import fragments/ucsur-blocks-e000-ext.txt
-EF00..EFFF; Control Pictures Extended
-F000..F0FF; Kamakawi
-F200..F3FF; Block Elements Extended
-F400..F41F; Control Pictures Supplement
+EF00..EFFF; Hex Byte Pictures
+F000..F1FF; Kamakawi
+F200..F20F; Box Drawing Extended
+F210..F23F; Fill Patterns
+F240..F27F; Shade Quadrants
+F280..F2BF; Sixel Graphics
+F2C0..F2FF; Block Sextants
+F300..F3FF; Block Octants
+F400..F41F; C1 Control Pictures
 F420..F4FF; Sabine Presentation Variants
 F500..F5FF; Fairfax Presentation Variants
-F600..F61F; Kreative Software Private Use ERIN
+F600..F61F; Kreative Software Private Use-F6
 F620..F67F; Fairfax Presentation Variants Supplement-A
 F680..F69F; Apple MouseText Characters
 F6A0..F6FF; Fairfax Presentation Variants Supplement-B
-F700..F7FF; Kreative Software Private Use
-F800..F80F; Apple Compatibility
-F810..F89F; Kreative Software Private Use Supplement
+F700..F7FF; Kreative Software Private Use-F7
+F800..F89F; Kreative Software Private Use-F8
 @import fragments/ucsur-blocks-f000.txt
 @import fragments/ucsur-blocks-f0000.txt
-FF000..FF0FF; Kreative Software Private Use Extended-A
-FF100..FF1FF; Kreative Software Private Use Extended-B
+FF000..FF02F; Kreative Software Private Use-FF0
+FF030..FF09F; Domino Tiles Extended
+FF0A0..FF0DF; Powerline Symbols
+FF0E0..FF0FF; Rayalaka Color Symbols
+FF100..FF1FF; Kreative Software Private Use-FF1
+FF3C0..FF3FF; Aliphbepf
 FF400..FF51F; Voynich
 FF700..FF7FF; Seven-Segment Display Patterns
 

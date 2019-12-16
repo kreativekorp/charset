@@ -13,6 +13,12 @@
 @import fragments/kreative-apple.txt
 @import fragments/kreative-f8g0.txt
 @import fragments/kreative-f8g1.txt
+@import fragments/klingon-alnum.txt
+F8FA;RADICAL EXTENDER;So;0;ON;;;;;N;;;;;
+F8FB;MODERN KRONE SIGN;Sc;0;ET;;;;;N;;;;;
+F8FC;KLINGON MUMMIFICATION GLYPH;So;0;ON;;;;;N;;;;;
+@import fragments/klingon-punct.txt
+@import fragments/apple-logo.txt
 @import fragments/kreative-ff000.txt
 @import fragments/kreative-ff100.txt
 @import fragments/fairfax-ff700.txt

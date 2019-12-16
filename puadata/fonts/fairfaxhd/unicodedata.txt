@@ -3,7 +3,6 @@
 @import fragments/ucsur-e000-ext.txt
 @import fragments/octets-ls.txt
 @import fragments/octets-hs.txt
-@import fragments/kamakawi.txt
 @import fragments/fairfax-f2.txt
 @import fragments/fairfax-f3.txt
 @import fragments/fairfax-f4g0.txt
