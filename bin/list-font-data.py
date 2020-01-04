@@ -26,7 +26,8 @@ def get_font_file_data(path):
 				if line[:9] == 'ENCODING ':
 					try:
 						cp = int(line[9:].strip())
-						chars.set(cp)
+						if (cp >= 0x20 and cp < 0x80) or cp >= 0xA0:
+							chars.set(cp)
 					except ValueError:
 						pass
 				if line[:11] == 'OS2_VENDOR ':
@@ -61,7 +62,8 @@ def get_font_file_data(path):
 
 			for cmap in ttf.cmaps():
 				for cp, glyph in cmap.glyphs():
-					chars.set(cp)
+					if (cp >= 0x20 and cp < 0x80) or cp >= 0xA0:
+						chars.set(cp)
 			vendorid = ttf.vendorid()
 		return name, chars, vendorid
 	else:
