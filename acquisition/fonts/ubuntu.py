@@ -12,7 +12,7 @@ from acquisitionlib import acquire, cache_path, html_link_collector
 def list_fonts():
 	u = 'https://design.ubuntu.com/font/'
 	collector = html_link_collector()
-	with io.open(acquire(u, 'local'), mode='r', encoding='utf-8') as f:
+	with io.open(acquire(u, 'local'), mode='r', encoding='iso-8859-1') as f:
 		for line in f:
 			collector.feed(line)
 	collector.close()

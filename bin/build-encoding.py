@@ -514,7 +514,7 @@ def main():
 		print('<!--#include virtual="/static/body.html"-->', file=f)
 		print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo;</p>', file=f)
 		print('<h1>Legacy Encodings</h1>', file=f)
-		for category in sorted(categories, key=nat_key):
+		for category in sorted(categories, key=lambda c: nat_key(c if ' - ' in c else ' - ' + c)):
 			print('<h2>%s</h2>' % html_encode(category), file=f)
 			print('<div class="enclist-wrapper"><table class="enclist">', file=f)
 			for m in sorted(categories[category], key=lambda m: nat_key(m['display'])):

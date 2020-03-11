@@ -1,0 +1,7 @@
+@filename-txt	LEGACY/MSX.TXT
+@generate-txt	LEGACY/MSX.TXT
+#	Name:   Map from MSX international character set to Unicode
+#	Date:   2019 September 25
+#	Author: Rebecca Bettencourt <support@kreativekorp.com>
+
+#	The contents of this file have been moved to MSXICH.TXT

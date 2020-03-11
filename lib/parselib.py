@@ -83,14 +83,23 @@ def split_atline(line):
 	value = strip_comment(line[m.end(0):])
 	return (keyword, value)
 
-__mapline_matcher = re.compile('^\\s*([0Aa][Xx][0-9A-Fa-f]+)\\s+([0Aa][Xx][0-9A-Fa-f]+([+][0Aa][Xx][0-9A-Fa-f]+)*)')
+__mapline_matcher = re.compile('^\\s*([0Aa][Xx][0-9A-Fa-f]+)\\s+(((<[A-Z]+>[+])*)(([0Aa][Xx][0-9A-Fa-f]+)([+][0Aa][Xx][0-9A-Fa-f]+)*))')
 def split_mapline(line):
 	m = __mapline_matcher.match(line)
 	if m is None: return (None, None, None, None)
 	bytes = [int(m.group(1)[i:i+2], 16) for i in range(2, len(m.group(1)), 2)]
-	chars = [int(cp[2:], 16) for cp in m.group(2).split('+')]
+	chars = [int(cp[2:], 16) for cp in m.group(5).split('+')]
+	for marker in m.group(3).split('+'):
+		if marker == '<RV>':
+			chars.append(0xFE0D)
+		if marker == '<RL>':
+			chars.insert(0, 0x202E)
+			chars.append(0x202C)
+		if marker == '<LR>':
+			chars.insert(0, 0x202D)
+			chars.append(0x202C)
 	bytes_alt = (m.group(1)[0] != '0')
-	chars_alt = (m.group(2)[0] != '0')
+	chars_alt = (m.group(5)[0] != '0')
 	return (bytes, chars, bytes_alt, chars_alt)
 
 class syspath:
