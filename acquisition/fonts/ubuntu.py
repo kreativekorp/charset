@@ -12,7 +12,7 @@ from acquisitionlib import acquire, cache_path, html_link_collector
 def list_fonts():
 	u = 'https://design.ubuntu.com/font/'
 	collector = html_link_collector()
-	with io.open(acquire(u, 'local'), mode='r', encoding='iso-8859-1') as f:
+	with io.open(acquire(u, 'local', compressed=True), mode='r', encoding='iso-8859-1') as f:
 		for line in f:
 			collector.feed(line)
 	collector.close()
@@ -20,6 +20,8 @@ def list_fonts():
 		if link.endswith('.zip'):
 			with zipfile.ZipFile(acquire(link, 'local'), 'r') as zip:
 				for info in zip.infolist():
+					if '__MACOSX' in info.filename:
+						continue
 					if info.filename.endswith('.ttf'):
 						name = info.filename.split('/')[-1][:-4]
 						name = re.sub('([a-z])([A-Z])', '\\1 \\2', name)

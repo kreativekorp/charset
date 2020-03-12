@@ -19,7 +19,7 @@ def cache_path(url=None):
 		path = os.path.join(path, url)
 	return path
 
-def acquire(url, version='auto', ua='Mozilla/5.0'):
+def acquire(url, version='auto', ua='Mozilla/5.0', compressed=False):
 	path = cache_path(url)
 	path_exists = os.path.exists(path)
 	if version == 'local' and path_exists:
@@ -32,6 +32,8 @@ def acquire(url, version='auto', ua='Mozilla/5.0'):
 		if ua:
 			args.append('-A')
 			args.append(ua)
+		if compressed:
+			args.append('--compressed')
 		subprocess.check_call(args)
 		return path
 
