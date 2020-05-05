@@ -27,45 +27,49 @@
 		<p class="biglisticon"><a href="/charset/whatis/"><img src="/charset/shared/whatis.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/whatis/">Unicode String Decoder</a></p>
-			<p class="biglistdescription">Paste any text to find out exactly which<br>Unicode characters it is composed of.</p>
+			<p class="biglistdescription">Paste any text to find out exactly which Unicode characters it is composed of.</p>
 		</div>
 	</div>
 	<div class="biglistitem">
 		<p class="biglisticon"><a href="/charset/font/"><img src="/charset/shared/font.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/font/">Font Character Charts</a></p>
-			<p class="biglistdescription">Character charts for a number of<br>large or common fonts.</p>
+			<p class="biglistdescription">Character charts for a number of large or common fonts.</p>
 		</div>
 	</div>
-
-</div><div class="biglist">
-
 	<div class="biglistitem">
 		<p class="biglisticon"><a href="/charset/encoding/"><img src="/charset/shared/encoding.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/encoding/">Legacy Encoding Character Charts</a></p>
-			<p class="biglistdescription">Character charts for just about every<br>legacy text encoding imaginable.</p>
+			<p class="biglistdescription">Character charts for just about every legacy text encoding imaginable.</p>
 		</div>
 	</div>
 	<div class="biglistitem">
 		<p class="biglisticon"><a href="/charset/pua/"><img src="/charset/shared/pua.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/pua/">Private Use Area Character Charts</a></p>
-			<p class="biglistdescription">Character charts for publicly-documented<br>Private Use Area agreements.</p>
+			<p class="biglistdescription">Character charts for publicly-documented Private Use Area agreements.</p>
+		</div>
+	</div>
+	<div class="biglistitem">
+		<p class="biglisticon"><a href="/charset/map/"><img src="/charset/shared/map.png" width="64" height="64" border="0"></a></p>
+		<div class="biglistinfo">
+			<p class="biglisttitle"><a href="/charset/map/">Legacy Character Set to Unicode Mappings</a></p>
+			<p class="biglistdescription">Mapping tables for character sets of computer systems from the late 1970's and early 1980's in HTML format.</p>
 		</div>
 	</div>
 	<div class="biglistitem">
 		<p class="biglisticon"><a href="/charset/MAPPINGS/"><img src="/charset/shared/encdata.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/MAPPINGS/">Legacy Encoding Character Database</a></p>
-			<p class="biglistdescription">Public documentation of legacy text encodings<br>in mapping table Format A.</p>
+			<p class="biglistdescription">Public documentation of legacy text encodings in mapping table Format A.</p>
 		</div>
 	</div>
 	<div class="biglistitem">
 		<p class="biglisticon"><a href="/charset/PUADATA/"><img src="/charset/shared/puadata.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/PUADATA/">Private Use Area Character Database</a></p>
-			<p class="biglistdescription">Public documentation of Private Use Area agreements<br>in the format of the Unicode Character Database.</p>
+			<p class="biglistdescription">Public documentation of Private Use Area agreements in the format of the Unicode Character Database.</p>
 		</div>
 	</div>
 

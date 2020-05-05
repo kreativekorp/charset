@@ -1,0 +1,30 @@
+<!--#include virtual="/static/head.html"-->
+
+<title>Legacy Character Set to Unicode Mappings</title>
+<link rel="stylesheet" href="/charset/shared/biglist.css">
+
+<!--#include virtual="/static/body.html"-->
+
+<h1>Legacy Character Set to Unicode Mappings</h1>
+<div class="biglist-container">
+<div class="biglist">
+
+	<div class="biglistitem">
+		<p class="biglisticon"><a href="/charset/map/mousetext/"><img src="/charset/map/mousetext/icon.png" width="64" height="64" border="0"></a></p>
+		<div class="biglistinfo">
+			<p class="biglisttitle"><a href="/charset/map/mousetext/">Apple II MouseText</a></p>
+			<p class="biglistdescription">Mapping from Apple II MouseText characters to Unicode.</p>
+		</div>
+	</div>
+	<div class="biglistitem">
+		<p class="biglisticon"><a href="/charset/map/petscii/"><img src="/charset/map/petscii/icon.png" width="64" height="64" border="0"></a></p>
+		<div class="biglistinfo">
+			<p class="biglisttitle"><a href="/charset/map/petscii/">PETSCII</a></p>
+			<p class="biglistdescription">Mapping from PETSCII encoding and screen codes to Unicode.</p>
+		</div>
+	</div>
+
+</div>
+</div>
+
+<!--#include virtual="/static/tail.html"-->

@@ -1,0 +1,342 @@
+<!--#include virtual="/static/head.html"-->
+<title>Apple II MouseText to Unicode Mapping</title>
+<style>
+
+.mt {
+	border-collapse: collapse;
+}
+.mt th, .mt td {
+	padding: 2px 1em 2px 4px;
+	border: 1px solid #cccccc;
+}
+
+</style>
+<!--#include virtual="/static/body.html"-->
+
+<h1>Apple II MouseText to Unicode Mapping</h1>
+
+<p>Several Apple II MouseText characters were made available for the first
+time in Unicode 13.0 with the addition of the Symbols for Legacy Computing
+block. The only remaining unencoded characters are the two Apple logos,
+which are trademarked and cannot be encoded. There are several alternate
+encodings for the two Apple logos.</p>
+
+<table class="mt" cellspacing="0">
+<thead>
+
+<tr>
+<th>Code</th>
+<th>ASCII</th>
+<th>MT</th>
+<th colspan="2">Unicode</th>
+</tr>
+
+</thead>
+<tbody>
+
+<tr>
+<td rowspan="4"><code>$40</code></td>
+<td rowspan="4"><code>@</code></td>
+<td rowspan="4"><img src="40.png" width="14" height="16"></td>
+<td><code>U+2325</code></td>
+<td><code>OPTION KEY</code> (functional replacement)</td>
+</tr>
+
+<tr>
+<td><code>U+F813</code></td>
+<td>(Linux Private Use Area)</td>
+</tr>
+
+<tr>
+<td><code>U+F8FF</code></td>
+<td>(Apple Private Use Area)</td>
+</tr>
+
+<tr>
+<td><code>U+1F34E</code></td>
+<td><code>RED APPLE</code> (graphical replacement)</td>
+</tr>
+
+<tr>
+<td rowspan="4"><code>$41</code></td>
+<td rowspan="4"><code>A</code></td>
+<td rowspan="4"><img src="41.png" width="14" height="16"></td>
+<td><code>U+2318</code></td>
+<td><code>PLACE OF INTEREST SIGN</code> (functional replacement)</td>
+</tr>
+
+<tr>
+<td><code>U+F812</code></td>
+<td>(Linux Private Use Area)</td>
+</tr>
+
+<tr>
+<td><code>U+F8FF+F87F</code></td>
+<td>(Apple Private Use Area)</td>
+</tr>
+
+<tr>
+<td><code>U+1F34F</code></td>
+<td><code>GREEN APPLE</code> (graphical replacement)</td>
+</tr>
+
+<tr>
+<td><code>$42</code></td>
+<td><code>B</code></td>
+<td><img src="42.png" width="14" height="16"></td>
+<td><code>U+1FBB0</code></td>
+<td><code>ARROWHEAD-SHAPED POINTER</code></td>
+</tr>
+
+<tr>
+<td><code>$43</code></td>
+<td><code>C</code></td>
+<td><img src="43.png" width="14" height="16"></td>
+<td><code>U+231B</code></td>
+<td><code>HOURGLASS</code></td>
+</tr>
+
+<tr>
+<td><code>$44</code></td>
+<td><code>D</code></td>
+<td><img src="44.png" width="14" height="16"></td>
+<td><code>U+2713</code></td>
+<td><code>CHECK MARK</code></td>
+</tr>
+
+<tr>
+<td><code>$45</code></td>
+<td><code>E</code></td>
+<td><img src="45.png" width="14" height="16"></td>
+<td><code>U+1FBB1</code></td>
+<td><code>INVERSE CHECK MARK</code></td>
+</tr>
+
+<tr>
+<td><code>$46</code></td>
+<td><code>F</code></td>
+<td><img src="RM1.png" width="14" height="16"></td>
+<td><code>U+1FBB2</code></td>
+<td><code>LEFT HALF RUNNING MAN</code></td>
+</tr>
+
+<tr>
+<td><code>$47</code></td>
+<td><code>G</code></td>
+<td><img src="RM2.png" width="14" height="16"></td>
+<td><code>U+1FBB3</code></td>
+<td><code>RIGHT HALF RUNNING MAN</code></td>
+</tr>
+
+<tr>
+<td><code>$46</code></td>
+<td><code>F</code></td>
+<td><img src="46.png" width="14" height="16"></td>
+<td><code>U+1FBB4</code></td>
+<td><code>INVERSE DOWNWARDS ARROW WITH TIP LEFTWARDS</code></td>
+</tr>
+
+<tr>
+<td><code>$47</code></td>
+<td><code>G</code></td>
+<td><img src="47.png" width="14" height="16"></td>
+<td><code>U+1FB81</code></td>
+<td><code>HORIZONTAL ONE EIGHTH BLOCK-1358</code></td>
+</tr>
+
+<tr>
+<td><code>$48</code></td>
+<td><code>H</code></td>
+<td><img src="48.png" width="14" height="16"></td>
+<td><code>U+2190</code></td>
+<td><code>LEFTWARDS ARROW</code></td>
+</tr>
+
+<tr>
+<td><code>$49</code></td>
+<td><code>I</code></td>
+<td><img src="49.png" width="14" height="16"></td>
+<td><code>U+2026</code></td>
+<td><code>HORIZONTAL ELLIPSIS</code></td>
+</tr>
+
+<tr>
+<td><code>$4A</code></td>
+<td><code>J</code></td>
+<td><img src="4A.png" width="14" height="16"></td>
+<td><code>U+2193</code></td>
+<td><code>DOWNWARDS ARROW</code></td>
+</tr>
+
+<tr>
+<td><code>$4B</code></td>
+<td><code>K</code></td>
+<td><img src="4B.png" width="14" height="16"></td>
+<td><code>U+2191</code></td>
+<td><code>UPWARDS ARROW</code></td>
+</tr>
+
+<tr>
+<td><code>$4C</code></td>
+<td><code>L</code></td>
+<td><img src="4C.png" width="14" height="16"></td>
+<td><code>U+2594</code></td>
+<td><code>UPPER ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$4D</code></td>
+<td><code>M</code></td>
+<td><img src="4D.png" width="14" height="16"></td>
+<td><code>U+21B2</code></td>
+<td><code>DOWNWARDS ARROW WITH TIP LEFTWARDS</code></td>
+</tr>
+
+<tr>
+<td><code>$4E</code></td>
+<td><code>N</code></td>
+<td><img src="4E.png" width="14" height="16"></td>
+<td><code>U+2589</code></td>
+<td><code>LEFT SEVEN EIGHTHS BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$4F</code></td>
+<td><code>O</code></td>
+<td><img src="4F.png" width="14" height="16"></td>
+<td><code>U+1FBB5</code></td>
+<td><code>LEFTWARDS ARROW AND UPPER AND LOWER ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$50</code></td>
+<td><code>P</code></td>
+<td><img src="50.png" width="14" height="16"></td>
+<td><code>U+1FBB6</code></td>
+<td><code>RIGHTWARDS ARROW AND UPPER AND LOWER ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$51</code></td>
+<td><code>Q</code></td>
+<td><img src="51.png" width="14" height="16"></td>
+<td><code>U+1FBB7</code></td>
+<td><code>DOWNWARDS ARROW AND RIGHT ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$52</code></td>
+<td><code>R</code></td>
+<td><img src="52.png" width="14" height="16"></td>
+<td><code>U+1FBB8</code></td>
+<td><code>UPWARDS ARROW AND RIGHT ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$53</code></td>
+<td><code>S</code></td>
+<td><img src="53.png" width="14" height="16"></td>
+<td><code>U+2500</code></td>
+<td><code>BOX DRAWINGS LIGHT HORIZONTAL</code></td>
+</tr>
+
+<tr>
+<td><code>$54</code></td>
+<td><code>T</code></td>
+<td><img src="54.png" width="14" height="16"></td>
+<td><code>U+1FB7C</code></td>
+<td><code>LEFT AND LOWER ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$55</code></td>
+<td><code>U</code></td>
+<td><img src="55.png" width="14" height="16"></td>
+<td><code>U+2192</code></td>
+<td><code>RIGHTWARDS ARROW</code></td>
+</tr>
+
+<tr>
+<td><code>$56</code></td>
+<td><code>V</code></td>
+<td><img src="56.png" width="14" height="16"></td>
+<td><code>U+2592</code></td>
+<td><code>MEDIUM SHADE</code></td>
+</tr>
+
+<tr>
+<td><code>$57</code></td>
+<td><code>W</code></td>
+<td><img src="57.png" width="14" height="16"></td>
+<td><code>U+1FB90</code></td>
+<td><code>INVERSE MEDIUM SHADE</code></td>
+</tr>
+
+<tr>
+<td><code>$58</code></td>
+<td><code>X</code></td>
+<td><img src="58.png" width="14" height="16"></td>
+<td><code>U+1FBB9</code></td>
+<td><code>LEFT HALF FOLDER</code></td>
+</tr>
+
+<tr>
+<td><code>$59</code></td>
+<td><code>Y</code></td>
+<td><img src="59.png" width="14" height="16"></td>
+<td><code>U+1FBBA</code></td>
+<td><code>RIGHT HALF FOLDER</code></td>
+</tr>
+
+<tr>
+<td><code>$5A</code></td>
+<td><code>Z</code></td>
+<td><img src="5A.png" width="14" height="16"></td>
+<td><code>U+2595</code></td>
+<td><code>RIGHT ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$5B</code></td>
+<td><code>[</code></td>
+<td><img src="5B.png" width="14" height="16"></td>
+<td><code>U+25C6</code></td>
+<td><code>BLACK DIAMOND</code></td>
+</tr>
+
+<tr>
+<td><code>$5C</code></td>
+<td><code>\</code></td>
+<td><img src="5C.png" width="14" height="16"></td>
+<td><code>U+1FB80</code></td>
+<td><code>UPPER AND LOWER ONE EIGHTH BLOCK</code></td>
+</tr>
+
+<tr>
+<td><code>$5D</code></td>
+<td><code>]</code></td>
+<td><img src="5D.png" width="14" height="16"></td>
+<td><code>U+1FBBB</code></td>
+<td><code>VOIDED GREEK CROSS</code></td>
+</tr>
+
+<tr>
+<td><code>$5E</code></td>
+<td><code>^</code></td>
+<td><img src="5E.png" width="14" height="16"></td>
+<td><code>U+1FBBC</code></td>
+<td><code>RIGHT OPEN SQUARED DOT</code></td>
+</tr>
+
+<tr>
+<td><code>$5F</code></td>
+<td><code>_</code></td>
+<td><img src="5F.png" width="14" height="16"></td>
+<td><code>U+258F</code></td>
+<td><code>LEFT ONE EIGHTH BLOCK</code></td>
+</tr>
+
+</tbody>
+</table>
+
+<!--#include virtual="/static/tail.html"-->
