@@ -67,7 +67,7 @@ def expand(path, strip_atlines=False, strip_comments=False):
 				for line in expand(path, strip_atlines, strip_comments):
 					yield line
 			elif ftime is not None:
-				yield datetime.now().strftime(ftime)
+				yield datetime.now().strftime(ftime.replace('%3', '#'))
 			elif strip_atlines and is_atline(line):
 				pass
 			elif not strip_comments:
