@@ -1,10 +1,10 @@
 @filename-txt PUBLIC/UCSUREXT/Blocks.txt
 @generate-txt PUBLIC/UCSUREXT/Blocks.txt
 # Blocks-UCSUR.txt
-# Date: 2018-07-23, 20:58:40 PST
+@timestamp # Date: %Y-%m-%d, %H:%M:%S %Z
 #
-# Under-ConScript Unicode Registry Character Database
-# Copyright (c) 2009-2017 Kreative Korporation
+# Under-ConScript Unicode Registry Character Database (Extended)
+@timestamp # Copyright (c) 2009-%Y Kreative Software
 # For documentation, see http://www.kreativekorp.com/ucsur/
 #
 # Note:   The casing of block names is not normative.

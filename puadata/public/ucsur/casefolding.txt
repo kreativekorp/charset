@@ -1,10 +1,10 @@
 @filename-txt PUBLIC/UCSUR/CaseFolding.txt
 @generate-txt PUBLIC/UCSUR/CaseFolding.txt
 # CaseFolding-UCSUR.txt
-# Date: 2017-12-30, 04:00:00 PST
+@timestamp # Date: %Y-%m-%d, %H:%M:%S %Z
 #
 # Under-ConScript Unicode Registry Character Database
-# Copyright (c) 2009-2017 Kreative Korporation
+@timestamp # Copyright (c) 2009-%Y Kreative Software
 # For documentation, see http://www.kreativekorp.com/ucsur/
 #
 # Case Folding Properties
