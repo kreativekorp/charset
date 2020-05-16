@@ -17,6 +17,13 @@
 		</div>
 	</div>
 	<div class="biglistitem">
+		<p class="biglisticon"><a href="/charset/map/atascii/"><img src="/charset/map/atascii/icon.png" width="64" height="64" border="0"></a></p>
+		<div class="biglistinfo">
+			<p class="biglisttitle"><a href="/charset/map/atascii/">ATASCII</a></p>
+			<p class="biglistdescription">Mapping from ATASCII (Atari ASCII) encoding to Unicode.</p>
+		</div>
+	</div>
+	<div class="biglistitem">
 		<p class="biglisticon"><a href="/charset/map/petscii/"><img src="/charset/map/petscii/icon.png" width="64" height="64" border="0"></a></p>
 		<div class="biglistinfo">
 			<p class="biglisttitle"><a href="/charset/map/petscii/">PETSCII</a></p>

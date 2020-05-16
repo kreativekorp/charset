@@ -1,0 +1,202 @@
+<!--#include virtual="/static/head.html"-->
+<title>ATASCII to Unicode Mapping</title>
+<style>
+
+.mt {
+	border-collapse: collapse;
+}
+.mt th {
+	padding: 2px 4px;
+	border: 1px solid #cccccc;
+}
+.mt td {
+	padding: 2px 1em 2px 4px;
+	border: 1px solid #cccccc;
+}
+.mt .cn {
+	min-width: 300px;
+	max-width: 300px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.mt .empty {
+	background: #cccccc;
+}
+.ctrl {
+	background: #ccffcc;
+}
+
+</style>
+<!--#include virtual="/static/body.html"-->
+
+<h1>ATASCII to Unicode Mapping</h1>
+
+<p>Control characters are shown with a <span class="ctrl">green background</span>
+with the printable form (made possible by prefixing the character with the
+escape character) shown underneath. One ATASCII character, the printable form
+of the "clear screen" control character, was made available for the first time
+in Unicode 13.0. Some ATASCII characters may be mapped to one of two Unicode
+characters depending on their use.</p>
+
+<table class="mt" cellspacing="0">
+<thead>
+
+<tr>
+<th>Code</th>
+<th>ATASCII</th>
+<th colspan="2">Unicode Mapping or Control Function</th>
+<th>Code</th>
+<th>ATASCII</th>
+<th colspan="2">Unicode Mapping or Control Function</th>
+</tr>
+
+</thead>
+<tbody>
+
+<tr><td><code>$00</code></td><td><img src="00.png" width="16" height="16"></td><td><code>U+2665</code></td><td class="cn"><code>BLACK HEART SUIT</code></td><td><code>$80</code></td><td><img src="00i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$01</code></td><td><img src="01.png" width="16" height="16"></td><td><code>U+251C</code></td><td class="cn"><code>BOX DRAWINGS LIGHT VERTICAL AND RIGHT</code></td><td><code>$81</code></td><td><img src="01i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$02</code></td><td rowspan="2"><img src="02.png" width="16" height="16"></td><td><code>U+23B9</code></td><td class="cn"><code>RIGHT VERTICAL BOX LINE</code></td><td rowspan="2"><code>$82</code></td><td rowspan="2"><img src="02i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>U+1FB87</code></td><td class="cn"><code>RIGHT ONE QUARTER BLOCK</code></td><td><code>U+258A</code></td><td class="cn"><code>LEFT THREE QUARTERS BLOCK</code></td></tr>
+<tr><td><code>$03</code></td><td><img src="03.png" width="16" height="16"></td><td><code>U+2518</code></td><td class="cn"><code>BOX DRAWINGS LIGHT UP AND LEFT</code></td><td><code>$83</code></td><td><img src="03i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$04</code></td><td><img src="04.png" width="16" height="16"></td><td><code>U+2524</code></td><td class="cn"><code>BOX DRAWINGS LIGHT VERTICAL AND LEFT</code></td><td><code>$84</code></td><td><img src="04i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$05</code></td><td><img src="05.png" width="16" height="16"></td><td><code>U+2510</code></td><td class="cn"><code>BOX DRAWINGS LIGHT DOWN AND LEFT</code></td><td><code>$85</code></td><td><img src="05i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$06</code></td><td><img src="06.png" width="16" height="16"></td><td><code>U+2571</code></td><td class="cn"><code>BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT</code></td><td><code>$86</code></td><td><img src="06i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$07</code></td><td><img src="07.png" width="16" height="16"></td><td><code>U+2572</code></td><td class="cn"><code>BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT</code></td><td><code>$87</code></td><td><img src="07i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$08</code></td><td><img src="08.png" width="16" height="16"></td><td><code>U+25E2</code></td><td class="cn"><code>BLACK LOWER RIGHT TRIANGLE</code></td><td><code>$88</code></td><td><img src="08i.png" width="16" height="16"></td><td><code>U+25E4</code></td><td class="cn"><code>BLACK UPPER LEFT TRIANGLE</code></td></tr>
+<tr><td><code>$09</code></td><td><img src="09.png" width="16" height="16"></td><td><code>U+2597</code></td><td class="cn"><code>QUADRANT LOWER RIGHT</code></td><td><code>$89</code></td><td><img src="09i.png" width="16" height="16"></td><td><code>U+259B</code></td><td class="cn"><code>QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER LEFT</code></td></tr>
+<tr><td><code>$0A</code></td><td><img src="0A.png" width="16" height="16"></td><td><code>U+25E3</code></td><td class="cn"><code>BLACK LOWER LEFT TRIANGLE</code></td><td><code>$8A</code></td><td><img src="0Ai.png" width="16" height="16"></td><td><code>U+25E5</code></td><td class="cn"><code>BLACK UPPER RIGHT TRIANGLE</code></td></tr>
+<tr><td><code>$0B</code></td><td><img src="0B.png" width="16" height="16"></td><td><code>U+259D</code></td><td class="cn"><code>QUADRANT UPPER RIGHT</code></td><td><code>$8B</code></td><td><img src="0Bi.png" width="16" height="16"></td><td><code>U+2599</code></td><td class="cn"><code>QUADRANT UPPER LEFT AND LOWER LEFT AND LOWER RIGHT</code></td></tr>
+<tr><td><code>$0C</code></td><td><img src="0C.png" width="16" height="16"></td><td><code>U+2598</code></td><td class="cn"><code>QUADRANT UPPER LEFT</code></td><td><code>$8C</code></td><td><img src="0Ci.png" width="16" height="16"></td><td><code>U+259F</code></td><td class="cn"><code>QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT</code></td></tr>
+<tr><td rowspan="2"><code>$0D</code></td><td rowspan="2"><img src="0D.png" width="16" height="16"></td><td><code>U+23BA</code></td><td class="cn"><code>HORIZONTAL SCAN LINE-1</code></td><td rowspan="2"><code>$8D</code></td><td rowspan="2"><img src="0Di.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>U+1FB82</code></td><td class="cn"><code>UPPER ONE QUARTER BLOCK</code></td><td><code>U+2586</code></td><td class="cn"><code>LOWER THREE QUARTERS BLOCK</code></td></tr>
+<tr><td rowspan="2"><code>$0E</code></td><td rowspan="2"><img src="0E.png" width="16" height="16"></td><td><code>U+23BD</code></td><td class="cn"><code>HORIZONTAL SCAN LINE-9</code></td><td rowspan="2"><code>$8E</code></td><td rowspan="2"><img src="0Ei.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>U+2582</code></td><td class="cn"><code>LOWER ONE QUARTER BLOCK</code></td><td><code>U+1FB85</code></td><td class="cn"><code>UPPER THREE QUARTERS BLOCK</code></td></tr>
+<tr><td><code>$0F</code></td><td><img src="0F.png" width="16" height="16"></td><td><code>U+2596</code></td><td class="cn"><code>QUADRANT LOWER LEFT</code></td><td><code>$8F</code></td><td><img src="0Fi.png" width="16" height="16"></td><td><code>U+259C</code></td><td class="cn"><code>QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER RIGHT</code></td></tr>
+<tr><td><code>$10</code></td><td><img src="10.png" width="16" height="16"></td><td><code>U+2663</code></td><td class="cn"><code>BLACK CLUB SUIT</code></td><td><code>$90</code></td><td><img src="10i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$11</code></td><td><img src="11.png" width="16" height="16"></td><td><code>U+250C</code></td><td class="cn"><code>BOX DRAWINGS LIGHT DOWN AND RIGHT</code></td><td><code>$91</code></td><td><img src="11i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$12</code></td><td><img src="12.png" width="16" height="16"></td><td><code>U+2500</code></td><td class="cn"><code>BOX DRAWINGS LIGHT HORIZONTAL</code></td><td><code>$92</code></td><td><img src="12i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$13</code></td><td><img src="13.png" width="16" height="16"></td><td><code>U+253C</code></td><td class="cn"><code>BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL</code></td><td><code>$93</code></td><td><img src="13i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$14</code></td><td rowspan="2"><img src="14.png" width="16" height="16"></td><td><code>U+2022</code></td><td class="cn"><code>BULLET</code></td><td rowspan="2"><code>$94</code></td><td rowspan="2"><img src="14i.png" width="16" height="16"></td><td><code>U+25D8</code></td><td class="cn"><code>INVERSE BULLET</code></td></tr>
+<tr><td><code>U+25CF</code></td><td class="cn"><code>BLACK CIRCLE</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$15</code></td><td><img src="15.png" width="16" height="16"></td><td><code>U+2584</code></td><td class="cn"><code>LOWER HALF BLOCK</code></td><td><code>$95</code></td><td><img src="15i.png" width="16" height="16"></td><td><code>U+2580</code></td><td class="cn"><code>UPPER HALF BLOCK</code></td></tr>
+<tr><td rowspan="2"><code>$16</code></td><td rowspan="2"><img src="16.png" width="16" height="16"></td><td><code>U+23B8</code></td><td class="cn"><code>LEFT VERTICAL BOX LINE</code></td><td rowspan="2"><code>$96</code></td><td rowspan="2"><img src="16i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>U+258E</code></td><td class="cn"><code>LEFT ONE QUARTER BLOCK</code></td><td><code>U+1FB8A</code></td><td class="cn"><code>RIGHT THREE QUARTERS BLOCK</code></td></tr>
+<tr><td><code>$17</code></td><td><img src="17.png" width="16" height="16"></td><td><code>U+252C</code></td><td class="cn"><code>BOX DRAWINGS LIGHT DOWN AND HORIZONTAL</code></td><td><code>$97</code></td><td><img src="17i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$18</code></td><td><img src="18.png" width="16" height="16"></td><td><code>U+2534</code></td><td class="cn"><code>BOX DRAWINGS LIGHT UP AND HORIZONTAL</code></td><td><code>$98</code></td><td><img src="18i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$19</code></td><td><img src="19.png" width="16" height="16"></td><td><code>U+258C</code></td><td class="cn"><code>LEFT HALF BLOCK</code></td><td><code>$99</code></td><td><img src="19i.png" width="16" height="16"></td><td><code>U+2590</code></td><td class="cn"><code>RIGHT HALF BLOCK</code></td></tr>
+<tr><td><code>$1A</code></td><td><img src="1A.png" width="16" height="16"></td><td><code>U+2514</code></td><td class="cn"><code>BOX DRAWINGS LIGHT UP AND RIGHT</code></td><td><code>$9A</code></td><td><img src="1Ai.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$1B</code></td><td rowspan="2"><img src="1B.png" width="16" height="16"></td><td class="ctrl"><code>^[</code></td><td class="cn ctrl">Escape</td><td rowspan="2"><code>$9B</code></td><td rowspan="2"><img src="1Bi.png" width="16" height="16"></td><td class="ctrl"><code>^M</code></td><td class="cn ctrl">End of Line</td></tr>
+<tr><td><code>U+241B</code></td><td class="cn"><code>SYMBOL FOR ESCAPE</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$1C</code></td><td rowspan="2"><img src="1C.png" width="16" height="16"></td><td class="ctrl"><code>^[[A</code></td><td class="cn ctrl">Cursor Up</td><td rowspan="2"><code>$9C</code></td><td rowspan="2"><img src="1Ci.png" width="16" height="16"></td><td class="ctrl"><code>^[[M</code></td><td class="cn ctrl">Delete Line</td></tr>
+<tr><td><code>U+2191</code></td><td class="cn"><code>UPWARDS ARROW</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$1D</code></td><td rowspan="2"><img src="1D.png" width="16" height="16"></td><td class="ctrl"><code>^[[B</code></td><td class="cn ctrl">Cursor Down</td><td rowspan="2"><code>$9D</code></td><td rowspan="2"><img src="1Di.png" width="16" height="16"></td><td class="ctrl"><code>^[[L</code></td><td class="cn ctrl">Insert Line</td></tr>
+<tr><td><code>U+2193</code></td><td class="cn"><code>DOWNWARDS ARROW</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$1E</code></td><td rowspan="2"><img src="1E.png" width="16" height="16"></td><td class="ctrl"><code>^[[D</code></td><td class="cn ctrl">Cursor Left</td><td rowspan="2"><code>$9E</code></td><td rowspan="2"><img src="1Ei.png" width="16" height="16"></td><td class="ctrl"><code>^[[g</code></td><td class="cn ctrl">Clear Tab Stop</td></tr>
+<tr><td><code>U+2190</code></td><td class="cn"><code>LEFTWARDS ARROW</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$1F</code></td><td rowspan="2"><img src="1F.png" width="16" height="16"></td><td class="ctrl"><code>^[[C</code></td><td class="cn ctrl">Cursor Right</td><td rowspan="2"><code>$9F</code></td><td rowspan="2"><img src="1Fi.png" width="16" height="16"></td><td class="ctrl"><code>^[H</code></td><td class="cn ctrl">Set Tab Stop</td></tr>
+<tr><td><code>U+2192</code></td><td class="cn"><code>RIGHTWARDS ARROW</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$20</code></td><td><img src="20.png" width="16" height="16"></td><td><code>U+0020</code></td><td class="cn"><code>SPACE</code></td><td><code>$A0</code></td><td><img src="20i.png" width="16" height="16"></td><td><code>U+2588</code></td><td class="cn"><code>FULL BLOCK</code></td></tr>
+<tr><td><code>$21</code></td><td><img src="21.png" width="16" height="16"></td><td><code>U+0021</code></td><td class="cn"><code>EXCLAMATION MARK</code></td><td><code>$A1</code></td><td><img src="21i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$22</code></td><td><img src="22.png" width="16" height="16"></td><td><code>U+0022</code></td><td class="cn"><code>QUOTATION MARK</code></td><td><code>$A2</code></td><td><img src="22i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$23</code></td><td><img src="23.png" width="16" height="16"></td><td><code>U+0023</code></td><td class="cn"><code>NUMBER SIGN</code></td><td><code>$A3</code></td><td><img src="23i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$24</code></td><td><img src="24.png" width="16" height="16"></td><td><code>U+0024</code></td><td class="cn"><code>DOLLAR SIGN</code></td><td><code>$A4</code></td><td><img src="24i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$25</code></td><td><img src="25.png" width="16" height="16"></td><td><code>U+0025</code></td><td class="cn"><code>PERCENT SIGN</code></td><td><code>$A5</code></td><td><img src="25i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$26</code></td><td><img src="26.png" width="16" height="16"></td><td><code>U+0026</code></td><td class="cn"><code>AMPERSAND</code></td><td><code>$A6</code></td><td><img src="26i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$27</code></td><td><img src="27.png" width="16" height="16"></td><td><code>U+0027</code></td><td class="cn"><code>APOSTROPHE</code></td><td><code>$A7</code></td><td><img src="27i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$28</code></td><td><img src="28.png" width="16" height="16"></td><td><code>U+0028</code></td><td class="cn"><code>LEFT PARENTHESIS</code></td><td><code>$A8</code></td><td><img src="28i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$29</code></td><td><img src="29.png" width="16" height="16"></td><td><code>U+0029</code></td><td class="cn"><code>RIGHT PARENTHESIS</code></td><td><code>$A9</code></td><td><img src="29i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$2A</code></td><td><img src="2A.png" width="16" height="16"></td><td><code>U+002A</code></td><td class="cn"><code>ASTERISK</code></td><td><code>$AA</code></td><td><img src="2Ai.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$2B</code></td><td><img src="2B.png" width="16" height="16"></td><td><code>U+002B</code></td><td class="cn"><code>PLUS SIGN</code></td><td><code>$AB</code></td><td><img src="2Bi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$2C</code></td><td><img src="2C.png" width="16" height="16"></td><td><code>U+002C</code></td><td class="cn"><code>COMMA</code></td><td><code>$AC</code></td><td><img src="2Ci.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$2D</code></td><td><img src="2D.png" width="16" height="16"></td><td><code>U+002D</code></td><td class="cn"><code>HYPHEN-MINUS</code></td><td><code>$AD</code></td><td><img src="2Di.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$2E</code></td><td><img src="2E.png" width="16" height="16"></td><td><code>U+002E</code></td><td class="cn"><code>FULL STOP</code></td><td><code>$AE</code></td><td><img src="2Ei.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$2F</code></td><td><img src="2F.png" width="16" height="16"></td><td><code>U+002F</code></td><td class="cn"><code>SOLIDUS</code></td><td><code>$AF</code></td><td><img src="2Fi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$30</code></td><td><img src="30.png" width="16" height="16"></td><td><code>U+0030</code></td><td class="cn"><code>DIGIT ZERO</code></td><td><code>$B0</code></td><td><img src="30i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$31</code></td><td><img src="31.png" width="16" height="16"></td><td><code>U+0031</code></td><td class="cn"><code>DIGIT ONE</code></td><td><code>$B1</code></td><td><img src="31i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$32</code></td><td><img src="32.png" width="16" height="16"></td><td><code>U+0032</code></td><td class="cn"><code>DIGIT TWO</code></td><td><code>$B2</code></td><td><img src="32i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$33</code></td><td><img src="33.png" width="16" height="16"></td><td><code>U+0033</code></td><td class="cn"><code>DIGIT THREE</code></td><td><code>$B3</code></td><td><img src="33i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$34</code></td><td><img src="34.png" width="16" height="16"></td><td><code>U+0034</code></td><td class="cn"><code>DIGIT FOUR</code></td><td><code>$B4</code></td><td><img src="34i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$35</code></td><td><img src="35.png" width="16" height="16"></td><td><code>U+0035</code></td><td class="cn"><code>DIGIT FIVE</code></td><td><code>$B5</code></td><td><img src="35i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$36</code></td><td><img src="36.png" width="16" height="16"></td><td><code>U+0036</code></td><td class="cn"><code>DIGIT SIX</code></td><td><code>$B6</code></td><td><img src="36i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$37</code></td><td><img src="37.png" width="16" height="16"></td><td><code>U+0037</code></td><td class="cn"><code>DIGIT SEVEN</code></td><td><code>$B7</code></td><td><img src="37i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$38</code></td><td><img src="38.png" width="16" height="16"></td><td><code>U+0038</code></td><td class="cn"><code>DIGIT EIGHT</code></td><td><code>$B8</code></td><td><img src="38i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$39</code></td><td><img src="39.png" width="16" height="16"></td><td><code>U+0039</code></td><td class="cn"><code>DIGIT NINE</code></td><td><code>$B9</code></td><td><img src="39i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$3A</code></td><td><img src="3A.png" width="16" height="16"></td><td><code>U+003A</code></td><td class="cn"><code>COLON</code></td><td><code>$BA</code></td><td><img src="3Ai.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$3B</code></td><td><img src="3B.png" width="16" height="16"></td><td><code>U+003B</code></td><td class="cn"><code>SEMICOLON</code></td><td><code>$BB</code></td><td><img src="3Bi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$3C</code></td><td><img src="3C.png" width="16" height="16"></td><td><code>U+003C</code></td><td class="cn"><code>LESS-THAN SIGN</code></td><td><code>$BC</code></td><td><img src="3Ci.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$3D</code></td><td><img src="3D.png" width="16" height="16"></td><td><code>U+003D</code></td><td class="cn"><code>EQUALS SIGN</code></td><td><code>$BD</code></td><td><img src="3Di.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$3E</code></td><td><img src="3E.png" width="16" height="16"></td><td><code>U+003E</code></td><td class="cn"><code>GREATER-THAN SIGN</code></td><td><code>$BE</code></td><td><img src="3Ei.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$3F</code></td><td><img src="3F.png" width="16" height="16"></td><td><code>U+003F</code></td><td class="cn"><code>QUESTION MARK</code></td><td><code>$BF</code></td><td><img src="3Fi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$40</code></td><td><img src="40.png" width="16" height="16"></td><td><code>U+0040</code></td><td class="cn"><code>COMMERCIAL AT</code></td><td><code>$C0</code></td><td><img src="40i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$41</code></td><td><img src="41.png" width="16" height="16"></td><td><code>U+0041</code></td><td class="cn"><code>LATIN CAPITAL LETTER A</code></td><td><code>$C1</code></td><td><img src="41i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$42</code></td><td><img src="42.png" width="16" height="16"></td><td><code>U+0042</code></td><td class="cn"><code>LATIN CAPITAL LETTER B</code></td><td><code>$C2</code></td><td><img src="42i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$43</code></td><td><img src="43.png" width="16" height="16"></td><td><code>U+0043</code></td><td class="cn"><code>LATIN CAPITAL LETTER C</code></td><td><code>$C3</code></td><td><img src="43i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$44</code></td><td><img src="44.png" width="16" height="16"></td><td><code>U+0044</code></td><td class="cn"><code>LATIN CAPITAL LETTER D</code></td><td><code>$C4</code></td><td><img src="44i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$45</code></td><td><img src="45.png" width="16" height="16"></td><td><code>U+0045</code></td><td class="cn"><code>LATIN CAPITAL LETTER E</code></td><td><code>$C5</code></td><td><img src="45i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$46</code></td><td><img src="46.png" width="16" height="16"></td><td><code>U+0046</code></td><td class="cn"><code>LATIN CAPITAL LETTER F</code></td><td><code>$C6</code></td><td><img src="46i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$47</code></td><td><img src="47.png" width="16" height="16"></td><td><code>U+0047</code></td><td class="cn"><code>LATIN CAPITAL LETTER G</code></td><td><code>$C7</code></td><td><img src="47i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$48</code></td><td><img src="48.png" width="16" height="16"></td><td><code>U+0048</code></td><td class="cn"><code>LATIN CAPITAL LETTER H</code></td><td><code>$C8</code></td><td><img src="48i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$49</code></td><td><img src="49.png" width="16" height="16"></td><td><code>U+0049</code></td><td class="cn"><code>LATIN CAPITAL LETTER I</code></td><td><code>$C9</code></td><td><img src="49i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$4A</code></td><td><img src="4A.png" width="16" height="16"></td><td><code>U+004A</code></td><td class="cn"><code>LATIN CAPITAL LETTER J</code></td><td><code>$CA</code></td><td><img src="4Ai.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$4B</code></td><td><img src="4B.png" width="16" height="16"></td><td><code>U+004B</code></td><td class="cn"><code>LATIN CAPITAL LETTER K</code></td><td><code>$CB</code></td><td><img src="4Bi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$4C</code></td><td><img src="4C.png" width="16" height="16"></td><td><code>U+004C</code></td><td class="cn"><code>LATIN CAPITAL LETTER L</code></td><td><code>$CC</code></td><td><img src="4Ci.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$4D</code></td><td><img src="4D.png" width="16" height="16"></td><td><code>U+004D</code></td><td class="cn"><code>LATIN CAPITAL LETTER M</code></td><td><code>$CD</code></td><td><img src="4Di.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$4E</code></td><td><img src="4E.png" width="16" height="16"></td><td><code>U+004E</code></td><td class="cn"><code>LATIN CAPITAL LETTER N</code></td><td><code>$CE</code></td><td><img src="4Ei.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$4F</code></td><td><img src="4F.png" width="16" height="16"></td><td><code>U+004F</code></td><td class="cn"><code>LATIN CAPITAL LETTER O</code></td><td><code>$CF</code></td><td><img src="4Fi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$50</code></td><td><img src="50.png" width="16" height="16"></td><td><code>U+0050</code></td><td class="cn"><code>LATIN CAPITAL LETTER P</code></td><td><code>$D0</code></td><td><img src="50i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$51</code></td><td><img src="51.png" width="16" height="16"></td><td><code>U+0051</code></td><td class="cn"><code>LATIN CAPITAL LETTER Q</code></td><td><code>$D1</code></td><td><img src="51i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$52</code></td><td><img src="52.png" width="16" height="16"></td><td><code>U+0052</code></td><td class="cn"><code>LATIN CAPITAL LETTER R</code></td><td><code>$D2</code></td><td><img src="52i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$53</code></td><td><img src="53.png" width="16" height="16"></td><td><code>U+0053</code></td><td class="cn"><code>LATIN CAPITAL LETTER S</code></td><td><code>$D3</code></td><td><img src="53i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$54</code></td><td><img src="54.png" width="16" height="16"></td><td><code>U+0054</code></td><td class="cn"><code>LATIN CAPITAL LETTER T</code></td><td><code>$D4</code></td><td><img src="54i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$55</code></td><td><img src="55.png" width="16" height="16"></td><td><code>U+0055</code></td><td class="cn"><code>LATIN CAPITAL LETTER U</code></td><td><code>$D5</code></td><td><img src="55i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$56</code></td><td><img src="56.png" width="16" height="16"></td><td><code>U+0056</code></td><td class="cn"><code>LATIN CAPITAL LETTER V</code></td><td><code>$D6</code></td><td><img src="56i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$57</code></td><td><img src="57.png" width="16" height="16"></td><td><code>U+0057</code></td><td class="cn"><code>LATIN CAPITAL LETTER W</code></td><td><code>$D7</code></td><td><img src="57i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$58</code></td><td><img src="58.png" width="16" height="16"></td><td><code>U+0058</code></td><td class="cn"><code>LATIN CAPITAL LETTER X</code></td><td><code>$D8</code></td><td><img src="58i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$59</code></td><td><img src="59.png" width="16" height="16"></td><td><code>U+0059</code></td><td class="cn"><code>LATIN CAPITAL LETTER Y</code></td><td><code>$D9</code></td><td><img src="59i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$5A</code></td><td><img src="5A.png" width="16" height="16"></td><td><code>U+005A</code></td><td class="cn"><code>LATIN CAPITAL LETTER Z</code></td><td><code>$DA</code></td><td><img src="5Ai.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$5B</code></td><td><img src="5B.png" width="16" height="16"></td><td><code>U+005B</code></td><td class="cn"><code>LEFT SQUARE BRACKET</code></td><td><code>$DB</code></td><td><img src="5Bi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$5C</code></td><td><img src="5C.png" width="16" height="16"></td><td><code>U+005C</code></td><td class="cn"><code>REVERSE SOLIDUS</code></td><td><code>$DC</code></td><td><img src="5Ci.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$5D</code></td><td><img src="5D.png" width="16" height="16"></td><td><code>U+005D</code></td><td class="cn"><code>RIGHT SQUARE BRACKET</code></td><td><code>$DD</code></td><td><img src="5Di.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$5E</code></td><td><img src="5E.png" width="16" height="16"></td><td><code>U+005E</code></td><td class="cn"><code>CIRCUMFLEX ACCENT</code></td><td><code>$DE</code></td><td><img src="5Ei.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$5F</code></td><td><img src="5F.png" width="16" height="16"></td><td><code>U+005F</code></td><td class="cn"><code>LOW LINE</code></td><td><code>$DF</code></td><td><img src="5Fi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$60</code></td><td><img src="60.png" width="16" height="16"></td><td><code>U+2666</code></td><td class="cn"><code>BLACK DIAMOND SUIT</code></td><td><code>$E0</code></td><td><img src="60i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$61</code></td><td><img src="61.png" width="16" height="16"></td><td><code>U+0061</code></td><td class="cn"><code>LATIN SMALL LETTER A</code></td><td><code>$E1</code></td><td><img src="61i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$62</code></td><td><img src="62.png" width="16" height="16"></td><td><code>U+0062</code></td><td class="cn"><code>LATIN SMALL LETTER B</code></td><td><code>$E2</code></td><td><img src="62i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$63</code></td><td><img src="63.png" width="16" height="16"></td><td><code>U+0063</code></td><td class="cn"><code>LATIN SMALL LETTER C</code></td><td><code>$E3</code></td><td><img src="63i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$64</code></td><td><img src="64.png" width="16" height="16"></td><td><code>U+0064</code></td><td class="cn"><code>LATIN SMALL LETTER D</code></td><td><code>$E4</code></td><td><img src="64i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$65</code></td><td><img src="65.png" width="16" height="16"></td><td><code>U+0065</code></td><td class="cn"><code>LATIN SMALL LETTER E</code></td><td><code>$E5</code></td><td><img src="65i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$66</code></td><td><img src="66.png" width="16" height="16"></td><td><code>U+0066</code></td><td class="cn"><code>LATIN SMALL LETTER F</code></td><td><code>$E6</code></td><td><img src="66i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$67</code></td><td><img src="67.png" width="16" height="16"></td><td><code>U+0067</code></td><td class="cn"><code>LATIN SMALL LETTER G</code></td><td><code>$E7</code></td><td><img src="67i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$68</code></td><td><img src="68.png" width="16" height="16"></td><td><code>U+0068</code></td><td class="cn"><code>LATIN SMALL LETTER H</code></td><td><code>$E8</code></td><td><img src="68i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$69</code></td><td><img src="69.png" width="16" height="16"></td><td><code>U+0069</code></td><td class="cn"><code>LATIN SMALL LETTER I</code></td><td><code>$E9</code></td><td><img src="69i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$6A</code></td><td><img src="6A.png" width="16" height="16"></td><td><code>U+006A</code></td><td class="cn"><code>LATIN SMALL LETTER J</code></td><td><code>$EA</code></td><td><img src="6Ai.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$6B</code></td><td><img src="6B.png" width="16" height="16"></td><td><code>U+006B</code></td><td class="cn"><code>LATIN SMALL LETTER K</code></td><td><code>$EB</code></td><td><img src="6Bi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$6C</code></td><td><img src="6C.png" width="16" height="16"></td><td><code>U+006C</code></td><td class="cn"><code>LATIN SMALL LETTER L</code></td><td><code>$EC</code></td><td><img src="6Ci.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$6D</code></td><td><img src="6D.png" width="16" height="16"></td><td><code>U+006D</code></td><td class="cn"><code>LATIN SMALL LETTER M</code></td><td><code>$ED</code></td><td><img src="6Di.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$6E</code></td><td><img src="6E.png" width="16" height="16"></td><td><code>U+006E</code></td><td class="cn"><code>LATIN SMALL LETTER N</code></td><td><code>$EE</code></td><td><img src="6Ei.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$6F</code></td><td><img src="6F.png" width="16" height="16"></td><td><code>U+006F</code></td><td class="cn"><code>LATIN SMALL LETTER O</code></td><td><code>$EF</code></td><td><img src="6Fi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$70</code></td><td><img src="70.png" width="16" height="16"></td><td><code>U+0070</code></td><td class="cn"><code>LATIN SMALL LETTER P</code></td><td><code>$F0</code></td><td><img src="70i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$71</code></td><td><img src="71.png" width="16" height="16"></td><td><code>U+0071</code></td><td class="cn"><code>LATIN SMALL LETTER Q</code></td><td><code>$F1</code></td><td><img src="71i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$72</code></td><td><img src="72.png" width="16" height="16"></td><td><code>U+0072</code></td><td class="cn"><code>LATIN SMALL LETTER R</code></td><td><code>$F2</code></td><td><img src="72i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$73</code></td><td><img src="73.png" width="16" height="16"></td><td><code>U+0073</code></td><td class="cn"><code>LATIN SMALL LETTER S</code></td><td><code>$F3</code></td><td><img src="73i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$74</code></td><td><img src="74.png" width="16" height="16"></td><td><code>U+0074</code></td><td class="cn"><code>LATIN SMALL LETTER T</code></td><td><code>$F4</code></td><td><img src="74i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$75</code></td><td><img src="75.png" width="16" height="16"></td><td><code>U+0075</code></td><td class="cn"><code>LATIN SMALL LETTER U</code></td><td><code>$F5</code></td><td><img src="75i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$76</code></td><td><img src="76.png" width="16" height="16"></td><td><code>U+0076</code></td><td class="cn"><code>LATIN SMALL LETTER V</code></td><td><code>$F6</code></td><td><img src="76i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$77</code></td><td><img src="77.png" width="16" height="16"></td><td><code>U+0077</code></td><td class="cn"><code>LATIN SMALL LETTER W</code></td><td><code>$F7</code></td><td><img src="77i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$78</code></td><td><img src="78.png" width="16" height="16"></td><td><code>U+0078</code></td><td class="cn"><code>LATIN SMALL LETTER X</code></td><td><code>$F8</code></td><td><img src="78i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$79</code></td><td><img src="79.png" width="16" height="16"></td><td><code>U+0079</code></td><td class="cn"><code>LATIN SMALL LETTER Y</code></td><td><code>$F9</code></td><td><img src="79i.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$7A</code></td><td><img src="7A.png" width="16" height="16"></td><td><code>U+007A</code></td><td class="cn"><code>LATIN SMALL LETTER Z</code></td><td><code>$FA</code></td><td><img src="7Ai.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>$7B</code></td><td><img src="7B.png" width="16" height="16"></td><td><code>U+2660</code></td><td class="cn"><code>BLACK SPADE SUIT</code></td><td><code>$FB</code></td><td><img src="7Bi.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$7C</code></td><td rowspan="2"><img src="7C.png" width="16" height="16"></td><td><code>U+007C</code></td><td class="cn"><code>VERTICAL LINE</code></td><td rowspan="2"><code>$FC</code></td><td rowspan="2"><img src="7Ci.png" width="16" height="16"></td><td colspan="2" class="empty"></td></tr>
+<tr><td><code>U+2502</code></td><td class="cn"><code>BOX DRAWINGS LIGHT VERTICAL</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$7D</code></td><td rowspan="2"><img src="7D.png" width="16" height="16"></td><td class="ctrl"><code>^[[H^[[J</code></td><td class="cn ctrl">Clear Screen</td><td rowspan="2"><code>$FD</code></td><td rowspan="2"><img src="7Di.png" width="16" height="16"></td><td class="ctrl"><code>^G</code></td><td class="cn ctrl">Bell</td></tr>
+<tr><td><code>U+1F8B0</code></td><td class="cn"><code>ARROW POINTING UPWARDS THEN NORTH WEST</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$7E</code></td><td rowspan="2"><img src="7E.png" width="16" height="16"></td><td class="ctrl"><code>^H</code></td><td class="cn ctrl">Backspace</td><td rowspan="2"><code>$FE</code></td><td rowspan="2"><img src="7Ei.png" width="16" height="16"></td><td class="ctrl"><code>^[[P</code></td><td class="cn ctrl">Delete Character</td></tr>
+<tr><td><code>U+25C0</code></td><td class="cn"><code>BLACK LEFT-POINTING TRIANGLE</code></td><td colspan="2" class="empty"></td></tr>
+<tr><td rowspan="2"><code>$7F</code></td><td rowspan="2"><img src="7F.png" width="16" height="16"></td><td class="ctrl"><code>^I</code></td><td class="cn ctrl">Tab</td><td rowspan="2"><code>$FF</code></td><td rowspan="2"><img src="7Fi.png" width="16" height="16"></td><td class="ctrl"><code>^[[@</code></td><td class="cn ctrl">Insert Character</td></tr>
+<tr><td><code>U+25B6</code></td><td class="cn"><code>BLACK RIGHT-POINTING TRIANGLE</code></td><td colspan="2" class="empty"></td></tr>
+
+</tbody>
+</table>
+
+<!--#include virtual="/static/tail.html"-->
