@@ -22,4 +22,5 @@ def list_fonts():
 			name = re.sub('upper', 'Upper', name)
 			name = re.sub('csur', 'CSUR', name)
 			name = re.sub('_', ' ', name)
+			link = 'http://unifoundry.com' + link
 			yield (name, acquire(link, 'local'), u)
