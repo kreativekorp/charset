@@ -7,6 +7,7 @@ sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(_
 from acquisitionlib import acquire
 
 def list_fonts():
+	yield ('Alco Sans', acquire('http://www.kreativekorp.com/lib/font/AlcoSans.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/alco.shtml')
 	yield ('Constructium', acquire('http://www.kreativekorp.com/lib/font/Constructium.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/constructium.shtml')
 	yield ('Fairfax', acquire('http://www.kreativekorp.com/lib/font/Fairfax.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/fairfax.shtml')
 	yield ('Fairfax Bold', acquire('http://www.kreativekorp.com/lib/font/FairfaxBold.ttf', 'local'), 'http://www.kreativekorp.com/software/fonts/fairfax.shtml')

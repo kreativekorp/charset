@@ -36,9 +36,9 @@
 @import fragments/unifon-ext.txt
 @import fragments/solresol-ext.txt
 @import fragments/visible-speech.txt
-@import fragments/monofon.txt
+@import fragments/monofon-ext.txt
 @import fragments/dni.txt
-@import fragments/aurebesh.txt
+@import fragments/aurebesh-ext.txt
 @import fragments/tonal-ext.txt
 @import fragments/glaitha-a.txt
 @import fragments/glaitha-b.txt

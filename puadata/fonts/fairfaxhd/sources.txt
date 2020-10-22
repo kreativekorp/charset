@@ -1,4 +1,6 @@
 @font-name Fairfax HD
+@font-name Fairfax Hax HD
+@font-name Fairfax SM HD
 @filename-txt FONTS/FFXHD/Sources.txt
 @generate-txt FONTS/FFXHD/Sources.txt
 Agreement-Type: Font

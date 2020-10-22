@@ -89,6 +89,7 @@ def build_table(fonts, chars, blocks):
 
 def main():
 	fonts = [
+		('ALC', 'Alco Sans'),
 		('CLG', 'Conlang Unicode'),
 		('CON', 'Constructium'),
 		('EVM', 'Everson Mono'),

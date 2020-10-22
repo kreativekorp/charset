@@ -2,10 +2,10 @@
 @generate-txt VENDORS/KREATIVE/Blocks.txt
 @import fragments/header-blocks.txt
 
-F600..F61F; Kreative Software Private Use ERIN
-F700..F7FF; Kreative Software Private Use
-F810..F89F; Kreative Software Private Use Supplement
-FF000..FF0FF; Kreative Software Private Use Extended-A
-FF100..FF1FF; Kreative Software Private Use Extended-B
+F600..F61F; Kreative Software Private Use-F6
+F700..F7FF; Kreative Software Private Use-F7
+F800..F89F; Kreative Software Private Use-F8
+FF000..FF0FF; Kreative Software Private Use-FF0
+FF100..FF1FF; Kreative Software Private Use-FF1
 
 # EOF

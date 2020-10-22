@@ -26,5 +26,16 @@ F500..F5FF; Pride Flags
 F600..F6FF; Sports Flags
 F700..F7FF; Mika City Flags
 F800..F8FF; Miscellaneous Flags
+F0000..F0FFF; Generic Flags Supplement
+F1000..F1FFF; Signal Flags Supplement
+F2000..F3FFF; North American Flags Supplement
+F4000..F5FFF; European Flags Supplement
+F6000..F7FFF; Asian Flags Supplement
+F8000..F9FFF; South American Flags Supplement
+FA000..FBFFF; African Flags Supplement
+FC000..FCFFF; Oceanic Flags Supplement
+FD000..FDFFF; Miscellaneous Subdivision Flags Supplement
+FE000..FEFFF; Constructed Language Flags Supplement
+FF000..FFFFF; Pride Flags Supplement
 
 # EOF

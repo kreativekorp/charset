@@ -5,7 +5,8 @@
 @import fragments/modular-font-elements.txt
 @import fragments/fairfax-f2.txt
 @import fragments/fairfax-f3.txt
-@import fragments/fairfax-f4g0.txt
+@import fragments/fairfax-f4g0-ext.txt
+@import fragments/cx16-logo.txt
 @import fragments/kreative-erin.txt
 @import fragments/fairfax-f6g2.txt
 @import fragments/kreative-f7g0.txt
@@ -14,9 +15,9 @@
 @import fragments/kreative-f8g0.txt
 @import fragments/kreative-f8g1.txt
 @import fragments/klingon-alnum.txt
-F8FA;RADICAL EXTENDER;So;0;ON;;;;;N;;;;;
-F8FB;MODERN KRONE SIGN;Sc;0;ET;;;;;N;;;;;
-F8FC;KLINGON MUMMIFICATION GLYPH;So;0;ON;;;;;N;;;;;
+@import fragments/kreative-radex.txt
+@import fragments/krone.txt
+@import fragments/klingon-glyph-f8fc.txt
 @import fragments/klingon-punct.txt
 @import fragments/apple-logo.txt
 @import fragments/kreative-ff000.txt

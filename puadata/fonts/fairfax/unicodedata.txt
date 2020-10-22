@@ -9,6 +9,7 @@
 @import fragments/fairfax-f4g0.txt
 @import fragments/fairfax-f4g1.txt
 @import fragments/fairfax-f5.txt
+@import fragments/cx16-logo.txt
 @import fragments/kreative-erin.txt
 @import fragments/fairfax-f6g1.txt
 @import fragments/fairfax-f6g2.txt
@@ -23,5 +24,6 @@
 @import fragments/ucsur-f0000.txt
 @import fragments/kreative-ff000.txt
 @import fragments/kreative-ff100.txt
+@import fragments/aliphbepf.txt
 @import fragments/voynich.txt
 @import fragments/fairfax-ff700.txt

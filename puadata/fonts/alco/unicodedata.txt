@@ -1,7 +1,7 @@
-@filename-txt FONTS/CONSTRM/UnicodeData.txt
-@generate-txt FONTS/CONSTRM/UnicodeData.txt
+@filename-txt FONTS/ALCO/UnicodeData.txt
+@generate-txt FONTS/ALCO/UnicodeData.txt
 @import fragments/ucsur-e000-ext.txt
-@import fragments/kamakawi.txt
+@import fragments/ath.txt
 @import fragments/kreative-erin.txt
 @import fragments/kreative-f7g0.txt
 @import fragments/kreative-f7g1.txt

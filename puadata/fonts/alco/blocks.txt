@@ -1,9 +1,9 @@
-@filename-txt FONTS/CONSTRM/Blocks.txt
-@generate-txt FONTS/CONSTRM/Blocks.txt
+@filename-txt FONTS/ALCO/Blocks.txt
+@generate-txt FONTS/ALCO/Blocks.txt
 @import fragments/header-blocks.txt
 
 @import fragments/ucsur-blocks-e000.txt
-F000..F1FF; Kamakawi
+F4C0..F4EF; Ath
 F600..F61F; Kreative Software Private Use-F6
 F700..F7FF; Kreative Software Private Use-F7
 F800..F89F; Kreative Software Private Use-F8

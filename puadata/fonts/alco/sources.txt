@@ -1,0 +1,13 @@
+@font-name Alco Sans
+@filename-txt FONTS/ALCO/Sources.txt
+@generate-txt FONTS/ALCO/Sources.txt
+Agreement-Type: Font
+Agreement-Name: Alco
+Agreement-FCC: Alco
+@timestamp Generated: %Y-%m-%d %H:%M:%S
+
+@import fragments/kreative-sources.txt
+
+@import fragments/csur-sources.txt
+
+@import fragments/ucsur-sources.txt

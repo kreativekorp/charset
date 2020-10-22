@@ -2,7 +2,9 @@
 @generate-txt FONTS/FFXHD/Blocks.txt
 @import fragments/header-blocks.txt
 
-@import fragments/ucsur-blocks-e000-ext.txt
+@import fragments/ucsur-blocks-e000.txt
+EE00..EE7F; Block Sextants (Compatible with ZVBI)
+EE80..EEFF; Block Sextants (Compatible with Unscii)
 EF00..EFFF; Hex Byte Pictures
 F200..F20F; Box Drawing Extended
 F210..F23F; Fill Patterns
@@ -12,6 +14,8 @@ F2C0..F2FF; Block Sextants
 F300..F3FF; Block Octants
 F400..F43F; C1 Control Pictures
 F4C0..F4EF; Ath
+F500..F54F; Kodo Symbols
+F580..F58F; Geomantic Figures
 F600..F61F; Kreative Software Private Use-F6
 F680..F69F; Apple MouseText Characters
 F700..F7FF; Kreative Software Private Use-F7
@@ -21,6 +25,7 @@ F800..F89F; Kreative Software Private Use-F8
 FA720..FA7FF; Latin Presentation Forms
 FB000..FB00F; Betty Boop
 FE000..FE07F; Tengwar Presentation Forms
+FE5E0..FE5FF; Ophidian Presentation Forms
 FE680..FE6CF; Ewellic Presentation Forms
 FF000..FF02F; Kreative Software Private Use-FF0
 FF030..FF09F; Domino Tiles Extended

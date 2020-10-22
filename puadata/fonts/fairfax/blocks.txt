@@ -2,7 +2,7 @@
 @generate-txt FONTS/FAIRFAX/Blocks.txt
 @import fragments/header-blocks.txt
 
-@import fragments/ucsur-blocks-e000-ext.txt
+@import fragments/ucsur-blocks-e000.txt
 EF00..EFFF; Hex Byte Pictures
 F000..F1FF; Kamakawi
 F200..F20F; Box Drawing Extended
