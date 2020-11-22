@@ -47,6 +47,7 @@
 @import fragments/orokin.txt
 @import fragments/sga.txt
 @import fragments/braille-ext.txt
+@import fragments/cistercian.txt
 @import fragments/cylenian.txt
 @import fragments/syrrin.txt
 @import fragments/deini.txt
