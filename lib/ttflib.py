@@ -147,7 +147,98 @@ class ttf_cmap:
 					if gid > 0:
 						yield cp, gid
 
-class __ttf_base:
+def _puaa_read_string(fp, to, ed):
+	if ed > 0:
+		fp.seek(to + ed)
+		length = struct.unpack('>B', fp.read(1))[0]
+		return fp.read(length).decode('utf-8').encode('utf-8')
+	if ed < 0:
+		chars = [((ed >> x) & 0x7F) for x in [24, 16, 8, 0]]
+		return ''.join(chr(x) for x in chars if x)
+	return None
+
+def _puaa_read_int_array(fp, to, ed):
+	if ed > 0:
+		fp.seek(to + ed)
+		count = struct.unpack('>H', fp.read(2))[0]
+		return [struct.unpack('>i', fp.read(4))[0] for i in range(0, count)]
+	return None
+
+class ttf_puaa:
+	def __init__(self, et, plane, fcp, lcp, ed):
+		self.entry_type = et
+		self.first_code_point = (plane << 16) | fcp
+		self.last_code_point = (plane << 16) | lcp
+		self.entry_data = ed
+
+	def set_data(self, fp, to):
+		if self.entry_type == 0:
+			self.value = None
+		elif self.entry_type == 1:
+			self.value = _puaa_read_string(fp, to, self.entry_data)
+		elif self.entry_type == 2:
+			ints = _puaa_read_int_array(fp, to, self.entry_data)
+			self.value = [_puaa_read_string(fp, to, x) for x in ints]
+		elif self.entry_type == 3:
+			self.value = (self.entry_data != 0)
+		elif self.entry_type == 4 or self.entry_type == 5:
+			self.value = self.entry_data
+		elif self.entry_type == 6 or self.entry_type == 7:
+			self.value = _puaa_read_int_array(fp, to, self.entry_data)
+		elif self.entry_type == 8:
+			ints = _puaa_read_int_array(fp, to, self.entry_data)
+			cond = _puaa_read_string(fp, to, ints[-1])
+			self.value = (ints[:-1], cond)
+		elif self.entry_type == 9:
+			ints = _puaa_read_int_array(fp, to, self.entry_data)
+			str0 = _puaa_read_string(fp, to, ints[0])
+			str1 = _puaa_read_string(fp, to, ints[1])
+			self.value = (str0, str1)
+		else:
+			self.value = None
+
+	def contains(self, cp):
+		return self.first_code_point <= cp <= self.last_code_point
+
+	def get_property_value(self, cp):
+		if self.value is None:
+			return None
+		elif self.entry_type == 2 or self.entry_type == 6:
+			return self.value[cp - self.first_code_point]
+		else:
+			return self.value
+
+	def get_property_string(self, cp):
+		value = self.get_property_value(cp)
+		if value is None:
+			return None
+		elif self.entry_type == 1 or self.entry_type == 2:
+			return value
+		elif self.entry_type == 3:
+			return 'Y' if value else 'N'
+		elif self.entry_type == 5 or self.entry_type == 6:
+			return '%04X' % value
+		elif self.entry_type == 7:
+			return ' '.join('%04X' % x for x in value)
+		elif self.entry_type == 8:
+			seqs = ' '.join('%04X' % x for x in value[0])
+			return '; '.join(seqs, value[1]) if value[1] else seqs
+		elif self.entry_type == 9:
+			return ';'.join(value)
+		else:
+			return str(value)
+
+def _puaa_read_entries(fp, to, sho):
+	if sho > 0:
+		fp.seek(to + sho)
+		count = struct.unpack('>H', fp.read(2))[0]
+		entries = [ttf_puaa(*struct.unpack('>BBHHi', fp.read(10))) for i in range(0, count)]
+		for entry in entries:
+			entry.set_data(fp, to)
+		return entries
+	return None
+
+class _ttf_base:
 	def locate(self, tag):
 		for table in self.tables:
 			if table.tag == tag:
@@ -214,7 +305,31 @@ class __ttf_base:
 			return self.fp.read(4).decode('us-ascii')
 		return None
 
-class ttf_file(__ttf_base):
+	def puaas(self):
+		table = self.locate('PUAA')
+		if table is not None:
+			version, num_props = struct.unpack('>HH', self.fp.read(4))
+			props = [struct.unpack('>ii', self.fp.read(8)) for i in range(0, num_props)]
+			prop_dict = {}
+			for pno, sho in props:
+				prop_name = _puaa_read_string(self.fp, table.offset, pno)
+				entries = _puaa_read_entries(self.fp, table.offset, sho)
+				prop_dict[prop_name] = entries
+			return prop_dict
+		return None
+
+	def puaa(self, prop):
+		table = self.locate('PUAA')
+		if table is not None:
+			version, num_props = struct.unpack('>HH', self.fp.read(4))
+			props = [struct.unpack('>ii', self.fp.read(8)) for i in range(0, num_props)]
+			for pno, sho in props:
+				prop_name = _puaa_read_string(self.fp, table.offset, pno)
+				if prop_name == prop:
+					return _puaa_read_entries(self.fp, table.offset, sho)
+		return None
+
+class ttf_file(_ttf_base):
 	def __init__(self, path):
 		self.path = path
 
@@ -227,7 +342,7 @@ class ttf_file(__ttf_base):
 	def __exit__(self, etype, value, traceback):
 		self.fp.close()
 
-class ttc_font(__ttf_base):
+class ttc_font(_ttf_base):
 	def __init__(self, path, fp, offset):
 		fp.seek(offset)
 		self.path, self.fp, self.offset = path, fp, offset

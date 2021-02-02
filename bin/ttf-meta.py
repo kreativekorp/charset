@@ -11,7 +11,7 @@ from ttflib import ttf_file
 
 def write_meta(ttfpath, metapath):
 	with ttf_file(ttfpath) as ttf:
-		tables = [t for t in ttf.tables if t.tag in ['head', 'hhea', 'name', 'cmap', 'OS/2']]
+		tables = [t for t in ttf.tables if t.tag in ['head', 'hhea', 'name', 'cmap', 'OS/2', 'PUAA']]
 		new_offset = 12 + 16 * len(tables)
 		for table in tables:
 			table.new_offset = new_offset
