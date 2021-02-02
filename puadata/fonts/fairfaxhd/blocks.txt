@@ -6,6 +6,7 @@
 EE00..EE7F; Block Sextants (Compatible with ZVBI)
 EE80..EEFF; Block Sextants (Compatible with Unscii)
 EF00..EFFF; Hex Byte Pictures
+F000..F1FF; Kamakawi
 F200..F20F; Box Drawing Extended
 F210..F23F; Fill Patterns
 F240..F27F; Shade Quadrants
@@ -16,8 +17,12 @@ F400..F43F; C1 Control Pictures
 F4C0..F4EF; Ath
 F500..F54F; Kodo Symbols
 F580..F58F; Geomantic Figures
+F590..F5BF; C64-OS Symbols
+F5C0..F5FF; Commander X16 Symbols
 F600..F61F; Kreative Software Private Use-F6
+F620..F67F; Fairfax Presentation Variants-A
 F680..F69F; Apple MouseText Characters
+F6A0..F6FF; Fairfax Presentation Variants-B
 F700..F7FF; Kreative Software Private Use-F7
 F800..F89F; Kreative Software Private Use-F8
 @import fragments/ucsur-blocks-f000.txt
@@ -25,6 +30,7 @@ F800..F89F; Kreative Software Private Use-F8
 FA720..FA7FF; Latin Presentation Forms
 FB000..FB00F; Betty Boop
 FE000..FE07F; Tengwar Presentation Forms
+FE400..FE42F; Niskloz Presentation Forms
 FE5E0..FE5FF; Ophidian Presentation Forms
 FE680..FE6CF; Ewellic Presentation Forms
 FF000..FF02F; Kreative Software Private Use-FF0

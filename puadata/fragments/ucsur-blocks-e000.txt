@@ -49,6 +49,7 @@ EB00..EB3F; Orokin
 EB40..EB5F; Standard Galactic
 EB60..EB9F; Braille Extended
 EBA0..EBDF; Cistercian Numerals
+EBE0..EBFF; Kaktovik Numerals
 EC00..EC2F; Cylenian
 EC30..EC6F; Syrrin
 ED00..ED3F; Deini

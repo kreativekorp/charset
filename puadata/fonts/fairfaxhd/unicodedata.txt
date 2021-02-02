@@ -5,6 +5,7 @@
 @import fragments/sextants-unscii.txt
 @import fragments/octets-ls.txt
 @import fragments/octets-hs.txt
+@import fragments/kamakawi.txt
 @import fragments/fairfax-f2.txt
 @import fragments/fairfax-f3.txt
 @import fragments/fairfax-f4g0-ext.txt
@@ -13,7 +14,9 @@
 @import fragments/geomantic.txt
 @import fragments/cx16-logo.txt
 @import fragments/kreative-erin.txt
+@import fragments/fairfax-f6g1.txt
 @import fragments/fairfax-f6g2.txt
+@import fragments/fairfax-f6g3.txt
 @import fragments/kreative-f7g0.txt
 @import fragments/kreative-f7g1.txt
 @import fragments/kreative-apple.txt
@@ -24,6 +27,7 @@
 @import fragments/ucsur-f0000.txt
 @import fragments/latin-forms.txt
 @import fragments/tengwar-forms.txt
+@import fragments/niskloz-forms.txt
 @import fragments/ophidian-forms.txt
 @import fragments/ewellic-forms.txt
 @import fragments/kreative-ff000.txt
