@@ -24,7 +24,7 @@
 @import fragments/kreative-f8g1.txt
 @import fragments/kreative-csur-f000.txt
 @import fragments/apple-logo.txt
-@import fragments/ucsur-f0000.txt
+@import fragments/ucsur-f0000-ext.txt
 @import fragments/latin-forms.txt
 @import fragments/tengwar-forms.txt
 @import fragments/niskloz-forms.txt
