@@ -11,6 +11,7 @@
 @import fragments/fairfax-f4g0-ext.txt
 @import fragments/ath.txt
 @import fragments/kodo.txt
+@import fragments/camp-duodecimal.txt
 @import fragments/geomantic.txt
 @import fragments/cx16-logo.txt
 @import fragments/kreative-erin.txt
