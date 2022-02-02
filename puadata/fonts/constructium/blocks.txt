@@ -18,5 +18,6 @@ FF000..FF02F; Kreative Software Private Use-FF0
 FF100..FF1FF; Kreative Software Private Use-FF1
 FF3C0..FF3FF; Aliphbepf
 FF8A0..FF8CF; Aiha Presentation Forms
+FF900..FFABF; Sitelen Pona Presentation Forms
 
 # EOF

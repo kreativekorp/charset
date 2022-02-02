@@ -43,5 +43,6 @@ FF3C0..FF3FF; Aliphbepf
 FF400..FF51F; Voynich
 FF700..FF7FF; Seven-Segment Display Patterns
 FF8A0..FF8CF; Aiha Presentation Forms
+FF900..FFABF; Sitelen Pona Presentation Forms
 
 # EOF

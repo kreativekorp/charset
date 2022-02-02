@@ -1,3 +1,4 @@
 @import fragments/kinya-syllables.txt
 @import fragments/pikto.txt
-@import fragments/sitelen-pona.txt
+@import fragments/sitelen-2022.txt
+@import fragments/xdi8.txt
