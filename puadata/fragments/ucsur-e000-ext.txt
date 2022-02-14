@@ -27,7 +27,7 @@
 @import fragments/telarasso.txt
 @import fragments/ssuraki.txt
 @import fragments/gargoyle.txt
-@import fragments/ophidian.txt
+@import fragments/ophidian-ext.txt
 @import fragments/ferengi.txt
 @import fragments/seuss.txt
 @import fragments/sylabica.txt
