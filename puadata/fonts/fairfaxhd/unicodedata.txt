@@ -11,7 +11,11 @@
 @import fragments/fairfax-f4g0-ext.txt
 @import fragments/ath.txt
 @import fragments/kodo.txt
+@import fragments/math-appendix.txt
 @import fragments/camp-duodecimal.txt
+F570;FRACTION BAR;Sm;0;CS;;;;;N;;;;;
+@import fragments/tally-dot-dash.txt
+@import fragments/tally-box-fairfax.txt
 @import fragments/geomantic.txt
 @import fragments/cx16-logo.txt
 @import fragments/kreative-erin.txt
