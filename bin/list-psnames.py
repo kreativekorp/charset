@@ -9,12 +9,12 @@ sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(_
 from parselib import charset_path, load_plugin, ls
 
 def main():
-	path = charset_path('acquisition', 'entities')
+	path = charset_path('acquisition', 'psnames')
 	for modfile in ls(path):
 		mod = load_plugin(modfile)
 		if mod is not None:
-			for cp, entity in mod.list_entities():
-				print('U+%04X\t%s' % (cp, entity))
+			for cp, psname in mod.list_psnames():
+				print('U+%04X\t%s' % (cp, psname))
 
 if __name__ == '__main__':
 	main()

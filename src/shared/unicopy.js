@@ -1,4 +1,4 @@
-Unicopy=(function($,window,document,UCD,PUA,ENTITYDB){
+Unicopy=(function($,window,document,UCD,PUA,ENTITYDB,PSNAMEDB){
 
 var clickToSelect = function(ie, be) {
 	(be || ie).bind('click', function() {
@@ -159,6 +159,7 @@ var charsToItems = function(chars, pua) {
 		var names = [];
 		var links = [];
 		var entities = [];
+		var psnames = [];
 		var python = [];
 		for (var i = 0, n = chars.length; i < n; i++) {
 			var data = getCharacterData(chars[i], pua);
@@ -170,6 +171,7 @@ var charsToItems = function(chars, pua) {
 				: UCD['chars'][chars[i]] ? ('/charset/unicode/char/' + data[0]) : null
 			);
 			entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
+			psnames.push(PSNAMEDB[chars[i]] || ((chars[i] < 0x10000) ? ('uni' + toHex(chars[i], 4)) : ('u' + toHex(chars[i], 5))))
 			python.push(
 				(chars[i] < 0x10000)
 				? ('\\u' + toHex(chars[i], 4))
@@ -200,6 +202,7 @@ var charsToItems = function(chars, pua) {
 		items.push(['Hex', arrayToHex(chars, 4).join(', ')]);
 		items.push(['U+', 'U+' + arrayToHex(chars, 4).join('+')]);
 		items.push(['Name', names.join(', ')]);
+		items.push(['PS Name', psnames.join(' ')]);
 		items.push(['-']);
 		items.push(['HTML Name', entities.join('')]);
 		items.push(['HTML Dec', '&#' + chars.join(';&#') + ';']);
@@ -364,4 +367,4 @@ return {
 	closePopup: closePopup
 };
 
-})(jQuery,window,document,UCD,PUA,ENTITYDB);
+})(jQuery,window,document,UCD,PUA,ENTITYDB,PSNAMEDB);

@@ -28,6 +28,7 @@
 <script src="/charset/shared/ucd.js"></script>
 <script src="/charset/shared/pua.js"></script>
 <script src="/charset/shared/entitydb.js"></script>
+<script src="/charset/shared/psnamedb.js"></script>
 <script src="/charset/shared/unicopy.js"></script>
 <script src="/charset/whatis/whatis.js"></script>
 <script>

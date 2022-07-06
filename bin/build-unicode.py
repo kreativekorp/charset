@@ -115,9 +115,19 @@ def get_entities():
 		if mod is not None:
 			print('Reading named HTML entities: %s' % modfile)
 			for cp, entity in mod.list_entities():
-				if cp not in entities:
-					entities[cp] = entity
+				entities[cp] = entity
 	return entities
+
+def get_psnames():
+	psnames = {}
+	path = charset_path('acquisition', 'psnames')
+	for modfile in ls(path):
+		mod = load_plugin(modfile)
+		if mod is not None:
+			print('Reading PostScript names: %s' % modfile)
+			for cp, psname in mod.list_psnames():
+				psnames[cp] = psname
+	return psnames
 
 def get_font_file_data(path):
 	ext = path.split('/')[-1].split('.')[-1].lower()
@@ -332,7 +342,7 @@ def build_roadmap(complete, blocks, plane, urlbase, f):
 		print('<tr><th>%02X</th>%s</tr>' % (i, ''.join(block_cells)), file=f)
 	print('</table>', file=f)
 
-def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
+def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 	blockdir = os.path.join(basedir, 'block')
 	if not os.path.exists(blockdir):
 		os.makedirs(blockdir)
@@ -455,6 +465,12 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			print('<table>', file=f)
 			print('<tr><td>Decimal:</td><td>%s</td></tr>' % cp, file=f)
 			print('<tr><td>Hexadecimal:</td><td>U+%04X</td></tr>' % cp, file=f)
+			if cp in psnames:
+				print('<tr><td>PostScript Name:</td><td>%s</td></tr>' % html_encode(psnames[cp]), file=f)
+			elif cp < 0x10000:
+				print('<tr><td>PostScript Name:</td><td>uni%04X</td></tr>' % cp, file=f)
+			else:
+				print('<tr><td>PostScript Name:</td><td>u%05X</td></tr>' % cp, file=f)
 			if cp in entities:
 				print('<tr><td>HTML Name:</td><td><code>%s</code></td></tr>' % html_encode(entities[cp]), file=f)
 			print('<tr><td>HTML Dec:</td><td><code>&amp;#%s;</code></td></tr>' % cp, file=f)
@@ -565,6 +581,7 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 			print('<script src="/charset/shared/ucd.js"></script>', file=f)
 			print('<script src="/charset/shared/pua.js"></script>', file=f)
 			print('<script src="/charset/shared/entitydb.js"></script>', file=f)
+			print('<script src="/charset/shared/psnamedb.js"></script>', file=f)
 			print('<script src="/charset/shared/unicopy.js"></script>', file=f)
 			print('<script src="/charset/shared/charlist.js"></script>', file=f)
 			print('<!--#include virtual="/static/tail.html"-->', file=f)
@@ -632,9 +649,10 @@ def build_dir(meta, ranges, chars, blocks, entities, fonts, basedir):
 def main():
 	ranges, chars, blocks = get_unidata()
 	entities = get_entities()
+	psnames = get_psnames()
 	fonts = get_font_data()
 	basedir = charset_path('out', 'unicode')
-	build_dir(None, ranges, chars, blocks, entities, fonts, basedir)
+	build_dir(None, ranges, chars, blocks, entities, psnames, fonts, basedir)
 
 	pua_meta = []
 	pua_chars = {}
@@ -644,7 +662,7 @@ def main():
 			if meta['Agreement-Type'] == 'Please-Ignore':
 				continue
 		basedir = charset_path('out', 'pua', re.sub('[^A-Za-z0-9]+', '', meta['Agreement-Name']))
-		build_dir(meta, None, pchars, pblocks, entities, fonts, basedir)
+		build_dir(meta, None, pchars, pblocks, entities, psnames, fonts, basedir)
 		pua_meta.append(meta)
 		pua_chars[meta['Agreement-Name']] = pchars
 		pua_blocks[meta['Agreement-Name']] = pblocks
@@ -760,6 +778,7 @@ def main():
 			print('<script src="/charset/shared/ucd.js"></script>', file=f)
 			print('<script src="/charset/shared/pua.js"></script>', file=f)
 			print('<script src="/charset/shared/entitydb.js"></script>', file=f)
+			print('<script src="/charset/shared/psnamedb.js"></script>', file=f)
 			print('<script src="/charset/shared/unicopy.js"></script>', file=f)
 			print('<script src="/charset/shared/charlist.js"></script>', file=f)
 			print('<!--#include virtual="/static/tail.html"-->', file=f)

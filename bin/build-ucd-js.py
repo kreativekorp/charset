@@ -70,9 +70,18 @@ def get_entities():
 		mod = load_plugin(modfile)
 		if mod is not None:
 			for cp, entity in mod.list_entities():
-				if cp not in entities:
-					entities[cp] = entity
+				entities[cp] = entity
 	return entities
+
+def get_psnames():
+	psnames = {}
+	path = charset_path('acquisition', 'psnames')
+	for modfile in ls(path):
+		mod = load_plugin(modfile)
+		if mod is not None:
+			for cp, psname in mod.list_psnames():
+				psnames[cp] = psname
+	return psnames
 
 def main():
 	shared = charset_path('out', 'shared')
@@ -103,6 +112,12 @@ def main():
 	print('Writing named character entity data: %s' % path)
 	with open(path, 'w') as f:
 		f.write('ENTITYDB=%s;' % json.dumps(entities, separators=(',', ':')))
+
+	psnames = get_psnames()
+	path = os.path.join(shared, 'psnamedb.js')
+	print('Writing PostScript name data: %s' % path)
+	with open(path, 'w') as f:
+		f.write('PSNAMEDB=%s;' % json.dumps(psnames, separators=(',', ':')))
 
 if __name__ == '__main__':
 	main()

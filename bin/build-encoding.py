@@ -439,6 +439,7 @@ def build_encoding(ranges, chars, fonts, meta, root, basedir, prefix=[]):
 		print('<script src="/charset/shared/ucd.js"></script>', file=f)
 		print('<script src="/charset/shared/pua.js"></script>', file=f)
 		print('<script src="/charset/shared/entitydb.js"></script>', file=f)
+		print('<script src="/charset/shared/psnamedb.js"></script>', file=f)
 		print('<script src="/charset/shared/unicopy.js"></script>', file=f)
 		print('<script src="/charset/shared/charlist.js"></script>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
