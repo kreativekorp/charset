@@ -16,8 +16,10 @@ FE5E0..FE5FF; Ophidian Presentation Forms
 FE680..FE6CF; Ewellic Presentation Forms
 FF000..FF02F; Kreative Software Private Use-FF0
 FF100..FF1FF; Kreative Software Private Use-FF1
+FF380..FF3BF; Tahano Veno
 FF3C0..FF3FF; Aliphbepf
 FF8A0..FF8CF; Aiha Presentation Forms
-FF900..FFABF; Sitelen Pona Presentation Forms
+FF900..FFABF; Sitelen Pona Presentation Forms-A
+FFAC0..FFBFF; Sitelen Pona Presentation Forms-B
 
 # EOF

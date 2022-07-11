@@ -1,5 +1,7 @@
 @filename-txt FONTS/KSQUARE/UnicodeData.txt
 @generate-txt FONTS/KSQUARE/UnicodeData.txt
+@import fragments/sextants-zvbi.txt
+@import fragments/sextants-unscii.txt
 @import fragments/octets-ls.txt
 @import fragments/octets-hs.txt
 @import fragments/modular-font-elements.txt
@@ -23,3 +25,4 @@
 @import fragments/kreative-ff000.txt
 @import fragments/kreative-ff100.txt
 @import fragments/fairfax-ff700.txt
+@import fragments/legacy-appendix.txt

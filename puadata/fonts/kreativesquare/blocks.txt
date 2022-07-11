@@ -2,6 +2,8 @@
 @generate-txt FONTS/KSQUARE/Blocks.txt
 @import fragments/header-blocks.txt
 
+EE00..EE7F; Block Sextants (Compatible with ZVBI)
+EE80..EEFF; Block Sextants (Compatible with Unscii)
 EF00..EFFF; Hex Byte Pictures
 F000..F0FF; Modular Font Elements
 F100..F1FF; Modular Font Elements Extended
@@ -23,5 +25,6 @@ FF0A0..FF0DF; Powerline Symbols
 FF0E0..FF0FF; Rayalaka Color Symbols
 FF100..FF1FF; Kreative Software Private Use-FF1
 FF700..FF7FF; Seven-Segment Display Patterns
+FFC00..FFCFF; Symbols for Legacy Computing Appendix
 
 # EOF

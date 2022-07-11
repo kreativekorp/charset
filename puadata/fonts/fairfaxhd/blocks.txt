@@ -41,10 +41,13 @@ FF030..FF09F; Domino Tiles Extended
 FF0A0..FF0DF; Powerline Symbols
 FF0E0..FF0FF; Rayalaka Color Symbols
 FF100..FF1FF; Kreative Software Private Use-FF1
+FF380..FF3BF; Tahano Veno
 FF3C0..FF3FF; Aliphbepf
 FF400..FF51F; Voynich
 FF700..FF7FF; Seven-Segment Display Patterns
 FF8A0..FF8CF; Aiha Presentation Forms
-FF900..FFABF; Sitelen Pona Presentation Forms
+FF900..FFABF; Sitelen Pona Presentation Forms-A
+FFAC0..FFBFF; Sitelen Pona Presentation Forms-B
+FFC00..FFCFF; Symbols for Legacy Computing Appendix
 
 # EOF

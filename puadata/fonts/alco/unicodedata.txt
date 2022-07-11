@@ -18,6 +18,8 @@
 @import fragments/ewellic-forms.txt
 @import fragments/kreative-ff000.txt
 @import fragments/kreative-ff100.txt
+@import fragments/tahano-veno.txt
 @import fragments/aliphbepf.txt
 @import fragments/aiha-forms.txt
 @import fragments/sitelen-forms-a.txt
+@import fragments/sitelen-forms-b.txt
