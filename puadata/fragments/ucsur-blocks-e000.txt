@@ -52,6 +52,7 @@ EBA0..EBDF; Cistercian Numerals
 EBE0..EBFF; Kaktovik Numerals
 EC00..EC2F; Cylenian
 EC30..EC6F; Syrrin
+EC70..ECEF; Graflect
 ED00..ED3F; Deini
 ED40..ED7F; Niji
 ED80..EDAF; Iranic

@@ -51,6 +51,7 @@
 @import fragments/kaktovik.txt
 @import fragments/cylenian.txt
 @import fragments/syrrin.txt
+@import fragments/graflect.txt
 @import fragments/deini.txt
 @import fragments/niji-2018.txt
 @import fragments/iranic.txt
