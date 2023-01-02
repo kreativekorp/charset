@@ -1,5 +1,6 @@
 F0000..F0E6F; Kinya Syllables
 F0E70..F16AF; Pikto
+F16B0..F16DF; Derani
 F1700..F18FF; Semtog
 F1900..F19FF; Sitelen Pona
 F1B00..F1C3F; Shidinn
