@@ -7,144 +7,9 @@ import re
 import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
-from bitsetlib import BitSet
-from parselib import cd, charset_path, expand, load_plugin, ls, split_atline, split_mapline
-from ttflib import ttf_file
+from datalib import get_font_data, get_unidata
+from parselib import cd, charset_path, expand, ls, split_atline, split_mapline
 from unicodelib import hex_dump
-
-def get_unidata():
-	ranges = {}
-	chars = {}
-	path = charset_path('acquisition', 'unidata')
-	for modfile in ls(path):
-		mod = load_plugin(modfile)
-		if mod is not None:
-			print('Reading Unicode data: %s' % modfile)
-			for name, path in mod.list_files():
-				if name == 'UnicodeData.txt':
-					with open(path, 'r') as ucd:
-						for line in ucd:
-							fields = line.strip().split(';')
-							try:
-								cp = int(fields[0], 16)
-								if fields[1][:1] == '<' and fields[1][-3:] == 'st>':
-									range_name = fields[1][1:-1].split(', ')
-									if range_name[0] not in ranges:
-										ranges[range_name[0]] = [cp, cp, fields, fields]
-									elif range_name[1] == 'First':
-										ranges[range_name[0]][0] = cp
-										ranges[range_name[0]][2] = fields
-									elif range_name[1] == 'Last':
-										ranges[range_name[0]][1] = cp
-										ranges[range_name[0]][3] = fields
-								else:
-									chars[cp] = fields
-							except ValueError:
-								continue
-	return ranges, chars
-
-def get_font_file_data(path):
-	ext = path.split('/')[-1].split('.')[-1].lower()
-	if ext == 'bdf' or ext == 'bdfmeta':
-		name = None
-		chars = BitSet()
-		vendorid = None
-		with open(path, 'r') as bdf:
-			for line in bdf:
-				if line[:12] == 'FAMILY_NAME ':
-					name = line[12:].strip()
-					if (name[0] == '"' and name[-1] == '"') or (name[0] == "'" and name[-1] == "'"):
-						name = name[1:-1]
-				if line[:9] == 'ENCODING ':
-					try:
-						cp = int(line[9:].strip())
-						if (cp >= 0x20 and cp < 0x80) or cp >= 0xA0:
-							chars.set(cp)
-					except ValueError:
-						pass
-				if line[:11] == 'OS2_VENDOR ':
-					vendorid = line[11:].strip()
-					if (vendorid[0] == '"' and vendorid[-1] == '"') or (vendorid[0] == "'" and vendorid[-1] == "'"):
-						vendorid = vendorid[1:-1]
-		return name, chars, vendorid
-	elif ext == 'ttf' or ext == 'ttfmeta' or ext == 'otf' or ext == 'otfmeta':
-		name = None
-		chars = BitSet()
-		vendorid = None
-		with ttf_file(path) as ttf:
-			name = ttf.name(False)
-			if name[-8:] == ' Regular':
-				name = name[:-8]
-
-			# Start Blacklisting
-			if name[0] == '.':
-				# Font is private to system and normally inaccessible.
-				return None
-			if re.match('^[.]?Last[ ]?Resort$', name):
-				# No. Just no.
-				return None
-			if re.match('^YOz[A-Z][A-Za-z0-9]+$', name):
-				# We really don't need every weight of YOzFont.
-				return None
-			words = name.split(' ')
-			if words[0] == 'Noto' and words[-1] in ['Bk', 'Black', 'Blk', 'Bold', 'Cn', 'Cond', 'DemiLight', 'ExtBd', 'ExtCond', 'ExtLt', 'ExtraLight', 'Light', 'Lt', 'Md', 'Med', 'Medium', 'SemBd', 'SemCond', 'SemiBold', 'SmBd', 'SmCn', 'Th', 'Thin', 'XBd', 'XCn', 'XLt']:
-				# We really don't need every weight of Noto.
-				return None
-			# End Blacklisting
-
-			for cmap in ttf.cmaps():
-				for cp, glyph in cmap.glyphs():
-					if (cp >= 0x20 and cp < 0x80) or cp >= 0xA0:
-						chars.set(cp)
-			vendorid = ttf.vendorid()
-		return name, chars, vendorid
-	else:
-		raise ValueError('Not a supported font format.')
-
-def get_font_data():
-	fonts = {}
-	path = charset_path('font-metadata')
-	for path in ls(path):
-		print('Reading font data: %s' % path)
-		try:
-			font_data = get_font_file_data(path)
-		except Exception as e:
-			print('Error: %s' % e)
-			continue
-		if font_data is None:
-			print('Skipping this font because reasons.')
-		elif font_data[0] is None:
-			print('Error: Font has no name.')
-		elif font_data[0] in fonts:
-			newchars = fonts[font_data[0]][1].update(font_data[1])
-			newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
-			fonts[font_data[0]] = (font_data[0], newchars, newvendor, None)
-		else:
-			fonts[font_data[0]] = (font_data[0], font_data[1], font_data[2], None)
-	path = charset_path('acquisition', 'fonts')
-	for modfile in ls(path):
-		mod = load_plugin(modfile)
-		if mod is not None:
-			for name, path, url in mod.list_fonts():
-				print('Reading font data: %s' % path)
-				try:
-					font_data = get_font_file_data(path)
-				except Exception as e:
-					print('Error: %s' % e)
-					continue
-				if font_data is None:
-					print('Skipping this font because reasons.')
-				elif font_data[0] is None:
-					print('Error: Font has no name.')
-				elif font_data[0] in fonts:
-					newchars = fonts[font_data[0]][1].update(font_data[1])
-					newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
-					fonts[font_data[0]] = (font_data[0], newchars, newvendor, url)
-				else:
-					fonts[font_data[0]] = (font_data[0], font_data[1], font_data[2], url)
-	fonts = [fonts[k] for k in fonts]
-	fonts.sort(key=lambda font: font[0].lower())
-	return fonts
 
 def read_encoding(path):
 	meta = {}
@@ -455,7 +320,7 @@ def main():
 	by_nsstrenc = {}
 	by_name = {}
 	by_kte = {}
-	ranges, chars = get_unidata()
+	ranges, chars, blocks = get_unidata()
 	fonts = get_font_data()
 	with cd(charset_path('mappings')):
 		for path in ls('.'):

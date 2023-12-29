@@ -6,43 +6,7 @@ import os
 import sys
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'lib')))
-from parselib import atline_matcher, cd, charset_path, expand, ls, strip_comment
-
-def get_puadata():
-	with cd(charset_path('puadata')):
-		for path in ls('.'):
-			if os.path.basename(path) == 'sources.txt':
-				meta = {}
-				chars = {}
-				blocks = []
-				for line in expand(path):
-					if line:
-						fields = strip_comment(line).split(':', 2)
-						if len(fields) == 2:
-							meta[fields[0].strip()] = fields[1].strip()
-					else:
-						break
-				for line in expand(os.path.join(os.path.dirname(path), 'unicodedata.txt')):
-					fields = line.split(';')
-					try:
-						cp = int(fields[0], 16)
-						chars[cp] = fields
-					except ValueError:
-						continue
-				for line in expand(os.path.join(os.path.dirname(path), 'blocks.txt')):
-					fields = line.split(';')
-					if len(fields) == 2:
-						blockname = fields[1].strip()
-						fields = fields[0].split('..')
-						if len(fields) == 2:
-							try:
-								start = int(fields[0], 16)
-								stop = int(fields[1], 16)
-								blocks.append((start, stop, blockname))
-							except ValueError:
-								continue
-				blocks.sort()
-				yield meta, chars, blocks
+from datalib import get_puadata
 
 def build_table(fonts, chars, blocks):
 	print('<!--#include virtual="/static/head.html"-->')
