@@ -128,11 +128,7 @@ def get_font_file_data(path):
 			# End Blacklisting
 
 			for cmap in ttf.cmaps():
-				if (
-					(cmap.platform_id == 3 and cmap.platform_specific_id == 10) or
-					(cmap.platform_id == 3 and cmap.platform_specific_id == 1) or
-					(cmap.platform_id == 1 and cmap.platform_specific_id == 0)
-				):
+				if cmap.isUnicode or cmap.isMacRoman:
 					for cp, glyph in cmap.glyphs():
 						if (cp >= 0x20 and cp < 0x80) or cp >= 0xA0:
 							chars.set(cp)

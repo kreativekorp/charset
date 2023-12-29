@@ -17,23 +17,40 @@ class ttf_name:
 		self.name_id = id
 		self.length = length
 		self.offset = offset
+		if pid == 0 or pid == 2 or pid == 10:
+			self.encoding = 'utf-16be'
+			self.isEnglish = True
+		elif pid == 3 and (psid == 1 or psid == 10):
+			self.encoding = 'utf-16be'
+			self.isEnglish = (lang == 1033)
+		elif pid == 1 and psid == 0:
+			self.encoding = 'macroman'
+			self.isEnglish = (lang == 0)
+		else:
+			self.encoding = None
+			self.isEnglish = False
 
 	def set_data(self, data):
 		self.data = data
-		if self.platform_id == 0:
-			self.name = data.decode('utf-16be').encode('utf-8')
-		elif self.platform_id == 3 and self.platform_specific_id == 10:
-			self.name = data.decode('utf-16be').encode('utf-8')
-		elif self.platform_id == 3 and self.platform_specific_id == 1:
-			self.name = data.decode('utf-16be').encode('utf-8')
-		elif self.platform_id == 1 and self.platform_specific_id == 0:
-			self.name = data.decode('macroman').encode('utf-8')
+		self.name = None if self.encoding is None else data.decode(self.encoding).encode('utf-8')
 
 class ttf_cmap:
 	def __init__(self, pid, psid, offset):
 		self.platform_id = pid
 		self.platform_specific_id = psid
 		self.offset = offset
+		if pid == 0 or pid == 2 or pid == 10:
+			self.isMacRoman = False
+			self.isUnicode = True
+		elif pid == 3 and (psid == 1 or psid == 10):
+			self.isMacRoman = False
+			self.isUnicode = True
+		elif pid == 1 and psid == 0:
+			self.isMacRoman = True
+			self.isUnicode = False
+		else:
+			self.isMacRoman = False
+			self.isUnicode = False
 
 	def set_data(self, format, length, language, data):
 		self.format = format
@@ -263,12 +280,7 @@ class _ttf_base:
 		family_names = []
 		style_names = []
 		for name in names:
-			if (
-				(name.platform_id == 0) or
-				(name.platform_id == 3 and name.platform_specific_id == 10 and name.language_id == 1033) or
-				(name.platform_id == 3 and name.platform_specific_id == 1 and name.language_id == 1033) or
-				(name.platform_id == 1 and name.platform_specific_id == 0 and name.language_id == 0)
-			):
+			if name.isEnglish:
 				if name.name_id == 1:
 					if name.name not in family_names:
 						family_names.append(name.name)
