@@ -2,6 +2,7 @@
 
 from __future__ import print_function
 
+import json
 import os
 import re
 import sys
@@ -134,11 +135,19 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 	if meta is None:
 		blockurlprefix = '/charset/unicode/block/'
 		charurlprefix = '/charset/unicode/char/'
+		isPUAA = False
 	else:
 		htmlname = html_encode(meta['Agreement-Name'])
 		urlname = re.sub('[^A-Za-z0-9]+', '', meta['Agreement-Name'])
-		blockurlprefix = '/charset/pua/%s/block/' % urlname
-		charurlprefix = '/charset/pua/%s/char/' % urlname
+		if 'Agreement-Type' in meta and meta['Agreement-Type'] == 'Font-Internal':
+			blockurlprefix = '/charset/font/%s/block/' % urlname
+			charurlprefix = '/charset/font/%s/char/' % urlname
+			puascript = '<script src="/charset/font/%s/pua.js"></script>' % urlname
+			isPUAA = True
+		else:
+			blockurlprefix = '/charset/pua/%s/block/' % urlname
+			charurlprefix = '/charset/pua/%s/char/' % urlname
+			isPUAA = False
 
 	for cp in chars:
 		ch = chars[cp]
@@ -174,6 +183,8 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 			print('<!--#include virtual="/static/head.html"-->', file=f)
 			if meta is None:
 				print('<title>Character Encodings - Unicode - %s - %s</title>' % (html_encode(blockname), html_encode(charname)), file=f)
+			elif isPUAA:
+				print('<title>Character Encodings - Fonts - %s - %s - %s</title>' % (htmlname, html_encode(blockname), html_encode(charname)), file=f)
 			else:
 				print('<title>Character Encodings - Private Use Agreements - %s - %s - %s</title>' % (htmlname, html_encode(blockname), html_encode(charname)), file=f)
 			print('<link rel="stylesheet" href="/charset/shared/character.css">', file=f)
@@ -181,6 +192,10 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 			if meta is None:
 				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/unicode/">Unicode</a> &raquo; <a href="%s">%s</a> &raquo;</p>' % (html_encode(blockurl), html_encode(blockname)), file=f)
 				print('<h1>%s</h1>' % html_encode(charname), file=f)
+			elif isPUAA:
+				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/font/">Fonts</a> &raquo; <a href="/charset/font/%s/">%s</a> &raquo; <a href="%s">%s</a> &raquo;</p>' % (urlname, htmlname, html_encode(blockurl), html_encode(blockname)), file=f)
+				print('<h1>%s</h1>' % html_encode(charname), file=f)
+				print('<p class="pua-notice">This is a private use character. Its use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretation shown here is only one of many possible interpretations.</p>', file=f)
 			else:
 				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/pua/">Private Use Agreements</a> &raquo; <a href="/charset/pua/%s/">%s</a> &raquo; <a href="%s">%s</a> &raquo;</p>' % (urlname, htmlname, html_encode(blockurl), html_encode(blockname)), file=f)
 				print('<h1>%s</h1>' % html_encode(charname), file=f)
@@ -239,6 +254,8 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 				print('<tr><td>Mac, <a href="http://www.kreativekorp.com/software/keyboards/superlatin/" target="_blank">SuperLatin</a>:</td><td>%s</td></tr>' % html_encode(keystroke_superlatin[cp].replace('Alt-', 'Option-')), file=f)
 			if cp < 0x10000:
 				print('<tr><td>Mac, Unicode Hex:</td><td>Option-%04X</td></tr>' % cp, file=f)
+			elif cp < 0x110000:
+				print('<tr><td>Mac, Unicode Hex:</td><td>Option-%04X-%04X</td></tr>' % (0xD800 | ((cp - 0x10000) >> 10), 0xDC00 | ((cp - 0x10000) & 0x3FF)), file=f)
 			print('</table>', file=f)
 			print('</div><div class="char-data-inner-div" id="char-data-inner-div-2">', file=f)
 			print('<h2>Encoding</h2>', file=f)
@@ -275,7 +292,7 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 					if font_data[1].get(cp):
 						font_name = html_encode(font_data[0])
 						font_url = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font_data[0]))
-						print('--><div class="char-glyph-item" data-font-name="%s"><div class="char-glyph" style="font-family: \'%s\';">&#%s;</div><div class="char-glyph-font"><a href="%s">%s</a></div></div><!--' % (font_name, font_name, cp, font_url, font_name), file=f)
+						print('--><div class="char-glyph-item" data-font-name="%s"><div class="char-glyph" style="font-family: \'%s\', \'Adobe Blank\';">&#%s;</div><div class="char-glyph-font"><a href="%s">%s</a></div></div><!--' % (font_name, font_name, cp, font_url, font_name), file=f)
 				print('--></div>', file=f)
 			print('<script src="/charset/shared/jquery.js"></script>', file=f)
 			print('<script src="/charset/shared/character.js"></script>', file=f)
@@ -294,14 +311,22 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 			print('<!--#include virtual="/static/head.html"-->', file=f)
 			if meta is None:
 				print('<title>Character Encodings - Unicode - %s</title>' % html_encode(block[2]), file=f)
+			elif isPUAA:
+				print('<title>Character Encodings - Fonts - %s - %s</title>' % (htmlname, html_encode(block[2])), file=f)
 			else:
 				print('<title>Character Encodings - Private Use Agreements - %s - %s</title>' % (htmlname, html_encode(block[2])), file=f)
 			print('<link rel="stylesheet" href="/charset/shared/unicopy.css">', file=f)
 			print('<link rel="stylesheet" href="/charset/shared/charlist.css">', file=f)
+			if isPUAA:
+				print('<style>.char-table td, .charlist-charglyph, .unicopy-h1 { font-family: "%s"; }</style>' % meta['Agreement-Name'], file=f)
 			print('<!--#include virtual="/static/body.html"-->', file=f)
 			if meta is None:
 				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/unicode/">Unicode</a> &raquo;</p>', file=f)
 				print('<h1>%s</h1>' % html_encode(block[2]), file=f)
+			elif isPUAA:
+				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/font/">Fonts</a> &raquo; <a href="/charset/font/%s/">%s</a> &raquo;</p>' % (urlname, htmlname), file=f)
+				print('<h1>%s</h1>' % html_encode(block[2]), file=f)
+				print('<p class="pua-notice">These are private use characters. Their use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretations shown here are only some of many possible interpretations.</p>', file=f)
 			else:
 				print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/pua/">Private Use Agreements</a> &raquo; <a href="/charset/pua/%s/">%s</a> &raquo;</p>' % (urlname, htmlname), file=f)
 				print('<h1>%s</h1>' % html_encode(block[2]), file=f)
@@ -319,19 +344,20 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 				print('<td class="block-next"><a href="%s%04X">%04X - %04X<br>%s</a></td>' % (blockurlprefix, nextblock[0], nextblock[0], nextblock[1], html_encode(nextblock[2])), file=f)
 				print('<td class="block-next-arr"><a href="%s%04X">&rarr;</a></td>' % (blockurlprefix, nextblock[0]), file=f)
 			print('</tr></table>', file=f)
-			print('<table class="block-subheader"><tr>', file=f)
-			print('<td class="block-fonts">Font: <select id="font-selector">', file=f)
-			print('<option selected value="inherit">Default</option>', file=f)
-			for font_data in fonts:
-				if font_data[1].getAny(block[0], block[1]):
-					font_name = html_encode(font_data[0])
-					print('<option value="%s">%s</option>' % (font_name, font_name), file=f)
-			print('</select></td>', file=f)
-			if meta is None:
-				print('<td class="block-links"><a href="http://www.unicode.org/charts/PDF/U%04X.pdf" target="_blank">Code Chart PDF</a></td>' % block[0], file=f)
-			else:
-				print('<td class="block-links"></td>', file=f)
-			print('</tr></table>', file=f)
+			if not isPUAA:
+				print('<table class="block-subheader"><tr>', file=f)
+				print('<td class="block-fonts">Font: <select id="font-selector">', file=f)
+				print('<option selected value="inherit">Default</option>', file=f)
+				for font_data in fonts:
+					if font_data[1].getAny(block[0], block[1]):
+						font_name = html_encode(font_data[0])
+						print('<option value="%s">%s</option>' % (font_name, font_name), file=f)
+				print('</select></td>', file=f)
+				if meta is None:
+					print('<td class="block-links"><a href="http://www.unicode.org/charts/PDF/U%04X.pdf" target="_blank">Code Chart PDF</a></td>' % block[0], file=f)
+				else:
+					print('<td class="block-links"></td>', file=f)
+				print('</tr></table>', file=f)
 			if meta is None:
 				print('<table class="char-table">', file=f)
 			else:
@@ -359,19 +385,21 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 				print('</div>', file=f)
 			print('<script src="/charset/shared/jquery.js"></script>', file=f)
 			print('<script src="/charset/shared/ucd.js"></script>', file=f)
-			print('<script src="/charset/shared/pua.js"></script>', file=f)
+			print(puascript if isPUAA else '<script src="/charset/shared/pua.js"></script>', file=f)
 			print('<script src="/charset/shared/entitydb.js"></script>', file=f)
 			print('<script src="/charset/shared/psnamedb.js"></script>', file=f)
 			print('<script src="/charset/shared/unicopy.js"></script>', file=f)
 			print('<script src="/charset/shared/charlist.js"></script>', file=f)
 			print('<!--#include virtual="/static/tail.html"-->', file=f)
 
-	path = os.path.join(basedir, 'index.shtml')
+	path = os.path.join(blockdir if isPUAA else basedir, 'index.shtml')
 	print('Writing block index: %s' % path)
 	with open(path, 'w') as f:
 		print('<!--#include virtual="/static/head.html"-->', file=f)
 		if meta is None:
 			print('<title>Character Encodings - Unicode</title>', file=f)
+		elif isPUAA:
+			print('<title>Character Encodings - Fonts - %s</title>' % htmlname, file=f)
 		else:
 			print('<title>Character Encodings - Private Use Agreements - %s</title>' % htmlname, file=f)
 		print('<link rel="stylesheet" href="/charset/shared/blocklist.css">', file=f)
@@ -381,10 +409,21 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 			print('<h1>Unicode</h1>', file=f)
 			print('<p>To find a Unicode character by name, use <a href="/charset/whereis/">Unicode Character Search</a>.</p>', file=f)
 			print('<p>To list all the characters in a piece of text, use <a href="/charset/whatis/">Unicode String Decoder</a>.</p>', file=f)
+		elif isPUAA:
+			print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/font/">Fonts</a> &raquo;</p>', file=f)
+			print('<h1>%s</h1>' % htmlname, file=f)
+			print('<p class="pua-notice">These are private use characters. Their use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretations shown here are only some of many possible interpretations.</p>', file=f)
+			if 'Agreement-URL' in meta and meta['Agreement-URL']:
+				print('<p><a href="%s" target="_blank">%s Home Page</a><br>' % (html_encode(meta['Agreement-URL']), htmlname), file=f)
+				print('<a href="/charset/font/%s/">Character Repertoire Index</a></p>' % urlname, file=f)
+			else:
+				print('<p><a href="/charset/font/%s/">Character Repertoire Index</a></p>' % urlname, file=f)
 		else:
 			print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/pua/">Private Use Agreements</a> &raquo;</p>', file=f)
 			print('<h1>%s</h1>' % htmlname, file=f)
 			print('<p class="pua-notice">These are private use characters. Their use and interpretation is not specified by the Unicode Standard but may be determined by private agreement among cooperating users. The interpretations shown here are only some of many possible interpretations.</p>', file=f)
+			if 'Agreement-URL' in meta and meta['Agreement-URL']:
+				print('<p><a href="%s" target="_blank">%s Home Page</a></p>' % (html_encode(meta['Agreement-URL']), htmlname), file=f)
 		last_plane = -1
 		last_cp = -1
 		for start, stop, blockname in blocks:
@@ -396,6 +435,8 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 					print('</table>', file=f)
 					if meta is None:
 						build_roadmap(True, blocks, last_plane, '/charset/unicode/block/', f)
+					elif isPUAA:
+						build_roadmap(False, blocks, last_plane, '/charset/font/%s/block/' % urlname, f)
 					else:
 						build_roadmap(False, blocks, last_plane, '/charset/pua/%s/block/' % urlname, f)
 				print('<h2>%s</h2>' % html_encode(plane_name(plane)), file=f)
@@ -411,6 +452,8 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 					print('<tr><td class="block-cp">%04X</td><td class="block-cp">%04X</td><td><a href="/charset/pua/">%s</a></td></tr>' % (start, stop, html_encode(blockname)), file=f)
 				else:
 					print('<tr><td class="block-cp">%04X</td><td class="block-cp">%04X</td><td><a href="/charset/unicode/block/%04X">%s</a></td></tr>' % (start, stop, start, html_encode(blockname)), file=f)
+			elif isPUAA:
+				print('<tr><td class="block-cp">%04X</td><td class="block-cp">%04X</td><td><a href="/charset/font/%s/block/%04X">%s</a></td></tr>' % (start, stop, urlname, start, html_encode(blockname)), file=f)
 			else:
 				print('<tr><td class="block-cp">%04X</td><td class="block-cp">%04X</td><td><a href="/charset/pua/%s/block/%04X">%s</a></td></tr>' % (start, stop, urlname, start, html_encode(blockname)), file=f)
 			last_cp = stop + 1
@@ -420,6 +463,8 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 			print('</table>', file=f)
 			if meta is None:
 				build_roadmap(True, blocks, last_plane, '/charset/unicode/block/', f)
+			elif isPUAA:
+				build_roadmap(False, blocks, last_plane, '/charset/font/%s/block/' % urlname, f)
 			else:
 				build_roadmap(False, blocks, last_plane, '/charset/pua/%s/block/' % urlname, f)
 		print('<script src="/charset/shared/jquery.js"></script>', file=f)
@@ -465,6 +510,13 @@ def main():
 		for meta in pua_meta:
 			print('<tr><td><a href="/charset/pua/%s">%s</a></td></tr>' % (re.sub('[^A-Za-z0-9]+', '', meta['Agreement-Name']), html_encode(meta['Agreement-Name'])), file=f)
 		print('</table>', file=f)
+		pua_fonts = [font for font in fonts if (font[3] and 'Blocks' in font[3] and 'UnicodeData' in font[3] and font[3]['Blocks'] and font[3]['UnicodeData'])]
+		if pua_fonts:
+			print('<h2>Fonts with Private Use Area Attributes</h2>', file=f)
+			print('<table class="pua-list">', file=f)
+			for font in pua_fonts:
+				print('<tr><td><a href="/charset/font/%s">%s</a></td></tr>' % (re.sub('[^A-Za-z0-9]+', '', font[0]), html_encode(font[0])), file=f)
+			print('</table>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
 
 	fontdir = charset_path('out', 'font')
@@ -475,6 +527,19 @@ def main():
 		fdir = os.path.join(fontdir, urlname)
 		if not os.path.exists(fdir):
 			os.makedirs(fdir)
+		hasPUAA = (font[3] and 'Blocks' in font[3] and 'UnicodeData' in font[3] and font[3]['Blocks'] and font[3]['UnicodeData'])
+		if hasPUAA:
+			puascript = '<script src="/charset/font/%s/pua.js"></script>' % urlname
+			meta = {'Agreement-Name': font[0], 'Agreement-Type': 'Font-Internal'}
+			if font[4]:
+				meta['Agreement-URL'] = font[4]
+			build_dir(meta, None, font[3]['UnicodeData'], font[3]['Blocks'], entities, psnames, fonts, fdir)
+			meta['chars'] = font[3]['UnicodeData']
+			meta['blocks'] = font[3]['Blocks']
+			path = os.path.join(fdir, 'pua.js')
+			print('Writing Private Use Area data: %s' % path)
+			with open(path, 'w') as f:
+				f.write('PUA=%s;' % json.dumps({font[0]: meta}, separators=(',', ':')))
 		path = os.path.join(fdir, 'index.shtml')
 		print('Writing font page: %s' % path)
 		with open(path, 'w') as f:
@@ -486,26 +551,38 @@ def main():
 			print('<!--#include virtual="/static/body.html"-->', file=f)
 			print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo; <a href="/charset/font/">Fonts</a> &raquo;</p>', file=f)
 			print('<h1>%s</h1>' % html_encode(font[0]), file=f)
-			if font[4] is not None and len(font[4]) > 0:
+			if font[4] and hasPUAA:
+				print('<p><a href="%s" target="_blank">%s Home Page</a><br>' % (html_encode(font[4]), html_encode(font[0])), file=f)
+				print('<a href="/charset/font/%s/block/">Private Use Area Block Index</a></p>' % urlname, file=f)
+			elif font[4]:
 				print('<p><a href="%s" target="_blank">%s Home Page</a></p>' % (html_encode(font[4]), html_encode(font[0])), file=f)
+			elif hasPUAA:
+				print('<p><a href="/charset/font/%s/block/">Private Use Area Block Index</a></p>' % urlname, file=f)
 			blockses = []
 			charses = []
 			blockurls = []
 			charurls = []
 			agreements = []
-			for vendor_agreement in [meta['Agreement-Name'] for meta in pua_meta if font[2] in meta['Vendor-IDs']]:
-				blockses.append(pua_blocks[vendor_agreement])
-				charses.append(pua_chars[vendor_agreement])
-				blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
-				charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
-				agreements.append(vendor_agreement)
-			for font_agreement in [meta['Agreement-Name'] for meta in pua_meta if font[0] in meta['Font-Names']]:
-				blockses.append(pua_blocks[font_agreement])
-				charses.append(pua_chars[font_agreement])
-				blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
-				charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
-				agreements.append(font_agreement)
-			if len(agreements) > 0:
+			if hasPUAA:
+				blockses.append(font[3]['Blocks'])
+				charses.append(font[3]['UnicodeData'])
+				blockurls.append('/charset/font/%s/block/' % urlname)
+				charurls.append('/charset/font/%s/char/' % urlname)
+				agreements.append(font[0])
+			else:
+				for vendor_agreement in [meta['Agreement-Name'] for meta in pua_meta if font[2] in meta['Vendor-IDs']]:
+					blockses.append(pua_blocks[vendor_agreement])
+					charses.append(pua_chars[vendor_agreement])
+					blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
+					charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', vendor_agreement))
+					agreements.append(vendor_agreement)
+				for font_agreement in [meta['Agreement-Name'] for meta in pua_meta if font[0] in meta['Font-Names']]:
+					blockses.append(pua_blocks[font_agreement])
+					charses.append(pua_chars[font_agreement])
+					blockurls.append('/charset/pua/%s/block/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
+					charurls.append('/charset/pua/%s/char/' % re.sub('[^A-Za-z0-9]+', '', font_agreement))
+					agreements.append(font_agreement)
+			if agreements:
 				print('<table class="char-table" data-pua-name="%s">' % html_encode(','.join(reversed(agreements))), file=f)
 			else:
 				print('<table class="char-table">', file=f)
@@ -556,7 +633,7 @@ def main():
 			print('</table>', file=f)
 			print('<script src="/charset/shared/jquery.js"></script>', file=f)
 			print('<script src="/charset/shared/ucd.js"></script>', file=f)
-			print('<script src="/charset/shared/pua.js"></script>', file=f)
+			print(puascript if hasPUAA else '<script src="/charset/shared/pua.js"></script>', file=f)
 			print('<script src="/charset/shared/entitydb.js"></script>', file=f)
 			print('<script src="/charset/shared/psnamedb.js"></script>', file=f)
 			print('<script src="/charset/shared/unicopy.js"></script>', file=f)

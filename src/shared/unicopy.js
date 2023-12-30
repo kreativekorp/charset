@@ -166,9 +166,18 @@ var charsToItems = function(chars, pua) {
 			if (data[15]) ispua = data[15];
 			names.push((data[1] === '<control>') ? data[10] : data[1]);
 			links.push(
-				(data[15] && data[15] !== true)
-				? ('/charset/pua/' + data[15].replace(/[^A-Za-z0-9]+/g, '') + '/char/' + data[0])
-				: UCD['chars'][chars[i]] ? ('/charset/unicode/char/' + data[0]) : null
+				(data[15] && data[15] !== true) ? (
+					'/charset/' +
+					((PUA[data[15]]['Agreement-Type'] === 'Font-Internal') ? 'font' : 'pua') +
+					'/' +
+					data[15].replace(/[^A-Za-z0-9]+/g, '') +
+					'/char/' +
+					data[0]
+				) : (
+					UCD['chars'][chars[i]] ?
+					('/charset/unicode/char/' + data[0]) :
+					null
+				)
 			);
 			entities.push(ENTITYDB[chars[i]] || ('&#' + chars[i] + ';'));
 			psnames.push(PSNAMEDB[chars[i]] || ((chars[i] < 0x10000) ? ('uni' + toHex(chars[i], 4)) : ('u' + toHex(chars[i], 5))))

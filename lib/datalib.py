@@ -76,6 +76,63 @@ def get_psnames():
 				psnames[cp] = psname
 	return psnames
 
+def _puaa_to_map(puadata, prop):
+	map = {}
+	if prop in puadata:
+		for e in puadata[prop]:
+			for cp in range(e.first_code_point, e.last_code_point + 1):
+				if cp in map:
+					map[cp] += e.get_property_string(cp)
+				else:
+					map[cp] = e.get_property_string(cp)
+	return map
+
+def _get_font_file_pua_data(puadata):
+	if puadata is not None:
+		puadata['Blocks'] = [(e.first_code_point, e.last_code_point, e.value) for e in puadata['Block']] if 'Block' in puadata else []
+		names = _puaa_to_map(puadata, 'Name')
+		categories = _puaa_to_map(puadata, 'General_Category')
+		combClasses = _puaa_to_map(puadata, 'Canonical_Combining_Class')
+		bidiClasses = _puaa_to_map(puadata, 'Bidi_Class')
+		decompTypes = _puaa_to_map(puadata, 'Decomposition_Type')
+		decompMappings = _puaa_to_map(puadata, 'Decomposition_Mapping')
+		numericTypes = _puaa_to_map(puadata, 'Numeric_Type')
+		numericValues = _puaa_to_map(puadata, 'Numeric_Value')
+		bidiMirrored = _puaa_to_map(puadata, 'Bidi_Mirrored')
+		uni1Names = _puaa_to_map(puadata, 'Unicode_1_Name')
+		comments = _puaa_to_map(puadata, 'ISO_Comment')
+		uppercase = _puaa_to_map(puadata, 'Simple_Uppercase_Mapping')
+		lowercase = _puaa_to_map(puadata, 'Simple_Lowercase_Mapping')
+		titlecase = _puaa_to_map(puadata, 'Simple_Titlecase_Mapping')
+		puadata['UnicodeData'] = {cp: (
+			('%04X' % cp),
+			names[cp] if cp in names else ('UNDEFINED-%04X' % cp),
+			categories[cp] if cp in categories else 'Cn',
+			combClasses[cp] if cp in combClasses else '0',
+			bidiClasses[cp] if cp in bidiClasses else 'N',
+			(
+				('%s %s' % (decompTypes[cp], decompMappings[cp])) if
+				(cp in decompTypes and cp in decompMappings) else
+				decompMappings[cp] if cp in decompMappings else ''
+			),
+			numericValues[cp] if (cp in numericValues and cp in numericTypes and numericTypes[cp] in ['Decimal']) else '',
+			numericValues[cp] if (cp in numericValues and cp in numericTypes and numericTypes[cp] in ['Decimal', 'Digit']) else '',
+			numericValues[cp] if (cp in numericValues and cp in numericTypes and numericTypes[cp] in ['Decimal', 'Digit', 'Numeric']) else '',
+			bidiMirrored[cp] if cp in bidiMirrored else 'N',
+			uni1Names[cp] if cp in uni1Names else '',
+			comments[cp] if cp in comments else '',
+			uppercase[cp] if cp in uppercase else '',
+			lowercase[cp] if cp in lowercase else '',
+			titlecase[cp] if cp in titlecase else ''
+		) for cp in set().union(
+			names.keys(), categories.keys(), combClasses.keys(),
+			bidiClasses.keys(), decompTypes.keys(), decompMappings.keys(),
+			numericTypes.keys(), numericValues.keys(), bidiMirrored.keys(),
+			uni1Names.keys(), comments.keys(), uppercase.keys(),
+			lowercase.keys(), titlecase.keys()
+		)}
+	return puadata
+
 def get_font_file_data(path):
 	ext = path.split('/')[-1].split('.')[-1].lower()
 	if ext == 'bdf' or ext == 'bdfmeta':
@@ -133,7 +190,7 @@ def get_font_file_data(path):
 						if (cp >= 0x20 and cp < 0x80) or cp >= 0xA0:
 							chars.set(cp)
 			vendorid = ttf.vendorid()
-			puadata = ttf.puaas()
+			puadata = _get_font_file_pua_data(ttf.puaas())
 		return name, chars, vendorid, puadata
 	else:
 		raise ValueError('Not a supported font format.')
