@@ -471,7 +471,61 @@ def build_dir(meta, ranges, chars, blocks, entities, psnames, fonts, basedir):
 		print('<script src="/charset/shared/blocklist.js"></script>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
 
+def redirect_dir(urlprefix, chars, blocks, basedir):
+	blockdir = os.path.join(basedir, 'block')
+	if not os.path.exists(blockdir):
+		os.makedirs(blockdir)
+
+	chardir = os.path.join(basedir, 'char')
+	if not os.path.exists(chardir):
+		os.makedirs(chardir)
+
+	blockurlprefix = urlprefix + 'block/' if urlprefix[-1] == '/' else urlprefix + '/block/'
+	charurlprefix = urlprefix + 'char/' if urlprefix[-1] == '/' else urlprefix + '/char/'
+
+	for cp in chars:
+		dirpath = os.path.join(chardir, '%04X' % cp)
+		if not os.path.exists(dirpath):
+			os.makedirs(dirpath)
+		path = os.path.join(dirpath, 'index.php')
+		print('Writing char page redirect: %s' % path)
+		with open(path, 'w') as f:
+			print('<?php header(\'Location: %s%04X\');' % (charurlprefix, cp), file=f)
+
+	for block in blocks:
+		dirpath = os.path.join(blockdir, '%04X' % block[0])
+		if not os.path.exists(dirpath):
+			os.makedirs(dirpath)
+		path = os.path.join(dirpath, 'index.php')
+		print('Writing block page redirect: %s' % path)
+		with open(path, 'w') as f:
+			print('<?php header(\'Location: %s%04X\');' % (blockurlprefix, block[0]), file=f)
+
+	path = os.path.join(chardir, 'index.php')
+	print('Writing char index redirect: %s' % path)
+	with open(path, 'w') as f:
+		print('<?php header(\'Location: %s\');' % charurlprefix, file=f)
+
+	path = os.path.join(blockdir, 'index.php')
+	print('Writing block index redirect: %s' % path)
+	with open(path, 'w') as f:
+		print('<?php header(\'Location: %s\');' % blockurlprefix, file=f)
+
+	path = os.path.join(basedir, 'index.php')
+	print('Writing index redirect: %s' % path)
+	with open(path, 'w') as f:
+		print('<?php header(\'Location: %s\');' % urlprefix, file=f)
+
 def main():
+	pua_to_font_redirects = [
+		# FCC --- PUA Name -------- Font Name ------ Ch, Bk
+		['Alco', 'Alco',           'AlcoSans',       {}, []],
+		['Cons', 'Constructium',   'Constructium',   {}, []],
+		['Fair', 'Fairfax',        'Fairfax',        {}, []],
+		['FfHD', 'FairfaxHD',      'FairfaxHD',      {}, []],
+		['KSqu', 'KreativeSquare', 'KreativeSquare', {}, []],
+	]
+
 	ranges, chars, blocks = get_unidata()
 	entities = get_entities()
 	psnames = get_psnames()
@@ -529,6 +583,10 @@ def main():
 			os.makedirs(fdir)
 		hasPUAA = (font[3] and 'Blocks' in font[3] and 'UnicodeData' in font[3] and font[3]['Blocks'] and font[3]['UnicodeData'])
 		if hasPUAA:
+			for i in range(0, len(pua_to_font_redirects)):
+				if pua_to_font_redirects[i][2] == urlname:
+					pua_to_font_redirects[i][3] = font[3]['UnicodeData']
+					pua_to_font_redirects[i][4] = font[3]['Blocks']
 			puascript = '<script src="/charset/font/%s/pua.js"></script>' % urlname
 			meta = {'Agreement-Name': font[0], 'Agreement-Type': 'Font-Internal'}
 			if font[4]:
@@ -679,6 +737,9 @@ def main():
 		print('</div>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
 
+	for meta in pua_to_font_redirects:
+		redirect_dir('/charset/font/%s' % meta[2], meta[3], meta[4], charset_path('out', 'pua', meta[1]))
+
 	path = charset_path('out', 'unicode.php')
 	print('Writing unicode redirect: %s' % path)
 	with open(path, 'w') as f:
@@ -708,6 +769,26 @@ def main():
 				print('\t\t\t}', file=f)
 				print('\t\t\theader(\'Location: /charset/pua/%s\');' % urlname, file=f)
 				print('\t\t\texit(0);', file=f)
+		for meta in pua_to_font_redirects:
+			print('\t\tcase \'%s\':' % meta[0], file=f)
+			print('\t\t\tif (isset($_GET[\'char\'])) {', file=f)
+			print('\t\t\t\t$ch = strtoupper(dechex(hexdec($_GET[\'char\'])));', file=f)
+			print('\t\t\t\twhile (strlen($ch) < 4) { $ch = \'0\' . $ch; }', file=f)
+			print('\t\t\t\tif (file_exists(\'font/%s/char/\' . $ch)) {' % meta[2], file=f)
+			print('\t\t\t\t\theader(\'Location: /charset/font/%s/char/\' . $ch);' % meta[2], file=f)
+			print('\t\t\t\t\texit(0);', file=f)
+			print('\t\t\t\t}', file=f)
+			print('\t\t\t}', file=f)
+			print('\t\t\tif (isset($_GET[\'block\'])) {', file=f)
+			print('\t\t\t\t$ch = hexdec($_GET[\'block\']);', file=f)
+			for block in meta[4]:
+				print('\t\t\t\tif ($ch >= %s && $ch <= %s && file_exists(\'font/%s/block/%04X\')) {' % (block[0], block[1], meta[2], block[0]), file=f)
+				print('\t\t\t\t\theader(\'Location: /charset/font/%s/block/%04X\');' % (meta[2], block[0]), file=f)
+				print('\t\t\t\t\texit(0);', file=f)
+				print('\t\t\t\t}', file=f)
+			print('\t\t\t}', file=f)
+			print('\t\t\theader(\'Location: /charset/font/%s\');' % meta[2], file=f)
+			print('\t\t\texit(0);', file=f)
 		print('\t}', file=f)
 		print('\theader(\'Location: /charset/pua/\');', file=f)
 		print('\texit(0);', file=f)
