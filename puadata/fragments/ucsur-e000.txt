@@ -48,10 +48,15 @@
 @import fragments/sga.txt
 @import fragments/braille-ext.txt
 @import fragments/cistercian.txt
-@import fragments/kaktovik.txt
+@import fragments/lapointe-hex.txt
+@import fragments/martin-hex.txt
 @import fragments/cylenian.txt
 @import fragments/syrrin.txt
 @import fragments/graflect.txt
+@import fragments/whitaker-hex.txt
 @import fragments/deini.txt
 @import fragments/niji-2018.txt
 @import fragments/iranic.txt
+@import fragments/tassarunese.txt
+@import fragments/zese.txt
+@import fragments/grawlixes.txt

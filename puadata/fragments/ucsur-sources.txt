@@ -1,11 +1,11 @@
 Title: Under-ConScript Unicode Registry
 Author: Rebecca Bettencourt, Kreative Software
-Publication-Date: 2013-10-27
+Publication-Date: 2023-12-31
 URL: http://www.kreativekorp.com/ucsur/
-Access-Date: 2014-07-04
+Access-Date: 2023-12-31
 
 Title: Under-ConScript Unicode Registry Character Database
 Author: Rebecca Bettencourt, Kreative Software
-Publication-Date: 2014-07-04
+Publication-Date: 2023-12-31
 URL: http://www.kreativekorp.com/ucsur/UNIDATA/
-Access-Date: 2014-07-04
+Access-Date: 2023-12-31

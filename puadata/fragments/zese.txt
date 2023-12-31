@@ -1,0 +1,13 @@
+EDE0;ZESE LETTER K;Lo;0;L;;;;;N;;;;;
+EDE1;ZESE LETTER G;Lo;0;L;;;;;N;;;;;
+EDE2;ZESE LETTER S;Lo;0;L;;;;;N;;;;;
+EDE3;ZESE LETTER Z;Lo;0;L;;;;;N;;;;;
+EDE4;ZESE LETTER T;Lo;0;L;;;;;N;;;;;
+EDE5;ZESE LETTER D;Lo;0;L;;;;;N;;;;;
+EDE6;ZESE LETTER P;Lo;0;L;;;;;N;;;;;
+EDE7;ZESE LETTER B;Lo;0;L;;;;;N;;;;;
+EDE8;ZESE LETTER U;Lo;0;L;;;;;N;;;;;
+EDE9;ZESE LETTER O;Lo;0;L;;;;;N;;;;;
+EDEA;ZESE LETTER A;Lo;0;L;;;;;N;;;;;
+EDEB;ZESE LETTER E;Lo;0;L;;;;;N;;;;;
+EDEC;ZESE LETTER I;Lo;0;L;;;;;N;;;;;
