@@ -573,6 +573,7 @@ def main():
 			print('</table>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
 
+	fontblocks = {font[0]: [] for font in fonts}
 	fontdir = charset_path('out', 'font')
 	if not os.path.exists(fontdir):
 		os.makedirs(fontdir)
@@ -648,6 +649,7 @@ def main():
 			for block in font_blocks:
 				pc = font[1].popcountBetween(block[0], block[1])
 				if pc > 0:
+					fontblocks[font[0]].append((block[2], pc))
 					if block[2] == 'UNDEFINED':
 						print('<tr><th class="char-table-block-name" colspan="17">%s (%s)</th></tr>' % (block[2], pc), file=f)
 					elif 'Private Use Area' in block[2]:
@@ -707,34 +709,29 @@ def main():
 		print('<!--#include virtual="/static/body.html"-->', file=f)
 		print('<p class="breadcrumb"><a href="/charset/">Character Encodings</a> &raquo;</p>', file=f)
 		print('<h1>Fonts</h1>', file=f)
-		qtrpoint = (len(fonts) + 3) >> 2
-		print('<div class="fontlist-outer-div">', file=f)
-		print('<div class="fontlist-inner-div">', file=f)
-		print('<ul class="fontlist">', file=f)
-		for font in fonts[:qtrpoint]:
+		print('<p class="font-options">', file=f)
+		print('Filter: <input type="text" name="q" class="font-filter-input" style="width: 300px;">', file=f)
+		print('Order By: <label><input type="radio" name="s" value="n" checked>Name</label>', file=f)
+		print('<label><input type="radio" name="s" value="c">Coverage</label>', file=f)
+		print('</p>', file=f)
+		print('<div class="font-list">', file=f)
+		for font in fonts:
+			fontname = html_encode(font[0])
 			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
-			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
-		print('</ul>', file=f)
-		print('</div><div class="fontlist-inner-div">', file=f)
-		print('<ul class="fontlist">', file=f)
-		for font in fonts[qtrpoint:qtrpoint*2]:
-			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
-			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
-		print('</ul>', file=f)
-		print('</div><div class="fontlist-inner-div">', file=f)
-		print('<ul class="fontlist">', file=f)
-		for font in fonts[qtrpoint*2:qtrpoint*3]:
-			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
-			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
-		print('</ul>', file=f)
-		print('</div><div class="fontlist-inner-div">', file=f)
-		print('<ul class="fontlist">', file=f)
-		for font in fonts[qtrpoint*3:]:
-			fonturl = html_encode('/charset/font/%s' % re.sub('[^A-Za-z0-9]+', '', font[0]))
-			print('<li><a href="%s">%s</a></li>' % (fonturl, html_encode(font[0])), file=f)
-		print('</ul>', file=f)
+			fontblockstring = html_encode(', '.join('%s (%s)' % (b[0], b[1]) for b in fontblocks[font[0]]))
+			print('<div class="font-item" data-font-name="%s">' % fontname, file=f)
+			print('<div class="font-header">', file=f)
+			print('<span class="font-link"><a href="%s">%s</a></span>' % (fonturl, fontname), file=f)
+			print('<span class="font-ccount"><span class="label">Chars: </span><span class="value">%s</span></span>' % font[1].popcount(), file=f)
+			print('<span class="font-bcount"><a href="%s"><span class="label">Blocks: </span><span class="value">%s</span></a></span>' % (fonturl, len(fontblocks[font[0]])), file=f)
+			print('<span class="font-pswitch"><a href="%s">Preview</a></span>' % fonturl, file=f)
+			print('</div>', file=f)
+			print('<div class="font-blocks hidden">%s</div>' % fontblockstring, file=f)
+			print('<div class="font-preview hidden" style="font-family: \'%s\', \'Adobe Blank\';">How razorback-jumping frogs can level six piqued gymnasts!</div>' % fontname, file=f);
+			print('</div>', file=f)
 		print('</div>', file=f)
-		print('</div>', file=f)
+		print('<script src="/charset/shared/jquery.js"></script>', file=f)
+		print('<script src="/charset/shared/fontlist.js"></script>', file=f)
 		print('<!--#include virtual="/static/tail.html"-->', file=f)
 
 	for meta in pua_to_font_redirects:

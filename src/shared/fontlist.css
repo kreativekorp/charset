@@ -1,17 +1,58 @@
-.fontlist-inner-div {
-	display: inline-block;
-	margin: 0 10px 0 0;
-	padding: 0;
-	width: 245px;
-	vertical-align: top;
+.hidden {
+	display: none !important;
 }
-.fontlist {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 245px;
+.font-options input[type=radio] {
+	margin: 0 4px;
+	position: relative;
+	top: 1px;
 }
-.fontlist li {
-	margin: 0;
+.font-item:nth-child(odd of .font-item:not(.hidden)) .font-header {
+	background: #eaecf0;
+}
+.font-item:nth-child(even of .font-item:not(.hidden)) .font-header {
+	background: #f8f9fa;
+}
+.font-header {
+	position: relative;
+	padding: 2px 4px;
+	margin-bottom: 1px;
+}
+.font-ccount {
+	position: absolute;
+	top: 0;
+	right: 13.5em;
+	width: 6.5em;
 	padding: 2px 0;
+}
+.font-bcount {
+	position: absolute;
+	top: 0;
+	right: 7em;
+	width: 5.5em;
+	padding: 2px 0;
+}
+.font-pswitch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 6em;
+	text-align: right;
+	padding: 2px 4px;
+}
+.value {
+	position: absolute;
+	right: 0;
+}
+.font-blocks {
+	border: 1px solid #a2a9b1;
+	padding: 8px;
+	margin-top: -1px;
+}
+.font-preview {
+	border: 1px solid #a2a9b1;
+	padding: 8px;
+	margin-top: -1px;
+	font-size: 36px;
+	white-space: nowrap;
+	overflow: hidden;
 }
