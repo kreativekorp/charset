@@ -179,7 +179,14 @@ def get_font_file_data(path):
 				# We really don't need every weight of YOzFont.
 				return None
 			words = name.split(' ')
-			if words[0] == 'Noto' and words[-1] in ['Bk', 'Black', 'Blk', 'Bold', 'Cn', 'Cond', 'DemiLight', 'ExtBd', 'ExtCond', 'ExtLt', 'ExtraLight', 'Light', 'Lt', 'Md', 'Med', 'Medium', 'SemBd', 'SemCond', 'SemiBold', 'SmBd', 'SmCn', 'Th', 'Thin', 'XBd', 'XCn', 'XLt']:
+			if words[0] == 'Noto' and words[-1] in [
+				'Bk', 'Black', 'Blk', 'Bold', 'Cn', 'Cond', 'Condensed', 'DemiLight',
+				'ExBd', 'ExCd', 'ExLt', 'ExtBd', 'ExtCond', 'ExtLight', 'ExtLt',
+				'ExtraBold', 'ExtraCond', 'ExtraCondensed', 'ExtraLight', 'Italic',
+				'Light', 'Lt', 'Md', 'Med', 'Medium', 'SemBd', 'SemCond',
+				'Semi', 'SemiBold', 'SemiCond', 'SemiCondensed', 'Semibold',
+				'SmBd', 'SmCd', 'SmCn', 'Th', 'Thin', 'XBd', 'XCn', 'XLt'
+			]:
 				# We really don't need every weight of Noto.
 				return None
 			# End Blacklisting
@@ -235,7 +242,8 @@ def get_font_data():
 					newchars = fonts[font_data[0]][1].update(font_data[1])
 					newvendor = font_data[2] if fonts[font_data[0]][2] is None else fonts[font_data[0]][2]
 					newpuadata = font_data[3] if fonts[font_data[0]][3] is None else fonts[font_data[0]][3]
-					fonts[font_data[0]] = (font_data[0], newchars, newvendor, newpuadata, url)
+					newurl = url if fonts[font_data[0]][4] is None else fonts[font_data[0]][4]
+					fonts[font_data[0]] = (font_data[0], newchars, newvendor, newpuadata, newurl)
 				else:
 					fonts[font_data[0]] = (font_data[0], font_data[1], font_data[2], font_data[3], url)
 	fonts = [fonts[k] for k in fonts]
