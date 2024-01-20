@@ -50,6 +50,34 @@ class BitSet:
 			self.bits[k] = m
 		return self
 
+	def setAll(self, i1, i2):
+		k1 = i1 >> self.pivot
+		k2 = i2 >> self.pivot
+		i1 &= self.mask
+		i2 &= self.mask
+		if k1 == k2:
+			m = ((1 << (i2 - i1 + 1)) - 1) << i1
+			if k1 in self.bits:
+				self.bits[k1] |= m
+			else:
+				self.bits[k1] = m
+			return self
+		else:
+			m1 = ((1 << (self.mask - i1 + 1)) - 1) << i1
+			m2 = ((1 << (i2 + 1)) - 1)
+			m3 = ((1 << (self.mask + 1)) - 1)
+			if k1 in self.bits:
+				self.bits[k1] |= m1
+			else:
+				self.bits[k1] = m1
+			if k2 in self.bits:
+				self.bits[k2] |= m2
+			else:
+				self.bits[k2] = m2
+			for k in range(k1 + 1, k2):
+				self.bits[k] = m3
+			return self
+
 	def clear(self, i):
 		k = i >> self.pivot
 		if k in self.bits:
@@ -58,7 +86,33 @@ class BitSet:
 				self.bits[k] ^= m
 		return self
 
+	def clearAll(self, i1, i2):
+		k1 = i1 >> self.pivot
+		k2 = i2 >> self.pivot
+		if k1 == k2:
+			if k1 in self.bits:
+				i1 &= self.mask
+				i2 &= self.mask
+				m = ((1 << (i2 - i1 + 1)) - 1) << i1
+				self.bits[k1] ^= self.bits[k1] & m
+			return self
+		else:
+			if k1 in self.bits:
+				i1 &= self.mask
+				m = ((1 << (self.mask - i1 + 1)) - 1) << i1
+				self.bits[k1] ^= self.bits[k1] & m
+			if k2 in self.bits:
+				i2 &= self.mask
+				m = ((1 << (i2 + 1)) - 1)
+				self.bits[k2] ^= self.bits[k2] & m
+			for k in range(k1 + 1, k2):
+				if k in self.bits:
+					del self.bits[k]
+			return self
+
 	def update(self, b):
+		if self.pivot != b.pivot:
+			raise ValueError('pivot %d != pivot %d' % (self.pivot, b.pivot))
 		for k in b.bits:
 			if k in self.bits:
 				self.bits[k] |= b.bits[k]
@@ -160,6 +214,68 @@ def bitset_test():
 	check(b.popcountBetween(1000, 2999) == 2)
 	check(b.popcountBetween(1001, 3000) == 2)
 	check(b.popcountBetween(1001, 2999) == 1)
+	b = BitSet()
+	b.setAll(10, 30)
+	check(not b.get(9))
+	check(b.get(10))
+	check(b.get(11))
+	check(b.get(19))
+	check(b.get(20))
+	check(b.get(21))
+	check(b.get(29))
+	check(b.get(30))
+	check(not b.get(31))
+	check(b.popcount() == 21)
+	b.clearAll(11, 29)
+	check(not b.get(9))
+	check(b.get(10))
+	check(not b.get(11))
+	check(not b.get(19))
+	check(not b.get(20))
+	check(not b.get(21))
+	check(not b.get(29))
+	check(b.get(30))
+	check(not b.get(31))
+	check(b.popcount() == 2)
+	b = BitSet()
+	b.setAll(1000, 3000)
+	check(not b.get(999))
+	check(b.get(1000))
+	check(b.get(1001))
+	check(b.get(1999))
+	check(b.get(2000))
+	check(b.get(2001))
+	check(b.get(2999))
+	check(b.get(3000))
+	check(not b.get(3001))
+	check(b.popcount() == 2001)
+	b.clearAll(1001, 2999)
+	check(not b.get(999))
+	check(b.get(1000))
+	check(not b.get(1001))
+	check(not b.get(1999))
+	check(not b.get(2000))
+	check(not b.get(2001))
+	check(not b.get(2999))
+	check(b.get(3000))
+	check(not b.get(3001))
+	check(b.popcount() == 2)
+	ae = None
+	try:
+		b1 = BitSet()
+		b2 = BitSet()
+		b1.update(b2)
+	except Exception as e:
+		ae = e
+	check(ae is None)
+	ae = None
+	try:
+		b1 = BitSet(4)
+		b2 = BitSet(16)
+		b1.update(b2)
+	except Exception as e:
+		ae = e
+	check(isinstance(ae, ValueError))
 
 if __name__ == '__main__':
 	bitset_test()
