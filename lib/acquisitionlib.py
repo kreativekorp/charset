@@ -1,7 +1,15 @@
 #!/usr/bin/env python
 
-import HTMLParser
-import htmlentitydefs
+try:
+	from HTMLParser import HTMLParser
+except ImportError:
+	from html.parser import HTMLParser
+
+try:
+	from htmlentitydefs import name2codepoint
+except ImportError:
+	from html.entities import name2codepoint
+
 import os
 import re
 import subprocess
@@ -37,7 +45,7 @@ def acquire(url, version='auto', ua='Mozilla/5.0', compressed=False):
 		subprocess.check_call(args)
 		return path
 
-class simple_html_parser(HTMLParser.HTMLParser):
+class simple_html_parser(HTMLParser):
 	def simple_init(self, *args, **kwargs):
 		pass
 
@@ -54,7 +62,7 @@ class simple_html_parser(HTMLParser.HTMLParser):
 		pass
 
 	def __init__(self, *args, **kwargs):
-		HTMLParser.HTMLParser.__init__(self)
+		HTMLParser.__init__(self)
 		self.simple_init(*args, **kwargs)
 
 	def feed(self, s):
@@ -62,7 +70,7 @@ class simple_html_parser(HTMLParser.HTMLParser):
 		s = re.sub(u'&(#?[A-Za-z0-9_:.-]+);', u'\u2022\\1;', s)
 		s = re.sub(u'&', u'\u2022amp;', s)
 		s = re.sub(u'\u2022', u'&', s)
-		HTMLParser.HTMLParser.feed(self, s)
+		HTMLParser.feed(self, s)
 
 	def handle_starttag(self, tag, attrs):
 		tag = tag.lower()
@@ -74,7 +82,7 @@ class simple_html_parser(HTMLParser.HTMLParser):
 
 	def handle_entityref(self, name):
 		try:
-			data = unichr(htmlentitydefs.name2codepoint[name])
+			data = unichr(name2codepoint[name])
 		except:
 			data = '&%s;' % name
 		self.simple_data(data)
@@ -94,7 +102,7 @@ class simple_html_parser(HTMLParser.HTMLParser):
 		self.simple_endtag(tag)
 
 	def close(self):
-		HTMLParser.HTMLParser.close(self)
+		HTMLParser.close(self)
 		self.simple_close()
 
 class html_table_parser(simple_html_parser):
