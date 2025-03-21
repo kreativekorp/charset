@@ -3,6 +3,7 @@
 import io
 import os
 import sys
+import traceback
 
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', '..', 'lib')))
 from acquisitionlib import acquire, html_link_collector
@@ -24,6 +25,7 @@ def list_fonts():
 			try:
 				with ttf_file(path) as ttf:
 					name = ttf.name(False)
-			except:
-				name = 'FAILED READ: ' + m.group(2)
+			except Exception as e:
+				name = 'FAILED READ: ' + link + ': ' + str(e)
+				traceback.print_exc(file=sys.stderr)
 			yield (name, path, u)
