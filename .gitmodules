@@ -1,0 +1,3 @@
+[submodule "charsets"]
+	path = charsets
+	url = https://github.com/kreativekorp/charsets
