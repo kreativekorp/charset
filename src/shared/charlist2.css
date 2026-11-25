@@ -1,0 +1,289 @@
+h1 code {
+	font-size: 28px;
+}
+h2 code {
+	font-size: 24px;
+}
+.pua-notice {
+	background: #EECCFF;
+	border: 1px solid #AA88BB;
+	padding: 12px;
+}
+
+.block-header,
+.block-subheader {
+	border-collapse: collapse;
+	width: 1021px;
+}
+.block-header td,
+.block-subheader td {
+	margin: 0;
+	padding: 4px;
+}
+.block-prev-arr, .block-next-arr {
+	font-size: 24px;
+	text-align: center;
+	width: 30px;
+	min-width: 30px;
+	max-width: 30px;
+}
+.block-prev-arr a, .block-next-arr a {
+	display: block;
+	width: 30px;
+	height: 30px;
+}
+.block-prev-arr a, .block-next-arr a,
+.block-prev-arr a:link, .block-next-arr a:link,
+.block-prev-arr a:visited, .block-next-arr a:visited,
+.block-prev-arr a:active, .block-next-arr a:active,
+.block-prev-arr a:focus, .block-next-arr a:focus,
+.block-prev-arr a:hover, .block-next-arr a:hover {
+	text-decoration: none;
+}
+.block-prev, .block-curr, .block-next {
+	width: 307px;
+	min-width: 307px;
+	max-width: 307px;
+}
+.block-prev,
+.block-fonts {
+	text-align: left;
+}
+.block-curr {
+	text-align: center;
+}
+.block-next,
+.block-links {
+	text-align: right;
+}
+
+.char-table {
+	border: 1px solid #a2a9b1;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.char-table th {
+	background: #eaecf0;
+	border: 1px solid #a2a9b1;
+	font-family: monospace;
+	margin: 0;
+	padding: 4px 0;
+	text-align: center;
+	width: 59px;
+	min-width: 59px;
+	max-width: 59px;
+	overflow: hidden;
+}
+.char-table td {
+	background: #f8f9fa;
+	border: 1px solid #a2a9b1;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	vertical-align: top;
+	width: 59px;
+	min-width: 59px;
+	max-width: 59px;
+	overflow: hidden;
+}
+.char-table th.char-table-block-name {
+	background: #5f6177;
+	color: white;
+	font-family: inherit;
+	font-weight: bold;
+	padding: 4px 8px;
+	text-align: left;
+}
+.char-table th.char-table-block-name a,
+.char-table th.char-table-block-name a:link,
+.char-table th.char-table-block-name a:visited {
+	color: white;
+	text-decoration: none;
+}
+.char-table th.char-table-block-name a:hover {
+	color: #eaecf0;
+	text-decoration: none;
+}
+.char-table th.char-table-block-name a:active {
+	color: #c6cad0;
+	text-decoration: none;
+}
+.char-table td.char-table-row-skip {
+	background: #a2a9b1;
+	padding: 2px;
+}
+.char-box {
+	padding: 4px 0;
+}
+.char-box:not(:first-child) {
+	display: none;
+}
+.char-box.char-alt {
+	color: rgba(0,0,0,0.3);
+}
+.char-box.char-undef {
+	background: #c6cad0;
+}
+.char-box.char-pua {
+	background: #faf0ff;
+}
+.char-box.char-pua.char-undef {
+	background: #cac0cf;
+}
+.char-box.char-ltr {
+	background: #cceeff;
+}
+.char-box.char-rtl {
+	background: #ffffcc;
+}
+.char-box.char-control {
+	background: #ccffcc;
+}
+.char-box.char-surrogate {
+	background: maroon;
+	color: white;
+}
+.char-box.char-nonchar {
+	background: black;
+	color: white;
+}
+.char-box.char-not-in-font {
+	background: #a2a9b1;
+}
+.char-box.char-subtable {
+	background: orange;
+}
+.char-box.char-subtable a,
+.char-box.char-subtable a:link,
+.char-box.char-subtable a:visited,
+.char-box.char-subtable a:active,
+.char-box.char-subtable a:focus,
+.char-box.char-subtable a:hover {
+	color: black;
+	text-decoration: none;
+}
+.char-glyph {
+	font-size: 28px;
+	height: 35px;
+	line-height: 35px;
+}
+.char-glyph abbr {
+	display: inline-block;
+	position: relative;
+	top: -6px;
+	border: 1px dotted black;
+	padding: 4px;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+}
+.char-ltr .char-glyph {
+	direction: ltr;
+}
+.char-rtl .char-glyph {
+	direction: rtl;
+}
+.char-rev .char-glyph {
+	background: black;
+	color: white;
+	margin: 0 auto;
+	width: 35px;
+}
+.char-code {
+	font-family: monospace;
+	font-size: 12px;
+	height: 16px;
+	line-height: 16px;
+}
+.char-empty {
+	font-size: 22px;
+	height: 51px;
+	line-height: 51px;
+}
+.char-subtable-link {
+	display: block;
+	font-family: monospace;
+	font-size: 22px;
+	height: 51px;
+	line-height: 51px;
+}
+.char-table-tag {
+	background: #663399;
+	border-radius: 4px;
+	color: white;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	height: 18px;
+	line-height: 18px;
+	margin: 0 .5em 0 0;
+	padding: 0 6px;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+.charlist-inner-div {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 0;
+	width: 500px;
+	vertical-align: top;
+}
+.charlist {
+	table-layout: fixed;
+	width: 500px;
+}
+.charlist td {
+	overflow: hidden;
+	text-overflow: fade;
+	white-space: nowrap;
+}
+.charlist-row-alt {
+	opacity: 0.3;
+}
+.charlist-codepoint {
+	font-family: monospace;
+	padding: 1px;
+	text-align: left;
+	width: 60px;
+}
+.charlist-charglyph {
+	line-height: 1px;
+	padding: 1px 1em 1px 1px;
+	text-align: center;
+	width: 50px;
+}
+.charlist-charglyph abbr {
+	display: inline-block;
+	position: relative;
+	top: -2px;
+	border: 1px dotted black;
+	padding: 2px;
+	font-family: sans-serif;
+	font-size: 9px;
+	line-height: 9px;
+}
+.charlist-charglyph-ltr span {
+	direction: ltr;
+}
+.charlist-charglyph-rtl span {
+	direction: rtl;
+}
+.charlist-charglyph-rev span {
+	background: black;
+	color: white;
+	display: inline-block;
+	height: 1em;
+	line-height: 1em;
+	width: 1em;
+}
+.charlist-charname {
+	font-size: 90%;
+	padding: 1px;
+	text-align: left;
+}

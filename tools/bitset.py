@@ -1,0 +1,335 @@
+#!/usr/bin/env python
+
+class BitSet:
+	def __init__(self, pivot=8):
+		self.pivot = pivot
+		self.mask = (1 << pivot) - 1
+		self.bits = {}
+
+	def get(self, i):
+		k = i >> self.pivot
+		if k in self.bits:
+			m = 1 << (i & self.mask)
+			if self.bits[k] & m:
+				return True
+		return False
+
+	def get_any(self, i1, i2):
+		k1 = i1 >> self.pivot
+		k2 = i2 >> self.pivot
+		if k1 == k2:
+			if k1 in self.bits:
+				i1 &= self.mask
+				i2 &= self.mask
+				m = ((1 << (i2 - i1 + 1)) - 1) << i1
+				if self.bits[k1] & m:
+					return True
+			return False
+		else:
+			if k1 in self.bits:
+				i1 &= self.mask
+				m = ((1 << (self.mask - i1 + 1)) - 1) << i1
+				if self.bits[k1] & m:
+					return True
+			if k2 in self.bits:
+				i2 &= self.mask
+				m = ((1 << (i2 + 1)) - 1)
+				if self.bits[k2] & m:
+					return True
+			for k in range(k1 + 1, k2):
+				if k in self.bits and self.bits[k]:
+					return True
+			return False
+
+	def set(self, i):
+		k = i >> self.pivot
+		m = 1 << (i & self.mask)
+		if k in self.bits:
+			self.bits[k] |= m
+		else:
+			self.bits[k] = m
+		return self
+
+	def set_all(self, i1, i2):
+		k1 = i1 >> self.pivot
+		k2 = i2 >> self.pivot
+		i1 &= self.mask
+		i2 &= self.mask
+		if k1 == k2:
+			m = ((1 << (i2 - i1 + 1)) - 1) << i1
+			if k1 in self.bits:
+				self.bits[k1] |= m
+			else:
+				self.bits[k1] = m
+			return self
+		else:
+			m1 = ((1 << (self.mask - i1 + 1)) - 1) << i1
+			m2 = ((1 << (i2 + 1)) - 1)
+			m3 = ((1 << (self.mask + 1)) - 1)
+			if k1 in self.bits:
+				self.bits[k1] |= m1
+			else:
+				self.bits[k1] = m1
+			if k2 in self.bits:
+				self.bits[k2] |= m2
+			else:
+				self.bits[k2] = m2
+			for k in range(k1 + 1, k2):
+				self.bits[k] = m3
+			return self
+
+	def clear(self, i):
+		k = i >> self.pivot
+		if k in self.bits:
+			m = 1 << (i & self.mask)
+			if self.bits[k] & m:
+				self.bits[k] ^= m
+		return self
+
+	def clear_all(self, i1, i2):
+		k1 = i1 >> self.pivot
+		k2 = i2 >> self.pivot
+		if k1 == k2:
+			if k1 in self.bits:
+				i1 &= self.mask
+				i2 &= self.mask
+				m = ((1 << (i2 - i1 + 1)) - 1) << i1
+				self.bits[k1] ^= self.bits[k1] & m
+			return self
+		else:
+			if k1 in self.bits:
+				i1 &= self.mask
+				m = ((1 << (self.mask - i1 + 1)) - 1) << i1
+				self.bits[k1] ^= self.bits[k1] & m
+			if k2 in self.bits:
+				i2 &= self.mask
+				m = ((1 << (i2 + 1)) - 1)
+				self.bits[k2] ^= self.bits[k2] & m
+			for k in range(k1 + 1, k2):
+				if k in self.bits:
+					del self.bits[k]
+			return self
+
+	def update(self, b):
+		if self.pivot != b.pivot:
+			raise ValueError('pivot %d != pivot %d' % (self.pivot, b.pivot))
+		for k in b.bits:
+			if k in self.bits:
+				self.bits[k] |= b.bits[k]
+			else:
+				self.bits[k] = b.bits[k]
+		return self
+
+	def popcount(self):
+		count = 0
+		for k in self.bits:
+			count += bin(self.bits[k]).count('1')
+		return count
+
+	def popcount_between(self, i1, i2):
+		k1 = i1 >> self.pivot
+		k2 = i2 >> self.pivot
+		if k1 == k2:
+			if k1 in self.bits:
+				i1 &= self.mask
+				i2 &= self.mask
+				m = ((1 << (i2 - i1 + 1)) - 1) << i1
+				return bin(self.bits[k1] & m).count('1')
+			return 0
+		else:
+			count = 0
+			if k1 in self.bits:
+				i1 &= self.mask
+				m = ((1 << (self.mask - i1 + 1)) - 1) << i1
+				count += bin(self.bits[k1] & m).count('1')
+			if k2 in self.bits:
+				i2 &= self.mask
+				m = ((1 << (i2 + 1)) - 1)
+				count += bin(self.bits[k2] & m).count('1')
+			for k in range(k1 + 1, k2):
+				if k in self.bits:
+					count += bin(self.bits[k]).count('1')
+			return count
+
+def bitwise(a, b, fn):
+	if a.pivot != b.pivot:
+		raise ValueError('pivot %d != pivot %d' % (a.pivot, b.pivot))
+	c = BitSet(a.pivot)
+	for k in set(list(a.bits) + list(b.bits)):
+		bits = fn(a.bits[k] if k in a.bits else 0, b.bits[k] if k in b.bits else 0)
+		if bits:
+			c.bits[k] = bits
+	return c
+
+def add(a, b):
+	return bitwise(a, b, lambda a, b: a | b)
+
+def subtract(a, b):
+	return bitwise(a, b, lambda a, b: a &~ b)
+
+def intersect(a, b):
+	return bitwise(a, b, lambda a, b: a & b)
+
+def exclusive_or(a, b):
+	return bitwise(a, b, lambda a, b: a ^ b)
+
+def bitset_test():
+	results = {'passed': 0, 'failed': 0, 'total': 0}
+	def check(t):
+		results['passed' if t else 'failed'] += 1
+		results['total'] += 1
+	b = BitSet()
+	b.set(10)
+	b.set(20)
+	b.set(30)
+	check(b.get(10))
+	check(b.get(20))
+	check(b.get(30))
+	check(not b.get(9))
+	check(not b.get(11))
+	check(not b.get(19))
+	check(not b.get(21))
+	check(not b.get(29))
+	check(not b.get(31))
+	check(b.get_any(10, 20))
+	check(b.get_any(10, 19))
+	check(b.get_any(11, 20))
+	check(not b.get_any(11, 19))
+	check(b.get_any(10, 30))
+	check(b.get_any(10, 29))
+	check(b.get_any(11, 30))
+	check(b.get_any(11, 29))
+	check(b.popcount() == 3)
+	check(b.popcount_between(10, 20) == 2)
+	check(b.popcount_between(10, 19) == 1)
+	check(b.popcount_between(11, 20) == 1)
+	check(b.popcount_between(11, 19) == 0)
+	check(b.popcount_between(10, 30) == 3)
+	check(b.popcount_between(10, 29) == 2)
+	check(b.popcount_between(11, 30) == 2)
+	check(b.popcount_between(11, 29) == 1)
+	b = BitSet()
+	b.set(1000)
+	b.set(2000)
+	b.set(3000)
+	check(b.get(1000))
+	check(b.get(2000))
+	check(b.get(3000))
+	check(not b.get(999))
+	check(not b.get(1001))
+	check(not b.get(1999))
+	check(not b.get(2001))
+	check(not b.get(2999))
+	check(not b.get(3001))
+	check(b.get_any(1000, 2000))
+	check(b.get_any(1000, 1999))
+	check(b.get_any(1001, 2000))
+	check(not b.get_any(1001, 1999))
+	check(b.get_any(1000, 3000))
+	check(b.get_any(1000, 2999))
+	check(b.get_any(1001, 3000))
+	check(b.get_any(1001, 2999))
+	check(b.popcount() == 3)
+	check(b.popcount_between(1000, 2000) == 2)
+	check(b.popcount_between(1000, 1999) == 1)
+	check(b.popcount_between(1001, 2000) == 1)
+	check(b.popcount_between(1001, 1999) == 0)
+	check(b.popcount_between(1000, 3000) == 3)
+	check(b.popcount_between(1000, 2999) == 2)
+	check(b.popcount_between(1001, 3000) == 2)
+	check(b.popcount_between(1001, 2999) == 1)
+	b = BitSet()
+	b.set_all(10, 30)
+	check(not b.get(9))
+	check(b.get(10))
+	check(b.get(11))
+	check(b.get(19))
+	check(b.get(20))
+	check(b.get(21))
+	check(b.get(29))
+	check(b.get(30))
+	check(not b.get(31))
+	check(b.popcount() == 21)
+	b.clear_all(11, 29)
+	check(not b.get(9))
+	check(b.get(10))
+	check(not b.get(11))
+	check(not b.get(19))
+	check(not b.get(20))
+	check(not b.get(21))
+	check(not b.get(29))
+	check(b.get(30))
+	check(not b.get(31))
+	check(b.popcount() == 2)
+	b = BitSet()
+	b.set_all(1000, 3000)
+	check(not b.get(999))
+	check(b.get(1000))
+	check(b.get(1001))
+	check(b.get(1999))
+	check(b.get(2000))
+	check(b.get(2001))
+	check(b.get(2999))
+	check(b.get(3000))
+	check(not b.get(3001))
+	check(b.popcount() == 2001)
+	b.clear_all(1001, 2999)
+	check(not b.get(999))
+	check(b.get(1000))
+	check(not b.get(1001))
+	check(not b.get(1999))
+	check(not b.get(2000))
+	check(not b.get(2001))
+	check(not b.get(2999))
+	check(b.get(3000))
+	check(not b.get(3001))
+	check(b.popcount() == 2)
+	ae = None
+	try:
+		b1 = BitSet()
+		b2 = BitSet()
+		b1.update(b2)
+	except Exception as e:
+		ae = e
+	check(ae is None)
+	ae = None
+	try:
+		b1 = BitSet(4)
+		b2 = BitSet(16)
+		b1.update(b2)
+	except Exception as e:
+		ae = e
+	check(isinstance(ae, ValueError))
+	a = BitSet()
+	a.set(1)
+	a.set(10)
+	a.set(11)
+	a.set(100)
+	a.set(101)
+	a.set(1000)
+	a.set(1001)
+	b = BitSet()
+	b.set(1)
+	b.set(10)
+	b.set(11)
+	b.set(100)
+	b.set(110)
+	b.set(1000)
+	b.set(1100)
+	c = add(a, b)
+	check(c.popcount() == 9)
+	check(all(c.get(i) for i in [1, 10, 11, 100, 101, 110, 1000, 1001, 1100]))
+	c = subtract(a, b)
+	check(c.popcount() == 2)
+	check(all(c.get(i) for i in [101, 1001]))
+	c = intersect(a, b)
+	check(c.popcount() == 5)
+	check(all(c.get(i) for i in [1, 10, 11, 100, 1000]))
+	c = exclusive_or(a, b)
+	check(c.popcount() == 4)
+	check(all(c.get(i) for i in [101, 110, 1001, 1100]))
+	print('PASSED: %d/%d' % (results['passed'], results['total']))
+	print('FAILED: %d/%d' % (results['failed'], results['total']))
+
+if __name__ == '__main__':
+	bitset_test()
