@@ -1,0 +1,1 @@
+<?php header('Location: /charset/encoding/x-petscii/');

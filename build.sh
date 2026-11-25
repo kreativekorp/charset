@@ -9,10 +9,9 @@ python2 bin/list-unidata.py
 echo Downloading fonts...
 python2 bin/list-fonts.py
 
-python2 bin/build-public.py
 python2 bin/build-ucd-js.py
 python2 bin/build-unicode.py
-python2 bin/build-encoding.py
+python3 tools/build-encodings.py
 
 export COPYFILE_DISABLE=true
 find out -name .DS_Store -delete

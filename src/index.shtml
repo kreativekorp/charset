@@ -51,27 +51,6 @@
 			<p class="biglistdescription">Character charts for publicly-documented Private Use Area agreements.</p>
 		</div>
 	</div>
-	<div class="biglistitem">
-		<p class="biglisticon"><a href="/charset/map/"><img src="/charset/shared/map.png" width="64" height="64" border="0"></a></p>
-		<div class="biglistinfo">
-			<p class="biglisttitle"><a href="/charset/map/">Legacy Character Set to Unicode Mappings</a></p>
-			<p class="biglistdescription">Mapping tables for character sets of computer systems from the late 1970's and early 1980's in HTML format.</p>
-		</div>
-	</div>
-	<div class="biglistitem">
-		<p class="biglisticon"><a href="/charset/MAPPINGS/"><img src="/charset/shared/encdata.png" width="64" height="64" border="0"></a></p>
-		<div class="biglistinfo">
-			<p class="biglisttitle"><a href="/charset/MAPPINGS/">Legacy Encoding Character Database</a></p>
-			<p class="biglistdescription">Public documentation of legacy text encodings in mapping table Format A.</p>
-		</div>
-	</div>
-	<div class="biglistitem">
-		<p class="biglisticon"><a href="/charset/PUADATA/"><img src="/charset/shared/puadata.png" width="64" height="64" border="0"></a></p>
-		<div class="biglistinfo">
-			<p class="biglisttitle"><a href="/charset/PUADATA/">Private Use Area Character Database</a></p>
-			<p class="biglistdescription">Public documentation of Private Use Area agreements in the format of the Unicode Character Database.</p>
-		</div>
-	</div>
 
 </div>
 </div>
