@@ -1,3 +1,0 @@
-@import	fragments/ascii-c0.txt
-@import	fragments/ascii-g0.txt
-@import	fragments/ascii-del.txt
